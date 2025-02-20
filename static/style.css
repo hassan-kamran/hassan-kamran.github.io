@@ -328,6 +328,11 @@ main {
             color: var(--primary-color);
         }
 
+        .contact-item img{
+            width: 32px;
+
+        }
+
         .social-section {
             text-align: center;
             margin-top: var(--spacing-xl);
