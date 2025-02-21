@@ -25,12 +25,14 @@
     font-style: normal;
 }
 
+/*
 @font-face {
     font-family: 'Exo 2';
     src: url('./static/Exo2-Italic.woff2') format('woff2');
     font-weight: 100 900;
     font-style: italic;
 }
+*/
 
 body, html {
     font-family: "Exo 2", sans-serif;
@@ -79,22 +81,18 @@ main {
     height: var(--icon-size);
     width: auto;
     display: block;
-    transition: opacity var(--transition-default);
+    color: #EAEAEA;
+    transition: color 0.3s ease-in-out;
 }
 
-.logo.purple {
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
+
+svg {
+    color: #1C1C1C;
 }
 
-.siteHeaderLeft:hover .logo.grey {
-    opacity: 0;
-}
 
-.siteHeaderLeft:hover .logo.purple {
-    opacity: 1;
+svg:hover {
+  color: #7F3E98;
 }
 
 /* Navigation Styles */
@@ -156,23 +154,10 @@ main {
     height: var(--icon-size);
     width: auto;
     display: block;
-    transition: opacity var(--transition-default);
+    color: #EAEAEA;
+    transition: color 0.3s ease-in-out;
 }
 
-.search-icon.purple {
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-}
-
-.search-container:hover .search-icon.grey {
-    opacity: 0;
-}
-
-.search-container:hover .search-icon.purple {
-    opacity: 1;
-}
 
 /* Hero Section Layout - Align text & image in a row */
 .hero {
@@ -219,30 +204,27 @@ main {
     color: var(--text-muted);
 }
 
-/* Button Styling */
 .btn {
     display: inline-block;
     padding: var(--spacing-md) var(--spacing-lg);
-    /*background-color: var(--primary-color);*/
-    background-color: var(--bg-dark);
-    color: var(--text-light);
+    background-color: transparent; /* Starts as a ghost button */
+    color: var(--bg-dark); /* Text matches the border */
     font-size: 18px;
     font-weight: 600;
     text-decoration: none;
+    border: 2px solid var(--bg-dark); /* Ghost border */
     border-radius: var(--border-radius);
-    transition: background-color var(--transition-default), transform 0.2s;
+    transition: background-color var(--transition-default), color var(--transition-default), transform 0.2s, border-color var(--transition-default);
 }
 
-/* Hover Effect */
 .btn:hover {
-    /*background-color: color-mix(in srgb, var(--primary-color) 80%, var(--bg-dark) 20%);*/
-    background-color: var(--primary-color);
-    transform: translateY(-2px);
+    background-color: var(--primary-color); /* Fills with primary color */
+    color: var(--text-light); /* Text turns light for contrast */
+    border-color: var(--primary-color); /* Border also changes */
 }
 
-/* Active (Pressed) State */
 .btn:active {
-    background-color: color-mix(in srgb, var(--primary-color) 50%, var(--bg-dark) 50%);
+    background-color: color-mix(in srgb, var(--primary-color) 50%, var(--bg-dark) 50%); /* Darker primary when pressed */
     transform: translateY(0);
 }
 
@@ -309,12 +291,17 @@ main {
         }
 
         .contact-item {
-            background: white;
             padding: var(--spacing-md);
             border-radius: var(--border-radius);
             display: flex;
             flex-direction: column;
             gap: var(--spacing-sm);
+        }
+
+        .contact-item ul {
+            list-style: none; /* Hides bullets */
+            padding: 0; /* Removes default padding */
+            margin: 0; 
         }
 
         .contact-item p {
@@ -355,35 +342,12 @@ main {
             margin-bottom: var(--spacing-lg);
         }
 
-        .social-links img {
+        .social-links svg {
             width: 32px;
             height: 32px;
-            transition: transform var(--transition-default);
+            transition: color 0.3s ease-in-out;
         }
 
-        .social-links a:hover img {
-            transform: translateY(-2px);
-        }
-
-        .map-link img {
-            width: 32px;
-            height: 32px;
-        }
-
-        .close {
-            display: inline-block;
-            padding: var(--spacing-sm) var(--spacing-xl);
-            background: var(--bg-dark);
-            color: var(--text-light);
-            text-decoration: none;
-            border-radius: var(--border-radius);
-            transition: all var(--transition-default);
-            margin-top: var(--spacing-lg);
-        }
-
-        .close:hover {
-            background: var(--primary-color);
-        }
 
         @media screen and (max-width: 768px) {
             .modal-content {
@@ -512,3 +476,5 @@ main {
         max-width: 100%;
     }
 }
+
+
