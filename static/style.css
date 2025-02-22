@@ -84,7 +84,7 @@ main {
     height: var(--icon-size);
     width: auto;
     display: block;
-    color: #EAEAEA;
+    color: var(--bg-light);
     transition: color var(--transition-default);
 }
 
@@ -155,7 +155,7 @@ svg:hover {
     height: var(--icon-size);
     width: auto;
     display: block;
-    color: #EAEAEA;
+    color: var(--bg-light);
     transition: color var(--transition-default);
 }
 
@@ -259,7 +259,7 @@ svg:hover {
     padding: var(--spacing-xl);
     border-radius: var(--border-radius);
     width: 90%;
-    max-width: 450px;
+    max-width: 405px;
     position: relative;
     transform: translateY(-20px) scale(0.95);
     opacity: 0;
