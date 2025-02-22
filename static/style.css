@@ -70,7 +70,7 @@ main {
     padding: var(--spacing-md) var(--spacing-xl);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    z-index: 30;
+    /*z-index: 1:*/
 }
 
 /* Logo */
