@@ -1,8 +1,8 @@
 <svg width="136" height="136" viewBox="0 0 136 136" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g filter="url(#filter0_d_66_3)">
-<path d="M4 64C4 28.6538 32.6538 0 68 0V0C103.346 0 132 28.6538 132 64V64C132 99.3462 103.346 128 68 128V128C32.6538 128 4 99.3462 4 64V64Z" fill="#F5F5F5" shape-rendering="crispEdges"/>
+<path d="M4 64C4 28.6538 32.6538 0 68 0C103.346 0 132 28.6538 132 64C132 99.3462 103.346 128 68 128C32.6538 128 4 99.3462 4 64Z" fill="#F5F5F5" shape-rendering="crispEdges"/>
 <path d="M132 64C132 99.3462 103.346 128 68 128C32.6538 128 4 99.3462 4 64C4 28.6538 32.6538 0 68 0C103.346 0 132 28.6538 132 64Z" fill="#F5F5F5" shape-rendering="crispEdges"/>
-<path d="M4 64C4 28.6538 32.6538 0 68 0V0C103.346 0 132 28.6538 132 64V64C132 99.3462 103.346 128 68 128V128C32.6538 128 4 99.3462 4 64V64Z" fill="url(#pattern0_66_3)" shape-rendering="crispEdges"/>
+<path d="M4 64C4 28.6538 32.6538 0 68 0C103.346 0 132 28.6538 132 64C132 99.3462 103.346 128 68 128C32.6538 128 4 99.3462 4 64Z" fill="url(#pattern0_66_3)" shape-rendering="crispEdges"/>
 </g>
 <defs>
 <filter id="filter0_d_66_3" x="0" y="0" width="136" height="136" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
