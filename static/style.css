@@ -2,8 +2,8 @@
 :root {
     --primary-color: #7F3E98;
     --bg-dark: #1C1C1C;
-    --bg-light: #F5F5F5;
-    --text-light: #F5F5F5;
+    --bg-light: #EAEAEA;
+    --text-light: #EAEAEA;
     --text-muted: #A0A0A0;
     --spacing-sm: 8px;
     --spacing-md: 16px;
@@ -36,7 +36,8 @@
 */
 
 /* Base Styles */
-body, html {
+body,
+html {
     font-family: "Exo 2", sans-serif;
     font-weight: 300;
     color: #000;
@@ -237,7 +238,7 @@ svg:hover {
     opacity: 0;
     visibility: hidden;
     transition: all var(--transition-default);
-    z-index: 100:
+    z-index: 100;
     backdrop-filter: blur(8px);
     overflow-y: auto;
     padding: var(--spacing-md);
