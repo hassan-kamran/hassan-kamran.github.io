@@ -169,7 +169,7 @@ svg:hover {
     justify-content: space-between;
     text-align: left;
     padding: var(--spacing-sm) var(--spacing-sm);
-    margin: 100px auto 0;
+    margin: 96px auto 0;
     width: var(--content-width);
     max-width: var(--container-width);
 }
@@ -234,7 +234,7 @@ svg:hover {
     justify-content: center;
     align-items: center;
     padding: var(--spacing-sm) var(--spacing-sm);
-    margin: 100px auto 0;
+    margin: 4px auto 0;
     width: var(--content-width);
     max-width: var(--container-width);
     text-align: center;
@@ -244,14 +244,23 @@ svg:hover {
     width: var(--content-width);
     max-width: var(--container-width);
     overflow: hidden;
+    position: relative;
 }
 
 .logos {
     display: flex;
     align-items: center;
-    gap: var(--spacing-md);
+    gap: var(--spacing-xl);
     white-space: nowrap;
+    width: max-content;
+    /* Prevents wrapping */
     animation: scrollLeft 20s linear infinite;
+}
+
+/* Duplicate the content to prevent the gap */
+.logos::after {
+    content: attr(data-content);
+    display: flex;
 }
 
 .logos svg {
@@ -266,16 +275,16 @@ svg:hover {
     transform: scale(1.1);
 }
 
+/* Keyframes for continuous scrolling */
 @keyframes scrollLeft {
     from {
         transform: translateX(0);
     }
 
     to {
-        transform: translateX(-100%);
+        transform: translateX(-50%);
     }
 }
-
 
 /* Modal */
 .modal {
