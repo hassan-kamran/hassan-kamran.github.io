@@ -56,6 +56,15 @@ main {
     flex: 1 0 auto;
 }
 
+/* SVG Styles */
+svg {
+    color: var(--bg-dark);
+}
+
+svg:hover {
+    color: var(--primary-color);
+}
+
 /* Header */
 .siteHeader {
     display: flex;
@@ -88,14 +97,6 @@ main {
     transition: color var(--transition-default);
 }
 
-/* SVG Styles */
-svg {
-    color: var(--bg-dark);
-}
-
-svg:hover {
-    color: var(--primary-color);
-}
 
 /* Navigation */
 .siteHeaderCenter {
