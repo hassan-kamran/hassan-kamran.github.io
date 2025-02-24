@@ -241,10 +241,10 @@ svg:hover {
 }
 
 .scroll-container {
-    width: var(--content-width);
-    max-width: var(--container-width);
     overflow: hidden;
     position: relative;
+    -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%);
+    mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 15%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%);
 }
 
 .logos {
@@ -253,11 +253,9 @@ svg:hover {
     gap: var(--spacing-xl);
     white-space: nowrap;
     width: max-content;
-    /* Prevents wrapping */
     animation: scrollLeft 20s linear infinite;
 }
 
-/* Duplicate the content to prevent the gap */
 .logos::after {
     content: attr(data-content);
     display: flex;
