@@ -389,9 +389,14 @@ figcaption {
   opacity: 1;
 }
 
+.modal-close {
+  height: 32px;
+  width: 32px;
+}
+
 .modal-content {
   background: var(--bg-light);
-  padding: var(--spacing-xl);
+  padding: var(--spacing-md);
   border-radius: var(--border-radius);
   width: 90%;
   max-width: 405px;
@@ -400,7 +405,7 @@ figcaption {
   opacity: 0;
   transition: all var(--transition-default);
   box-shadow: var(--box-shadow);
-  margin: var(--spacing-xl) 0;
+  margin: var(--spacing-md) 0;
 }
 
 .modal-header {
