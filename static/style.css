@@ -81,7 +81,6 @@ svg:hover {
     padding: var(--spacing-md) var(--spacing-xl);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    /*z-index: 1:*/
 }
 
 /* Logo */
@@ -169,7 +168,7 @@ svg:hover {
     justify-content: space-between;
     text-align: left;
     padding: var(--spacing-sm) var(--spacing-sm);
-    margin: 96px auto 0;
+    margin: 128px auto 0;
     width: var(--content-width);
     max-width: var(--container-width);
 }
