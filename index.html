@@ -44,7 +44,40 @@
           </svg>
         </a>
       </div>
-      <div class="siteHeaderCenter">
+      <!-- Mobile menu button -->
+      <button
+        class="hamburger-btn"
+        popovertarget="sideMenuPopover"
+        aria-label="Open menu"
+      >
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+      <!-- Side-sliding menu popover -->
+      <div popover id="sideMenuPopover" class="side-menu-popover">
+        <div class="side-menu-container">
+          <div class="popover-header">
+            <button
+              class="close-btn"
+              popovertarget="sideMenuPopover"
+              popovertargetaction="hide"
+              aria-label="Close menu"
+            >
+              <span class="close-line"></span>
+              <span class="close-line"></span>
+            </button>
+          </div>
+
+          <ul class="popover-menu">
+            <li><a href="#blog">My Thoughts</a></li>
+            <li><a href="#about">Who I Am</a></li>
+            <li><a href="#modal">Get in touch</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="siteHeaderCenter desktop-menu">
         <ul>
           <li><a href="#blog">My Thoughts</a></li>
           <li><a href="#about">Who I Am</a></li>
