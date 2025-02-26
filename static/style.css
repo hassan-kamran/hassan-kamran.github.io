@@ -117,26 +117,26 @@ svg:hover {
 }
 
 /* Side Menu Popover */
-.side-menu-popover {
+#sideMenuPopover {
+  popover: manual;
   position: fixed;
   inset: 0;
   height: 100vh;
   width: 100vw;
   background-color: transparent;
   pointer-events: none;
-  transform: translateX(0);
   opacity: 1;
   z-index: 100;
 }
 
-.side-menu-popover::backdrop {
+#sideMenuPopover::backdrop {
   background-color: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(4px);
   opacity: 0;
   transition: opacity var(--transition-default);
 }
 
-.side-menu-popover[open]::backdrop {
+#sideMenuPopover:popover-open::backdrop {
   opacity: 1;
 }
 
@@ -158,7 +158,7 @@ svg:hover {
   flex-direction: column;
 }
 
-.side-menu-popover[open] .side-menu-container {
+#sideMenuPopover:popover-open .side-menu-container {
   transform: translateX(0);
 }
 

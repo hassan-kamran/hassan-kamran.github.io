@@ -48,6 +48,7 @@
       <button
         class="hamburger-btn"
         popovertarget="sideMenuPopover"
+        popovertargetaction="toggle"
         aria-label="Open menu"
       >
         <span class="hamburger-line"></span>
@@ -56,7 +57,7 @@
       </button>
 
       <!-- Side-sliding menu popover -->
-      <div popover id="sideMenuPopover" class="side-menu-popover">
+      <div popover="manual" id="sideMenuPopover" class="side-menu-popover">
         <div class="side-menu-container">
           <div class="popover-header">
             <button
@@ -74,6 +75,25 @@
             <li><a href="#blog">My Thoughts</a></li>
             <li><a href="#about">Who I Am</a></li>
             <li><a href="#modal">Get in touch</a></li>
+            <li></li>
+            <a href="#search" class="search-container">
+              <svg
+                class="search-icon"
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M28 28L22.2 22.2M25.3333 14.6667C25.3333 20.5577 20.5577 25.3333 14.6667 25.3333C8.77563 25.3333 4 20.5577 4 14.6667C4 8.77563 8.77563 4 14.6667 4C20.5577 4 25.3333 8.77563 25.3333 14.6667Z"
+                  stroke="currentColor"
+                  stroke-width="4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
           </ul>
         </div>
       </div>
@@ -84,7 +104,7 @@
           <li><a href="#modal">Get in touch</a></li>
         </ul>
       </div>
-      <div class="siteHeaderRight">
+      <div class="siteHeaderRight desktop-menu">
         <a href="#search" class="search-container">
           <svg
             class="search-icon"
