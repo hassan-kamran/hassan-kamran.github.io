@@ -724,6 +724,28 @@ color: inherit:
   height: 24px;
 }
 
+.info-page {
+  background-color: var(--bg-light);
+  color: var(--bg-dark);
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  max-width: var(--container-width);
+  text-align: left;
+  margin: 128px auto;
+}
+.info-page .container {
+  width: var(--content-width);
+  margin: 0 auto;
+}
+.info-page h1, .info-page h2 {
+  color: var(--primary-color);
+}
+.info-page p {
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
 /* Footer */
 .siteFooter {
   margin-top: auto;
