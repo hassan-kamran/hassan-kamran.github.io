@@ -74,26 +74,31 @@
           <ul class="popover-menu">
             <li><a href="#blog">My Thoughts</a></li>
             <li><a href="#about">Who I Am</a></li>
-            <li><a href="#modal">Get in touch</a></li>
-            <li></li>
-            <a href="#search" class="search-container">
-              <svg
-                class="search-icon"
-                width="32"
-                height="32"
-                viewBox="0 0 32 32"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M28 28L22.2 22.2M25.3333 14.6667C25.3333 20.5577 20.5577 25.3333 14.6667 25.3333C8.77563 25.3333 4 20.5577 4 14.6667C4 8.77563 8.77563 4 14.6667 4C20.5577 4 25.3333 8.77563 25.3333 14.6667Z"
-                  stroke="currentColor"
-                  stroke-width="4"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </a>
+            <li>
+              <button class="popover-button" popovertarget="modal">
+                Get in Touch
+              </button>
+            </li>
+            <li>
+              <a href="#search" class="search-container">
+                <svg
+                  class="search-icon"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M28 28L22.2 22.2M25.3333 14.6667C25.3333 20.5577 20.5577 25.3333 14.6667 25.3333C8.77563 25.3333 4 20.5577 4 14.6667C4 8.77563 8.77563 4 14.6667 4C20.5577 4 25.3333 8.77563 25.3333 14.6667Z"
+                    stroke="currentColor"
+                    stroke-width="4"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -101,7 +106,11 @@
         <ul>
           <li><a href="#blog">My Thoughts</a></li>
           <li><a href="#about">Who I Am</a></li>
-          <li><a href="#modal">Get in touch</a></li>
+          <li>
+            <button class="popover-button" popovertarget="modal">
+              Get in Touch
+            </button>
+          </li>
         </ul>
       </div>
       <div class="siteHeaderRight desktop-menu">
@@ -126,36 +135,13 @@
       </div>
     </nav>
     <header>
-      <div class="modal" id="modal">
+      <div class="modal" id="modal" popover="manual">
         <div class="modal-content">
-          <div>
-            <a href="#"
-              ><svg
-                class="modal-close"
-                width="16px"
-                height="16px"
-                viewBox="-0.5 0 25 25"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M3 21.32L21 3.32001"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M3 3.32001L21 21.32"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </a>
-          </div>
           <div class="modal-header">
+            <button class="close-btn" popovertarget="modal">
+              <span class="close-line"></span>
+              <span class="close-line"></span>
+            </button>
             <h1>Let's Work Together</h1>
             <p>I'm always open to new opportunities and collaborations.</p>
           </div>
@@ -405,7 +391,9 @@
             data into actionable insights through professional precision and
             strategic project management.
           </p>
-          <a href="#modal" class="btn">Get in Touch</a>
+          <button class="btn" class="popover-button" popovertarget="modal">
+            Get in Touch
+          </button>
         </div>
         <figure class="hero-image">
           <img
