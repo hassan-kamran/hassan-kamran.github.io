@@ -509,6 +509,8 @@ figcaption {
   width: 280px;
   display: flex;
   flex-direction: column;
+  text-decoration: none;
+color: inherit:
   align-items: center;
   transition:
     transform var(--transition-default),
@@ -526,7 +528,7 @@ figcaption {
   margin-bottom: var(--spacing-md);
 }
 
-.card h2 {
+.card h3 {
   margin: var(--spacing-md) 0 var(--spacing-sm);
   color: var(--bg-dark);
   font-size: 18px;
