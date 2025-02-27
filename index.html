@@ -446,10 +446,55 @@
         <button class="btn" class="popover-button" popovertarget="modal">
           Get in Touch
         </button>
+
+        <div class="educational-affiliation">
+          <div class="scroll-container">
+            <div>
+              <h2>Proud Alumnus Of</h2>
+            </div>
+            <div class="logos">
+              <a href="https://www.beaconhouse.net/" target="_blank">
+                <img src="./static/bss.svg" alt="Beaconhouse School System" />
+              </a>
+              <a href="https://sma.edu.pk/" target="_blank">
+                <img src="./static/sma.svg" alt="Saint Mary’s Academy" />
+              </a>
+              <a href="https://nust.edu.pk/" target="_blank">
+                <img
+                  src="./static/nust.svg"
+                  alt="National University of Science and Technology"
+                />
+              </a>
+
+              <a
+                href="https://en.wikipedia.org/wiki/Pakistan_Military_Academy"
+                target="_blank"
+              >
+                <img src="./static/pma.svg" alt="Pakistan Milirary Academy" />
+              </a>
+              <a href="https://case.edu.pk/" target="_blank">
+                <img
+                  src="./static/case.svg"
+                  alt="Sir Syed CASe Institute of Technology"
+                />
+              </a>
+            </div>
+            <script>
+              document.addEventListener("DOMContentLoaded", function () {
+                const logosContainer = document.querySelector(".logos");
+                const duplicateLogos = logosContainer.innerHTML;
+                for (let i = 0; i < 5; i++) {
+                  logosContainer.innerHTML += duplicateLogos;
+                }
+              });
+            </script>
+          </div>
+        </div>
       </div>
+
       <figure class="hero-image">
         <img
-          src="./static/man.webp"
+          src="./static/hero.webp"
           alt="Hassan Kamran, Technical Project Manager and Software Consultant, confidently posing in business attire with a professional and approachable expression."
         />
         <figcaption>
@@ -457,49 +502,6 @@
           driving innovation through collaboration.
         </figcaption>
       </figure>
-    </section>
-    <section class="educational-affiliation">
-      <div class="scroll-container">
-        <div>
-          <h2>Proud Alumnus Of</h2>
-        </div>
-        <div class="logos">
-          <a href="https://www.beaconhouse.net/" target="_blank">
-            <img src="./static/bss.svg" alt="Beaconhouse School System" />
-          </a>
-          <a href="https://sma.edu.pk/" target="_blank">
-            <img src="./static/sma.svg" alt="Saint Mary’s Academy" />
-          </a>
-          <a href="https://nust.edu.pk/" target="_blank">
-            <img
-              src="./static/nust.svg"
-              alt="National University of Science and Technology"
-            />
-          </a>
-
-          <a
-            href="https://en.wikipedia.org/wiki/Pakistan_Military_Academy"
-            target="_blank"
-          >
-            <img src="./static/pma.svg" alt="Pakistan Milirary Academy" />
-          </a>
-          <a href="https://case.edu.pk/" target="_blank">
-            <img
-              src="./static/case.svg"
-              alt="Sir Syed CASe Institute of Technology"
-            />
-          </a>
-        </div>
-        <script>
-          document.addEventListener("DOMContentLoaded", function () {
-            const logosContainer = document.querySelector(".logos");
-            const duplicateLogos = logosContainer.innerHTML;
-            for (let i = 0; i < 5; i++) {
-              logosContainer.innerHTML += duplicateLogos;
-            }
-          });
-        </script>
-      </div>
     </section>
     <section class="membership">
       <h2>Distinguished Professional Affiliations</h2>
