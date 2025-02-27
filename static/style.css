@@ -396,6 +396,7 @@ figcaption {
   padding: var(--spacing-md) var(--spacing-lg);
   background-color: transparent;
   color: var(--bg-dark);
+  font-family: inherit;
   font-size: 18px;
   font-weight: 600;
   text-decoration: none;
