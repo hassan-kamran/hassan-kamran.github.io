@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Engr Hassan Kamran's official website showcasing projects, research, thoughts, ideas and expertise in AI, robotics, mechatronics and the cutting edge."
+      content="Engr Hassan Kamran's official website showcasing projects, research, thoughts, ideas, and expertise in AI, robotics, mechatronics, and the cutting edge."
     />
     <title>Engr Hassan Kamran</title>
 
@@ -13,28 +13,29 @@
       rel="preload"
       as="image"
       href="./static/hero-mini.avif"
-      media="(max-width: 768px)"
-      type="image/webp"
+      type="image/avif"
     />
     <link
       rel="preload"
       as="image"
       href="./static/hero.avif"
-      media="(min-width: 769px)"
-      type="image/webp"
+      type="image/avif"
     />
 
+    <link
+      rel="preload"
+      href="./static/style.css"
+      as="style"
+      onload="this.rel='stylesheet'"
+    />
+    <noscript><link rel="stylesheet" href="./static/style.css" /></noscript>
+
+    <link rel="preload" as="image" href="./static/favicon.svg" />
     <link
       class="favicon"
       rel="icon"
       type="image/svg+xml"
       href="./static/favicon.svg"
-    />
-    <link
-      rel="stylesheet"
-      href="./static/style.css"
-      media="print"
-      onload="this.onload=null;this.media='all';"
     />
   </head>
 
