@@ -567,12 +567,15 @@
       </div>
 
       <figure class="hero-image">
-        <img
-          src="./static/hero-2.webp"
-          width="256px"
-          height="512px"
-          alt="Hassan Kamran, Technical Project Manager and Software Consultant, confidently posing in business attire with a professional and approachable expression."
-        />
+        <picture>
+          <source srcset="static/hero-mini.webp" media="(max-width: 768px)" />
+          <img
+            src="./static/hero-2.webp"
+            width="256px"
+            height="512px"
+            alt="Hassan Kamran, Technical Project Manager and Software Consultant, confidently posing in business attire with a professional and approachable expression."
+          />
+        </picture>
         <figcaption>Capt Engr Hassan Kamran Retd</figcaption>
       </figure>
     </section>
