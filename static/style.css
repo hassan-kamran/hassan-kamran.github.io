@@ -4,7 +4,7 @@
   --bg-dark: #1c1c1c;
   --bg-light: #eaeaea;
   --text-light: #eaeaea;
-  --text-muted: #a0a0a0;
+  --text-muted: #6c6c6c;
   --spacing-sm: 8px;
   --spacing-md: 16px;
   --spacing-lg: 24px;
@@ -515,7 +515,7 @@ figcaption {
 .membership {
   width: var(--content-width);
   max-width: var(--container-width);
-  margin: var(--spacing-xl) auto;
+  margin: var(--spacing-sm) auto;
   padding: var(--spacing-lg);
   text-align: center;
 }
@@ -534,7 +534,7 @@ figcaption {
 }
 
 .card {
-  background-color: #fff;
+  background-color: #f8f8f8;
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
   padding: var(--spacing-xl);
