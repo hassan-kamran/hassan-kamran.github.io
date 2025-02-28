@@ -400,9 +400,7 @@ svg:hover {
 
 .hero-image {
   flex: 1;
-  /*max-width: 30%;*/
-  height: 256px;
-  width: 512px;
+  max-width: 30%;
   display: flex;
   flex-direction: column;
   align-items: center;
