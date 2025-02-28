@@ -820,7 +820,7 @@ figcaption {
 .footerCopyright p {
   margin: 0;
   font-size: 14px;
-  color: var(--text-muted);
+  color: var(--text-light);
 }
 
 /* Media Queries */
