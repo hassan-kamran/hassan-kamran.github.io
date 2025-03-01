@@ -157,6 +157,170 @@
           </a>
         </div>
       </nav>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <div class="badge-container">
+            <div class="badge">
+              <p>7+ Years Experience</p>
+            </div>
+
+            <div class="badge">
+              <p>Trusted Globally</p>
+            </div>
+
+            <div class="badge">
+              <p>Published Author</p>
+            </div>
+          </div>
+          <h1>Empowering Innovation Through Collaborative Engineering</h1>
+          <p>
+            Partnering with businesses to deliver AI-driven solutions, IoT
+            integrations, and scalable cloud applications, transforming complex
+            data into actionable insights through professional precision and
+            strategic project management.
+          </p>
+          <button class="popover-button btn" popovertarget="modal">
+            Get in Touch
+          </button>
+
+          <div class="educational-affiliation">
+            <div class="scroll-container">
+              <div>
+                <h2>Proud Alumnus Of</h2>
+              </div>
+              <div class="logos">
+                <div class="logo-item">
+                  <a
+                    href="https://www.beaconhouse.net/"
+                    target="_blank"
+                    aria-label="Beaconhouse School System"
+                  >
+                    <img
+                      src="./static/bss.svg"
+                      alt="Beaconhouse School System"
+                      width="64"
+                      height="64"
+                    />
+                    <div class="logo-details">
+                      <p>
+                        Beaconhouse School System <br />O Level<br />2010-12
+                      </p>
+                    </div>
+                  </a>
+                </div>
+                <div class="logo-item">
+                  <a
+                    href="https://www.linkedin.com/company/saintmarysacademylalazar/"
+                    target="_blank"
+                    aria-label="Saint Mary's Academy"
+                  >
+                    <img
+                      src="./static/sma.svg"
+                      alt="Saint Mary’s Academy"
+                      width="64"
+                      height="64"
+                    />
+                    <div class="logo-details">
+                      <p>Saint Mary's Academy<br />A Level<br />2012-14</p>
+                    </div>
+                  </a>
+                </div>
+                <div class="logo-item">
+                  <a
+                    href="https://nust.edu.pk/"
+                    target="_blank"
+                    aria-label="National University of Secience and Technology"
+                  >
+                    <img
+                      src="./static/nust.svg"
+                      alt="National University of Science and Technology"
+                      width="64"
+                      height="64"
+                    />
+                    <div class="logo-details">
+                      <p>
+                        National University of Science and Technology<br />BE
+                        Mechatronics<br />2014-19
+                      </p>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="logo-item">
+                  <a
+                    href="https://en.wikipedia.org/wiki/Pakistan_Military_Academy"
+                    target="_blank"
+                    aria-label="Pakistan Military Academy"
+                  >
+                    <img
+                      src="./static/pma.svg"
+                      alt="Pakistan Milirary Academy"
+                      width="64"
+                      height="64"
+                    />
+                    <div class="logo-details">
+                      <p>
+                        Pakistan Military Academt<br />Officer Training<br />2019-20
+                      </p>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="logo-item">
+                  <a
+                    href="https://case.edu.pk/"
+                    target="_blank"
+                    aria-label="Sir Syed CASE Institute of Technology"
+                  >
+                    <img
+                      src="./static/case.svg"
+                      alt="Sir Syed CASe Institute of Technology"
+                      width="64"
+                      height="64"
+                    />
+                    <div class="logo-details">
+                      <p>
+                        Sir Syed CASE Institute of Technology<br />MS Computer
+                        Science<br />2022-25
+                      </p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                  const logosContainer = document.querySelector(".logos");
+                  const duplicateLogos = logosContainer.innerHTML;
+                  for (let i = 0; i < 5; i++) {
+                    logosContainer.innerHTML += duplicateLogos;
+                  }
+                });
+              </script>
+            </div>
+          </div>
+        </div>
+
+        <figure class="hero-image">
+          <picture>
+            <source
+              srcset="static/hero-mini.avif"
+              media="(max-width: 768px)"
+              width="512"
+              height="512"
+            />
+            <img
+              src="./static/hero.avif"
+              width="258"
+              height="512"
+              alt="Hassan Kamran, Technical Project Manager and Software Consultant, confidently posing in business attire with a professional and approachable expression."
+            />
+          </picture>
+          <figcaption>Capt (Retd) Engr Hassan Kamran, MSc</figcaption>
+        </figure>
+      </section>
+
       <div class="modal" id="modal" popover="manual">
         <div class="modal-content">
           <div class="modal-header">
@@ -164,7 +328,7 @@
               <span class="close-line"></span>
               <span class="close-line"></span>
             </button>
-            <h1>Let's Work Together</h1>
+            <h2>Let's Work Together</h2>
             <p>I'm always open to new opportunities and collaborations.</p>
           </div>
           <div class="contact-section">
@@ -480,580 +644,469 @@
           </div>
         </div>
       </div>
-    </header>
-    <section class="hero">
-      <div class="hero-content">
-        <div class="badge-container">
-          <div class="badge">
-            <p>7+ Years Experience</p>
-          </div>
+      <section class="membership">
+        <h2>Distinguished Professional Affiliations</h2>
+        <div class="membership-cards">
+          <a
+            href="https://www.pec.org.pk/"
+            target="_blank"
+            class="card"
+            aria-label="Pakistan Engineering Council"
+          >
+            <img
+              src="./static/pec.svg"
+              alt="Pakistan Engineering Council"
+              width="80"
+              height="80"
+            />
+            <h3>Pakistan Engineering Council</h3>
+            <p>
+              The Pakistan Engineering Council (PEC) is a regulatory body that
+              oversees the accreditation of engineering education, the licensing
+              of engineers, and the promotion of engineering excellence in
+              Pakistan.
+            </p>
+          </a>
 
-          <div class="badge">
-            <p>Trusted Globally</p>
-          </div>
+          <a
+            href="https://www.pseb.org.pk/"
+            target="_blank"
+            class="card"
+            aria-label="Pakistan Software Export Board"
+          >
+            <img
+              src="./static/pseb.svg"
+              alt="Pakistan Software Export Board"
+              width="80"
+              height="80"
+            />
+            <h3>Pakistan Software Export Board</h3>
+            <p>
+              The Pakistan Software Export Board (PSEB) facilitates the growth
+              of Pakistan’s IT and IT-enabled services industry by promoting
+              exports, providing support to IT firms, and creating business
+              opportunities.
+            </p>
+          </a>
 
-          <div class="badge">
-            <p>Published Author</p>
-          </div>
+          <a
+            href="https://www.ieee.org/"
+            target="_blank"
+            class="card"
+            aria-label="Institute of Electrical and Electronics Engineers"
+          >
+            <img
+              src="./static/ieee.svg"
+              alt="Institute of Electrical and Electronics Engineers"
+              width="80"
+              height="80"
+            />
+            <h3>Institute of Electrical and Electronics Engineers</h3>
+            <p>
+              IEEE is the world's largest technical professional organization
+              dedicated to advancing technology for humanity through
+              publications, conferences, and professional networking.
+            </p>
+          </a>
         </div>
-        <h2>Empowering Innovation Through Collaborative Engineering</h2>
-        <p>
-          Partnering with businesses to deliver AI-driven solutions, IoT
-          integrations, and scalable cloud applications, transforming complex
-          data into actionable insights through professional precision and
-          strategic project management.
-        </p>
-        <button class="popover-button btn" popovertarget="modal">
-          Get in Touch
-        </button>
+      </section>
 
-        <div class="educational-affiliation">
-          <div class="scroll-container">
-            <div>
-              <h2>Proud Alumnus Of</h2>
-            </div>
-            <div class="logos">
-              <div class="logo-item">
-                <a
-                  href="https://www.beaconhouse.net/"
-                  target="_blank"
-                  aria-label="Beaconhouse School System"
-                >
-                  <img
-                    src="./static/bss.svg"
-                    alt="Beaconhouse School System"
-                    width="64"
-                    height="64"
-                  />
-                  <div class="logo-details">
-                    <p>Beaconhouse School System <br />O Level<br />2010-12</p>
-                  </div>
-                </a>
-              </div>
-              <div class="logo-item">
-                <a
-                  href="https://www.linkedin.com/company/saintmarysacademylalazar/"
-                  target="_blank"
-                  aria-label="Saint Mary's Academy"
-                >
-                  <img
-                    src="./static/sma.svg"
-                    alt="Saint Mary’s Academy"
-                    width="64"
-                    height="64"
-                  />
-                  <div class="logo-details">
-                    <p>Saint Mary's Academy<br />A Level<br />2012-14</p>
-                  </div>
-                </a>
-              </div>
-              <div class="logo-item">
-                <a
-                  href="https://nust.edu.pk/"
-                  target="_blank"
-                  aria-label="National University of Secience and Technology"
-                >
-                  <img
-                    src="./static/nust.svg"
-                    alt="National University of Science and Technology"
-                    width="64"
-                    height="64"
-                  />
-                  <div class="logo-details">
-                    <p>
-                      National University of Science and Technology<br />BE
-                      Mechatronics<br />2014-19
-                    </p>
-                  </div>
-                </a>
-              </div>
+      <section class="experience">
+        <h2>Professional Experience</h2>
 
-              <div class="logo-item">
-                <a
-                  href="https://en.wikipedia.org/wiki/Pakistan_Military_Academy"
-                  target="_blank"
-                  aria-label="Pakistan Military Academy"
-                >
-                  <img
-                    src="./static/pma.svg"
-                    alt="Pakistan Milirary Academy"
-                    width="64"
-                    height="64"
-                  />
-                  <div class="logo-details">
-                    <p>
-                      Pakistan Military Academt<br />Officer Training<br />2019-20
-                    </p>
-                  </div>
-                </a>
-              </div>
-
-              <div class="logo-item">
-                <a
-                  href="https://case.edu.pk/"
-                  target="_blank"
-                  aria-label="Sir Syed CASE Institute of Technology"
-                >
-                  <img
-                    src="./static/case.svg"
-                    alt="Sir Syed CASe Institute of Technology"
-                    width="64"
-                    height="64"
-                  />
-                  <div class="logo-details">
-                    <p>
-                      Sir Syed CASE Institute of Technology<br />MS Computer
-                      Science<br />2022-25
-                    </p>
-                  </div>
-                </a>
-              </div>
-            </div>
-            <script>
-              document.addEventListener("DOMContentLoaded", function () {
-                const logosContainer = document.querySelector(".logos");
-                const duplicateLogos = logosContainer.innerHTML;
-                for (let i = 0; i < 5; i++) {
-                  logosContainer.innerHTML += duplicateLogos;
-                }
-              });
-            </script>
-          </div>
-        </div>
-      </div>
-
-      <figure class="hero-image">
-        <picture>
-          <source
-            srcset="static/hero-mini.avif"
-            media="(max-width: 768px)"
-            width="512"
-            height="512"
-          />
-          <img
-            src="./static/hero.avif"
-            width="258"
-            height="512"
-            alt="Hassan Kamran, Technical Project Manager and Software Consultant, confidently posing in business attire with a professional and approachable expression."
-          />
-        </picture>
-        <figcaption>Capt (Retd) Engr Hassan Kamran, MSc</figcaption>
-      </figure>
-    </section>
-    <section class="membership">
-      <h2>Distinguished Professional Affiliations</h2>
-      <div class="membership-cards">
-        <a
-          href="https://www.pec.org.pk/"
-          target="_blank"
-          class="card"
-          aria-label="Pakistan Engineering Council"
-        >
-          <img
-            src="./static/pec.svg"
-            alt="Pakistan Engineering Council"
-            width="80"
-            height="80"
-          />
-          <h3>Pakistan Engineering Council</h3>
+        <article>
+          <h3>Founder</h3>
           <p>
-            The Pakistan Engineering Council (PEC) is a regulatory body that
-            oversees the accreditation of engineering education, the licensing
-            of engineers, and the promotion of engineering excellence in
-            Pakistan.
+            <strong>Company:</strong
+            ><a href="https://big0.dev/" aria-label="Big0.Dev"> Big0.Dev</a>
           </p>
-        </a>
-
-        <a
-          href="https://www.pseb.org.pk/"
-          target="_blank"
-          class="card"
-          aria-label="Pakistan Software Export Board"
-        >
-          <img
-            src="./static/pseb.svg"
-            alt="Pakistan Software Export Board"
-            width="80"
-            height="80"
-          />
-          <h3>Pakistan Software Export Board</h3>
+          <p><strong>Employment Type:</strong> Full-time</p>
+          <p><strong>Duration:</strong> Feb 2025 - Present (1 mo)</p>
+          <p><strong>Location:</strong> Islāmābād, Pakistan (On-site)</p>
+          <ul>
+            <li>
+              Founded big0.dev, delivering high-performance software solutions.
+            </li>
+            <li>
+              Developed scalable systems optimized for complex applications.
+            </li>
+            <li>Led product development from ideation to deployment.</li>
+            <li>
+              Built and managed a multidisciplinary team driving innovation.
+            </li>
+            <li>
+              Secured partnerships and delivered tailored industry solutions.
+            </li>
+          </ul>
           <p>
-            The Pakistan Software Export Board (PSEB) facilitates the growth of
-            Pakistan’s IT and IT-enabled services industry by promoting exports,
-            providing support to IT firms, and creating business opportunities.
+            <strong>Skills:</strong> Artificial Intelligence (AI), Cloud
+            Computing, Critical Thinking, Machine Learning, Mechatronics,
+            Problem Solving, Project Management, Software
           </p>
-        </a>
+        </article>
 
-        <a
-          href="https://www.ieee.org/"
-          target="_blank"
-          class="card"
-          aria-label="Institute of Electrical and Electronics Engineers"
-        >
-          <img
-            src="./static/ieee.svg"
-            alt="Institute of Electrical and Electronics Engineers"
-            width="80"
-            height="80"
-          />
-          <h3>Institute of Electrical and Electronics Engineers</h3>
+        <article>
+          <h3>Project Architect and AI Developer</h3>
           <p>
-            IEEE is the world's largest technical professional organization
-            dedicated to advancing technology for humanity through publications,
-            conferences, and professional networking.
+            <strong>Company:</strong
+            ><a href="https://oneworldrental.com/" aria-label="One World Rental"
+              >One World Rental</a
+            >
           </p>
-        </a>
-      </div>
-    </section>
+          <p><strong>Employment Type:</strong> Full-time</p>
+          <p><strong>Duration:</strong> Nov 2023 - Feb 2025 (1 yr 4 mos)</p>
+          <p>
+            <strong>Location:</strong> Islamabad, Islāmābād, Pakistan (On-site)
+          </p>
+          <ul>
+            <li>
+              Fostered a data-driven culture by aligning global teams with
+              cohesive strategies.
+            </li>
+            <li>
+              Created multiple real-time KPI dashboards from multiple data
+              sources.
+            </li>
+            <li>
+              Coordinated seamlessly with global teams for project execution.
+            </li>
+            <li>
+              Managed a diverse team of 25 to deliver high-quality projects.
+            </li>
+            <li>
+              Completed projects from URD and SRS to delivery using Agile and
+              Scrum.
+            </li>
+            <li>Upgraded legacy websites to a modern tech stack.</li>
+            <li>Developed internal process automation tools.</li>
+          </ul>
+          <p>
+            <strong>Skills:</strong> SQL, Natural Language Processing (NLP),
+            Cloud Computing, Software, ETL, Machine Learning, Engineering, Web
+            Development, Leadership, Artificial Intelligence (AI), Business
+            Intelligence (BI), Convolutional Neural Networks (CNN), Data
+            Loading, Data Modeling, KPI Dashboards, Data Analysis, Project
+            Management, Documentation, Big Data, Communication, Data Pipelines
+          </p>
+        </article>
 
-    <section class="experience">
-      <h2>Professional Experience</h2>
+        <article>
+          <h3>Chief Technology Officer</h3>
+          <p>
+            <strong>Company:</strong
+            ><a href="https://cyberxstudio.com/" aria-label="CyberX Studio"
+              >CyberX Studio</a
+            >
+          </p>
+          <p><strong>Employment Type:</strong> Part-time</p>
+          <p><strong>Duration:</strong> Nov 2023 - Feb 2025 (1 yr 4 mos)</p>
+          <p><strong>Location:</strong> Islāmābād, Pakistan (On-site)</p>
+          <ul>
+            <li>
+              Proposed innovative project ideas and secured stakeholder buy-in.
+            </li>
+            <li>
+              Designed technical roadmaps and detailed documentation for
+              scalable solutions.
+            </li>
+            <li>
+              Led a cross-functional team of 10, ensuring timely project
+              delivery.
+            </li>
+            <li>
+              Contributed to key projects at AWT, FerroTechnics, Yontem
+              Teknoloji, and Guide to Pakistan.
+            </li>
+          </ul>
+          <p>
+            <strong>Skills:</strong> Web Development, Artificial Intelligence
+            (AI), Leadership, Engineering, Documentation
+          </p>
+        </article>
 
-      <article>
-        <h3>Founder</h3>
-        <p>
-          <strong>Company:</strong
-          ><a href="https://big0.dev/" aria-label="Big0.Dev"> Big0.Dev</a>
-        </p>
-        <p><strong>Employment Type:</strong> Full-time</p>
-        <p><strong>Duration:</strong> Feb 2025 - Present (1 mo)</p>
-        <p><strong>Location:</strong> Islāmābād, Pakistan (On-site)</p>
-        <ul>
-          <li>
-            Founded big0.dev, delivering high-performance software solutions.
-          </li>
-          <li>
-            Developed scalable systems optimized for complex applications.
-          </li>
-          <li>Led product development from ideation to deployment.</li>
-          <li>
-            Built and managed a multidisciplinary team driving innovation.
-          </li>
-          <li>
-            Secured partnerships and delivered tailored industry solutions.
-          </li>
-        </ul>
-        <p>
-          <strong>Skills:</strong> Artificial Intelligence (AI), Cloud
-          Computing, Critical Thinking, Machine Learning, Mechatronics, Problem
-          Solving, Project Management, Software
-        </p>
-      </article>
+        <article>
+          <h3>Captain</h3>
+          <p>
+            <strong>Company:</strong
+            ><a href="https://pakistanarmy.gov.pk/" aria-label="Pakistan Army"
+              >Pakistan Army</a
+            >
+          </p>
+          <p><strong>Employment Type:</strong> Full-time</p>
+          <p><strong>Duration:</strong> Oct 2020 - Sep 2023 (3 yrs)</p>
+          <p><strong>Location:</strong> On-site</p>
+          <ul>
+            <li>
+              Oversaw maintenance and repair of vehicles and machinery for
+              operational readiness.
+            </li>
+            <li>
+              Conducted performance audits, identifying improvements and
+              implementing solutions.
+            </li>
+            <li>Completed diverse technical and administrative projects.</li>
+            <li>
+              Managed and coordinated 100 to 150 technical staff, fostering
+              teamwork.
+            </li>
+            <li>
+              Ensured high standards of maintenance practices for military
+              operations.
+            </li>
+            <li>
+              Provided leadership and training to enhance staff skills and
+              readiness.
+            </li>
+            <li>Optimized resource allocation for maintenance tasks.</li>
+            <li>
+              Enforced safety standards and compliance with military
+              regulations.
+            </li>
+          </ul>
+          <p>
+            <strong>Skills:</strong> Engineering, Leadership, Human Resources
+            (HR), Project Management, Communication
+          </p>
+        </article>
 
-      <article>
-        <h3>Project Architect and AI Developer</h3>
-        <p>
-          <strong>Company:</strong
-          ><a href="https://oneworldrental.com/" aria-label="One World Rental"
-            >One World Rental</a
-          >
-        </p>
-        <p><strong>Employment Type:</strong> Full-time</p>
-        <p><strong>Duration:</strong> Nov 2023 - Feb 2025 (1 yr 4 mos)</p>
-        <p>
-          <strong>Location:</strong> Islamabad, Islāmābād, Pakistan (On-site)
-        </p>
-        <ul>
-          <li>
-            Fostered a data-driven culture by aligning global teams with
-            cohesive strategies.
-          </li>
-          <li>
-            Created multiple real-time KPI dashboards from multiple data
-            sources.
-          </li>
-          <li>
-            Coordinated seamlessly with global teams for project execution.
-          </li>
-          <li>
-            Managed a diverse team of 25 to deliver high-quality projects.
-          </li>
-          <li>
-            Completed projects from URD and SRS to delivery using Agile and
-            Scrum.
-          </li>
-          <li>Upgraded legacy websites to a modern tech stack.</li>
-          <li>Developed internal process automation tools.</li>
-        </ul>
-        <p>
-          <strong>Skills:</strong> SQL, Natural Language Processing (NLP), Cloud
-          Computing, Software, ETL, Machine Learning, Engineering, Web
-          Development, Leadership, Artificial Intelligence (AI), Business
-          Intelligence (BI), Convolutional Neural Networks (CNN), Data Loading,
-          Data Modeling, KPI Dashboards, Data Analysis, Project Management,
-          Documentation, Big Data, Communication, Data Pipelines
-        </p>
-      </article>
+        <article>
+          <h3>Embedded Engineer</h3>
+          <p>
+            <strong>Company:</strong
+            ><a
+              href="https://www.linkedin.com/company/wisdomwheel/"
+              aria-label="WisdomWheel Wireless"
+              >WisdomWheel Wireless</a
+            >
+          </p>
+          <p><strong>Employment Type:</strong> Part-time</p>
+          <p><strong>Duration:</strong> Dec 2018 - Nov 2019 (1 yr)</p>
+          <p>
+            <strong>Location:</strong> Islamabad, Islāmābād, Pakistan (On-site)
+          </p>
+          <ul>
+            <li>
+              Developed a real-time tracking system for shipping container
+              insurance claims.
+            </li>
+            <li>
+              Participated in meetings and presentations for potential clients.
+            </li>
+            <li>
+              Contributed to the development of a business model for smart
+              switches.
+            </li>
+          </ul>
+          <p>
+            <strong>Skills:</strong> Embedded Systems, Software, Mechatronics,
+            Engineering, Documentation
+          </p>
+        </article>
 
-      <article>
-        <h3>Chief Technology Officer</h3>
-        <p>
-          <strong>Company:</strong
-          ><a href="https://cyberxstudio.com/" aria-label="CyberX Studio"
-            >CyberX Studio</a
-          >
-        </p>
-        <p><strong>Employment Type:</strong> Part-time</p>
-        <p><strong>Duration:</strong> Nov 2023 - Feb 2025 (1 yr 4 mos)</p>
-        <p><strong>Location:</strong> Islāmābād, Pakistan (On-site)</p>
-        <ul>
-          <li>
-            Proposed innovative project ideas and secured stakeholder buy-in.
-          </li>
-          <li>
-            Designed technical roadmaps and detailed documentation for scalable
-            solutions.
-          </li>
-          <li>
-            Led a cross-functional team of 10, ensuring timely project delivery.
-          </li>
-          <li>
-            Contributed to key projects at AWT, FerroTechnics, Yontem Teknoloji,
-            and Guide to Pakistan.
-          </li>
-        </ul>
-        <p>
-          <strong>Skills:</strong> Web Development, Artificial Intelligence
-          (AI), Leadership, Engineering, Documentation
-        </p>
-      </article>
+        <article>
+          <h3>Research Assistant</h3>
+          <p>
+            <strong>Company:</strong
+            ><a
+              href="https://ceme.nust.edu.pk/"
+              aria-label="National University of Science and Technology"
+            >
+              National University of Sciences and Technology (NUST)</a
+            >
+          </p>
+          <p><strong>Employment Type:</strong> Part-time</p>
+          <p><strong>Duration:</strong> Jun 2018 - May 2019 (1 yr)</p>
+          <p><strong>Location:</strong> Islāmābād, Pakistan (On-site)</p>
+          <ul>
+            <li>
+              Worked on the development of a low-cost tele-operated sprayer
+              drone.
+            </li>
+            <li>
+              Created a ROS Gazebo simulation for testing drone operations.
+            </li>
+            <li>Developed control systems for fluid dispensing.</li>
+          </ul>
+          <p>
+            <strong>Skills:</strong> Computer-Aided Design (CAD), Drones,
+            Precision Agriculture
+          </p>
+        </article>
 
-      <article>
-        <h3>Captain</h3>
-        <p>
-          <strong>Company:</strong
-          ><a href="https://pakistanarmy.gov.pk/" aria-label="Pakistan Army"
-            >Pakistan Army</a
-          >
-        </p>
-        <p><strong>Employment Type:</strong> Full-time</p>
-        <p><strong>Duration:</strong> Oct 2020 - Sep 2023 (3 yrs)</p>
-        <p><strong>Location:</strong> On-site</p>
-        <ul>
-          <li>
-            Oversaw maintenance and repair of vehicles and machinery for
-            operational readiness.
-          </li>
-          <li>
-            Conducted performance audits, identifying improvements and
-            implementing solutions.
-          </li>
-          <li>Completed diverse technical and administrative projects.</li>
-          <li>
-            Managed and coordinated 100 to 150 technical staff, fostering
-            teamwork.
-          </li>
-          <li>
-            Ensured high standards of maintenance practices for military
-            operations.
-          </li>
-          <li>
-            Provided leadership and training to enhance staff skills and
-            readiness.
-          </li>
-          <li>Optimized resource allocation for maintenance tasks.</li>
-          <li>
-            Enforced safety standards and compliance with military regulations.
-          </li>
-        </ul>
-        <p>
-          <strong>Skills:</strong> Engineering, Leadership, Human Resources
-          (HR), Project Management, Communication
-        </p>
-      </article>
+        <article>
+          <h3>Machine Learning Engineer</h3>
+          <p>
+            <strong>Company:</strong
+            ><a
+              href="https://www.linkedin.com/company/incline-artificial-intelligence/"
+              aria-label="Incline"
+              Artifical
+              Intelligence
+            >
+              Incline Artificial Intelligence</a
+            >
+          </p>
+          <p><strong>Employment Type:</strong> Part-time</p>
+          <p><strong>Duration:</strong> Jan 2018 - Dec 2018 (1 yr)</p>
+          <p>
+            <strong>Location:</strong> Islamabad, Islāmābād, Pakistan (On-site)
+          </p>
+          <ul>
+            <li>Worked on autonomous vehicles and drones.</li>
+            <li>
+              Observed the development of simulation software for self-driving
+              cars.
+            </li>
+            <li>
+              Observed the creation of city maps using sensor fusion with LIDAR.
+            </li>
+          </ul>
+          <p>
+            <strong>Skills:</strong> SQL, Autonomous Vehicles, Software,
+            Mechatronics, Sensor Fusion, Machine Learning, Engineering,
+            Artificial Intelligence (AI), Convolutional Neural Networks (CNN),
+            Data Loading, Data Modeling, Drones, Documentation
+          </p>
+        </article>
+      </section>
 
-      <article>
-        <h3>Embedded Engineer</h3>
-        <p>
-          <strong>Company:</strong
-          ><a
-            href="https://www.linkedin.com/company/wisdomwheel/"
-            aria-label="WisdomWheel Wireless"
-            >WisdomWheel Wireless</a
-          >
-        </p>
-        <p><strong>Employment Type:</strong> Part-time</p>
-        <p><strong>Duration:</strong> Dec 2018 - Nov 2019 (1 yr)</p>
-        <p>
-          <strong>Location:</strong> Islamabad, Islāmābād, Pakistan (On-site)
-        </p>
-        <ul>
-          <li>
-            Developed a real-time tracking system for shipping container
-            insurance claims.
-          </li>
-          <li>
-            Participated in meetings and presentations for potential clients.
-          </li>
-          <li>
-            Contributed to the development of a business model for smart
-            switches.
-          </li>
-        </ul>
-        <p>
-          <strong>Skills:</strong> Embedded Systems, Software, Mechatronics,
-          Engineering, Documentation
-        </p>
-      </article>
+      <section class="certifications">
+        <h2>Certifications</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Certification</th>
+              <th>Issuer</th>
+              <th>Issue Date</th>
+              <th>Link</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Deep Learning Specialization</td>
+              <td>DeepLearning.AI</td>
+              <td>01/2021</td>
+              <td>
+                <a
+                  href="https://www.coursera.org/account/accomplishments/specialization/MNPDUQLBGTJJ"
+                  target="_blank"
+                  >View Certificate</a
+                >
+              </td>
+            </tr>
 
-      <article>
-        <h3>Research Assistant</h3>
-        <p>
-          <strong>Company:</strong
-          ><a
-            href="https://ceme.nust.edu.pk/"
-            aria-label="National University of Science and Technology"
-          >
-            National University of Sciences and Technology (NUST)</a
-          >
-        </p>
-        <p><strong>Employment Type:</strong> Part-time</p>
-        <p><strong>Duration:</strong> Jun 2018 - May 2019 (1 yr)</p>
-        <p><strong>Location:</strong> Islāmābād, Pakistan (On-site)</p>
-        <ul>
-          <li>
-            Worked on the development of a low-cost tele-operated sprayer drone.
-          </li>
-          <li>Created a ROS Gazebo simulation for testing drone operations.</li>
-          <li>Developed control systems for fluid dispensing.</li>
-        </ul>
-        <p>
-          <strong>Skills:</strong> Computer-Aided Design (CAD), Drones,
-          Precision Agriculture
-        </p>
-      </article>
+            <tr>
+              <td>Build Basic Generative Adversarial Networks (GANs)</td>
+              <td>DeepLearning.AI</td>
+              <td>08/2023</td>
+              <td>
+                <a
+                  href="https://www.coursera.org/account/accomplishments/records/L8ZRY5BMMTX7"
+                  target="_blank"
+                  >View Certificate</a
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="publications">
+        <h2>Publications</h2>
+        <article class="publication-item">
+          <h3>FedGAN: Federated Diabetic Retinopathy Image Generation</h3>
+          <p>
+            <strong>Journal/Conference:</strong> Submitted to Computers in
+            Biology and Medicine
+          </p>
+          <p><strong>Date:</strong> March 2025</p>
+          <p>
+            Deep learning models for diagnostic applications require large
+            amounts of sensitive patient data, raising privacy concerns under
+            centralized training paradigms. We propose FedGAN, a federated
+            learning framework for synthetic medical image generation that
+            combines Generative Adversarial Networks (GANs) with cross-silo
+            federated learning. Our approach pretrains a DCGAN on abdominal CT
+            scans and fine-tunes it collaboratively across clinical silos using
+            diabetic retinopathy datasets. By federating the GAN’s discriminator
+            and generator via the Federated Averaging (FedAvg) algorithm, FedGAN
+            generates high-quality synthetic retinal images while complying with
+            HIPAA and GDPR. Experiments demonstrate that FedGAN achieves a
+            realism score of 0.43 (measured by a centralized discriminator).
+            This work bridges data scarcity and privacy challenges in medical
+            AI, enabling secure collaboration across institutions.
+          </p>
+          <p>
+            <a href="#" aria-label="Read more about FedGAN">Read more</a>
+          </p>
+        </article>
+        <article class="publication-item">
+          <h3>
+            Development of a Drone with an integrated sprayer system for
+            Precision Agriculture
+          </h3>
+          <p><strong>Journal/Conference:</strong> Pending Submission</p>
+          <p><strong>Date:</strong> March 2025</p>
+          <p>
+            Precision agriculture improves crop yields and ensures food
+            security. Precision agriculture is the integration of modern
+            technologies such as drones in the field of agriculture. Drones have
+            various applications in agriculture such as crop mapping, crop
+            health monitoring, and spraying. Commercially available spraying
+            drones are unaffordable for farmers in low- income countries. We
+            developed a low-cost teleoperated drone with an integrated spraying
+            mechanism. A spraying system was developed and integrated with the
+            assembled drone. The drone’s stability, payload capacity, and
+            spraying efficiency were tested. The drone completed several flights
+            while spraying fluid with good stability. Manual spraying method
+            results in pesticide wastage and is harmful to the operator. An
+            Unmanned Aerial Vehicle (UAV) spraying drone can enhance efficiency
+            and safe for operator.
+          </p>
+          <p>
+            <a href="#" aria-label="Read more about the development"
+              >Read more</a
+            >
+          </p>
+        </article>
+      </section>
 
-      <article>
-        <h3>Machine Learning Engineer</h3>
-        <p>
-          <strong>Company:</strong
-          ><a
-            href="https://www.linkedin.com/company/incline-artificial-intelligence/"
-            aria-label="Incline"
-            Artifical
-            Intelligence
-          >
-            Incline Artificial Intelligence</a
-          >
-        </p>
-        <p><strong>Employment Type:</strong> Part-time</p>
-        <p><strong>Duration:</strong> Jan 2018 - Dec 2018 (1 yr)</p>
-        <p>
-          <strong>Location:</strong> Islamabad, Islāmābād, Pakistan (On-site)
-        </p>
-        <ul>
-          <li>Worked on autonomous vehicles and drones.</li>
-          <li>
-            Observed the development of simulation software for self-driving
-            cars.
-          </li>
-          <li>
-            Observed the creation of city maps using sensor fusion with LIDAR.
-          </li>
-        </ul>
-        <p>
-          <strong>Skills:</strong> SQL, Autonomous Vehicles, Software,
-          Mechatronics, Sensor Fusion, Machine Learning, Engineering, Artificial
-          Intelligence (AI), Convolutional Neural Networks (CNN), Data Loading,
-          Data Modeling, Drones, Documentation
-        </p>
-      </article>
-    </section>
-
-    <section class="certifications">
-      <h2>Certifications</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Certification</th>
-            <th>Issuer</th>
-            <th>Issue Date</th>
-            <th>Link</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Deep Learning Specialization</td>
-            <td>DeepLearning.AI</td>
-            <td>01/2021</td>
-            <td>
-              <a
-                href="https://www.coursera.org/account/accomplishments/specialization/MNPDUQLBGTJJ"
-                target="_blank"
-                >View Certificate</a
-              >
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-    <section class="publications">
-      <h2>Publications</h2>
-      <article class="publication-item">
-        <h3>Title of Publication 1</h3>
-        <p><strong>Journal/Conference:</strong> Journal of AI Research</p>
-        <p><strong>Date:</strong> January 2023</p>
-        <p>
-          A brief description of the publication or its impact in the field of
-          AI.
-        </p>
-        <p>
-          <a href="#" aria-label="Read more about Publication 1">Read more</a>
-        </p>
-      </article>
-      <article class="publication-item">
-        <h3>Title of Publication 2</h3>
-        <p>
-          <strong>Journal/Conference:</strong> International Conference on
-          Machine Learning
-        </p>
-        <p><strong>Date:</strong> August 2022</p>
-        <p>
-          A brief description of the publication and its significance in
-          advancing research.
-        </p>
-        <p>
-          <a href="#" aria-label="Read more about Publication 2">Read more</a>
-        </p>
-      </article>
-    </section>
-
-    <section class="testimonials">
-      <h2>Testimonials</h2>
-      <article class="testimonial-item">
-        <p>
-          "Hassan is a highly skilled professional who delivers innovative
-          solutions on time. His work on AI integration was a game-changer for
-          our business."
-        </p>
-        <p class="testimonial-author">- Client Name, Company</p>
-      </article>
-      <article class="testimonial-item">
-        <p>
-          "Working with Hassan was a fantastic experience. His technical
-          expertise and leadership skills significantly contributed to our
-          project's success."
-        </p>
-        <p class="testimonial-author">- Another Client, Company</p>
-      </article>
-    </section>
-    <section class="faq">
-      <h2>Frequently Asked Questions</h2>
-      <details class="faq-item">
-        <summary>What services do you offer?</summary>
-        <p>
-          I specialize in AI-driven solutions, IoT integrations, and scalable
-          cloud applications.
-        </p>
-      </details>
-      <details class="faq-item">
-        <summary>How can I contact you for a project?</summary>
-        <p>
-          You can reach out via email at contact@engrhassankamran.com or call
-          +92 303 944 1945.
-        </p>
-      </details>
-    </section>
+      <section class="testimonials">
+        <h2>Testimonials</h2>
+        <article class="testimonial-item">
+          <p>
+            "Hassan is a highly skilled professional who delivers innovative
+            solutions on time. His work on AI integration was a game-changer for
+            our business."
+          </p>
+          <p class="testimonial-author">- Client Name, Company</p>
+        </article>
+        <article class="testimonial-item">
+          <p>
+            "Working with Hassan was a fantastic experience. His technical
+            expertise and leadership skills significantly contributed to our
+            project's success."
+          </p>
+          <p class="testimonial-author">- Another Client, Company</p>
+        </article>
+      </section>
+      <section class="faq">
+        <h2>Frequently Asked Questions</h2>
+        <details class="faq-item">
+          <summary>What services do you offer?</summary>
+          <p>
+            I specialize in AI-driven solutions, IoT integrations, and scalable
+            cloud applications.
+          </p>
+        </details>
+        <details class="faq-item">
+          <summary>How can I contact you for a project?</summary>
+          <p>
+            You can reach out via email at contact@engrhassankamran.com or call
+            +92 303 944 1945.
+          </p>
+        </details>
+      </section>
+    </main>
     <footer class="siteFooter">
       <div class="footerContent">
         <div class="footerLinks">
