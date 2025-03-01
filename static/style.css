@@ -877,6 +877,21 @@ figcaption {
   left: -24px;
 }
 
+.experience article a.experience-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  border-radius: var(--border-radius);
+}
+
+.experience article * {
+  position: relative;
+  z-index: 2;
+}
+
 .experience h3 {
   color: var(--bg-dark);
   margin-top: 0;
@@ -926,6 +941,247 @@ figcaption {
   font-weight: 600;
   display: inline;
   margin-right: 4px;
+}
+
+/* Certifications Section */
+.certifications {
+  width: var(--content-width);
+  max-width: var(--container-width);
+  margin: var(--spacing-xxl) auto;
+  padding: var(--spacing-md);
+}
+
+.certifications h2 {
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-xl);
+  font-size: 28px;
+  text-align: center;
+}
+
+.certifications table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #f8f8f8;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+}
+
+.certifications th,
+.certifications td {
+  padding: var(--spacing-md);
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.certifications th {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+.certifications tr:last-child td {
+  border-bottom: none;
+}
+
+.certifications tr:hover {
+  background-color: rgba(127, 62, 152, 0.05);
+}
+
+.certifications a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color var(--transition-default);
+}
+
+.certifications a:hover {
+  text-decoration: underline;
+}
+
+/* Publications Section */
+.publications {
+  width: var(--content-width);
+  max-width: var(--container-width);
+  margin: var(--spacing-xxl) auto;
+  padding: var(--spacing-md);
+}
+
+.publications h2 {
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-xl);
+  font-size: 28px;
+  text-align: center;
+}
+
+.publication-item {
+  background-color: #f8f8f8;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+  transition:
+    transform var(--transition-default),
+    box-shadow var(--transition-default);
+}
+
+.publication-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.publication-item h3 {
+  color: var(--bg-dark);
+  margin-top: 0;
+  margin-bottom: var(--spacing-sm);
+  font-size: 18px;
+}
+
+.publication-item p {
+  margin: var(--spacing-sm) 0;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.publication-item strong {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.publication-item a {
+  display: inline-block;
+  color: var(--primary-color);
+  text-decoration: none;
+  margin-top: var(--spacing-sm);
+  font-weight: 500;
+  transition: color var(--transition-default);
+}
+
+.publication-item a:hover {
+  text-decoration: underline;
+}
+
+/* Testimonials Section */
+.testimonials {
+  width: var(--content-width);
+  max-width: var(--container-width);
+  margin: var(--spacing-xxl) auto;
+  padding: var(--spacing-md);
+}
+
+.testimonials h2 {
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-xl);
+  font-size: 28px;
+  text-align: center;
+}
+
+.testimonial-item {
+  background-color: #f8f8f8;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+  position: relative;
+  transition:
+    transform var(--transition-default),
+    box-shadow var(--transition-default);
+}
+
+.testimonial-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.testimonial-item:before {
+  content: '"';
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  font-size: 60px;
+  color: var(--primary-color);
+  opacity: 0.2;
+  font-family: serif;
+  line-height: 1;
+}
+
+.testimonial-item p {
+  position: relative;
+  margin: var(--spacing-sm) 0;
+  color: var(--text-muted);
+  font-size: 16px;
+  font-style: italic;
+  line-height: 1.6;
+  z-index: 1;
+  padding-left: var(--spacing-md);
+}
+
+.testimonial-author {
+  text-align: right;
+  font-style: normal !important;
+  font-weight: 500;
+  color: var(--bg-dark) !important;
+  margin-top: var(--spacing-md) !important;
+}
+
+/* FAQ Section */
+.faq {
+  width: var(--content-width);
+  max-width: var(--container-width);
+  margin: var(--spacing-xxl) auto;
+  padding: var(--spacing-md);
+}
+
+.faq h2 {
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-xl);
+  font-size: 28px;
+  text-align: center;
+}
+
+.faq-item {
+  background-color: #f8f8f8;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  margin-bottom: var(--spacing-md);
+  transition:
+    transform var(--transition-default),
+    box-shadow var(--transition-default);
+}
+
+.faq-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.faq-item summary {
+  padding: var(--spacing-md) var(--spacing-lg);
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--bg-dark);
+  position: relative;
+  outline: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "+";
+  position: absolute;
+  right: var(--spacing-lg);
+  transition: transform var(--transition-default);
+}
+
+.faq-item[open] summary::after {
+  content: "−";
+}
+
+.faq-item p {
+  padding: 0 var(--spacing-lg) var(--spacing-md);
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.6;
 }
 
 /* Footer */
@@ -1056,6 +1312,23 @@ figcaption {
     grid-template-columns: 1fr;
   }
 
+  .certifications table {
+    display: block;
+    overflow-x: auto;
+  }
+
+  .testimonial-item p {
+    font-size: 14px;
+  }
+
+  .faq-item summary {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+
+  .faq-item p {
+    padding: 0 var(--spacing-md) var(--spacing-sm);
+  }
+
   .footerLinks {
     gap: var(--spacing-md);
   }
@@ -1106,5 +1379,18 @@ figcaption {
     font-size: 24px;
     text-align: left;
     margin-left: 40px;
+  }
+
+  .certifications h2,
+  .publications h2,
+  .testimonials h2,
+  .faq h2 {
+    font-size: 24px;
+    text-align: left;
+  }
+
+  .publication-item,
+  .testimonial-item {
+    padding: var(--spacing-md);
   }
 }
