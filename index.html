@@ -1104,26 +1104,60 @@
 
       <section class="testimonials">
         <h2>Testimonials</h2>
-        <article class="testimonial-item">
-          <p>
-            "Excellent work from Hassan. He completed not just the original job
-            but also a second milestone, which included updates and enhancements
-            to the initial project. Hassan was very structured, communicative,
-            and committed to delivering exactly what we needed. He went above
-            and beyond to ensure a thorough understanding of the project's
-            deliverables. We highly recommend Hassan and look forward to working
-            with him again!"
-          </p>
-          <p class="testimonial-author">- Mohammed Hoosen, Upwork Client</p>
-        </article>
-        <article class="testimonial-item">
-          <p>
-            "Working with Hassan was a fantastic experience. His technical
-            expertise and leadership skills significantly contributed to our
-            project's success."
-          </p>
-          <p class="testimonial-author">- Another Client, Company</p>
-        </article>
+        <div class="testimonial-carousel">
+          <div class="testimonial-track">
+            <input
+              type="radio"
+              name="testimonial-radio"
+              id="testimonial-1"
+              checked
+            />
+            <input type="radio" name="testimonial-radio" id="testimonial-2" />
+
+            <div class="testimonial-slides">
+              <article class="testimonial-item" id="slide-1">
+                <p>
+                  "Excellent work from Hassan. He completed not just the
+                  original job but also a second milestone, which included
+                  updates and enhancements to the initial project. Hassan was
+                  very structured, communicative, and committed to delivering
+                  exactly what we needed. He went above and beyond to ensure a
+                  thorough understanding of the project's deliverables. We
+                  highly recommend Hassan and look forward to working with him
+                  again!"
+                </p>
+                <p class="testimonial-author">
+                  - Mohammed Hoosen, Upwork Client
+                </p>
+              </article>
+
+              <article class="testimonial-item" id="slide-2">
+                <p>
+                  "Working with Hassan was a fantastic experience. His technical
+                  expertise and leadership skills significantly contributed to
+                  our project's success."
+                </p>
+                <p class="testimonial-author">- Another Client, Company</p>
+              </article>
+            </div>
+
+            <div class="carousel-controls">
+              <label for="testimonial-2" class="next-control" id="slide1-next"
+                >❯</label
+              >
+              <label for="testimonial-1" class="prev-control" id="slide2-prev"
+                >❮</label
+              >
+              <!-- Add more control labels for additional testimonials -->
+
+              <div class="carousel-indicators">
+                <label for="testimonial-1" class="indicator"></label>
+                <label for="testimonial-2" class="indicator"></label>
+                <!-- Add more indicators for additional testimonials -->
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
       <section class="faq">
         <h2>Frequently Asked Questions</h2>
