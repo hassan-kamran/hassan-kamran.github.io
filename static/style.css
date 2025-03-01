@@ -368,6 +368,7 @@ svg:hover {
 }
 
 .contact-item a:hover,
+.logo-item a:hover,
 .logos img:hover,
 .search-icon:hover {
   color: var(--primary-color);
@@ -437,9 +438,6 @@ figcaption {
 .btn,
 .logo-item a {
   text-decoration: none;
-}
-.logo-item a:hover {
-  color: var(--primary-color);
 }
 
 .btn {
@@ -577,7 +575,8 @@ figcaption {
   margin-bottom: var(--spacing-md);
 }
 
-.card h3 {
+.card h3,
+.card p {
   margin: var(--spacing-md) 0 var(--spacing-sm);
   color: inherit;
 }
@@ -586,7 +585,6 @@ figcaption {
   margin: var(--spacing-md);
   font-size: 16px;
   text-align: justify;
-  color: inherit;
 }
 
 .modal {
@@ -876,7 +874,6 @@ figcaption {
 
 .experience h3,
 .publication-item h3 {
-  /*color: var(--bg-dark);*/
   margin-top: 0;
   margin-bottom: var(--spacing-sm);
   font-size: 18px;
@@ -885,7 +882,6 @@ figcaption {
 .experience p,
 .publication-item p {
   margin: var(--spacing-sm) 0;
-  /*color: var(--text-muted);*/
   font-size: 14px;
 }
 
@@ -1226,16 +1222,15 @@ figcaption {
   }
 
   .certifications table {
-    display: block;
-    width: 100%;
     border-collapse: separate;
     border-spacing: 0;
   }
 
   .certifications thead {
-    display: none; /* Hide the table header on mobile */
+    display: none;
   }
 
+  .certifications table,
   .certifications tbody {
     display: block;
     width: 100%;
@@ -1257,14 +1252,14 @@ figcaption {
     position: relative;
   }
 
-  /* Add pseudo-elements for labels */
   .certifications td:nth-child(1)::before {
     content: "Certification: ";
     font-weight: 500;
     color: var(--primary-color);
   }
 
-  .certifications td:nth-child(2)::before {
+  .certifications td:nth-child(2)::before,
+  .certifications td:nth-child(3)::before {
     content: "Issuer: ";
     font-weight: 500;
     color: var(--primary-color);
@@ -1272,8 +1267,6 @@ figcaption {
 
   .certifications td:nth-child(3)::before {
     content: "Issue Date: ";
-    font-weight: 500;
-    color: var(--primary-color);
   }
 
   .certifications td:nth-child(4) {
