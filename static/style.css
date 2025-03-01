@@ -434,13 +434,17 @@ figcaption {
   text-align: center;
 }
 
+.btn,
+.logo-item a {
+  text-decoration: none;
+}
+
 .btn {
   display: inline-flex;
   padding: var(--spacing-md) var(--spacing-lg);
   background-color: transparent;
   font-family: inherit;
   font-weight: 600;
-  text-decoration: none;
   border: 2px solid var(--bg-dark);
   border-radius: var(--border-radius);
 }
@@ -508,8 +512,13 @@ figcaption {
   color: var(--bg-dark);
 }
 
-.logos img:hover {
+.logos img:hover,
+.social-links a:hover {
   transform: scale(1.1);
+}
+
+.logo-item a {
+  color: inherit;
 }
 
 .membership {
@@ -709,10 +718,6 @@ figcaption {
 .social-links a {
   transition: transform var(--transition-default);
   display: inline-block;
-}
-
-.social-links a:hover {
-  transform: scale(1.1);
 }
 
 .contact-item svg,
