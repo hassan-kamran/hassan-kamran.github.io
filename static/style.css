@@ -438,6 +438,9 @@ figcaption {
 .logo-item a {
   text-decoration: none;
 }
+.logo-item a:hover {
+  color: var(--primary-color);
+}
 
 .btn {
   display: inline-flex;
@@ -565,6 +568,7 @@ figcaption {
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  color: var(--primary-color);
 }
 
 .card img {
@@ -575,12 +579,14 @@ figcaption {
 
 .card h3 {
   margin: var(--spacing-md) 0 var(--spacing-sm);
+  color: inherit;
 }
 
 .card p {
   margin: var(--spacing-md);
   font-size: 16px;
   text-align: justify;
+  color: inherit;
 }
 
 .modal {
@@ -767,7 +773,7 @@ figcaption {
 .faq h2,
 .publications h2,
 .testimonials h2 {
-  color: var(--primary-color);
+  color: inherit;
   margin-bottom: var(--spacing-xl);
   font-size: 28px;
   text-align: center;
@@ -805,6 +811,7 @@ figcaption {
 .testimonial-item:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  color: var(--primary-color);
 }
 
 .experience article:nth-child(even) {
@@ -869,7 +876,7 @@ figcaption {
 
 .experience h3,
 .publication-item h3 {
-  color: var(--bg-dark);
+  /*color: var(--bg-dark);*/
   margin-top: 0;
   margin-bottom: var(--spacing-sm);
   font-size: 18px;
@@ -878,7 +885,7 @@ figcaption {
 .experience p,
 .publication-item p {
   margin: var(--spacing-sm) 0;
-  color: var(--text-muted);
+  /*color: var(--text-muted);*/
   font-size: 14px;
 }
 
