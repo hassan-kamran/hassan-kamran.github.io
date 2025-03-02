@@ -1032,6 +1032,7 @@ figcaption {
 .testimonial-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  color: var(--primary-color);
 }
 
 .testimonial-icon {
@@ -1057,6 +1058,10 @@ figcaption {
   font-family: "Exo 2 Italic", "Exo 2", sans-serif;
   line-height: 1.6;
   padding-left: var(--spacing-md);
+}
+
+.testimonial-content p:hover {
+  color: var(--primary-color);
 }
 
 .testimonial-footer {
@@ -1131,6 +1136,10 @@ figcaption {
   color: var(--bg-dark);
   position: relative;
   outline: 0;
+}
+
+.faq-item summary:hover {
+  color: var(--primary-color);
 }
 
 .faq-item summary::-webkit-details-marker {
@@ -1363,6 +1372,11 @@ figcaption {
 
   .testimonial-content p {
     font-size: 14px;
+  }
+
+  .testimonial-content p:hover {
+    font-size: 14px;
+    color: var(--primary-color);
   }
 
   .footerLinks a,
