@@ -2,7 +2,7 @@ from jinja2 import Environment, FileSystemLoader
 
 TEMPLATES_FOLDER = "./templates"
 BASE_TEMPLATE = "base.html"
-BUILD_FOLDER = "./build"
+BUILD_FOLDER = "."
 
 urls = {
     "home": "./index.html",
