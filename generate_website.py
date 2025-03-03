@@ -11,6 +11,7 @@ urls = {
     "sitemap": "./sitemap.xml",
 }
 
+
 # Create a Jinja2 environment with the template folder
 env = Environment(loader=FileSystemLoader(TEMPLATES_FOLDER))
 
@@ -30,6 +31,7 @@ def render_page(template_name, page_name, **kwargs):
         blog=urls.get("blog"),
         about=urls.get("about"),
         sitemap=urls.get("sitemap"),
+        preload=kwargs.get("preload"),
     )
 
     with open(f"{BUILD_FOLDER}/{page_name}.html", "w", encoding="utf-8") as file:
@@ -37,11 +39,11 @@ def render_page(template_name, page_name, **kwargs):
 
 
 def home():
-    render_page("home.html", "index")
+    render_page("home.html", "index", preload="hero")
 
 
 def about_me():
-    render_page("about.html", "about")
+    render_page("about.html", "about", preload="cta")
 
 
 def main_blog():
