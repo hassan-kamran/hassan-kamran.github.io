@@ -139,11 +139,27 @@ def sitemap():
         file.write(sitemap_content)
 
 
+def robots_txt():
+    domain = "https://engrhassankamran.com"
+
+    robots_content = "# robots.txt for engrhassankamran.com\n"
+    robots_content += "User-agent: *\n"
+    robots_content += "Allow: /\n\n"
+
+    # Specify the sitemap location for search engines
+    robots_content += f"Sitemap: {domain}/sitemap.xml\n"
+
+    # Write robots.txt file
+    with open("./robots.txt", "w", encoding="utf-8") as file:
+        file.write(robots_content)
+
+
 def main():
     home()
     about_me()
     blog()
     sitemap()
+    robots_txt()
 
 
 if __name__ == "__main__":
