@@ -2,6 +2,7 @@ from jinja2 import Environment, FileSystemLoader
 
 TEMPLATES_FOLDER = "./templates"
 BASE_TEMPLATE = "base.html"
+BUILD_FOLDER = "./build"
 
 urls = {
     "home": "./index.html",
@@ -31,7 +32,7 @@ def render_page(template_name, page_name, **kwargs):
         sitemap=urls.get("sitemap"),
     )
 
-    with open(f"{page_name}.html", "w", encoding="utf-8") as file:
+    with open(f"{BUILD_FOLDER}/{page_name}.html", "w", encoding="utf-8") as file:
         file.write(rendered_html)
 
 
