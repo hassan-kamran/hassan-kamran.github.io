@@ -4,10 +4,13 @@
       <h1>Welcome To My Blog</h1>
       <p>These are some of latest insights in the world of tech.</p>
     </div>
+
+    {% for post in blog_posts %}
     <div class="insight-card">
-      <h2>Category</h2>
-      <h3>Name</h3>
-      <p>Date Published</p>
+      <h2>{{ post.category }}</h2>
+      <h3><a href="./blogs/{{ post.file_name }}.html">{{ post.title }}</a></h3>
+      <p>{{ post.date }}</p>
     </div>
+    {% endfor %}
   </div>
 </section>

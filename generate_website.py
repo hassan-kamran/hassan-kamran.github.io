@@ -1,8 +1,10 @@
 from jinja2 import Environment, FileSystemLoader
+import os
 
 TEMPLATES_FOLDER = "./templates"
 BASE_TEMPLATE = "base.html"
 BUILD_FOLDER = "."
+BLOG_FOLDER = "./text"
 
 urls = {
     "home": "./index.html",
@@ -46,12 +48,44 @@ def about_me():
     render_page("about.html", "about", preload="cta")
 
 
-def main_blog():
-    pass
+def blog():
+    blog_posts = []
+    for filename in os.listdir(BLOG_FOLDER):
+        if filename.endswith(".txt"):
+            filepath = os.path.join(BLOG_FOLDER, filename)
 
+            with open(filepath, "r", encoding="utf-8") as file:
+                content = file.read().strip()
 
-def blog_pages():
-    pass
+                # Parse metadata from the file (assuming first lines contain metadata)
+                lines = content.split("\n")
+                title = lines[0].strip()
+                category = lines[1].strip() if len(lines) > 1 else "Uncategorized"
+                date = lines[2].strip() if len(lines) > 2 else "Unknown date"
+                content = "\n".join(lines[3:]) if len(lines) > 3 else ""
+
+                # Create blog post entry
+                blog_posts.append(
+                    {
+                        "title": title,
+                        "category": category,
+                        "date": date,
+                        "filename": os.path.splitext(filename)[0],
+                        "content": content,
+                    }
+                )
+
+                render_page(
+                    "blog_post.html",
+                    f"blogs/{title}.html",
+                    title=title,
+                    category=category,
+                    date=date,
+                    content=content,
+                    preload="blog",
+                )
+
+    render_page("blog.html", "blog", blog_posts=blog_posts, preload="blog")
 
 
 def sitemap():
@@ -61,6 +95,7 @@ def sitemap():
 def main():
     home()
     about_me()
+    blog()
 
 
 if __name__ == "__main__":
