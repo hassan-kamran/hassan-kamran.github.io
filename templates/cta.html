@@ -6,11 +6,20 @@
     </button>
   </div>
   <div>
-    <img
-      src="./static/cta.avif"
-      alt="Hassan Kamran Working"
-      height="512"
-      width="1024"
-    />
+    <picture>
+      <source
+        srcset="static/cta-mini.avif"
+        media="(max-width: 768px)"
+        width="256"
+        height="128"
+      />
+
+      <img
+        src="./static/cta.avif"
+        alt="Hassan Kamran Working"
+        height="512"
+        width="1024"
+      />
+    </picture>
   </div>
 </section>
