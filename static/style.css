@@ -1252,14 +1252,13 @@ figcaption {
   font-size: 18px;
   line-height: 1.6;
   margin-bottom: var(--spacing-xl);
-  /*max-width: 700px;*/
 }
 
 /* CTA Section Styles */
 .about section {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: left;
   background-color: #f8f8f8;
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
@@ -1501,7 +1500,6 @@ figcaption {
   }
 
   .about p {
-    text-align: center;
     margin-left: auto;
     margin-right: auto;
   }
