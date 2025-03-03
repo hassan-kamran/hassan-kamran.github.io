@@ -34,6 +34,7 @@ def render_page(template_name, page_name, **kwargs):
         about=urls.get("about"),
         sitemap=urls.get("sitemap"),
         preload=kwargs.get("preload"),
+        static=kwargs.get("static"),
     )
 
     with open(f"{BUILD_FOLDER}/{page_name}.html", "w", encoding="utf-8") as file:
@@ -41,11 +42,11 @@ def render_page(template_name, page_name, **kwargs):
 
 
 def home():
-    render_page("home.html", "index", preload="hero")
+    render_page("home.html", "index", preload="hero", static="./static")
 
 
 def about_me():
-    render_page("about.html", "about", preload="cta")
+    render_page("about.html", "about", preload="cta", static="./static")
 
 
 def blog():
@@ -63,6 +64,7 @@ def blog():
                 category = lines[1].strip() if len(lines) > 1 else "Uncategorized"
                 date = lines[2].strip() if len(lines) > 2 else "Unknown date"
                 content = "\n".join(lines[3:]) if len(lines) > 3 else ""
+                filename = os.path.splitext(filename)[0]
 
                 # Create blog post entry
                 blog_posts.append(
@@ -70,22 +72,25 @@ def blog():
                         "title": title,
                         "category": category,
                         "date": date,
-                        "filename": os.path.splitext(filename)[0],
+                        "filename": f"./blogs/{filename}.html",
                         "content": content,
                     }
                 )
 
                 render_page(
                     "blog_post.html",
-                    f"blogs/{title}.html",
+                    f"blogs/{filename}",
                     title=title,
                     category=category,
                     date=date,
-                    content=content,
+                    blog_content=content,
                     preload="blog",
+                    static="../static",
                 )
 
-    render_page("blog.html", "blog", blog_posts=blog_posts, preload="blog")
+    render_page(
+        "blog.html", "blog", blog_posts=blog_posts, preload="blog", static="./static"
+    )
 
 
 def sitemap():

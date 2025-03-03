@@ -12,19 +12,19 @@
     <link
       rel="preload"
       as="image"
-      href="./static/{{ preload }}-mini.avif"
+      href="{{ static }}/{{ preload }}-mini.avif"
       type="image/avif"
     />
     <link
       rel="preload"
       as="image"
-      href="./static/{{ preload}}.avif"
+      href="{{ static }}/{{ preload}}.avif"
       type="image/avif"
     />
 
     <link
       rel="preload"
-      href="./static/Exo2-Regular.woff2"
+      href="{{ static }}/Exo2-Regular.woff2"
       as="font"
       type="font/woff2"
       crossorigin="anonymous"
@@ -32,17 +32,17 @@
 
     <link
       rel="preload"
-      href="./static/style.css"
+      href="{{ static }}/style.css"
       as="style"
       onload="this.rel='stylesheet'"
     />
-    <noscript><link rel="stylesheet" href="./static/style.css" /></noscript>
+    <noscript><link rel="stylesheet" href="{{ static }}/style.css" /></noscript>
 
     <link
       class="favicon"
       rel="icon"
       type="image/svg+xml"
-      href="./static/favicon.svg"
+      href="{{ static }}/favicon.svg"
     />
   </head>
 
