@@ -1,9 +1,9 @@
 from jinja2 import Environment, FileSystemLoader
+from datetime import datetime
 import os
 
 TEMPLATES_FOLDER = "./templates"
 BASE_TEMPLATE = "base.html"
-BUILD_FOLDER = "."
 BLOG_FOLDER = "./text"
 
 urls = {
@@ -37,7 +37,7 @@ def render_page(template_name, page_name, **kwargs):
         static=kwargs.get("static"),
     )
 
-    with open(f"{BUILD_FOLDER}/{page_name}.html", "w", encoding="utf-8") as file:
+    with open(f"./{page_name}.html", "w", encoding="utf-8") as file:
         file.write(rendered_html)
 
 
@@ -94,13 +94,56 @@ def blog():
 
 
 def sitemap():
-    pass
+    domain = "https://engrhassankamran.com"
+    pages = []
+
+    for page_name, url in urls.items():
+        if url.endswith(".html"):
+            # Convert relative URL to absolute
+            absolute_url = f"{domain}/{url.lstrip('./')}"
+            pages.append(
+                {
+                    "loc": absolute_url,
+                    "lastmod": datetime.now().strftime("%Y-%m-%d"),
+                    "priority": "1.0" if page_name == "home" else "0.8",
+                }
+            )
+
+    if os.path.exists("./blogs"):
+        for filename in os.listdir("./blogs"):
+            if filename.endswith(".html"):
+                # Convert relative blog URL to absolute
+                absolute_url = f"{domain}/blogs/{filename}"
+                pages.append(
+                    {
+                        "loc": absolute_url,
+                        "lastmod": datetime.now().strftime("%Y-%m-%d"),
+                        "priority": "0.7",
+                    }
+                )
+
+    sitemap_content = '<?xml version="1.0" encoding="UTF-8"?>\n'
+    sitemap_content += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+
+    for page in pages:
+        sitemap_content += "  <url>\n"
+        sitemap_content += f"    <loc>{page['loc']}</loc>\n"
+        sitemap_content += f"    <lastmod>{page['lastmod']}</lastmod>\n"
+        sitemap_content += f"    <priority>{page['priority']}</priority>\n"
+        sitemap_content += "  </url>\n"
+
+    sitemap_content += "</urlset>"
+
+    # Write sitemap.xml file
+    with open("./sitemap.xml", "w", encoding="utf-8") as file:
+        file.write(sitemap_content)
 
 
 def main():
     home()
     about_me()
     blog()
+    sitemap()
 
 
 if __name__ == "__main__":
