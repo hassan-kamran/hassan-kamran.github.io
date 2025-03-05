@@ -6,32 +6,23 @@ import re
 TEMPLATES_FOLDER = "./templates"
 BASE_TEMPLATE = "base.html"
 BLOG_FOLDER = "./text"
-SVG_FOLDER = "./static"  # Folder where SVG files are stored
+SVG_FOLDER = "./static"
 
-urls = {
-    "home": "./index.html",
-    "blog": "./blog.html",
-    "about": "./about.html",
-    "sitemap": "./sitemap.xml",
-}
 
-# Create a Jinja2 environment with the template folder
+def get_urls(depth=0):
+    prefix = "../" * depth
+    return {
+        "home": f"{prefix}index.html",
+        "blog": f"{prefix}blog.html",
+        "about": f"{prefix}about.html",
+        "sitemap": f"{prefix}sitemap.xml",
+    }
+
+
 env = Environment(loader=FileSystemLoader(TEMPLATES_FOLDER))
 
 
 def inject_svg(svg_name, use_current_color=False, classes=None, replace_none=False):
-    """
-    Reads an SVG file and returns its content for direct HTML injection.
-
-    Args:
-        svg_name (str): Name of the SVG file without extension
-        use_current_color (bool): If True, replaces fill colors with currentcolor
-        classes (str): Optional CSS classes to add to the SVG element
-        replace_none (bool): If True, replaces 'none' values with currentcolor in child elements
-
-    Returns:
-        str: The SVG content ready for HTML injection
-    """
     svg_path = os.path.join(SVG_FOLDER, f"{svg_name}.svg")
 
     # Check if the SVG file exists
@@ -200,6 +191,15 @@ def inject_svg(svg_name, use_current_color=False, classes=None, replace_none=Fal
 
 
 def render_page(template_name, page_name, **kwargs):
+    # Calculate the folder depth based on page_name
+    depth = page_name.count("/")
+
+    # Get URLs adjusted for the current page depth
+    page_urls = get_urls(depth)
+
+    # Calculate static path based on depth
+    static_path = "../" * depth + "static"
+
     # Load the template from the environment
     template = env.get_template(BASE_TEMPLATE)
 
@@ -214,13 +214,15 @@ def render_page(template_name, page_name, **kwargs):
     # Render the base template with the content and other variables
     rendered_html = template.render(
         content=content,
-        home=urls.get("home"),
-        blog=urls.get("blog"),
-        about=urls.get("about"),
-        sitemap=urls.get("sitemap"),
+        home=page_urls.get("home"),
+        blog=page_urls.get("blog"),
+        about=page_urls.get("about"),
+        sitemap=page_urls.get("sitemap"),
         preload=kwargs.get("preload"),
-        static=kwargs.get("static"),
-        inject_svg=inject_svg,  # Make inject_svg available in the base template too
+        static=kwargs.get(
+            "static", static_path
+        ),  # Use calculated static path if not provided
+        inject_svg=inject_svg,
     )
 
     # Create directory if it doesn't exist
@@ -231,11 +233,11 @@ def render_page(template_name, page_name, **kwargs):
 
 
 def home():
-    render_page("home.html", "index", preload="hero", static="./static")
+    render_page("home.html", "index")
 
 
 def about_me():
-    render_page("about.html", "about", preload="cta", static="./static")
+    render_page("about.html", "about")
 
 
 def blog():
@@ -255,7 +257,7 @@ def blog():
 
                 filename = os.path.splitext(filename)[0]
 
-                # Create blog post entry
+                # Create blog post entry with correct relative path from blog list
                 blog_posts.append(
                     {
                         "title": title,
@@ -266,6 +268,7 @@ def blog():
                     }
                 )
 
+                # Render the individual blog post page
                 render_page(
                     "blog_post.html",
                     f"blogs/{filename}",
@@ -274,19 +277,21 @@ def blog():
                     date=date,
                     blog_content=content,
                     preload="blog",
-                    static="../static",
+                    # static path is automatically calculated based on depth
                 )
 
-    render_page(
-        "blog.html", "blog", blog_posts=blog_posts, preload="blog", static="./static"
-    )
+    # Render the blog list page
+    render_page("blog.html", "blog", blog_posts=blog_posts, preload="blog")
 
 
 def sitemap():
     domain = "https://engrhassankamran.com"
     pages = []
 
-    for page_name, url in urls.items():
+    # Root URLs for sitemap
+    root_urls = get_urls(0)
+
+    for page_name, url in root_urls.items():
         if url.endswith(".html"):
             # Convert relative URL to absolute
             absolute_url = f"{domain}/{url.lstrip('./')}"
@@ -344,9 +349,6 @@ def robots_txt():
 
 
 def main():
-    # Create SVG folder if it doesn't exist
-    os.makedirs(SVG_FOLDER, exist_ok=True)
-
     home()
     about_me()
     blog()
