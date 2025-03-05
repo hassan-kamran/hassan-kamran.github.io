@@ -1,10 +1,12 @@
 from jinja2 import Environment, FileSystemLoader
 from datetime import datetime
 import os
+import re
 
 TEMPLATES_FOLDER = "./templates"
 BASE_TEMPLATE = "base.html"
 BLOG_FOLDER = "./text"
+SVG_FOLDER = "./static"  # Folder where SVG files are stored
 
 urls = {
     "home": "./index.html",
@@ -13,9 +15,188 @@ urls = {
     "sitemap": "./sitemap.xml",
 }
 
-
 # Create a Jinja2 environment with the template folder
 env = Environment(loader=FileSystemLoader(TEMPLATES_FOLDER))
+
+
+def inject_svg(svg_name, use_current_color=False, classes=None, replace_none=False):
+    """
+    Reads an SVG file and returns its content for direct HTML injection.
+
+    Args:
+        svg_name (str): Name of the SVG file without extension
+        use_current_color (bool): If True, replaces fill colors with currentcolor
+        classes (str): Optional CSS classes to add to the SVG element
+        replace_none (bool): If True, replaces 'none' values with currentcolor in child elements
+
+    Returns:
+        str: The SVG content ready for HTML injection
+    """
+    svg_path = os.path.join(SVG_FOLDER, f"{svg_name}.svg")
+
+    # Check if the SVG file exists
+    if not os.path.exists(svg_path):
+        return f"<!-- SVG '{svg_name}' not found -->"
+
+    # Read the SVG file
+    with open(svg_path, "r", encoding="utf-8") as file:
+        svg_content = file.read()
+
+    if use_current_color:
+        # First find the root SVG tag
+        svg_tag_match = re.search(r"<svg\s[^>]*>", svg_content)
+
+        if svg_tag_match:
+            svg_tag = svg_tag_match.group(0)
+            svg_tag_end_pos = svg_tag_match.end()
+
+            # Split the SVG into the root tag and the content
+            root_tag = svg_content[:svg_tag_end_pos]
+            inner_content = svg_content[svg_tag_end_pos:]
+            closing_tag_match = re.search(r"</svg>\s*$", inner_content)
+
+            if closing_tag_match:
+                closing_tag_start_pos = closing_tag_match.start()
+                inner_content_only = inner_content[:closing_tag_start_pos]
+                closing_tag = inner_content[closing_tag_start_pos:]
+
+                # Process the root tag - replace colors but NOT none
+                # Replace fill="#hexcode" with fill="currentcolor" in root tag
+                root_tag = re.sub(
+                    r'fill="#[0-9a-fA-F]+"', 'fill="currentcolor"', root_tag
+                )
+                root_tag = re.sub(
+                    r"fill='#[0-9a-fA-F]+'", "fill='currentcolor'", root_tag
+                )
+                root_tag = re.sub(
+                    r'fill="rgb[a]?\([^)]+\)"', 'fill="currentcolor"', root_tag
+                )
+                root_tag = re.sub(
+                    r'fill="(?!currentcolor|none)[a-zA-Z]+"',
+                    'fill="currentcolor"',
+                    root_tag,
+                )
+
+                # Process inner content - replace all colors including none if replace_none is True
+                if replace_none:
+                    # Replace fill="none" with fill="currentcolor" in child elements
+                    inner_content_only = re.sub(
+                        r'fill="none"', 'fill="currentcolor"', inner_content_only
+                    )
+                    inner_content_only = re.sub(
+                        r"fill='none'", "fill='currentcolor'", inner_content_only
+                    )
+                    inner_content_only = re.sub(
+                        r"fill=none", "fill=currentcolor", inner_content_only
+                    )
+
+                    # Replace inline style with fill:none
+                    inner_content_only = re.sub(
+                        r'style="([^"]*?)fill:\s*none;([^"]*?)"',
+                        r'style="\1fill:currentcolor;\2"',
+                        inner_content_only,
+                    )
+                    inner_content_only = re.sub(
+                        r"style='([^']*?)fill:\s*none;([^']*?)'",
+                        r"style='\1fill:currentcolor;\2'",
+                        inner_content_only,
+                    )
+
+                # Always replace other colors in inner content
+                inner_content_only = re.sub(
+                    r'fill="#[0-9a-fA-F]+"', 'fill="currentcolor"', inner_content_only
+                )
+                inner_content_only = re.sub(
+                    r"fill='#[0-9a-fA-F]+'", "fill='currentcolor'", inner_content_only
+                )
+                inner_content_only = re.sub(
+                    r"fill=#[0-9a-fA-F]+", "fill=currentcolor", inner_content_only
+                )
+                inner_content_only = re.sub(
+                    r'fill="rgb[a]?\([^)]+\)"',
+                    'fill="currentcolor"',
+                    inner_content_only,
+                )
+                inner_content_only = re.sub(
+                    r"fill='rgb[a]?\([^)]+\)'",
+                    "fill='currentcolor'",
+                    inner_content_only,
+                )
+                inner_content_only = re.sub(
+                    r'fill="(?!currentcolor)[a-zA-Z]+"',
+                    'fill="currentcolor"',
+                    inner_content_only,
+                )
+                inner_content_only = re.sub(
+                    r"fill='(?!currentcolor)[a-zA-Z]+'",
+                    "fill='currentcolor'",
+                    inner_content_only,
+                )
+
+                # Handle inline style attributes with fill
+                inner_content_only = re.sub(
+                    r'style="([^"]*?)fill:[^;]+;([^"]*?)"',
+                    r'style="\1fill:currentcolor;\2"',
+                    inner_content_only,
+                )
+                inner_content_only = re.sub(
+                    r"style='([^']*?)fill:[^;]+;([^']*?)'",
+                    r"style='\1fill:currentcolor;\2'",
+                    inner_content_only,
+                )
+
+                # Also handle stroke attributes
+                if replace_none:
+                    inner_content_only = re.sub(
+                        r'stroke="none"', 'stroke="currentcolor"', inner_content_only
+                    )
+                    inner_content_only = re.sub(
+                        r"stroke='none'", "stroke='currentcolor'", inner_content_only
+                    )
+                    inner_content_only = re.sub(
+                        r"stroke=none", "stroke=currentcolor", inner_content_only
+                    )
+
+                inner_content_only = re.sub(
+                    r'stroke="#[0-9a-fA-F]+"',
+                    'stroke="currentcolor"',
+                    inner_content_only,
+                )
+                inner_content_only = re.sub(
+                    r"stroke='#[0-9a-fA-F]+'",
+                    "stroke='currentcolor'",
+                    inner_content_only,
+                )
+                inner_content_only = re.sub(
+                    r'stroke="(?!currentcolor|none)[a-zA-Z]+"',
+                    'stroke="currentcolor"',
+                    inner_content_only,
+                )
+
+                # Reassemble the SVG
+                svg_content = root_tag + inner_content_only + closing_tag
+
+    # Add CSS classes if provided
+    if classes:
+        # Find the opening SVG tag
+        svg_tag_match = re.search(r"<svg\s[^>]*>", svg_content)
+        if svg_tag_match:
+            svg_tag = svg_tag_match.group(0)
+
+            # Check if the SVG already has a class attribute
+            if 'class="' in svg_tag:
+                # Append to existing class attribute
+                new_svg_tag = re.sub(
+                    r'class="([^"]*)"', f'class="\\1 {classes}"', svg_tag
+                )
+            else:
+                # Add new class attribute before the closing '>'
+                new_svg_tag = svg_tag.replace(">", f' class="{classes}">')
+
+            # Replace the original SVG tag with the modified one
+            svg_content = svg_content.replace(svg_tag, new_svg_tag)
+
+    return svg_content
 
 
 def render_page(template_name, page_name, **kwargs):
@@ -24,6 +205,10 @@ def render_page(template_name, page_name, **kwargs):
 
     # Load the content template and render it first
     content_template = env.get_template(template_name)
+
+    # Add the inject_svg function to the template context
+    kwargs["inject_svg"] = inject_svg
+
     content = content_template.render(**kwargs)
 
     # Render the base template with the content and other variables
@@ -35,7 +220,11 @@ def render_page(template_name, page_name, **kwargs):
         sitemap=urls.get("sitemap"),
         preload=kwargs.get("preload"),
         static=kwargs.get("static"),
+        inject_svg=inject_svg,  # Make inject_svg available in the base template too
     )
+
+    # Create directory if it doesn't exist
+    os.makedirs(os.path.dirname(f"./{page_name}.html"), exist_ok=True)
 
     with open(f"./{page_name}.html", "w", encoding="utf-8") as file:
         file.write(rendered_html)
@@ -54,7 +243,6 @@ def blog():
     for filename in os.listdir(BLOG_FOLDER):
         if filename.endswith(".txt"):
             filepath = os.path.join(BLOG_FOLDER, filename)
-
             with open(filepath, "r", encoding="utf-8") as file:
                 content = file.read().strip()
 
@@ -64,6 +252,7 @@ def blog():
                 category = lines[1].strip() if len(lines) > 1 else "Uncategorized"
                 date = lines[2].strip() if len(lines) > 2 else "Unknown date"
                 content = "\n".join(lines[3:]) if len(lines) > 3 else ""
+
                 filename = os.path.splitext(filename)[0]
 
                 # Create blog post entry
@@ -155,6 +344,9 @@ def robots_txt():
 
 
 def main():
+    # Create SVG folder if it doesn't exist
+    os.makedirs(SVG_FOLDER, exist_ok=True)
+
     home()
     about_me()
     blog()

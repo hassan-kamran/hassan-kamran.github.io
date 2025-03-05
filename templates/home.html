@@ -30,6 +30,7 @@
           <h2>Proud Alumnus Of</h2>
         </div>
         <div class="logos">
+          {% set logo_content %}
           <div class="logo-item">
             <a
               href="https://www.beaconhouse.net/"
@@ -55,7 +56,7 @@
             >
               <img
                 src="./static/sma.svg"
-                alt="Saint Mary’s Academy"
+                alt="Saint Mary's Academy"
                 width="64"
                 height="64"
               />
@@ -84,7 +85,6 @@
               </div>
             </a>
           </div>
-
           <div class="logo-item">
             <a
               href="https://en.wikipedia.org/wiki/Pakistan_Military_Academy"
@@ -104,7 +104,6 @@
               </div>
             </a>
           </div>
-
           <div class="logo-item">
             <a
               href="https://case.edu.pk/"
@@ -125,16 +124,9 @@
               </div>
             </a>
           </div>
+          {% endset %} {{ logo_content }} {% for i in range(5) %} {{
+          logo_content }} {% endfor %}
         </div>
-        <script>
-          document.addEventListener("DOMContentLoaded", function () {
-            const logosContainer = document.querySelector(".logos");
-            const duplicateLogos = logosContainer.innerHTML;
-            for (let i = 0; i < 5; i++) {
-              logosContainer.innerHTML += duplicateLogos;
-            }
-          });
-        </script>
       </div>
     </div>
   </div>
