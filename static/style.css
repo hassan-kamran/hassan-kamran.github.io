@@ -411,6 +411,78 @@ figcaption {
   transition: var(--transition-default);
 }
 
+/* Prevent default browser highlight/flash completely */
+a {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Target all states of navigation links */
+.siteHeaderCenter ul li a,
+.siteHeaderCenter ul li a:link,
+.siteHeaderCenter ul li a:visited,
+.siteHeaderCenter ul li a:hover,
+.siteHeaderCenter ul li a:active,
+.siteHeaderCenter ul li a:focus {
+  color: var(--text-light);
+  text-decoration: none;
+  outline: none;
+}
+
+/* Override only hover/active/focus with primary color */
+.siteHeaderCenter ul li a:hover,
+.siteHeaderCenter ul li a:active,
+.siteHeaderCenter ul li a:focus {
+  color: var(--primary-color);
+}
+
+/* Same for mobile menu */
+.popover-menu a,
+.popover-menu a:link,
+.popover-menu a:visited,
+.popover-menu a:hover,
+.popover-menu a:active,
+.popover-menu a:focus {
+  color: var(--text-light);
+  text-decoration: none;
+  outline: none;
+}
+
+.popover-menu a:hover,
+.popover-menu a:active,
+.popover-menu a:focus {
+  color: var(--primary-color);
+}
+
+/* Footer links */
+.footerLinks a,
+.footerLinks a:link,
+.footerLinks a:visited,
+.footerLinks a:hover,
+.footerLinks a:active,
+.footerLinks a:focus {
+  color: var(--text-light);
+  text-decoration: none;
+  outline: none;
+}
+
+.footerLinks a:hover,
+.footerLinks a:active,
+.footerLinks a:focus {
+  color: var(--primary-color);
+}
+
+/* For buttons that look like links */
+.siteHeaderCenter ul li button,
+.popover-menu button,
+.footerLinks button {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
 /* ==============================
    SIDE MENU POPOVER
 ============================== */
@@ -1613,12 +1685,21 @@ figcaption {
 }
 
 /* Individual Blog Post */
+/* Blog section container */
+.blog-section {
+  width: 100%;
+  padding: var(--spacing-sm);
+  margin-top: var(--top-margin);
+}
+
+/* Adjust blog-post-container */
 .blog-post-container {
   background-color: #fff;
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
   padding: var(--spacing-xl);
-  margin-bottom: var(--spacing-xl);
+  margin: 0 auto var(--spacing-xl) auto; /* Centers the container */
+  width: 100%; /* Takes full width of its parent (the container class) */
 }
 
 .blog-header {

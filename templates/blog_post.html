@@ -1,17 +1,19 @@
-<section>
-  <div class="blog-post-container">
-    <div class="blog-header">
-      <h1>{{ title }}</h1>
-      <div class="meta-info">
-        <span class="category">{{ category }}</span>
-        <span class="date">{{ date }}</span>
+<section class="blog-section">
+  <div class="container">
+    <div class="blog-post-container">
+      <div class="blog-header">
+        <h1>{{ title }}</h1>
+        <div class="meta-info">
+          <span class="category">{{ category }}</span>
+          <span class="date">{{ date }}</span>
+        </div>
       </div>
-    </div>
 
-    <div class="blog-content">{{ blog_content | safe }}</div>
+      <div class="blog-content">{{ blog_content | safe }}</div>
 
-    <div class="blog-footer">
-      <a href="../blog.html">← Back to All Posts</a>
+      <div class="blog-footer">
+        <a href="../blog.html">← Back to All Posts</a>
+      </div>
     </div>
   </div>
 </section>

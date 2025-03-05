@@ -253,7 +253,8 @@ def blog():
                 title = lines[0].strip()
                 category = lines[1].strip() if len(lines) > 1 else "Uncategorized"
                 date = lines[2].strip() if len(lines) > 2 else "Unknown date"
-                content = "\n".join(lines[3:]) if len(lines) > 3 else ""
+                img_name = lines[3].strip() if len(lines) > 2 else "Unknown date"
+                content = "\n".join(lines[4:]) if len(lines) > 3 else ""
 
                 filename = os.path.splitext(filename)[0]
 
@@ -264,6 +265,7 @@ def blog():
                         "category": category,
                         "date": date,
                         "filename": f"./blogs/{filename}.html",
+                        "image_url": f"./static/{img_name}",
                         "content": content,
                     }
                 )

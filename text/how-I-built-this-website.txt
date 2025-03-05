@@ -1,0 +1,7 @@
+How I Built this Website
+
+Web Developement
+work.jpg
+2025-03-05
+
+This website is built with Python, CSS and HTML. I tried to avoid using javascript as much as possible.
