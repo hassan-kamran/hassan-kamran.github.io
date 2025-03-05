@@ -212,6 +212,11 @@ def render_page(template_name, page_name, **kwargs):
     content = content_template.render(**kwargs)
 
     # Render the base template with the content and other variables
+    comment_open = ""
+    comment_close = ""
+    if kwargs.get("preload") == "none":
+        comment_open = "<!--"
+        comment_close = "-->"
     rendered_html = template.render(
         content=content,
         home=page_urls.get("home"),
@@ -219,6 +224,8 @@ def render_page(template_name, page_name, **kwargs):
         about=page_urls.get("about"),
         sitemap=page_urls.get("sitemap"),
         preload=kwargs.get("preload"),
+        comment_open=comment_open,
+        comment_close=comment_close,
         static=kwargs.get(
             "static", static_path
         ),  # Use calculated static path if not provided
@@ -278,12 +285,12 @@ def blog():
                     category=category,
                     date=date,
                     blog_content=content,
-                    preload="blog",
+                    preload="none",
                     # static path is automatically calculated based on depth
                 )
 
     # Render the blog list page
-    render_page("blog.html", "blog", blog_posts=blog_posts, preload="blog")
+    render_page("blog.html", "blog", blog_posts=blog_posts, preload="none")
 
 
 def sitemap():
