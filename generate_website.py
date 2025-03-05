@@ -240,11 +240,11 @@ def render_page(template_name, page_name, **kwargs):
 
 
 def home():
-    render_page("home.html", "index")
+    render_page("home.html", "index", preload="hero")
 
 
 def about_me():
-    render_page("about.html", "about")
+    render_page("about.html", "about", preload="cta")
 
 
 def blog():
