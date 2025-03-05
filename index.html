@@ -115,7 +115,7 @@
                 </button>
               </li>
               <li>
-                <a href="#search" aria-label="Search" class="search-container">
+                <button class="popover-button" popovertarget="search-box">
                   <svg
                     class="search-icon"
                     width="32"
@@ -132,7 +132,7 @@
                       stroke-linejoin="round"
                     />
                   </svg>
-                </a>
+                </button>
               </li>
             </ul>
           </div>
@@ -151,7 +151,11 @@
           </ul>
         </div>
         <div class="siteHeaderRight desktop-menu">
-          <a href="#search" aria-label="Search" class="search-container">
+          <button
+            aria-label="Search"
+            class="popover-button"
+            popovertarget="search-box"
+          >
             <svg
               class="search-icon"
               width="32"
@@ -168,9 +172,11 @@
                 stroke-linejoin="round"
               />
             </svg>
-          </a>
+          </button>
         </div>
       </nav>
+
+      <div id="search-box" popover="manual"><h1>Search BOX</h1></div>
 
       <div class="modal" id="modal" popover="manual">
         <div class="modal-content">

@@ -361,11 +361,6 @@ svg:hover {
   align-items: center;
 }
 
-.search-container {
-  display: inline-block;
-  position: relative;
-}
-
 .search-icon {
   height: var(--icon-size);
   width: auto;
