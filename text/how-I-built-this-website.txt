@@ -1,6 +1,5 @@
 How I Built this Website
 Web Development
-work.avif
 2025-03-05
-
+work.avif
 This website is built with Python, CSS and HTML. I tried to avoid using javascript as much as possible.
