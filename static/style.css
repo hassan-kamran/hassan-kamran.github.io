@@ -654,19 +654,41 @@ figcaption {
   color: var(--primary-color);
 }
 
-a:focus,
-button:focus {
-  outline: none;
+/* ==============================
+   Navbar Blue Flash Fix
+============================== */
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  outline: none !important;
 }
 
-.siteHeaderCenter ul li a:focus,
-.siteHeaderCenter ul li button:focus,
-.popover-menu a:focus,
-.popover-menu button:focus,
-.footerLinks a:focus,
-.footerLinks button:focus {
-  color: var(--primary-color);
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--primary-color) !important;
+  outline-offset: 2px;
+}
+
+.siteHeaderCenter ul li a:focus:not(:focus-visible),
+.siteHeaderCenter ul li button:focus:not(:focus-visible),
+.popover-menu a:focus:not(:focus-visible),
+.popover-menu button:focus:not(:focus-visible),
+.footerLinks a:focus:not(:focus-visible),
+.footerLinks button:focus:not(:focus-visible) {
   outline: none;
+  color: inherit;
+}
+
+.siteHeaderCenter ul li a:hover,
+.siteHeaderCenter ul li button:hover,
+.siteHeaderCenter ul li a:focus-visible,
+.siteHeaderCenter ul li button:focus-visible {
+  color: var(--primary-color);
 }
 
 /* ==============================
