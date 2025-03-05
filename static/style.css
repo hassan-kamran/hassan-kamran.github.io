@@ -312,6 +312,8 @@ figcaption {
   align-items: center;
   flex-wrap: wrap;
   margin-top: var(--spacing-lg);
+  padding-top: var(--spacing-sm);
+  padding-bottom: var(--spacing-sm);
 }
 
 .badge {
@@ -652,6 +654,21 @@ figcaption {
   color: var(--primary-color);
 }
 
+a:focus,
+button:focus {
+  outline: none;
+}
+
+.siteHeaderCenter ul li a:focus,
+.siteHeaderCenter ul li button:focus,
+.popover-menu a:focus,
+.popover-menu button:focus,
+.footerLinks a:focus,
+.footerLinks button:focus {
+  color: var(--primary-color);
+  outline: none;
+}
+
 /* ==============================
    MODAL
 ============================== */
@@ -732,6 +749,149 @@ figcaption {
 .modal-header p {
   color: var(--text-muted);
   margin: 0;
+}
+
+/* ==============================
+   SEARCH POPOVER STYLES
+============================== */
+.search-popover {
+  popover: manual;
+  position: fixed;
+  inset: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(28, 28, 28, 0.95);
+  backdrop-filter: blur(8px);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: var(--spacing-md);
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.search-popover:not(:popover-open) {
+  display: none;
+}
+
+.search-container {
+  background-color: var(--bg-light);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  width: 90%;
+  max-width: 600px;
+  position: relative;
+  animation: fadeIn 0.3s ease-in-out;
+  padding: var(--spacing-xl);
+  margin: 100px auto;
+}
+
+.search-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.search-header h2 {
+  margin: 0;
+  color: var(--bg-dark);
+  font-size: 1.8rem;
+}
+
+.search-input-container {
+  position: relative;
+  margin-bottom: var(--spacing-lg);
+}
+
+#search-input {
+  width: 100%;
+  padding: var(--spacing-md) var(--spacing-md) var(--spacing-md)
+    var(--spacing-lg);
+  font-family: inherit;
+  font-size: 18px;
+  border: 2px solid var(--bg-dark);
+  border-radius: var(--border-radius);
+  background-color: var(--bg-light);
+  transition:
+    border-color var(--transition-default),
+    box-shadow var(--transition-default);
+}
+
+#search-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(127, 62, 152, 0.2);
+}
+
+.search-submit {
+  position: absolute;
+  right: var(--spacing-md);
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.search-submit-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--bg-dark);
+  transition: color var(--transition-default);
+}
+
+.search-submit:hover .search-submit-icon {
+  color: var(--primary-color);
+}
+
+.search-categories h3 {
+  margin-top: 0;
+  margin-bottom: var(--spacing-md);
+  font-size: 16px;
+  color: var(--text-muted);
+}
+
+/* Make the search badge container centered in the search popover */
+.search-categories .badge-container {
+  justify-content: center;
+}
+
+/* Custom styles for the close button in search */
+#search-box .close-btn {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+#search-box .close-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--bg-dark);
+  border-radius: 3px;
+}
+
+#search-box .close-btn:hover .close-line {
+  background-color: var(--primary-color);
+}
+
+#search-box .close-line:first-child {
+  transform: translateY(-50%) rotate(45deg);
+}
+
+#search-box .close-line:last-child {
+  transform: translateY(-50%) rotate(-45deg);
 }
 
 /* ==============================
@@ -1946,6 +2106,20 @@ figcaption {
     padding: var(--spacing-md);
   }
 
+  .search-container {
+    padding: var(--spacing-lg);
+    margin: 80px auto;
+  }
+
+  .search-header h2 {
+    font-size: 1.5rem;
+  }
+
+  #search-input {
+    font-size: 16px;
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+
   .hero {
     flex-direction: column;
     text-align: center;
@@ -2137,6 +2311,15 @@ figcaption {
 @media screen and (max-width: 480px) {
   :root {
     --menu-width: 220px;
+  }
+
+  .search-container {
+    padding: var(--spacing-md);
+    margin: 60px auto;
+  }
+
+  .search-header h2 {
+    font-size: 1.3rem;
   }
 
   .card {

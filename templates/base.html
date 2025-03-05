@@ -125,7 +125,73 @@
         </div>
       </nav>
 
-      <div id="search-box" popover="manual"><h1>Search BOX</h1></div>
+      <!-- Replace your current search-box div with this code -->
+      <div id="search-box" popover="manual" class="search-popover">
+        <div class="search-container">
+          <div class="search-header">
+            <h2>Search</h2>
+            <button
+              class="close-btn"
+              popovertarget="search-box"
+              aria-label="Close search"
+            >
+              <span class="close-line"></span>
+              <span class="close-line"></span>
+            </button>
+          </div>
+          <form
+            id="search-form"
+            action="https://www.google.com/search"
+            method="get"
+          >
+            <div class="search-input-container">
+              <input type="hidden" name="q" value="site:engrhassankamran.com" />
+              <input
+                type="text"
+                id="search-input"
+                name="as_q"
+                placeholder="Search for articles, projects, etc."
+                aria-label="Search input"
+                autocomplete="off"
+                required
+              />
+              <button
+                type="submit"
+                class="search-submit"
+                aria-label="Submit search"
+              >
+                {{ inject_svg('search_icon', True, 'search-submit-icon') | safe
+                }}
+              </button>
+            </div>
+          </form>
+          <div class="search-categories">
+            <h3>Popular Categories</h3>
+            <div class="badge-container">
+              <a
+                href="https://www.google.com/search?q=site:engrhassankamran.com+AI"
+                class="badge"
+                ><p>AI</p></a
+              >
+              <a
+                href="https://www.google.com/search?q=site:engrhassankamran.com+Robotics"
+                class="badge"
+                ><p>Robotics</p></a
+              >
+              <a
+                href="https://www.google.com/search?q=site:engrhassankamran.com+Research"
+                class="badge"
+                ><p>Research</p></a
+              >
+              <a
+                href="https://www.google.com/search?q=site:engrhassankamran.com+Projects"
+                class="badge"
+                ><p>Projects</p></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div class="modal" id="modal" popover="manual">
         <div class="modal-content">
