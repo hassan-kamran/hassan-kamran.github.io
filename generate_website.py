@@ -377,7 +377,9 @@ def main():
     blog()
     sitemap()
     robots_txt()
-    generate_search_index(BLOG_FOLDER, SEARCH_INDEX_FILE)
+    generate_search_index(
+        output_dir=".", output_file=SEARCH_INDEX_FILE, blog_folder=BLOG_FOLDER
+    )
 
 
 if __name__ == "__main__":

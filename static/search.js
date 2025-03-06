@@ -15,10 +15,18 @@ document.addEventListener("DOMContentLoaded", () => {
   // Initialize MiniSearch instance with configuration
   const initMiniSearch = (documents) => {
     return new MiniSearch({
-      fields: ["title", "content", "category"], // fields to index for full-text search
-      storeFields: ["title", "content", "url", "category", "date", "type"], // fields to return with search results
+      fields: ["title", "content", "description", "category"], // fields to index for full-text search
+      storeFields: [
+        "title",
+        "content",
+        "url",
+        "category",
+        "date",
+        "type",
+        "description",
+      ], // fields to return with search results
       searchOptions: {
-        boost: { title: 2, category: 1.5 }, // boost these fields
+        boost: { title: 2, description: 1.5, category: 1.2 }, // boost these fields
         fuzzy: 0.2, // fuzzy search with edit distance = 2
         prefix: true, // match by prefix (e.g. "eng" matches "engineer")
       },
@@ -78,64 +86,98 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       // Group results by type
       const groupedResults = {
-        page: [],
+        home: [],
+        about: [],
         blog: [],
+        "blog-list": [],
+        page: [], // catch-all for other pages
+        other: [], // for anything not categorized
       };
 
       results.forEach((result) => {
         const type = result.type || "other";
-        if (!groupedResults[type]) {
-          groupedResults[type] = [];
+        if (groupedResults.hasOwnProperty(type)) {
+          groupedResults[type].push(result);
+        } else {
+          groupedResults.page.push(result);
         }
-        groupedResults[type].push(result);
       });
 
       // Create results HTML
-      if (groupedResults.page.length > 0) {
-        const pagesSection = document.createElement("div");
-        pagesSection.className = "result-section";
-        pagesSection.innerHTML = `<h3>Pages</h3>`;
+      // Helper function to create section for each content type
+      const createResultSection = (
+        results,
+        sectionTitle,
+        includeMetadata = false,
+      ) => {
+        if (results.length === 0) return null;
 
-        const pageList = document.createElement("ul");
-        groupedResults.page.forEach((result) => {
+        const section = document.createElement("div");
+        section.className = "result-section";
+        section.innerHTML = `<h3>${sectionTitle}</h3>`;
+
+        const list = document.createElement("ul");
+        results.forEach((result) => {
           const item = document.createElement("li");
-          item.innerHTML = `
+
+          let innerHtml = `
             <a href="/${result.url}" class="result-item">
               <div class="result-title">${result.title}</div>
-              <div class="result-snippet">${getResultSnippet(result.content, query)}</div>
-            </a>
           `;
-          pageList.appendChild(item);
-        });
 
-        pagesSection.appendChild(pageList);
-        searchResults.appendChild(pagesSection);
-      }
-
-      if (groupedResults.blog.length > 0) {
-        const blogsSection = document.createElement("div");
-        blogsSection.className = "result-section";
-        blogsSection.innerHTML = `<h3>Blog Posts</h3>`;
-
-        const blogList = document.createElement("ul");
-        groupedResults.blog.forEach((result) => {
-          const item = document.createElement("li");
-          item.innerHTML = `
-            <a href="/${result.url}" class="result-item">
-              <div class="result-title">${result.title}</div>
+          // Add metadata for blog posts
+          if (includeMetadata && (result.category || result.date)) {
+            innerHtml += `
               <div class="result-meta">
-                <span class="result-category">${result.category}</span>
-                <span class="result-date">${result.date || ""}</span>
+                ${result.category ? `<span class="result-category">${result.category}</span>` : ""}
+                ${result.date ? `<span class="result-date">${result.date}</span>` : ""}
               </div>
-              <div class="result-snippet">${getResultSnippet(result.content, query)}</div>
+            `;
+          }
+
+          // Add description if available, otherwise use content
+          const snippetSource =
+            result.description && result.description.length > 10
+              ? result.description
+              : result.content;
+
+          innerHtml += `
+              <div class="result-snippet">${getResultSnippet(snippetSource, query)}</div>
             </a>
           `;
-          blogList.appendChild(item);
+
+          item.innerHTML = innerHtml;
+          list.appendChild(item);
         });
 
-        blogsSection.appendChild(blogList);
-        searchResults.appendChild(blogsSection);
-      }
+        section.appendChild(list);
+        return section;
+      };
+
+      // Main pages section (home, about)
+      const mainPages = [...groupedResults.home, ...groupedResults.about];
+      const mainPagesSection = createResultSection(mainPages, "Main Pages");
+      if (mainPagesSection) searchResults.appendChild(mainPagesSection);
+
+      // Blog posts section
+      const blogSection = createResultSection(
+        groupedResults.blog,
+        "Blog Posts",
+        true,
+      );
+      if (blogSection) searchResults.appendChild(blogSection);
+
+      // Blog list/category pages
+      const blogListSection = createResultSection(
+        groupedResults["blog-list"],
+        "Blog Categories",
+      );
+      if (blogListSection) searchResults.appendChild(blogListSection);
+
+      // Other pages section
+      const otherPages = [...groupedResults.page, ...groupedResults.other];
+      const otherPagesSection = createResultSection(otherPages, "Other Pages");
+      if (otherPagesSection) searchResults.appendChild(otherPagesSection);
     }
 
     // Show results container
@@ -223,6 +265,34 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  // Set up category filter buttons
+  const categoryButtons = document.querySelectorAll(".category-filter");
+  categoryButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const category = button.getAttribute("data-category");
+
+      // Fill search input with category
+      if (searchInput) {
+        // If already has the category, clear it
+        if (searchInput.value.includes(category)) {
+          searchInput.value = searchInput.value.replace(category, "").trim();
+        } else {
+          // Otherwise add it
+          searchInput.value = category;
+        }
+
+        // Trigger search
+        performSearch(searchInput.value);
+
+        // Focus input
+        searchInput.focus();
+      }
+
+      // Toggle active class
+      button.classList.toggle("active");
+    });
+  });
 
   // Handle form submission
   if (searchForm) {
