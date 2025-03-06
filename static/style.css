@@ -872,17 +872,6 @@ button:focus-visible {
   color: var(--primary-color);
 }
 
-.search-categories h3 {
-  margin-top: 0;
-  margin-bottom: var(--spacing-md);
-  font-size: 16px;
-  color: var(--text-muted);
-}
-
-.search-categories .badge-container {
-  justify-content: center;
-}
-
 #search-box .close-btn {
   position: relative;
   width: 30px;
@@ -1010,28 +999,6 @@ button:focus-visible {
   padding: 24px 16px;
   text-align: center;
   color: var(--text-muted);
-}
-
-/* Category badges as filters */
-.badge.category-filter {
-  cursor: pointer;
-  transition: all 0.2s;
-  border: none;
-  outline: none;
-  font-family: inherit;
-}
-
-.badge.category-filter:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.badge.category-filter.active {
-  background-color: var(--primary-color);
-}
-
-.badge.category-filter.active p {
-  color: white;
 }
 
 /* ==============================
