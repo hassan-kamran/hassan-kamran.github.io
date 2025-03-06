@@ -649,6 +649,7 @@ figcaption {
 .popover-menu a:active,
 .popover-menu a:focus,
 .footerLinks a:hover,
+.footerLinks button:hover,
 .footerLinks a:active,
 .footerLinks a:focus {
   color: var(--primary-color);
