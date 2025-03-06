@@ -4,11 +4,16 @@ import os
 import re
 import markdown
 import shutil
+import json
+from bs4 import BeautifulSoup
+
+from generate_search_index import generate_search_index
 
 TEMPLATES_FOLDER = "./templates"
 BASE_TEMPLATE = "base.html"
 BLOG_FOLDER = "./text"
 SVG_FOLDER = "./static"
+SEARCH_INDEX_FILE = "./static/search-index.json"
 
 
 def get_urls(depth=0):
@@ -372,6 +377,7 @@ def main():
     blog()
     sitemap()
     robots_txt()
+    generate_search_index(BLOG_FOLDER, SEARCH_INDEX_FILE)
 
 
 if __name__ == "__main__":

@@ -46,6 +46,8 @@
       type="image/svg+xml"
       href="{{ static }}/favicon.svg"
     />
+    <script src="https://cdn.jsdelivr.net/npm/minisearch@7.1.2/dist/umd/index.min.js"></script>
+    <script src="{{ static }}/search.js" defer></script>
   </head>
 
   <body>
@@ -125,7 +127,6 @@
         </div>
       </nav>
 
-      <!-- Replace your current search-box div with this code -->
       <div id="search-box" popover="manual" class="search-popover">
         <div class="search-container">
           <div class="search-header">
@@ -139,17 +140,12 @@
               <span class="close-line"></span>
             </button>
           </div>
-          <form
-            id="search-form"
-            action="https://www.google.com/search"
-            method="get"
-          >
+          <form id="search-form">
             <div class="search-input-container">
-              <input type="hidden" name="q" value="site:engrhassankamran.com" />
               <input
                 type="text"
                 id="search-input"
-                name="as_q"
+                name="q"
                 placeholder="Search for articles, projects, etc."
                 aria-label="Search input"
                 autocomplete="off"
@@ -165,29 +161,27 @@
               </button>
             </div>
           </form>
+
+          <!-- Search Results Container -->
+          <div id="search-results-container" class="search-results-container">
+            <div id="search-results" class="search-results"></div>
+          </div>
+
           <div class="search-categories">
             <h3>Popular Categories</h3>
             <div class="badge-container">
-              <a
-                href="https://www.google.com/search?q=site:engrhassankamran.com+AI"
-                class="badge"
-                ><p>AI</p></a
-              >
-              <a
-                href="https://www.google.com/search?q=site:engrhassankamran.com+Robotics"
-                class="badge"
-                ><p>Robotics</p></a
-              >
-              <a
-                href="https://www.google.com/search?q=site:engrhassankamran.com+Research"
-                class="badge"
-                ><p>Research</p></a
-              >
-              <a
-                href="https://www.google.com/search?q=site:engrhassankamran.com+Projects"
-                class="badge"
-                ><p>Projects</p></a
-              >
+              <button class="badge category-filter" data-category="AI">
+                <p>AI</p>
+              </button>
+              <button class="badge category-filter" data-category="Robotics">
+                <p>Robotics</p>
+              </button>
+              <button class="badge category-filter" data-category="Research">
+                <p>Research</p>
+              </button>
+              <button class="badge category-filter" data-category="Projects">
+                <p>Projects</p>
+              </button>
             </div>
           </div>
         </div>
