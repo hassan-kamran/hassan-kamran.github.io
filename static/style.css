@@ -1574,7 +1574,7 @@ button:focus-visible {
 .faq-item summary::after {
   content: "+";
   position: absolute;
-  right: var(--spacing-lg);
+  right: var(--spacing-sm);
   transition: transform var(--transition-default);
 }
 
