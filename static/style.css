@@ -1607,6 +1607,47 @@ button:focus-visible {
   color: var(--text-muted);
 }
 
+.long-testimonial .testimonial-text-container {
+  max-height: 100px;
+  overflow: hidden;
+  position: relative;
+}
+
+.long-testimonial .testimonial-text-container::after {
+  content: "...";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: var(--bg-card);
+  padding-left: 3px;
+}
+
+.long-testimonial.expanded .testimonial-text-container {
+  max-height: none;
+}
+
+.long-testimonial.expanded .testimonial-text-container::after {
+  display: none;
+}
+
+.read-more-btn {
+  background-color: transparent;
+  border: none;
+  color: var(--primary-color);
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0;
+  margin: 10px 0 15px;
+  font-family: inherit;
+  font-size: 14px;
+  transition: color var(--transition-default);
+  display: inline-block;
+}
+
+.read-more-btn:hover {
+  text-decoration: underline;
+}
+
 /* ==============================
    FAQ
 ============================== */
