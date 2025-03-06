@@ -224,7 +224,12 @@ def render_page(template_name, page_name, **kwargs):
     if kwargs.get("preload") == "none":
         comment_open = "<!--"
         comment_close = "-->"
+    if kwargs.get("title") is None:
+        title = page_name
+    else:
+        title = kwargs.get("title")
     rendered_html = template.render(
+        title=f"Hassan Kamran | {title}",
         content=content,
         home=page_urls.get("home"),
         blog=page_urls.get("blog"),
@@ -247,7 +252,9 @@ def render_page(template_name, page_name, **kwargs):
 
 
 def home():
-    render_page("home.html", "index", preload="hero")
+    render_page(
+        "home.html", "index", preload="hero", title="AI Engineer & Tech Consultant"
+    )
 
 
 def about_me():
