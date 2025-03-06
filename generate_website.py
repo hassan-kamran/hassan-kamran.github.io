@@ -283,7 +283,7 @@ def about_me():
 def blog():
     blog_posts = []
     for filename in os.listdir(BLOG_FOLDER):
-        if filename.endswith(".txt"):
+        if filename.endswith(".md"):
             filepath = os.path.join(BLOG_FOLDER, filename)
             with open(filepath, "r", encoding="utf-8") as file:
                 content = file.read().strip()
