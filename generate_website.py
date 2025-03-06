@@ -4,8 +4,6 @@ import os
 import re
 import markdown
 import shutil
-import json
-from bs4 import BeautifulSoup
 
 from generate_search_index import generate_search_index
 
@@ -24,6 +22,22 @@ def get_urls(depth=0):
         "about": f"{prefix}about.html",
         "sitemap": f"{prefix}sitemap.xml",
     }
+
+
+meta_des_site = {
+    "home": """Engr Hassan Kamran's official website showcasing projects, 
+    research, thoughts, ideas, and expertise in AI, 
+    robotics, mechatronics, and the cutting edge.""",
+    "about": """Discover Hassan Kamran’s journey through AI, 
+    Federated Learning, and robotics. With expertise in programming, big data, 
+    cloud computing, and mechatronics, Hassan combines technical depth with 
+    hands-on experience in startups, military leadership, and AI research. 
+    Learn more about his work and projects here.""",
+    "blog": """Explore cutting-edge insights on AI, Federated Learning, 
+    programming, big data, and robotics. Hassan Kamran shares expert knowledge, 
+    research, and hands-on experiences in machine learning, cloud computing, and more. 
+    Stay ahead with in-depth technical articles and tutorials.""",
+}
 
 
 env = Environment(loader=FileSystemLoader(TEMPLATES_FOLDER))
@@ -228,6 +242,10 @@ def render_page(template_name, page_name, **kwargs):
         title = page_name
     else:
         title = kwargs.get("title")
+
+    if kwargs.get("meta_des") is None:
+        kwargs["meta_des"] = meta_des_site.get("home")
+
     rendered_html = template.render(
         title=f"Hassan Kamran | {title}",
         content=content,
@@ -238,9 +256,8 @@ def render_page(template_name, page_name, **kwargs):
         preload=kwargs.get("preload"),
         comment_open=comment_open,
         comment_close=comment_close,
-        static=kwargs.get(
-            "static", static_path
-        ),  # Use calculated static path if not provided
+        meta_des=kwargs.get("meta_des"),
+        static=kwargs.get("static", static_path),
         inject_svg=inject_svg,
     )
 
@@ -258,7 +275,9 @@ def home():
 
 
 def about_me():
-    render_page("about.html", "about", preload="cta")
+    render_page(
+        "about.html", "about", preload="cta", meta_des=meta_des_site.get("about")
+    )
 
 
 def blog():
@@ -275,9 +294,10 @@ def blog():
                 category = lines[1].strip() if len(lines) > 1 else "Uncategorized"
                 date = lines[2].strip() if len(lines) > 2 else "Unknown date"
                 img_name = lines[3].strip() if len(lines) > 3 else ""
+                meta_des = lines[4].strip() if len(lines) > 3 else ""
 
                 # Extract content (now as markdown)
-                markdown_content = "\n".join(lines[4:]) if len(lines) > 3 else ""
+                markdown_content = "\n".join(lines[5:]) if len(lines) > 3 else ""
 
                 # Convert Markdown to HTML
                 html_content = markdown.markdown(
@@ -294,6 +314,7 @@ def blog():
                         "date": date,
                         "filename": f"./blogs/{filename}.html",
                         "image_url": f"./static/{img_name}",
+                        "meta_des": meta_des,
                         "content": html_content,  # This is now HTML converted from Markdown
                     }
                 )
@@ -305,11 +326,18 @@ def blog():
                     title=title,
                     category=category,
                     date=date,
-                    blog_content=html_content,  # Pass the HTML content
+                    blog_content=html_content,
                     preload="none",
+                    meta_des=meta_des,
                 )
     # Render the blog list page
-    render_page("blog.html", "blog", blog_posts=blog_posts, preload="none")
+    render_page(
+        "blog.html",
+        "blog",
+        blog_posts=blog_posts,
+        preload="none",
+        meta_des=meta_des_site.get("blog"),
+    )
 
 
 def sitemap():
