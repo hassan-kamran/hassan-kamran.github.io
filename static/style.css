@@ -879,6 +879,7 @@ button:focus-visible {
   background: transparent;
   border: 0;
   cursor: pointer;
+  transition: transform var(--transition-default);
 }
 
 #search-box .close-line {
@@ -893,6 +894,10 @@ button:focus-visible {
 
 #search-box .close-btn:hover .close-line {
   background-color: var(--primary-color);
+}
+
+#search-box .close-btn:hover {
+  transform: rotate(90deg);
 }
 
 #search-box .close-line:first-child {
