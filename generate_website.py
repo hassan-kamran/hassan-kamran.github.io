@@ -2,6 +2,8 @@ from jinja2 import Environment, FileSystemLoader
 from datetime import datetime
 import os
 import re
+import markdown
+import shutil
 
 TEMPLATES_FOLDER = "./templates"
 BASE_TEMPLATE = "base.html"
@@ -260,8 +262,15 @@ def blog():
                 title = lines[0].strip()
                 category = lines[1].strip() if len(lines) > 1 else "Uncategorized"
                 date = lines[2].strip() if len(lines) > 2 else "Unknown date"
-                img_name = lines[3].strip() if len(lines) > 2 else "Unknown date"
-                content = "\n".join(lines[4:]) if len(lines) > 3 else ""
+                img_name = lines[3].strip() if len(lines) > 3 else ""
+
+                # Extract content (now as markdown)
+                markdown_content = "\n".join(lines[4:]) if len(lines) > 3 else ""
+
+                # Convert Markdown to HTML
+                html_content = markdown.markdown(
+                    markdown_content, extensions=["extra", "codehilite"]
+                )
 
                 filename = os.path.splitext(filename)[0]
 
@@ -273,7 +282,7 @@ def blog():
                         "date": date,
                         "filename": f"./blogs/{filename}.html",
                         "image_url": f"./static/{img_name}",
-                        "content": content,
+                        "content": html_content,  # This is now HTML converted from Markdown
                     }
                 )
 
@@ -284,11 +293,9 @@ def blog():
                     title=title,
                     category=category,
                     date=date,
-                    blog_content=content,
+                    blog_content=html_content,  # Pass the HTML content
                     preload="none",
-                    # static path is automatically calculated based on depth
                 )
-
     # Render the blog list page
     render_page("blog.html", "blog", blog_posts=blog_posts, preload="none")
 
@@ -358,6 +365,8 @@ def robots_txt():
 
 
 def main():
+    shutil.rmtree("./blogs")
+    os.mkdir("./blogs")
     home()
     about_me()
     blog()
