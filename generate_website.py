@@ -1,34 +1,28 @@
-from jinja2 import Environment, FileSystemLoader
-from datetime import datetime
 import os
+import json
 import re
 import markdown
 import shutil
+from datetime import datetime
+from bs4 import BeautifulSoup
+from jinja2 import Environment, FileSystemLoader
 
-from generate_search_index import generate_search_index
-
+# Constants
 TEMPLATES_FOLDER = "./templates"
 BASE_TEMPLATE = "base.html"
 BLOG_FOLDER = "./text"
 SVG_FOLDER = "./static"
 SEARCH_INDEX_FILE = "./static/search-index.json"
 
+# Environment setup
+env = Environment(loader=FileSystemLoader(TEMPLATES_FOLDER))
 
-def get_urls(depth=0):
-    prefix = "../" * depth
-    return {
-        "home": f"{prefix}index.html",
-        "blog": f"{prefix}blog.html",
-        "about": f"{prefix}about.html",
-        "sitemap": f"{prefix}sitemap.xml",
-    }
-
-
+# Meta descriptions for site pages
 meta_des_site = {
     "home": """Engr Hassan Kamran's official website showcasing projects, 
     research, thoughts, ideas, and expertise in AI, 
     robotics, mechatronics, and the cutting edge.""",
-    "about": """Discover Hassan Kamran’s journey through AI, 
+    "about": """Discover Hassan Kamran's journey through AI, 
     Federated Learning, and robotics. With expertise in programming, big data, 
     cloud computing, and mechatronics, Hassan combines technical depth with 
     hands-on experience in startups, military leadership, and AI research. 
@@ -39,8 +33,212 @@ meta_des_site = {
     Stay ahead with in-depth technical articles and tutorials.""",
 }
 
+# ---- Search Index Generation Functions ----
 
-env = Environment(loader=FileSystemLoader(TEMPLATES_FOLDER))
+
+def extract_text_from_html(html_content):
+    """Extract readable text content from HTML."""
+    soup = BeautifulSoup(html_content, "html.parser")
+
+    # Remove script and style elements
+    for script in soup(["script", "style"]):
+        script.extract()
+
+    # Get text
+    text = soup.get_text(separator=" ", strip=True)
+
+    # Remove extra whitespace
+    text = re.sub(r"\s+", " ", text).strip()
+
+    return text
+
+
+def extract_metadata_from_html(html_content, url):
+    """Extract title and description from HTML."""
+    soup = BeautifulSoup(html_content, "html.parser")
+
+    # Extract title
+    title_tag = soup.find("title")
+    title = title_tag.get_text() if title_tag else os.path.basename(url)
+
+    # Extract meta description if available
+    description = ""
+    meta_desc = soup.find("meta", attrs={"name": "description"})
+    if meta_desc and meta_desc.get("content"):
+        description = meta_desc.get("content")
+
+    # Try to find main heading if no description
+    if not description:
+        h1 = soup.find("h1")
+        if h1:
+            description = h1.get_text()
+
+    return title, description
+
+
+def scan_html_files(directory, base_url="", exclude_dirs=None):
+    """Recursively scan directory for HTML files.
+
+    Args:
+        directory: Root directory to scan
+        base_url: Base URL to prepend to relative paths
+        exclude_dirs: List of directory names to exclude from scanning
+    """
+    if exclude_dirs is None:
+        exclude_dirs = ["templates"]  # Default directories to exclude
+
+    html_files = []
+
+    for root, dirs, files in os.walk(directory):
+        # Remove excluded directories from the dirs list to prevent os.walk from traversing them
+        dirs[:] = [d for d in dirs if d not in exclude_dirs]
+
+        for file in files:
+            if file.endswith(".html"):
+                file_path = os.path.join(root, file)
+                rel_path = os.path.relpath(file_path, directory)
+
+                # Convert to URL format
+                url = base_url + rel_path.replace("\\", "/")
+
+                html_files.append({"path": file_path, "url": url})
+
+    return html_files
+
+
+def determine_content_type(url):
+    """Determine the content type based on URL pattern."""
+    if url.startswith("blogs/") or "/blogs/" in url:
+        return "blog"
+    elif url == "index.html":
+        return "home"
+    elif url == "about.html":
+        return "about"
+    elif url == "blog.html":
+        return "blog-list"
+    else:
+        return "page"
+
+
+def generate_search_index(
+    output_dir=".", output_file="./static/search-index.json", blog_folder=None
+):
+    """
+    Generate a search index for the website content and save it as JSON.
+
+    Args:
+        output_dir: Directory containing generated HTML files
+        output_file: Path where the search index JSON file will be saved
+        blog_folder: Optional path to folder containing blog post text files (for metadata)
+    """
+    print("Generating search index...")
+
+    # Initialize the documents list for the search index
+    documents = []
+
+    # Optional: Load blog metadata if blog_folder is provided
+    blog_metadata = {}
+    if blog_folder and os.path.exists(blog_folder):
+        print(f"Loading blog metadata from {blog_folder}...")
+        for filename in os.listdir(blog_folder):
+            if filename.endswith(".txt"):
+                filepath = os.path.join(blog_folder, filename)
+
+                with open(filepath, "r", encoding="utf-8") as file:
+                    content = file.read().strip()
+
+                    # Parse metadata from the file
+                    lines = content.split("\n")
+                    title = lines[0].strip()
+                    category = lines[1].strip() if len(lines) > 1 else "Uncategorized"
+                    date = lines[2].strip() if len(lines) > 2 else "Unknown date"
+
+                    # Create a unique ID for the blog post
+                    post_id = os.path.splitext(filename)[0]
+
+                    # Store metadata
+                    blog_metadata[post_id] = {
+                        "title": title,
+                        "category": category,
+                        "date": date,
+                    }
+
+    # Scan for all HTML files, excluding templates and any other specified directories
+    exclude_dirs = ["templates", "node_modules", ".git", ".github"]
+    html_files = scan_html_files(output_dir, exclude_dirs=exclude_dirs)
+    print(f"Found {len(html_files)} HTML files")
+
+    # Process each HTML file
+    for html_file in html_files:
+        file_path = html_file["path"]
+        url = html_file["url"]
+
+        print(f"Processing {file_path}")
+
+        try:
+            with open(file_path, "r", encoding="utf-8") as file:
+                html_content = file.read()
+
+                # Extract text content
+                text_content = extract_text_from_html(html_content)
+
+                # Extract title and description
+                title, description = extract_metadata_from_html(html_content, url)
+
+                # Determine content type
+                content_type = determine_content_type(url)
+
+                # Create unique ID
+                doc_id = os.path.splitext(url)[0].replace("/", "-")
+                if doc_id == "index":
+                    doc_id = "home"
+
+                # Create document object
+                document = {
+                    "id": doc_id,
+                    "url": url,
+                    "title": title,
+                    "content": text_content,
+                    "description": description,
+                    "type": content_type,
+                }
+
+                # Add blog-specific metadata if available
+                if content_type == "blog":
+                    blog_id = os.path.splitext(os.path.basename(url))[0]
+                    if blog_id in blog_metadata:
+                        meta = blog_metadata[blog_id]
+                        document["category"] = meta.get("category", "")
+                        document["date"] = meta.get("date", "")
+
+                # Add to documents list
+                documents.append(document)
+
+        except Exception as e:
+            print(f"Error processing {file_path}: {e}")
+
+    # Save the index as JSON
+    os.makedirs(os.path.dirname(output_file), exist_ok=True)
+    with open(output_file, "w", encoding="utf-8") as f:
+        json.dump(documents, f)
+
+    print(f"Search index saved to {output_file}")
+    print(f"Indexed {len(documents)} documents")
+
+    return documents
+
+
+# ---- Website Generation Functions ----
+
+
+def get_urls(depth=0):
+    prefix = "../" * depth
+    return {
+        "home": f"{prefix}index.html",
+        "blog": f"{prefix}blog.html",
+        "about": f"{prefix}about.html",
+        "sitemap": f"{prefix}sitemap.xml",
+    }
 
 
 def inject_svg(svg_name, use_current_color=False, classes=None, replace_none=False):
@@ -246,21 +444,25 @@ def render_page(template_name, page_name, **kwargs):
     if kwargs.get("meta_des") is None:
         kwargs["meta_des"] = meta_des_site.get("home")
 
-    rendered_html = template.render(
-        title=f"Hassan Kamran | {title}",
-        content=content,
-        home=page_urls.get("home"),
-        blog=page_urls.get("blog"),
-        about=page_urls.get("about"),
-        sitemap=page_urls.get("sitemap"),
-        preload=kwargs.get("preload"),
-        comment_open=comment_open,
-        comment_close=comment_close,
-        meta_des=kwargs.get("meta_des"),
-        static=kwargs.get("static", static_path),
-        inject_svg=inject_svg,
-        resume="hassan_resume.pdf",
-    )
+    template_params = {
+        "title": f"Hassan Kamran | {title}",
+        "content": content,
+        "home": page_urls.get("home"),
+        "blog": page_urls.get("blog"),
+        "about": page_urls.get("about"),
+        "sitemap": page_urls.get("sitemap"),
+        "preload": kwargs.get("preload"),
+        "comment_open": comment_open,
+        "comment_close": comment_close,
+        "meta_des": kwargs.get("meta_des"),
+        "static": kwargs.get("static", static_path),
+        "inject_svg": inject_svg,
+        "resume": "hassan_resume.pdf",
+    }
+
+    filtered_kwargs = {k: v for k, v in kwargs.items() if k not in template_params}
+    template_params.update(filtered_kwargs)
+    rendered_html = template.render(**template_params)
 
     # Create directory if it doesn't exist
     os.makedirs(os.path.dirname(f"./{page_name}.html"), exist_ok=True)
@@ -270,8 +472,22 @@ def render_page(template_name, page_name, **kwargs):
 
 
 def home():
+    founder_start = datetime.strptime("2025-02", "%Y-%m")
+    founder_end = datetime.today()
+    years, months = divmod(
+        (founder_end.year - founder_start.year) * 12
+        + founder_end.month
+        - founder_start.month,
+        12,
+    )
+    duration = f"{years} yr {months} mo"
+
     render_page(
-        "home.html", "index", preload="hero", title="AI Engineer & Tech Consultant"
+        "home.html",
+        "index",
+        preload="hero",
+        title="AI Engineer & Tech Consultant",
+        founder_time=duration,
     )
 
 
@@ -406,16 +622,24 @@ def robots_txt():
 
 
 def main():
-    shutil.rmtree("./blogs")
+    # Create blogs directory if it doesn't exist, or clear it if it does
+    if os.path.exists("./blogs"):
+        shutil.rmtree("./blogs")
     os.mkdir("./blogs")
+
+    # Generate website pages
     home()
     about_me()
     blog()
     sitemap()
     robots_txt()
+
+    # Generate search index
     generate_search_index(
         output_dir=".", output_file=SEARCH_INDEX_FILE, blog_folder=BLOG_FOLDER
     )
+
+    print("Website generation complete!")
 
 
 if __name__ == "__main__":
