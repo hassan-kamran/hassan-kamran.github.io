@@ -1443,69 +1443,6 @@ button:focus-visible {
 }
 
 /* ==============================
-   PUBLICATIONS
-============================== */
-.publications {
-  width: var(--content-width);
-  max-width: var(--container-width);
-  margin: var(--spacing-xxl) auto;
-  padding: var(--spacing-md);
-}
-
-.publications h2 {
-  color: inherit;
-  margin-bottom: var(--spacing-xl);
-  font-size: 28px;
-  text-align: center;
-}
-
-.publication-item {
-  background-color: var(--bg-card);
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
-  padding: var(--spacing-lg);
-  margin-bottom: var(--spacing-lg);
-  transition:
-    transform var(--transition-default),
-    box-shadow var(--transition-default);
-}
-
-.publication-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-  color: var(--primary-color);
-}
-
-.publication-item h3 {
-  margin-top: 0;
-  margin-bottom: var(--spacing-sm);
-  font-size: 18px;
-}
-
-.publication-item p {
-  margin: var(--spacing-sm) 0;
-  font-size: 14px;
-}
-
-.publication-item strong {
-  color: var(--primary-color);
-  font-weight: 600;
-}
-
-.publication-item a {
-  display: inline-block;
-  margin-top: var(--spacing-sm);
-  font-weight: 500;
-  color: var(--primary-color);
-  text-decoration: none;
-  transition: color var(--transition-default);
-}
-
-.publication-item a:hover {
-  text-decoration: underline;
-}
-
-/* ==============================
    TESTIMONIALS
 ============================== */
 .testimonials-container {
@@ -1874,37 +1811,6 @@ button:focus-visible {
   margin-right: auto;
   margin-bottom: 20px;
   overflow-x: hidden;
-}
-
-/* Filter Controls */
-.filter-controls {
-  display: flex;
-  margin-bottom: var(--spacing-xl);
-  border-bottom: 1px solid #e0e0e0;
-}
-
-.filter-control {
-  flex: 1;
-  padding: var(--spacing-md);
-  text-align: center;
-  border-right: 1px solid #e0e0e0;
-  cursor: pointer;
-  font-weight: 500;
-  transition: background-color var(--transition-default);
-}
-
-.filter-control:last-child {
-  border-right: none;
-}
-
-.filter-control:hover {
-  background-color: rgba(127, 62, 152, 0.05);
-}
-
-.filter-control::before {
-  content: "+";
-  margin-right: var(--spacing-sm);
-  color: var(--primary-color);
 }
 
 /* Blog Cards Grid */
