@@ -1018,7 +1018,6 @@ button:focus-visible {
   text-align: left;
   padding: var(--spacing-sm);
   margin: var(--top-margin) auto 0;
-  margin-left
   width: var(--content-width);
   max-width: var(--container-width);
 }
@@ -1140,9 +1139,9 @@ button:focus-visible {
 }
 
 .card {
-    padding-left: 0;
-    padding-right: 0;
-    padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
 }
 
 /* ==============================
@@ -2354,17 +2353,6 @@ button:focus-visible {
 
   .about section img {
     max-width: 80%;
-  }
-
-  .filter-controls {
-    flex-direction: column;
-    border-bottom: none;
-  }
-
-  .filter-control {
-    border-right: none;
-    border-bottom: 1px solid #e0e0e0;
-    text-align: left;
   }
 
   .card-container {
