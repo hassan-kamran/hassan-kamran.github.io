@@ -44,8 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
       searchIndex = await response.json();
       miniSearch = initMiniSearch();
       miniSearch.addAll(searchIndex);
-
-      console.log("Search index loaded successfully");
     } catch (error) {
       console.error("Error loading search index:", error);
     }
