@@ -16,17 +16,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // MiniSearch instance
   let miniSearch = null;
+  let searchDocuments = []; // Store the full documents for context extraction
 
   // Initialize MiniSearch with the search index
   function initializeSearch() {
     // Create a new MiniSearch instance
     miniSearch = new MiniSearch({
       fields: ["title", "content", "description"], // fields to index for full-text search
-      storeFields: ["title", "url", "description", "type", "category", "date"], // fields to return with search results
+      storeFields: [
+        "title",
+        "url",
+        "content",
+        "description",
+        "type",
+        "category",
+        "date",
+      ], // Store full content for snippets
       searchOptions: {
-        boost: { title: 2, description: 1.5 }, // boost factors for fields
+        boost: { title: 2, description: 1.5, content: 1 }, // boost factors for fields
         fuzzy: 0.2, // fuzzy search with edit distance of 0.2
         prefix: true, // match by prefix
+        combineWith: "AND", // require all terms to match
       },
     });
 
@@ -39,6 +49,9 @@ document.addEventListener("DOMContentLoaded", () => {
         return response.json();
       })
       .then((documents) => {
+        // Store documents for context extraction
+        searchDocuments = documents;
+
         // Add documents to the index
         miniSearch.addAll(documents);
         console.log(`Indexed ${documents.length} documents for search`);
@@ -105,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Save recent search
     recentSearches.add(query);
 
-    // Search the index
+    // Search the index - get raw results from MiniSearch
     const results = miniSearch.search(query);
 
     if (results.length > 0) {
@@ -141,7 +154,8 @@ document.addEventListener("DOMContentLoaded", () => {
             `;
 
       groupedResults[type].forEach((item) => {
-        const snippet = getSnippet(item, query);
+        // Get context snippets - multiple snippets showing the search term in context
+        const snippets = findMatchingSnippets(item, query);
         const category = item.category
           ? `<span class="result-category">${item.category}</span>`
           : "";
@@ -152,12 +166,30 @@ document.addEventListener("DOMContentLoaded", () => {
         html += `
                     <li>
                         <a href="${item.url}" class="result-item">
-                            <div class="result-title">${item.title}</div>
+                            <div class="result-title">${highlightSearchTerms(item.title, query)}</div>
                             <div class="result-meta">
                                 ${category}
                                 ${date}
                             </div>
-                            <div class="result-snippet">${highlightSearchTerms(snippet, query)}</div>
+                `;
+
+        // Add snippets if available
+        if (snippets.length > 0) {
+          html += `<div class="result-snippet">`;
+          // Add each snippet with appropriate highlighting
+          snippets.forEach((snippet, index) => {
+            if (index > 0) {
+              html += `<span class="snippet-separator">...</span>`;
+            }
+            html += `${snippet}`;
+          });
+          html += `</div>`;
+        } else {
+          // Fallback to description if no snippets
+          html += `<div class="result-snippet">${highlightSearchTerms(item.description || "", query)}</div>`;
+        }
+
+        html += `
                         </a>
                     </li>
                 `;
@@ -183,63 +215,97 @@ document.addEventListener("DOMContentLoaded", () => {
     searchResultsContainer.classList.add("visible");
   }
 
-  // Get a relevant snippet from the content
-  function getSnippet(item, query) {
-    const description = item.description || "";
+  // Find multiple matching snippets in content
+  function findMatchingSnippets(item, query) {
     const content = item.content || "";
-
-    // If description exists and is not too long, use it
-    if (description && description.length > 0 && description.length <= 200) {
-      return description;
+    if (!content || content.length === 0) {
+      return [];
     }
 
-    // Otherwise, find a relevant snippet from the content
-    if (content && content.length > 0) {
-      const lowerQuery = query.toLowerCase();
-      const lowerContent = content.toLowerCase();
+    const queryTerms = query
+      .toLowerCase()
+      .split(/\s+/)
+      .filter((term) => term.length > 2);
+    if (queryTerms.length === 0) {
+      return [];
+    }
 
-      // Find the position of the query in the content
-      const position = lowerContent.indexOf(lowerQuery);
+    const snippets = [];
+    const snippetLength = 100; // Characters before and after the match
 
-      if (position !== -1) {
-        // Get a snippet around the query
-        const start = Math.max(0, position - 60);
-        const end = Math.min(content.length, position + query.length + 60);
-        let snippet = content.substring(start, end);
+    // Find snippets for each search term
+    queryTerms.forEach((term) => {
+      let startPos = 0;
+      const maxSnippets = 2; // Max snippets per term
+      let snippetCount = 0;
+
+      while (startPos < content.length && snippetCount < maxSnippets) {
+        const termPos = content.toLowerCase().indexOf(term, startPos);
+        if (termPos === -1) break;
+
+        const snippetStart = Math.max(0, termPos - snippetLength);
+        const snippetEnd = Math.min(
+          content.length,
+          termPos + term.length + snippetLength,
+        );
+
+        // Extract the snippet
+        let snippet = content.substring(snippetStart, snippetEnd);
 
         // Add ellipsis if needed
-        if (start > 0) {
+        if (snippetStart > 0) {
           snippet = "..." + snippet;
         }
 
-        if (end < content.length) {
+        if (snippetEnd < content.length) {
           snippet = snippet + "...";
         }
 
-        return snippet;
+        // Highlight the term in the snippet
+        snippet = highlightSearchTerms(snippet, term);
+
+        // Add to snippets if not a duplicate
+        if (!snippets.includes(snippet)) {
+          snippets.push(snippet);
+          snippetCount++;
+        }
+
+        // Move start position for next search
+        startPos = termPos + term.length;
       }
-    }
-
-    // Fallback to first 160 characters of content or description
-    return (content || description).substring(0, 160) + "...";
-  }
-
-  // Highlight search terms in snippet
-  function highlightSearchTerms(snippet, searchTerm) {
-    if (!searchTerm.trim() || !snippet) return snippet;
-
-    // Get all individual terms
-    const terms = searchTerm.trim().split(/\s+/);
-    let highlightedSnippet = snippet;
-
-    terms.forEach((term) => {
-      if (term.length < 3) return; // Skip very short terms
-
-      const regex = new RegExp(`(${escapeRegExp(term)})`, "gi");
-      highlightedSnippet = highlightedSnippet.replace(regex, "<mark>$1</mark>");
     });
 
-    return highlightedSnippet;
+    return snippets.slice(0, 3); // Limit to 3 snippets max per result
+  }
+
+  // Highlight search terms in text
+  function highlightSearchTerms(text, searchTerm) {
+    if (!searchTerm || !text) return text;
+
+    // Get all individual terms
+    const terms =
+      typeof searchTerm === "string"
+        ? searchTerm
+            .toLowerCase()
+            .split(/\s+/)
+            .filter((term) => term.length > 2)
+        : [searchTerm.toLowerCase()];
+
+    if (terms.length === 0) return text;
+
+    let highlightedText = text;
+
+    // Highlight each term
+    terms.forEach((term) => {
+      // Create a regex that matches the whole word containing the term
+      const regex = new RegExp(
+        `(\\b\\w*${escapeRegExp(term)}\\w*\\b|${escapeRegExp(term)})`,
+        "gi",
+      );
+      highlightedText = highlightedText.replace(regex, "<mark>$1</mark>");
+    });
+
+    return highlightedText;
   }
 
   // Escape special regex characters
@@ -328,6 +394,19 @@ document.addEventListener("DOMContentLoaded", () => {
       closeSearch();
     }
   });
+
+  // Update CSS variables on root to fix missing colors
+  const root = document.documentElement;
+  if (!getComputedStyle(root).getPropertyValue("--background-color")) {
+    root.style.setProperty("--background-color", "#ffffff");
+    root.style.setProperty("--text-color", "#1c1c1c");
+    root.style.setProperty("--border-color", "#e0e0e0");
+    root.style.setProperty("--hover-color", "rgba(127, 62, 152, 0.1)");
+    root.style.setProperty("--accent-color", "#7f3e98");
+    root.style.setProperty("--text-color-light", "#4a4a4a");
+    root.style.setProperty("--primary-color-rgb", "127, 62, 152");
+    root.style.setProperty("--primary-color-dark", "#662d80");
+  }
 });
 
 // ==========================
@@ -359,3 +438,32 @@ const recentSearches = {
     localStorage.removeItem("recentSearches");
   },
 };
+
+// Add CSS for snippet separators
+document.addEventListener("DOMContentLoaded", () => {
+  const style = document.createElement("style");
+  style.textContent = `
+        .snippet-separator {
+            display: inline-block;
+            margin: 0 4px;
+            color: var(--text-muted);
+            font-weight: bold;
+        }
+        
+        mark {
+            background-color: rgba(127, 62, 152, 0.2);
+            color: inherit;
+            font-weight: bold;
+            padding: 0 2px;
+            border-radius: 2px;
+        }
+        
+        .result-snippet {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+            margin-top: 4px;
+        }
+    `;
+  document.head.appendChild(style);
+});
