@@ -259,6 +259,7 @@ def render_page(template_name, page_name, **kwargs):
         meta_des=kwargs.get("meta_des"),
         static=kwargs.get("static", static_path),
         inject_svg=inject_svg,
+        resume="hassan_resume.pdf",
     )
 
     # Create directory if it doesn't exist
