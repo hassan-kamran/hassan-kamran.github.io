@@ -458,6 +458,7 @@ def render_page(template_name, page_name, **kwargs):
         "static": kwargs.get("static", static_path),
         "inject_svg": inject_svg,
         "resume": "hassan_resume.pdf",
+        "copyright": datetime.now().year,
     }
 
     filtered_kwargs = {k: v for k, v in kwargs.items() if k not in template_params}
