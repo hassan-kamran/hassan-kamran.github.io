@@ -498,6 +498,10 @@ def about_me():
     )
 
 
+def not_found_404():
+    render_page("404.html", "404")
+
+
 def blog():
     blog_posts = []
     for filename in os.listdir(BLOG_FOLDER):
@@ -632,6 +636,7 @@ def main():
     home()
     about_me()
     blog()
+    not_found_404()
     sitemap()
     robots_txt()
 
