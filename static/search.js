@@ -54,7 +54,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Add documents to the index
         miniSearch.addAll(documents);
-        console.log(`Indexed ${documents.length} documents for search`);
       })
       .catch((error) => {
         console.error("Error loading search index:", error);
