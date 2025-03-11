@@ -123,14 +123,6 @@ def determine_content_type(url):
 def generate_search_index(
     output_dir=".", output_file="./static/search-index.json", blog_folder=None
 ):
-    """
-    Generate a search index for the website content and save it as JSON.
-
-    Args:
-        output_dir: Directory containing generated HTML files
-        output_file: Path where the search index JSON file will be saved
-        blog_folder: Optional path to folder containing blog post text files (for metadata)
-    """
     print("Generating search index...")
 
     # Initialize the documents list for the search index
@@ -443,6 +435,14 @@ def render_page(template_name, page_name, **kwargs):
 
     if kwargs.get("meta_des") is None:
         kwargs["meta_des"] = meta_des_site.get("home")
+
+    base_url = "https://www.engrhassankamran.com"
+    if page_name == "index":
+        canonical_url = f"{base_url}/"
+    else:
+        canonical_url = f"{base_url}/{page_name}.html"
+
+    kwargs["canonical"] = f'<link rel="canonical" href="{canonical_url}" />'
 
     template_params = {
         "title": f"Hassan Kamran | {title}",
