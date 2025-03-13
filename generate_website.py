@@ -106,8 +106,8 @@ def scan_html_files(directory, base_url="", exclude_dirs=None):
     return html_files
 
 
-def determine_content_type(url):
-    """Determine the content type based on URL pattern."""
+def determsine_content_type(url):
+    """Determsine the content type based on URL pattern."""
     if url.startswith("blogs/") or "/blogs/" in url:
         return "blog"
     elif url == "index.html":
@@ -177,8 +177,8 @@ def generate_search_index(
                 # Extract title and description
                 title, description = extract_metadata_from_html(html_content, url)
 
-                # Determine content type
-                content_type = determine_content_type(url)
+                # Determsine content type
+                content_type = determsine_content_type(url)
 
                 # Create unique ID
                 doc_id = os.path.splitext(url)[0].replace("/", "-")
@@ -230,7 +230,7 @@ def get_urls(depth=0):
         "blog": f"{prefix}blog.html",
         "about": f"{prefix}about.html",
         "sitemap": f"{prefix}sitemap.xml",
-        "term": f"{prefix}term.html",
+        "terms": f"{prefix}terms.html",
         "privacy": f"{prefix}privacy.html",
     }
 
@@ -454,7 +454,7 @@ def render_page(template_name, page_name, **kwargs):
         "about": page_urls.get("about"),
         "sitemap": page_urls.get("sitemap"),
         "privacy": page_urls.get("privacy"),
-        "term": page_urls.get("term"),
+        "terms": page_urls.get("terms"),
         "preload": kwargs.get("preload"),
         "comment_open": comment_open,
         "comment_close": comment_close,
@@ -500,8 +500,8 @@ def privacy():
     render_page("privacy.html", "privacy", title="Privacy Policy")
 
 
-def term():
-    render_page("term.html", "term", title="Terms of Service")
+def terms():
+    render_page("terms.html", "terms", title="termss of Service")
 
 
 def about_me():
@@ -650,7 +650,7 @@ def main():
     blog()
     not_found_404()
     privacy()
-    term()
+    terms()
     sitemap()
     robots_txt()
 
