@@ -432,7 +432,7 @@ def render_page(template_name, page_name, **kwargs):
     # Render the base template with the content and other variables
     comment_open = ""
     comment_close = ""
-    if kwargs.get("preload") == "none":
+    if kwargs.get("preload") is None:
         comment_open = "<!--"
         comment_close = "-->"
     if kwargs.get("title") is None:
@@ -577,7 +577,6 @@ def blog():
                     category=category,
                     date=date,
                     blog_content=html_content,
-                    preload="none",
                     meta_des=meta_des,
                 )
     # Render the blog list page
@@ -585,7 +584,6 @@ def blog():
         "blog.html",
         "blog",
         blog_posts=blog_posts,
-        preload="none",
         meta_des=meta_des_site.get("blog"),
     )
 
