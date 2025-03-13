@@ -13,6 +13,7 @@ BASE_TEMPLATE = "base.html"
 BLOG_FOLDER = "./text"
 SVG_FOLDER = "./static"
 SEARCH_INDEX_FILE = "./static/search-index.json"
+DOMAIN = "https://engrhassankamran.com"
 
 # Environment setup
 env = Environment(loader=FileSystemLoader(TEMPLATES_FOLDER))
@@ -31,6 +32,9 @@ meta_des_site = {
     programming, big data, and robotics. Hassan Kamran shares expert knowledge, 
     research, and hands-on experiences in machine learning, cloud computing, and more. 
     Stay ahead with in-depth technical articles and tutorials.""",
+    "resume": """Professional resume of Capt (R) Engr Hassan Kamran - Technical Project Manager,
+    Software Consultant and Engineer with expertise in AI, IoT, and cloud solutions. View experience, 
+    qualifications, and download PDF version.""",
 }
 
 # ---- Search Index Generation Functions ----
@@ -232,6 +236,7 @@ def get_urls(depth=0):
         "sitemap": f"{prefix}sitemap.xml",
         "terms": f"{prefix}terms.html",
         "privacy": f"{prefix}privacy.html",
+        "resume": f"{prefix}resume.html",
     }
 
 
@@ -438,7 +443,7 @@ def render_page(template_name, page_name, **kwargs):
     if kwargs.get("meta_des") is None:
         kwargs["meta_des"] = meta_des_site.get("home")
 
-    base_url = "https://www.engrhassankamran.com"
+    base_url = "https://engrhassankamran.com"
     if page_name == "index":
         canonical_url = f"{base_url}/"
     else:
@@ -501,7 +506,18 @@ def privacy():
 
 
 def terms():
-    render_page("terms.html", "terms", title="termss of Service")
+    render_page("terms.html", "terms", title="terms of service")
+
+
+def resume():
+    render_page(
+        "resume.html",
+        "resume",
+        title="Capt(R) Hassan Kamran, MSc",
+        download=f"{DOMAIN}/static/hassan_kamran.pdf",
+        hero="hero-mini.avif",
+        meta_des=meta_des_site.get("resume"),
+    )
 
 
 def about_me():
@@ -575,7 +591,6 @@ def blog():
 
 
 def sitemap():
-    domain = "https://engrhassankamran.com"
     pages = []
 
     # Root URLs for sitemap
@@ -584,7 +599,7 @@ def sitemap():
     for page_name, url in root_urls.items():
         if url.endswith(".html"):
             # Convert relative URL to absolute
-            absolute_url = f"{domain}/{url.lstrip('./')}"
+            absolute_url = f"{DOMAIN}/{url.lstrip('./')}"
             pages.append(
                 {
                     "loc": absolute_url,
@@ -593,11 +608,20 @@ def sitemap():
                 }
             )
 
+    resume_url = f"{DOMAIN}/static/hassan_resume.pdf"
+    pages.append(
+        {
+            "loc": resume_url,
+            "lastmod": datetime.now().strftime("%Y-%m-%d"),
+            "priority": "0.6",
+        }
+    )
+
     if os.path.exists("./blogs"):
         for filename in os.listdir("./blogs"):
             if filename.endswith(".html"):
                 # Convert relative blog URL to absolute
-                absolute_url = f"{domain}/blogs/{filename}"
+                absolute_url = f"{DOMAIN}/blogs/{filename}"
                 pages.append(
                     {
                         "loc": absolute_url,
@@ -624,14 +648,12 @@ def sitemap():
 
 
 def robots_txt():
-    domain = "https://engrhassankamran.com"
-
     robots_content = "# robots.txt for engrhassankamran.com\n"
     robots_content += "User-agent: *\n"
     robots_content += "Allow: /\n\n"
 
     # Specify the sitemap location for search engines
-    robots_content += f"Sitemap: {domain}/sitemap.xml\n"
+    robots_content += f"Sitemap: {DOMAIN}/sitemap.xml\n"
 
     # Write robots.txt file
     with open("./robots.txt", "w", encoding="utf-8") as file:
@@ -651,6 +673,7 @@ def main():
     not_found_404()
     privacy()
     terms()
+    resume()
     sitemap()
     robots_txt()
 

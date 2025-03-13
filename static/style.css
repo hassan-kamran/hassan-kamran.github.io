@@ -2141,6 +2141,343 @@ mark {
 }
 
 /* ==============================
+   RESUME
+============================== */
+.resume-container {
+  width: var(--content-width);
+  max-width: var(--container-width);
+  margin: var(--top-margin) auto var(--spacing-xxl);
+  padding: var(--spacing-xl);
+  background-color: var(--bg-light);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.resume-header {
+  margin-bottom: var(--spacing-xl);
+}
+
+.resume-header .contact-info {
+  margin-bottom: var(--spacing-lg);
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.resume-header .contact-info a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color var(--transition-default);
+}
+
+.resume-header .contact-info a:hover {
+  text-decoration: underline;
+}
+
+.profile-container {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-xl);
+}
+
+.profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--primary-color);
+  box-shadow: var(--box-shadow);
+}
+
+.profile h1 {
+  margin: 0;
+  color: var(--primary-color);
+  font-size: 2rem;
+}
+
+.profile h2 {
+  margin: var(--spacing-sm) 0;
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.profile p {
+  margin: var(--spacing-sm) 0 0;
+}
+
+.profile a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color var(--transition-default);
+}
+
+.profile a:hover {
+  text-decoration: underline;
+}
+
+/* Section Styles */
+.resume-container section {
+  margin-bottom: var(--spacing-xl);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.resume-container section:last-of-type {
+  border-bottom: none;
+}
+
+.resume-container h2 {
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-md);
+  font-size: 1.5rem;
+  position: relative;
+  padding-bottom: var(--spacing-sm);
+}
+
+.resume-container h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background-color: var(--primary-color);
+}
+
+/* Job Styles */
+.job {
+  margin-bottom: var(--spacing-lg);
+}
+
+.job:last-child {
+  margin-bottom: 0;
+}
+
+.job h3 {
+  margin: 0 0 var(--spacing-sm);
+  color: var(--bg-dark);
+  font-size: 1.2rem;
+}
+
+.job .date {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin: var(--spacing-sm) 0;
+}
+
+.job ul {
+  margin: var(--spacing-md) 0 0;
+  padding-left: var(--spacing-xl);
+  color: var(--text-muted);
+}
+
+.job li {
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.5;
+}
+
+/* Publications Styles */
+#publications ul {
+  margin: var(--spacing-md) 0 0;
+  padding-left: var(--spacing-xl);
+  color: var(--text-muted);
+}
+
+#publications li {
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.5;
+}
+
+/* Tables Styles */
+.edu-table,
+.cert-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: var(--spacing-md);
+}
+
+.edu-table th,
+.cert-table th {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  padding: var(--spacing-md);
+  text-align: left;
+  font-weight: 500;
+}
+
+.edu-table td,
+.cert-table td {
+  padding: var(--spacing-md);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  color: var(--text-muted);
+}
+
+.edu-table tr:last-child td,
+.cert-table tr:last-child td {
+  border-bottom: none;
+}
+
+.edu-table tr:hover,
+.cert-table tr:hover {
+  background-color: rgba(127, 62, 152, 0.05);
+}
+
+/* Download Button */
+.download-container {
+  text-align: center;
+  margin-top: var(--spacing-xxl);
+}
+
+.download-btn {
+  display: inline-block;
+  padding: var(--spacing-md) var(--spacing-lg);
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  transition: all var(--transition-default);
+  box-shadow: var(--box-shadow);
+}
+
+.download-btn:hover {
+  background-color: color-mix(in srgb, var(--primary-color) 80%, #ffffff 20%);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(127, 62, 152, 0.25);
+}
+
+.download-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 6px rgba(127, 62, 152, 0.15);
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .profile-container {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--spacing-md);
+  }
+
+  .profile h1 {
+    font-size: 1.8rem;
+  }
+
+  .profile h2 {
+    font-size: 1.1rem;
+  }
+
+  .resume-container h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .resume-container h2 {
+    text-align: center;
+  }
+
+  /* Table responsiveness */
+  .edu-table,
+  .cert-table,
+  .edu-table thead,
+  .cert-table thead,
+  .edu-table tbody,
+  .cert-table tbody,
+  .edu-table th,
+  .cert-table th,
+  .edu-table td,
+  .cert-table td,
+  .edu-table tr,
+  .cert-table tr {
+    display: block;
+  }
+
+  .edu-table thead tr,
+  .cert-table thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  .edu-table tr,
+  .cert-table tr {
+    margin-bottom: var(--spacing-md);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: var(--border-radius);
+  }
+
+  .edu-table td,
+  .cert-table td {
+    border: none;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  .edu-table td:before,
+  .cert-table td:before {
+    position: absolute;
+    top: var(--spacing-md);
+    left: var(--spacing-md);
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    font-weight: 600;
+    color: var(--primary-color);
+  }
+
+  /* Education labels */
+  .edu-table td:nth-of-type(1):before {
+    content: "Institute:";
+  }
+  .edu-table td:nth-of-type(2):before {
+    content: "Major:";
+  }
+  .edu-table td:nth-of-type(3):before {
+    content: "Qualification:";
+  }
+  .edu-table td:nth-of-type(4):before {
+    content: "Year:";
+  }
+
+  /* Certification labels */
+  .cert-table td:nth-of-type(1):before {
+    content: "Institute:";
+  }
+  .cert-table td:nth-of-type(2):before {
+    content: "Qualification:";
+  }
+  .cert-table td:nth-of-type(3):before {
+    content: "Registration #:";
+  }
+  .cert-table td:nth-of-type(4):before {
+    content: "Year:";
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .resume-container {
+    padding: var(--spacing-md);
+  }
+
+  .profile h1 {
+    font-size: 1.5rem;
+  }
+
+  .profile h2 {
+    font-size: 1rem;
+  }
+
+  .resume-header .contact-info p {
+    font-size: 0.9rem;
+  }
+
+  .job h3 {
+    font-size: 1.1rem;
+  }
+}
+
+/* ==============================
    MEDIA QUERIES
 ============================== */
 @media screen and (max-width: 992px) {
