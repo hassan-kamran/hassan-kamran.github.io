@@ -501,7 +501,7 @@ def privacy():
 
 
 def term():
-    render_page("term.html", "term", title="term of Service")
+    render_page("term.html", "term", title="Terms of Service")
 
 
 def about_me():
