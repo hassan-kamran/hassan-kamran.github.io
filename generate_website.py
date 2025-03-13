@@ -230,6 +230,8 @@ def get_urls(depth=0):
         "blog": f"{prefix}blog.html",
         "about": f"{prefix}about.html",
         "sitemap": f"{prefix}sitemap.xml",
+        "terms": f"{prefix}terms.html",
+        "privacy": f"{prefix}privacy.html",
     }
 
 
@@ -492,6 +494,14 @@ def home():
     )
 
 
+def privacy():
+    render_page("privacy.html", "privacy", title="Privacy Policy")
+
+
+def terms():
+    render_page("terms.html", "term", title="Terms of Service")
+
+
 def about_me():
     render_page(
         "about.html", "about", preload="cta", meta_des=meta_des_site.get("about")
@@ -637,6 +647,8 @@ def main():
     about_me()
     blog()
     not_found_404()
+    privacy()
+    terms()
     sitemap()
     robots_txt()
 
