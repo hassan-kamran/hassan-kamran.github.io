@@ -230,7 +230,7 @@ def get_urls(depth=0):
         "blog": f"{prefix}blog.html",
         "about": f"{prefix}about.html",
         "sitemap": f"{prefix}sitemap.xml",
-        "terms": f"{prefix}terms.html",
+        "term": f"{prefix}term.html",
         "privacy": f"{prefix}privacy.html",
     }
 
@@ -500,8 +500,8 @@ def privacy():
     render_page("privacy.html", "privacy", title="Privacy Policy")
 
 
-def terms():
-    render_page("terms.html", "term", title="Terms of Service")
+def term():
+    render_page("term.html", "term", title="term of Service")
 
 
 def about_me():
@@ -650,7 +650,7 @@ def main():
     blog()
     not_found_404()
     privacy()
-    terms()
+    term()
     sitemap()
     robots_txt()
 
