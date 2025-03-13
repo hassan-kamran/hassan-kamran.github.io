@@ -514,7 +514,7 @@ def resume():
         "resume.html",
         "resume",
         title="Capt(R) Hassan Kamran, MSc",
-        download=f"{DOMAIN}/static/hassan_kamran.pdf",
+        download=f"{DOMAIN}/static/hassan_resume.pdf",
         hero="hero-mini.avif",
         meta_des=meta_des_site.get("resume"),
     )
