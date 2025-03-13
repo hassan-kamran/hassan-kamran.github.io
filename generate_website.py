@@ -453,6 +453,8 @@ def render_page(template_name, page_name, **kwargs):
         "blog": page_urls.get("blog"),
         "about": page_urls.get("about"),
         "sitemap": page_urls.get("sitemap"),
+        "privacy": page_urls.get("privacy"),
+        "term": page_urls.get("term"),
         "preload": kwargs.get("preload"),
         "comment_open": comment_open,
         "comment_close": comment_close,
