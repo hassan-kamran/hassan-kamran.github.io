@@ -2,42 +2,47 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://engrhassankamran.com/index.html</loc>
-    <lastmod>2025-03-13</lastmod>
+    <lastmod>2025-03-14</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://engrhassankamran.com/blog.html</loc>
-    <lastmod>2025-03-13</lastmod>
+    <lastmod>2025-03-14</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://engrhassankamran.com/about.html</loc>
-    <lastmod>2025-03-13</lastmod>
+    <lastmod>2025-03-14</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://engrhassankamran.com/terms.html</loc>
-    <lastmod>2025-03-13</lastmod>
+    <lastmod>2025-03-14</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://engrhassankamran.com/privacy.html</loc>
-    <lastmod>2025-03-13</lastmod>
+    <lastmod>2025-03-14</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://engrhassankamran.com/resume.html</loc>
-    <lastmod>2025-03-13</lastmod>
+    <lastmod>2025-03-14</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://engrhassankamran.com/contact.html</loc>
+    <lastmod>2025-03-14</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://engrhassankamran.com/static/hassan_resume.pdf</loc>
-    <lastmod>2025-03-13</lastmod>
+    <lastmod>2025-03-14</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://engrhassankamran.com/blogs/how-I-built-this-website.html</loc>
-    <lastmod>2025-03-13</lastmod>
+    <lastmod>2025-03-14</lastmod>
     <priority>0.7</priority>
   </url>
 </urlset>

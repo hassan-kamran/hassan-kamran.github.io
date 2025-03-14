@@ -35,6 +35,15 @@ meta_des_site = {
     "resume": """Professional resume of Capt (R) Engr Hassan Kamran - Technical Project Manager,
     Software Consultant and Engineer with expertise in AI, IoT, and cloud solutions. View experience, 
     qualifications, and download PDF version.""",
+    "contact": """Get in touch with Hassan Kamran, Software Engineer & Developer. 
+    Connect via email, phone, or social media for collaboration opportunities, 
+    technical consulting, and project inquiries. Based in Islamabad, Pakistan.""",
+    "privacy": """Privacy Policy for Hassan Kamran's website. Learn how your personal 
+    information is collected, used, and protected when you visit engrhassankamran.com. 
+    Our commitment to data security and transparency.""",
+    "terms": """Terms of Service for engrhassankamran.com. Understand the rules, 
+    guidelines, and legal agreements that govern the use of Hassan Kamran's website, 
+    content, and services. Last updated [Date].""",
 }
 
 # ---- Search Index Generation Functions ----
@@ -237,6 +246,7 @@ def get_urls(depth=0):
         "terms": f"{prefix}terms.html",
         "privacy": f"{prefix}privacy.html",
         "resume": f"{prefix}resume.html",
+        "contact": f"{prefix}contact.html",
     }
 
 
@@ -467,6 +477,7 @@ def render_page(template_name, page_name, **kwargs):
         "static": kwargs.get("static", static_path),
         "inject_svg": inject_svg,
         "resume": page_urls.get("resume"),
+        "contact": page_urls.get("contact"),
         "copyright": datetime.now().year,
     }
 
@@ -502,11 +513,30 @@ def home():
 
 
 def privacy():
-    render_page("privacy.html", "privacy", title="Privacy Policy")
+    render_page(
+        "privacy.html",
+        "privacy",
+        title="Privacy Policy",
+        meta_des=meta_des_site.get("privacy"),
+    )
 
 
 def terms():
-    render_page("terms.html", "terms", title="terms of service")
+    render_page(
+        "terms.html",
+        "terms",
+        title="Terms of service",
+        meta_des=meta_des_site.get("terms"),
+    )
+
+
+def contact():
+    render_page(
+        "contact.html",
+        "contact",
+        title="Get in Touch",
+        meta_des=meta_des_site.get("contact"),
+    )
 
 
 def resume():
@@ -672,6 +702,7 @@ def main():
     privacy()
     terms()
     resume()
+    contact()
     sitemap()
     robots_txt()
 

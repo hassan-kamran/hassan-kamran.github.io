@@ -2176,6 +2176,143 @@ body {
 }
 
 /* ==============================
+   CONTACT PAGE STYLES
+============================== */
+.contact-hero {
+  text-align: center;
+  margin-top: var(--top-margin);
+  margin-bottom: var(--spacing-xl);
+  padding: var(--spacing-lg) 0;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  border-radius: var(--border-radius);
+  max-width: var(--container-width);
+  width: var(--content-width);
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+.contact-hero h1 {
+  color: var(--text-light);
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.contact-hero p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 18px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-page-content {
+  margin: var(--spacing-xl) auto;
+}
+
+.contact-info-card {
+  padding: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+  width: 100%;
+  max-width: var(--container-width);
+}
+
+.contact-info-card h2,
+.map-section h2 {
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-lg);
+  font-size: 1.6rem;
+  text-align: left;
+  position: relative;
+}
+
+.contact-info-card h2::after,
+.map-section h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 50px;
+  height: 3px;
+  background-color: var(--primary-color);
+}
+
+/* Map Section */
+.map-section {
+  margin: var(--spacing-xl) auto;
+  padding: var(--spacing-xl);
+  width: 100%;
+  max-width: var(--container-width);
+}
+
+.map-container {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  margin-top: var(--spacing-lg);
+  box-shadow: var(--box-shadow);
+}
+
+.map-container iframe {
+  display: block;
+}
+
+/* Responsive Styles for Contact Page */
+@media screen and (max-width: 768px) {
+  .contact-hero {
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+
+  .contact-hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .contact-hero p {
+    font-size: 16px;
+  }
+
+  .contact-info-card h2,
+  .map-section h2 {
+    text-align: center;
+    font-size: 1.4rem;
+  }
+
+  .contact-info-card h2::after,
+  .map-section h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .map-section {
+    padding: var(--spacing-lg);
+  }
+
+  .contact-info-card {
+    padding: var(--spacing-lg);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .contact-hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .contact-info-card,
+  .map-section {
+    padding: var(--spacing-md);
+  }
+}
+
+/* Highlight the active page in navigation */
+.siteHeaderCenter ul li a.active::after,
+.siteHeaderCenter ul li button.active::after {
+  background-color: var(--primary-color);
+}
+
+.siteHeaderCenter ul li a.active,
+.siteHeaderCenter ul li button.active {
+  color: var(--primary-color);
+}
+/* ==============================
    RESUME
 ============================== */
 .resume-container {
