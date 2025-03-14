@@ -18,7 +18,7 @@ React / Next.js / Tailwind would have been overkill for this simple use case. So
 
 I chose to make use of the fundamentals, utilizing as many modern HTML/CSS features as I could to reduce my dependency on JavaScript. To avoid duplication of code, I used Jinja2 templates. I wrote a Python script that generates my pages, adding in images, canonicals, and meta descriptions where needed. The blogs are stored in markdown, and code is organized into templates.
 
-I use JavaScript for the search functionality and one external library mini-search.js which itself does not have any external dependencies. I vendorized this dependency, meaning I serve it along with all the other assets of my website.
+I used JavaScript for the search functionality and one external library mini-search.js which itself does not have any external dependencies. I vendorized this dependency, meaning I serve it along with all the other assets of my website.
 
 ## Tech Stack Summary
 
