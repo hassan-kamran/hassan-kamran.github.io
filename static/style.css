@@ -375,10 +375,6 @@ figcaption {
   transition: color var(--transition-default);
 }
 
-.logo:hover {
-  color: var(--primary-color);
-}
-
 .siteHeaderCenter {
   flex: 1;
   display: flex;
@@ -2243,6 +2239,7 @@ body {
   padding: var(--spacing-xl);
   width: 100%;
   max-width: var(--container-width);
+  width: var(--content-width);
 }
 
 .map-container {
