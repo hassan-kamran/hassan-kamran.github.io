@@ -1,4 +1,4 @@
-Development of a low cost tele operated drone with an integrated sprayer system for precision agriculture
+Low-Cost Teleoperated Drone with Integrated Sprayer for Precision Agriculture
 Robotics
 2025-03-16
 drone.avif
