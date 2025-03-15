@@ -543,7 +543,7 @@ def contact():
 def resume():
     render_page(
         "resume.html",
-        "resume",
+        "Resume",
         title="Capt(R) Hassan Kamran, MSc",
         download=f"{DOMAIN}/static/hassan_resume.pdf",
         hero="hero-mini.avif",
@@ -553,7 +553,7 @@ def resume():
 
 def about_me():
     render_page(
-        "about.html", "about", preload="cta", meta_des=meta_des_site.get("about")
+        "about.html", "About", preload="cta", meta_des=meta_des_site.get("about")
     )
 
 
@@ -618,7 +618,7 @@ def blog():
     # Render the blog list page
     render_page(
         "blog.html",
-        "blog",
+        "Blog",
         blog_posts=blog_posts,
         meta_des=meta_des_site.get("blog"),
     )
