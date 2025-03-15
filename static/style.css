@@ -1684,7 +1684,7 @@ mark {
    ABOUT PAGE
 ============================== */
 .about {
-  text-align: left;
+  text-align: justify;
   padding: var(--spacing-sm);
   margin: var(--top-margin) auto 0;
   width: var(--content-width);
