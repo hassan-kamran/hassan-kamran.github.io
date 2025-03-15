@@ -562,8 +562,11 @@ def not_found_404():
     render_page("404.html", "404", meta_des=meta_des_site.get("404"), base_tag=base_tag)
 
 
-def blog():
+def blog(posts_per_page=4):
+    """Generate blog posts and blog listing pages with pagination"""
     blog_posts = []
+
+    # Read and process all blog posts
     for filename in os.listdir(BLOG_FOLDER):
         if filename.endswith(".md"):
             filepath = os.path.join(BLOG_FOLDER, filename)
@@ -574,54 +577,115 @@ def blog():
                     print(f"Skipping empty blog file: {filename}")
                     continue
 
-                # Parse metadata from the file (assuming first lines contain metadata)
+                # Parse metadata from the file
                 lines = content.split("\n")
                 title = lines[0].strip()
                 category = lines[1].strip() if len(lines) > 1 else "Uncategorized"
                 date = lines[2].strip() if len(lines) > 2 else "Unknown date"
                 img_name = lines[3].strip() if len(lines) > 3 else ""
-                meta_des = lines[4].strip() if len(lines) > 3 else ""
+                meta_des = lines[4].strip() if len(lines) > 4 else ""
 
-                # Extract content (now as markdown)
-                markdown_content = "\n".join(lines[5:]) if len(lines) > 3 else ""
+                # Extract markdown content
+                markdown_content = "\n".join(lines[5:]) if len(lines) > 5 else ""
 
                 # Convert Markdown to HTML
                 html_content = markdown.markdown(
                     markdown_content, extensions=["extra", "codehilite"]
                 )
 
-                filename = os.path.splitext(filename)[0]
+                # Get filename without extension
+                post_filename = os.path.splitext(filename)[0]
 
-                # Create blog post entry with correct relative path from blog list
+                # Add to blog posts list
                 blog_posts.append(
                     {
                         "title": title,
                         "category": category,
                         "date": date,
-                        "filename": f"./blogs/{filename}.html",
+                        "filename": f"./blogs/{post_filename}.html",
                         "image_url": f"./static/{img_name}",
                         "meta_des": meta_des,
-                        "content": html_content,  # This is now HTML converted from Markdown
+                        "content": html_content,
                     }
                 )
 
-                # Render the individual blog post page
+                # Render individual blog post page
                 render_page(
                     "blog_post.html",
-                    f"blogs/{filename}",
+                    f"blogs/{post_filename}",
                     title=title,
                     category=category,
                     date=date,
                     blog_content=html_content,
                     meta_des=meta_des,
                 )
-    # Render the blog list page
-    render_page(
-        "blog.html",
-        "Blog",
-        blog_posts=blog_posts,
-        meta_des=meta_des_site.get("blog"),
-    )
+
+    # Sort blog posts by date (newest first)
+    # Convert date strings to datetime objects for proper sorting
+    for post in blog_posts:
+        try:
+            # Try to parse different date formats
+            date_formats = ["%Y-%m-%d", "%B %d, %Y", "%d %B %Y", "%d/%m/%Y", "%m/%d/%Y"]
+            for date_format in date_formats:
+                try:
+                    post["date_obj"] = datetime.strptime(post["date"], date_format)
+                    break
+                except ValueError:
+                    continue
+            if "date_obj" not in post:
+                # If no format worked, set a default old date
+                post["date_obj"] = datetime(1900, 1, 1)
+        except Exception as e:
+            print(f"Error parsing date '{post['date']}': {e}")
+            post["date_obj"] = datetime(1900, 1, 1)
+
+    # Sort by date_obj, newest first
+    blog_posts.sort(key=lambda x: x["date_obj"], reverse=True)
+
+    # Calculate total number of pages
+    total_posts = len(blog_posts)
+    total_pages = (
+        total_posts + posts_per_page - 1
+    ) // posts_per_page  # Ceiling division
+
+    # Generate paginated blog list pages
+    for page_num in range(1, total_pages + 1):
+        # Calculate slice indices for this page
+        start_idx = (page_num - 1) * posts_per_page
+        end_idx = min(start_idx + posts_per_page, total_posts)
+
+        # Get posts for this page
+        current_page_posts = blog_posts[start_idx:end_idx]
+
+        # Determine page filename
+        if page_num == 1:
+            page_name = "blog"  # First page is just blog.html
+        else:
+            page_name = (
+                f"blog-{page_num}"  # Other pages are blog-2.html, blog-3.html, etc.
+            )
+
+        # Create pagination data
+        pagination = {
+            "current_page": page_num,
+            "total_pages": total_pages,
+            "has_prev": page_num > 1,
+            "has_next": page_num < total_pages,
+            "prev_url": "./blog.html"
+            if page_num - 1 == 1
+            else f"./blog-{page_num - 1}.html",
+            "next_url": f"./blog-{page_num + 1}.html",
+        }
+
+        # Render the blog list page with pagination
+        render_page(
+            "blog.html",
+            page_name,
+            blog_posts=current_page_posts,
+            pagination=pagination,
+            meta_des=meta_des_site.get("blog"),
+            title="Blog" if page_num == 1 else f"Blog - Page {page_num}",
+        )
 
 
 def sitemap():
