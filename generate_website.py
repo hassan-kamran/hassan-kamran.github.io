@@ -557,7 +557,7 @@ def about_me():
 
 
 def not_found_404():
-    render_page("404.html", "404", static="/static")
+    render_page("404.html", "404", static=f"{DOMAIN}static")
 
 
 def blog():
