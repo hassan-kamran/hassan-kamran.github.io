@@ -570,6 +570,10 @@ def blog():
             with open(filepath, "r", encoding="utf-8") as file:
                 content = file.read().strip()
 
+                if not content:
+                    print(f"Skipping empty blog file: {filename}")
+                    continue
+
                 # Parse metadata from the file (assuming first lines contain metadata)
                 lines = content.split("\n")
                 title = lines[0].strip()
