@@ -44,6 +44,7 @@ meta_des_site = {
     "terms": """Terms of Service for engrhassankamran.com. Understand the rules, 
     guidelines, and legal agreements that govern the use of Hassan Kamran's website, 
     content, and services. Last updated [Date].""",
+    "404": """OOPs Not Found""",
 }
 
 # ---- Search Index Generation Functions ----
@@ -557,7 +558,8 @@ def about_me():
 
 
 def not_found_404():
-    render_page("404.html", "404", static=f"{DOMAIN}static")
+    base_tag = '<base href="/">'
+    render_page("404.html", "404", meta_des=meta_des_site.get("404"), base_tag=base_tag)
 
 
 def blog():
