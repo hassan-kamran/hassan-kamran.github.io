@@ -562,7 +562,7 @@ def not_found_404():
     render_page("404.html", "404", meta_des=meta_des_site.get("404"), base_tag=base_tag)
 
 
-def blog(posts_per_page=4):
+def blog(posts_per_page=8):
     """Generate blog posts and blog listing pages with pagination"""
     blog_posts = []
 
