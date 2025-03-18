@@ -2986,6 +2986,19 @@ body {
 
   .cta > div:last-child {
     width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .cta picture {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .cta img {
+    max-width: 80%; /* Or whatever width you want */
+    margin: 0 auto;
   }
 
   .cta p {
