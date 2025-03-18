@@ -240,7 +240,7 @@ def generate_search_index(
 def get_urls(depth=0):
     prefix = "../" * depth
     return {
-        "home": f"{prefix}index.html",
+        "home": f"{prefix}.html",
         "blog": f"{prefix}blog.html",
         "about": f"{prefix}about.html",
         "sitemap": f"{prefix}sitemap.xml",
