@@ -240,7 +240,7 @@ def generate_search_index(
 def get_urls(depth=0):
     prefix = "../" * depth
     return {
-        "home": f"{prefix}",
+        "home": f"{prefix}index.html",
         "blog": f"{prefix}blog.html",
         "about": f"{prefix}about.html",
         "sitemap": f"{prefix}sitemap.xml",
@@ -696,8 +696,12 @@ def sitemap():
 
     for page_name, url in root_urls.items():
         if url.endswith(".html"):
-            # Convert relative URL to absolute
+            # Convert relative URL to absolute_url
             absolute_url = f"{DOMAIN}/{url.lstrip('./')}"
+
+            if page_name == "home":
+                absolute_url = f"{DOMAIN}/"
+
             pages.append(
                 {
                     "loc": absolute_url,
