@@ -18,6 +18,10 @@ DOMAIN = "https://engrhassankamran.com"
 # Environment setup
 env = Environment(loader=FileSystemLoader(TEMPLATES_FOLDER))
 
+redirects = {
+    "blogs/low-Costl-teleoperated-drone-with-integrated-sprayer-for-precision-agriculture.html": "/blogs/low-Cost-teleoperated-drone-with-integrated-sprayer-for-precision-agriculture.html",
+}
+
 # Meta descriptions for site pages
 meta_des_site = {
     "home": """Engr Hassan Kamran's official website showcasing projects, 
@@ -762,6 +766,34 @@ def robots_txt():
         file.write(robots_content)
 
 
+def create_redirects(redirects_dict):
+    print("Creating redirects...")
+    for old_url, new_url in redirects_dict.items():
+        redirect_html = f"""<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Redirecting...</title>
+    <link rel="canonical" href="{DOMAIN}/{new_url}">
+    <meta http-equiv="refresh" content="0;url={new_url}">
+    <script>window.location.href = "{new_url}";</script>
+</head>
+<body>
+    <h1>Redirecting...</h1>
+    <p>This page has moved. If you are not redirected automatically, <a href="{new_url}">click here</a>.</p>
+</body>
+</html>"""
+
+        # Create directory if it doesn't exist
+        os.makedirs(os.path.dirname(f"./{old_url}"), exist_ok=True)
+
+        # Write redirect file
+        with open(f"./{old_url}", "w", encoding="utf-8") as file:
+            file.write(redirect_html)
+
+        print(f"  Created redirect: {old_url} → {new_url}")
+
+
 def main():
     # Create blogs directory if it doesn't exist, or clear it if it does
     if os.path.exists("./blogs"):
@@ -777,6 +809,7 @@ def main():
     terms()
     resume()
     contact()
+    create_redirects(redirects)
     sitemap()
     robots_txt()
 
