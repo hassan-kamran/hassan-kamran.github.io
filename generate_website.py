@@ -547,7 +547,7 @@ def contact():
 def resume():
     render_page(
         "resume.html",
-        "Resume",
+        "resume",
         title="Capt(R) Hassan Kamran, MSc",
         download=f"{DOMAIN}/static/hassan_resume.pdf",
         hero="hero-mini.avif",
