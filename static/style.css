@@ -2059,6 +2059,44 @@ mark {
   font-weight: 500;
 }
 
+/* Blog content table styles */
+.blog-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--spacing-lg) 0;
+  background-color: var(--bg-card);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+}
+
+.blog-content th,
+.blog-content td {
+  padding: var(--spacing-md);
+  text-align: left;
+  border: 1px solid #e0e0e0;
+}
+
+.blog-content th {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+.blog-content tr:hover {
+  background-color: rgba(127, 62, 152, 0.05);
+}
+
+/* Make sure blog content images are responsive */
+.blog-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: var(--spacing-lg) auto;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
 /* ==============================
    INFO PAGE
 ============================== */

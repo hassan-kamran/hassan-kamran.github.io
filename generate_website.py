@@ -566,6 +566,21 @@ def not_found_404():
     render_page("404.html", "404", meta_des=meta_des_site.get("404"), base_tag=base_tag)
 
 
+def process_blog_content(html_content):
+    soup = BeautifulSoup(html_content, "html.parser")
+
+    # Fix image paths - change from static/ to ../static/
+    for img in soup.find_all("img"):
+        if img.get("src") and img["src"].startswith("static/"):
+            img["src"] = "../" + img["src"]
+
+    # Add classes to tables
+    for table in soup.find_all("table"):
+        table["class"] = table.get("class", []) + ["blog-table"]
+
+    return str(soup)
+
+
 def blog(posts_per_page=8):
     """Generate blog posts and blog listing pages with pagination"""
     blog_posts = []
@@ -596,6 +611,7 @@ def blog(posts_per_page=8):
                 html_content = markdown.markdown(
                     markdown_content, extensions=["extra", "codehilite"]
                 )
+                html_content = process_blog_content(html_content)
 
                 # Get filename without extension
                 post_filename = os.path.splitext(filename)[0]

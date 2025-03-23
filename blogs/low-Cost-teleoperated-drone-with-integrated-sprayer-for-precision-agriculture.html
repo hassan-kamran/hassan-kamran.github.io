@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Learn How I build a precision agriculture sprayer drone using off the shelf parts." />
+    <meta name="description" content="Discover how I built a $3,500 agricultural sprayer drone that works twice as fast as manual methods, uses 83% less water, and costs half as much as commercial alternatives." />
      <link rel="canonical" href="https://engrhassankamran.com/blogs/low-Cost-teleoperated-drone-with-integrated-sprayer-for-precision-agriculture.html" />
     <title>Hassan Kamran | Low-Cost Teleoperated Drone with Integrated Sprayer for Precision Agriculture</title>
     <!--
@@ -439,13 +439,184 @@
         <h1>Low-Cost Teleoperated Drone with Integrated Sprayer for Precision Agriculture</h1>
         <div class="meta-info">
           <span class="category">Robotics</span>
-          <span class="date">2025-03-16</span>
+          <span class="date">2025-03-23</span>
         </div>
       </div>
 
       <div class="blog-content"><h1>How To Build a Drone For Precision Agriculture</h1>
 <h2>Introduction</h2>
-<p>Spraying a substance like pesticide on a large acreage of land is a labourous task if done manually. Large farm holding opt for an automated</p></div>
+<h1>Building a Low-Cost Agricultural Sprayer Drone for Precision Farming</h1>
+<p><img alt="Drone Spraying in Action" src="../static/drone_spraying.jpg"/></p>
+<h2>The Agricultural Challenge</h2>
+<p>Agriculture contributes significantly to Pakistan's economy, with millions depending on farming for livelihood. While farmers in developed nations benefit from precision agriculture technologies, Pakistani farmers often lack access to these innovations due to high costs.</p>
+<p>Pesticide application presents particular challenges:</p>
+<ul>
+<li>Manual spraying exposes farmers to harmful chemicals</li>
+<li>Traditional methods waste up to 50% of pesticides and water</li>
+<li>Tall crops and trees are difficult to spray effectively</li>
+<li>Conventional spraying requires extensive labor and time</li>
+<li>Boom sprayers can cause drift that contaminates water bodies and populated areas</li>
+</ul>
+<p>Commercial agricultural drones offer solutions but at $6,000-$10,000, remain unaffordable for most local farmers.</p>
+<h2>Our Cost-Effective Solution</h2>
+<p>To bridge this technological gap, I designed and developed a low-cost octocopter drone specifically for agricultural spraying applications. The system costs approximately $3,500—less than half the price of commercial alternatives—while maintaining professional-grade performance.</p>
+<p><img alt="Completed Drone" src="../static/drone_landed.jpg"/></p>
+<h2>Technical Specifications</h2>
+<p>The drone platform consists of:</p>
+<ul>
+<li><strong>Frame:</strong> Octocopter configuration (eight arms) with carbon fiber construction</li>
+<li><strong>Motors:</strong> Eight BLDC 6215 HD 180 KV motors for superior lift capacity</li>
+<li><strong>Dimensions:</strong> 1045mm diagonal wheelbase with 386mm arm length</li>
+<li><strong>Flight Controller:</strong> DJI N3 Flight Controller for stable operation</li>
+<li><strong>Power:</strong> Two 6-cell 8000 mAh LiPo batteries connected in parallel</li>
+<li><strong>Endurance:</strong> 10-12 minutes flight time with 8-10 minutes of active spraying</li>
+</ul>
+<p>The spraying system includes:</p>
+<ul>
+<li><strong>Tank Capacity:</strong> 5-liter fluid reservoir</li>
+<li><strong>Mounting:</strong> Custom-designed 5mm acrylic mounting plate</li>
+<li><strong>Pump:</strong> 12V DC self-priming pump (DP-521) with 0.65 MPa pressure</li>
+<li><strong>Spray System:</strong> Multiple flat fan nozzles mounted on retractable landing gear</li>
+<li><strong>Control:</strong> Arduino Nano with L298N motor driver for precise pump control</li>
+<li><strong>Flow Rate:</strong> 4.0 liters per minute maximum discharge</li>
+</ul>
+<p><img alt="CAD Model" src="../static/android_app.jpg"/></p>
+<h2>Development Workflow</h2>
+<h3>1. Virtual Simulation</h3>
+<p>Before physical implementation, I created a comprehensive simulation environment integrating:</p>
+<ul>
+<li>Robot Operating System (ROS) for data management</li>
+<li>Gazebo for physics-based drone simulation</li>
+<li>PX4 autopilot software for flight control</li>
+</ul>
+<p>This virtual testing validated the design and control algorithms, ensuring the drone could handle the additional weight and dynamics of the spraying system.</p>
+<p><img alt="Gazebo Simulation" src="../static/gazebo_simulation.jpg"/></p>
+<h3>2. Innovative Design Solutions</h3>
+<p>Weight management was critical for extending flight time with liquid payload. Key innovations included:</p>
+<ul>
+<li>"NO METAL" policy to minimize unnecessary weight</li>
+<li>Strategic positioning of components to maintain optimal center of gravity</li>
+<li>Nozzle placement on retractable landing gear—when the drone takes off and the landing gear retracts, nozzles automatically point downward</li>
+<li>Selection of flat fan nozzles for consistent 60-degree spray patterns and uniform droplet size</li>
+</ul>
+<p><img alt="Weight Distribution Analysis" src="../static/center_of_mass.jpg"/></p>
+<h3>3. Rigorous Testing Protocol</h3>
+<p>Testing proceeded in three methodical phases:</p>
+<ol>
+<li><strong>Basic Flight Testing:</strong> Validated drone stability and control responsiveness without spray system</li>
+<li><strong>Payload Testing:</strong> Assessed flight dynamics with mounted spray system (empty tank)</li>
+<li><strong>Operational Testing:</strong> Conducted spray performance evaluation with fluid in the tank at various heights</li>
+</ol>
+<h2>Performance Results: Twice as Fast, 83% Less Water</h2>
+<p>Mathematical analysis comparing manual spraying with drone application for one acre revealed remarkable efficiency improvements:</p>
+<table class="blog-table">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Manual Spraying</th>
+<th>Drone Spraying</th>
+<th>Improvement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Time Required</td>
+<td>16.05 minutes</td>
+<td>7.49 minutes</td>
+<td>53% faster</td>
+</tr>
+<tr>
+<td>Water Used</td>
+<td>59.4 liters</td>
+<td>9.6 liters</td>
+<td>83% less water</td>
+</tr>
+<tr>
+<td>Coverage Area</td>
+<td>6m width per pass</td>
+<td>1.5m precise width</td>
+<td>More uniform</td>
+</tr>
+<tr>
+<td>Health Risk</td>
+<td>Direct exposure</td>
+<td>Zero exposure</td>
+<td>Significantly safer</td>
+</tr>
+</tbody>
+</table>
+<p>The drone completes the task in approximately half the time while using significantly less water—a dramatic improvement in both efficiency and sustainability.</p>
+<p><img alt="Spray Demonstration" src="../static/drone_spraying_retracted.jpg"/></p>
+<h2>Commercial Comparison</h2>
+<table class="blog-table">
+<thead>
+<tr>
+<th>Model</th>
+<th>Price (USD)</th>
+<th>Tank Capacity</th>
+<th>Flight Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10L-608 sprayer drone</td>
+<td>$8,500-$10,000</td>
+<td>10L</td>
+<td>15-20 min</td>
+</tr>
+<tr>
+<td>TTAM6E 8L drone</td>
+<td>$8,000-$10,000</td>
+<td>8L</td>
+<td>10-15 min</td>
+</tr>
+<tr>
+<td>JT-Sprayer10</td>
+<td>$8,299-$9,500</td>
+<td>10L</td>
+<td>10-15 min</td>
+</tr>
+<tr>
+<td>Our Model</td>
+<td>$3,000-$3,500</td>
+<td>5L</td>
+<td>10-15 min</td>
+</tr>
+</tbody>
+</table>
+<p>At less than half the cost of commercial alternatives, this system makes precision agriculture accessible to a much wider range of farmers.</p>
+<h2>Future Development Directions</h2>
+<p>This project establishes a foundation for accessible agricultural technology with planned enhancements:</p>
+<ul>
+<li>Increase payload capacity from 5 to 15 liters</li>
+<li>Extend flight endurance from 12 to 30 minutes</li>
+<li>Implement autonomous navigation using GPS waypoints</li>
+<li>Integrate multispectral cameras for NDVI analysis</li>
+<li>Develop variable flow rate control for precision application</li>
+</ul>
+<p><img alt="Drone Flight Test" src="../static/drone_flight_test.jpg"/></p>
+<h2>Technical Insights on Spray Optimization</h2>
+<p>The system's spray effectiveness comes from careful nozzle selection and application management:</p>
+<ul>
+<li>Flat fan nozzles produce uniform droplet size at 60-degree angles</li>
+<li>Higher operating pressures produce smaller droplets (more drift potential)</li>
+<li>Larger orifices produce larger droplets (less drift)</li>
+<li>Optimal spray height (2m above crops) balances coverage and drift minimization</li>
+<li>The pump's self-priming design prevents operational failures from air binding</li>
+</ul>
+<p>These technical considerations ensure maximum application efficiency while minimizing environmental impact.</p>
+<h2>Conclusion: Democratizing Agricultural Technology</h2>
+<p>This low-cost sprayer drone demonstrates that advanced agricultural technology can be made accessible to farmers across the economic spectrum. By dramatically reducing costs while maintaining performance, we can help farmers:</p>
+<ul>
+<li>Reduce exposure to harmful chemicals</li>
+<li>Save substantial amounts of water and pesticides</li>
+<li>Increase application efficiency and crop coverage</li>
+<li>Apply treatments to previously inaccessible areas</li>
+</ul>
+<p>Agricultural technology should serve all farmers, not just those who can afford premium solutions. This project represents a step toward democratizing precision agriculture, enabling more sustainable and profitable farming practices for all.</p>
+<hr/>
+<p><em>For technical details or to learn more about this project, you can view my complete research through my ORCID profile: 0009-0005-3034-1679.</em></p>
+<hr/></div>
 
       <div class="blog-footer">
         <a href="../blog.html">← Back to All Posts</a>
