@@ -1,7 +1,7 @@
 How I Built this Website
 Web Development
 2025-03-05
-work.avif
+work-3.avif
 Learn how I built my website from scratch! From choosing the tech stack to deploying it, I’ll walk you through the process, challenges, and key decisions. Whether you're a developer or just curious, get insights into web development, design, and optimization.
 
 ## Introduction
