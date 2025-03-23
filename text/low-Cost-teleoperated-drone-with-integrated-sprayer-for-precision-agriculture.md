@@ -10,7 +10,7 @@ Discover how I built a $3,500 agricultural sprayer drone that works twice as fas
 
 # Building a Low-Cost Agricultural Sprayer Drone for Precision Farming
 
-![Drone Spraying in Action](static/drone_spraying.jpg)
+![Drone Spraying in Action](static/drone_spraying.avif)
 
 ## The Agricultural Challenge
 
@@ -30,7 +30,7 @@ Commercial agricultural drones offer solutions but at $6,000-$10,000, remain una
 
 To bridge this technological gap, I designed and developed a low-cost octocopter drone specifically for agricultural spraying applications. The system costs approximately $3,500—less than half the price of commercial alternatives—while maintaining professional-grade performance.
 
-![Completed Drone](static/drone_landed.jpg)
+![Completed Drone](static/drone_landed.avif)
 
 ## Technical Specifications
 
@@ -52,7 +52,7 @@ The spraying system includes:
 - **Control:** Arduino Nano with L298N motor driver for precise pump control
 - **Flow Rate:** 4.0 liters per minute maximum discharge
 
-![CAD Model](static/android_app.jpg)
+![CAD Model](static/android_app.avif)
 
 ## Development Workflow
 
@@ -66,7 +66,7 @@ Before physical implementation, I created a comprehensive simulation environment
 
 This virtual testing validated the design and control algorithms, ensuring the drone could handle the additional weight and dynamics of the spraying system.
 
-![Gazebo Simulation](static/gazebo_simulation.jpg)
+![Gazebo Simulation](static/gazebo_simulation.avif)
 
 ### 2. Innovative Design Solutions
 
@@ -77,7 +77,7 @@ Weight management was critical for extending flight time with liquid payload. Ke
 - Nozzle placement on retractable landing gear—when the drone takes off and the landing gear retracts, nozzles automatically point downward
 - Selection of flat fan nozzles for consistent 60-degree spray patterns and uniform droplet size
 
-![Weight Distribution Analysis](static/center_of_mass.jpg)
+![Weight Distribution Analysis](static/center_of_mass.avif)
 
 ### 3. Rigorous Testing Protocol
 
@@ -100,7 +100,7 @@ Mathematical analysis comparing manual spraying with drone application for one a
 
 The drone completes the task in approximately half the time while using significantly less water—a dramatic improvement in both efficiency and sustainability.
 
-![Spray Demonstration](static/drone_spraying_retracted.jpg)
+![Spray Demonstration](static/drone_spraying_retracted.avif)
 
 ## Commercial Comparison
 
@@ -123,7 +123,7 @@ This project establishes a foundation for accessible agricultural technology wit
 - Integrate multispectral cameras for NDVI analysis
 - Develop variable flow rate control for precision application
 
-![Drone Flight Test](static/drone_flight_test.jpg)
+![Drone Flight Test](static/drone_flight_test.avif)
 
 ## Technical Insights on Spray Optimization
 
