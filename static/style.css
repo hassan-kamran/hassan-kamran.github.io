@@ -2059,7 +2059,6 @@ mark {
   font-weight: 500;
 }
 
-/* Blog content table styles */
 .blog-content table {
   width: 100%;
   border-collapse: collapse;
@@ -2087,14 +2086,108 @@ mark {
   background-color: rgba(127, 62, 152, 0.05);
 }
 
-/* Make sure blog content images are responsive */
-.blog-content img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: var(--spacing-lg) auto;
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
+/* ==============================
+   BLOG CTA OVERRIDES
+============================== */
+.blog-content .cta,
+.blog-cta {
+  background-color: var(--bg-light) !important; /* Light background */
+  color: var(--text-dark) !important; /* Dark text */
+
+  /* Preserve layout */
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+
+  /* Preserve styling */
+  border-radius: var(--border-radius) !important;
+  box-shadow: var(--box-shadow) !important;
+  overflow: hidden !important;
+  margin: var(--spacing-xxl) auto !important;
+  width: var(--content-width) !important;
+  max-width: var(--container-width) !important;
+}
+
+.blog-content .cta > div:first-child,
+.blog-cta > div:first-child {
+  flex: 1 !important;
+  padding: var(--spacing-xl) !important;
+}
+
+.blog-content .cta > div:last-child,
+.blog-cta > div:last-child {
+  flex: 1 !important;
+  height: 100% !important;
+  overflow: hidden !important;
+}
+
+/* Dark headings */
+.blog-content .cta h2,
+.blog-cta h2 {
+  color: var(--text-dark) !important;
+  margin-top: 0 !important;
+  margin-bottom: var(--spacing-md) !important;
+  font-size: 1.8rem !important;
+  text-align: left !important;
+}
+
+/* Dark paragraph text */
+.blog-content .cta p,
+.blog-cta p {
+  color: var(--text-muted) !important;
+  margin-bottom: var(--spacing-lg) !important;
+  line-height: 1.6 !important;
+}
+
+/* Button styling */
+.blog-content .cta .btn,
+.blog-cta .btn {
+  background-color: var(--primary-color) !important;
+  color: var(--text-light) !important;
+  border: none !important;
+  font-weight: 600 !important;
+  padding: var(--spacing-md) var(--spacing-lg) !important;
+  transform: translateY(0) !important;
+  transition:
+    transform var(--transition-default) !important,
+    box-shadow var(--transition-default) !important,
+    background-color var(--transition-default) !important;
+}
+
+.blog-content .cta .btn:hover,
+.blog-cta .btn:hover {
+  background-color: color-mix(
+    in srgb,
+    var(--primary-color) 80%,
+    #ffffff 20%
+  ) !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 6px 12px rgba(127, 62, 152, 0.25) !important;
+}
+
+.blog-content .cta .btn:active,
+.blog-cta .btn:active {
+  transform: translateY(0) !important;
+  box-shadow: 0 3px 6px rgba(127, 62, 152, 0.15) !important;
+}
+
+/* Image styling with hover effects */
+.blog-content .cta picture,
+.blog-content .cta img,
+.blog-cta picture,
+.blog-cta img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  align-items: center !important;
+  transition: transform var(--transition-default) !important;
+  background-color: var(--bg-light) !important;
+}
+
+.blog-content .cta img:hover,
+.blog-cta img:hover {
+  transform: scale(1.02) !important;
+  background-color: var(--primary-color) !important;
 }
 
 /* ==============================
@@ -3052,6 +3145,13 @@ body {
   .cta .btn {
     /* Center the button */
     margin: 0 auto;
+  }
+
+  .blog-content table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
   }
 }
 

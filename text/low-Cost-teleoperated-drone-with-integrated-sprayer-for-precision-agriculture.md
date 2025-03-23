@@ -137,6 +137,8 @@ The system's spray effectiveness comes from careful nozzle selection and applica
 
 These technical considerations ensure maximum application efficiency while minimizing environmental impact.
 
+{{template:cta}}
+
 ## Conclusion: Democratizing Agricultural Technology
 
 This low-cost sprayer drone demonstrates that advanced agricultural technology can be made accessible to farmers across the economic spectrum. By dramatically reducing costs while maintaining performance, we can help farmers:

@@ -581,7 +581,57 @@ def process_blog_content(html_content):
     return str(soup)
 
 
-def blog(posts_per_page=8):
+def include_templates(markdown_content, env, context=None, is_blog=False):
+    """Replace template include directives with actual template content."""
+    import re
+
+    if context is None:
+        context = {}
+
+    # Pattern to match template include syntax: {{template:name}}
+    pattern = r"{{template:([a-zA-Z0-9_-]+)}}"
+
+    def replace_template(match):
+        template_name = match.group(1) + ".html"
+
+        try:
+            # Try to load the template
+            template = env.get_template(template_name)
+            # Render it with the provided context
+            rendered_content = template.render(**context)
+
+            # If this is a blog post, fix static paths
+            if is_blog:
+                # Replace references to static/ with ../static/
+                rendered_content = rendered_content.replace(
+                    'src="static/', 'src="../static/'
+                )
+                rendered_content = rendered_content.replace(
+                    'src="./static/', 'src="../static/'
+                )
+                rendered_content = rendered_content.replace(
+                    'srcset="static/', 'srcset="../static/'
+                )
+                rendered_content = rendered_content.replace(
+                    'href="static/', 'href="../static/'
+                )
+
+                # Add a class to identify this template in blog context
+                if template_name == "cta.html":
+                    rendered_content = rendered_content.replace(
+                        '<section class="cta">', '<section class="cta blog-cta">'
+                    )
+
+            return rendered_content
+        except Exception as e:
+            # If template loading fails, return a comment
+            return f"<!-- Template include failed for {template_name}: {str(e)} -->"
+
+    # Replace all template includes
+    return re.sub(pattern, replace_template, markdown_content)
+
+
+def blog(posts_per_page=4):
     """Generate blog posts and blog listing pages with pagination"""
     blog_posts = []
 
@@ -606,6 +656,14 @@ def blog(posts_per_page=8):
 
                 # Extract markdown content
                 markdown_content = "\n".join(lines[5:]) if len(lines) > 5 else ""
+
+                # Prepare context for template rendering
+                context = {"inject_svg": inject_svg, "static": "../static"}
+
+                # Process template includes before markdown conversion
+                markdown_content = include_templates(
+                    markdown_content, env, context, is_blog=True
+                )
 
                 # Convert Markdown to HTML
                 html_content = markdown.markdown(

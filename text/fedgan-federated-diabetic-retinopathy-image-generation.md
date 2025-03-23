@@ -67,6 +67,8 @@ The comprehensive preprocessing pipeline included:
 
 This pipeline ensured consistency, enhanced image quality, and standardized data format for optimal GAN training.
 
+{{template:cta}}
+
 ## DCGAN Architecture
 
 The generative model builds on the established DCGAN architecture with modifications specific to medical imaging. The generator and discriminator networks were carefully designed to balance image fidelity with computational efficiency.
