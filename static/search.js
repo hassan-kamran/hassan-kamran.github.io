@@ -18,6 +18,32 @@ document.addEventListener("DOMContentLoaded", () => {
   let miniSearch = null;
   let searchDocuments = []; // Store the full documents for context extraction
 
+  // Determine current page depth for URL correction
+  function getPathDepth() {
+    const path = window.location.pathname;
+    // Count the number of directory levels (slashes) from the root
+    const pathParts = path.split("/").filter((part) => part.length > 0);
+    return (
+      pathParts.length - (path.endsWith("/") || path.endsWith(".html") ? 1 : 0)
+    );
+  }
+
+  // Correct URL based on current page depth
+  function correctUrl(url) {
+    // If url is already absolute (starts with / or http), return as is
+    if (url.startsWith("/") || url.startsWith("http")) {
+      return url;
+    }
+
+    const pathDepth = getPathDepth();
+    // If we're in a subdirectory, we need to prefix with ../ for each level
+    if (pathDepth > 0) {
+      return "../".repeat(pathDepth) + url;
+    }
+
+    return url;
+  }
+
   // Initialize MiniSearch with the search index
   function initializeSearch() {
     // Create a new MiniSearch instance
@@ -162,9 +188,12 @@ document.addEventListener("DOMContentLoaded", () => {
           ? `<span class="result-date">${item.date}</span>`
           : "";
 
+        // Apply URL correction based on current page depth
+        const correctedUrl = correctUrl(item.url);
+
         html += `
                     <li>
-                        <a href="${item.url}" class="result-item">
+                        <a href="${correctedUrl}" class="result-item">
                             <div class="result-title">${highlightSearchTerms(item.title, query)}</div>
                             <div class="result-meta">
                                 ${category}
