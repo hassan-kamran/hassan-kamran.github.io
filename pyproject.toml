@@ -14,3 +14,6 @@ dependencies = [
     "pymdown-extensions>=10.14.3",
     "watchdog[watchmedo]>=6.0.0",
 ]
+
+[tool.uv.workspace]
+members = ["django"]
