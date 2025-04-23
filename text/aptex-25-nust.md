@@ -34,7 +34,7 @@ While I missed the panel discussions and detailed project exhibitions, the netwo
 - Technology entrepreneurs and startups
 - Academic researchers from NUST and visiting ASEAN institutions
 - Industry representatives looking for cross-border partnerships
-- Policy makers focused on technological collaboration
+- Policy makers focused on technological collaborations
 
 These connections hold potential for future collaborations that transcend geographical boundaries and leverage complementary strengths of the participating nations.
 
@@ -51,4 +51,3 @@ As I reflect on this experience, I'm already making mental notes to allocate mor
 For those interested in the intersection of technology, policy, and regional cooperation, events like APTEX represent essential platforms for knowledge exchange and relationship building. Next time, I'll be sure to capture more details and perhaps some visual documentation of the innovative projects on display.
 
 _Note to self: Plan better for APTEX'26 – remember to take pictures and schedule time for both networking AND exploring the exhibition!_
-
