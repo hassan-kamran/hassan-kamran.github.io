@@ -42,6 +42,8 @@ These connections hold potential for future collaborations that transcend geogra
 
 A recurring theme throughout the event was the potential for meaningful partnerships between Pakistan and ASEAN nations. The expo aimed to promote academic and industrial collaborations while exploring opportunities for joint innovation in technologies that address shared regional challenges.
 
+{{template:cta}}
+
 ## Looking Ahead
 
 While my experience at APTEX'25 was primarily focused on networking rather than a deep dive into the technological showcases, the event clearly established itself as an important milestone in regional technological cooperation. The connections formed and ideas exchanged at this expo will likely contribute to collaborative innovations in the coming years.
