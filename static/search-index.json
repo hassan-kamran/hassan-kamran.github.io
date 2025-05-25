@@ -104,30 +104,6 @@
     "type": "page"
   },
   {
-    "id": "page-service-ai-consulting",
-    "url": "services/ai-consulting.html",
-    "title": "AI Consulting & Strategy",
-    "content": "",
-    "description": "Transform your business with cutting-edge AI solutions tailored to your unique challenges",
-    "type": "page"
-  },
-  {
-    "id": "page-service-technical-leadership",
-    "url": "services/technical-leadership.html",
-    "title": "Technical Project Management",
-    "content": "",
-    "description": "Lead your technical projects to success with military-grade planning and execution",
-    "type": "page"
-  },
-  {
-    "id": "page-service-software-development",
-    "url": "services/software-development.html",
-    "title": "Custom Software Development",
-    "content": "",
-    "description": "Full-stack development services from concept to deployment with focus on scalability and performance",
-    "type": "page"
-  },
-  {
     "id": "blog-aptex-25-nust",
     "url": "blogs/aptex-25-nust.html",
     "title": "ASEAN-PAKISTAN TECHNOLOGY EXPO 2025",

@@ -111,9 +111,9 @@ Sitemap: {config.domain}/sitemap-images.xml"""
 def generate_search_index(
     pages: List[Page], blog_posts: List[BlogPost], services: List[Service]
 ) -> str:
-    """Generate search index JSON with duplicate ID protection"""
+    """Generate search index JSON with duplicate protection"""
     documents = []
-    seen_ids = set()  # Track IDs to prevent duplicates
+    seen_ids = set()
 
     def add_document(doc: dict):
         """Safely add document with duplicate checking"""
@@ -123,17 +123,16 @@ def generate_search_index(
         seen_ids.add(doc["id"])
         documents.append(doc)
 
-    # Add static pages with type prefixes
+    # Add static pages (excluding blog post pages)
     for page in pages:
         if hasattr(page, "slug") and page.slug not in ["404"]:
-            # Skip paginated blog pages
-            if hasattr(page, "is_paginated") and page.is_paginated:
+            # Skip blog post pages and service pages (they're handled separately)
+            if "blog/" in str(page.output_path) or "services/" in str(page.output_path):
                 continue
 
-            doc_id = f"page-{page.slug}"
             add_document(
                 {
-                    "id": doc_id,
+                    "id": f"page-{page.slug}",
                     "url": str(page.output_path),
                     "title": page.title,
                     "content": "",
@@ -142,12 +141,11 @@ def generate_search_index(
                 }
             )
 
-    # Add blog posts with validation
+    # Add blog posts directly from content
     for post in blog_posts:
-        doc_id = f"blog-{post.slug}"
         add_document(
             {
-                "id": doc_id,
+                "id": f"blog-{post.slug}",
                 "url": f"blogs/{post.slug}.html",
                 "title": post.title,
                 "content": post.meta_description,
@@ -158,12 +156,11 @@ def generate_search_index(
             }
         )
 
-    # Add services with validation
+    # Add services directly from content
     for service in services:
-        doc_id = f"service-{service.slug}"
         add_document(
             {
-                "id": doc_id,
+                "id": f"service-{service.slug}",
                 "url": f"services/{service.slug}.html",
                 "title": service.title,
                 "content": service.meta_description,
