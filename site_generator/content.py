@@ -57,13 +57,23 @@ class ContentLoader:
         """Load blog posts from text/markdown files"""
         posts = []
         blog_dir = Path(self.config.blog_dir)
+        seen_slugs = set()  # Track slugs to prevent duplicates
 
         if not blog_dir.exists():
             return posts
 
         # Process .md files (matching original format)
         for filename in os.listdir(blog_dir):
-            if filename.endswith(".md") or filename.endswith(".txt"):
+            if filename.endswith(".md"):
+                # Get filename without extension
+                post_filename = os.path.splitext(filename)[0]
+
+                # Check for duplicate slugs
+                if post_filename in seen_slugs:
+                    print(f"⚠️ Skipping duplicate blog post: {filename}")
+                    continue
+                seen_slugs.add(post_filename)
+
                 filepath = os.path.join(blog_dir, filename)
                 with open(filepath, "r", encoding="utf-8") as file:
                     content = file.read().strip()
@@ -86,9 +96,6 @@ class ContentLoader:
                     # Convert to HTML
                     html_content = self.md.convert(markdown_content)
                     html_content = self._process_blog_html(html_content)
-
-                    # Get filename without extension
-                    post_filename = os.path.splitext(filename)[0]
 
                     post = BlogPost(
                         slug=post_filename,
