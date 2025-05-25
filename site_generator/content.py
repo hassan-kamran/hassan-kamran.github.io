@@ -54,12 +54,13 @@ class ContentLoader:
         self.md = markdown.Markdown(extensions=["extra", "codehilite"])
 
     def load_blog_posts(self) -> List[BlogPost]:
-        """Load blog posts from markdown/txt files with strict slug normalization and duplicate protection"""
+        """Load blog posts from markdown/txt files with enhanced detection"""
         posts = []
         blog_dir = Path(self.config.blog_dir)
         seen_slugs = set()
         error_count = 0
         processed_count = 0
+        skipped_files = []
 
         if not blog_dir.exists():
             print(f"❌ Blog directory not found: {blog_dir}")
@@ -67,113 +68,170 @@ class ContentLoader:
 
         print(f"📂 Scanning blog directory: {blog_dir}")
 
-        for filename in sorted(os.listdir(blog_dir)):
-            if not (filename.lower().endswith((".md", ".txt"))):
-                continue
+        # Get all potential blog files (case-insensitive)
+        all_files = []
+        for file_path in blog_dir.iterdir():
+            if file_path.is_file():
+                # Case-insensitive extension check
+                if file_path.suffix.lower() in [".md", ".txt"]:
+                    all_files.append(file_path)
+                else:
+                    skipped_files.append((file_path.name, "Invalid extension"))
 
-            file_path = blog_dir / filename
+        print(f"📋 Found {len(all_files)} potential blog files")
+
+        for file_path in sorted(all_files):
+            filename = file_path.name
             print(f"🔍 Processing {filename}...")
 
             try:
-                # Normalize slug using multiple replacement passes
-                base_name = os.path.splitext(filename)[0]
-                slug = (
-                    base_name.lower()  # Case normalization
-                    .strip()  # Remove whitespace
-                    .replace(" ", "-")  # Spaces to hyphens
-                    .replace("_", "-")  # Underscores to hyphens
-                    .replace(".", "-")  # Dots to hyphens
-                    .replace("'", "")  # Remove apostrophes
-                    .replace("--", "-")  # Replace double hyphens
-                    .strip("-")[
-                          # Trim hyphens
-                        :120
-                    ]  # Limit length
-                )
+                # Read file with multiple encoding attempts
+                content = None
+                for encoding in ["utf-8", "utf-8-sig", "latin-1", "cp1252"]:
+                    try:
+                        content = file_path.read_text(encoding=encoding).strip()
+                        break
+                    except UnicodeDecodeError:
+                        continue
+
+                if content is None:
+                    print(f"❌ Could not decode {filename} with any encoding")
+                    skipped_files.append((filename, "Encoding error"))
+                    error_count += 1
+                    continue
+
+                if not content:
+                    print(f"⚠️ Empty file skipped: {filename}")
+                    skipped_files.append((filename, "Empty file"))
+                    error_count += 1
+                    continue
+
+                lines = content.split("\n")
+                if len(lines) < 5:
+                    print(
+                        f"⚠️ Insufficient metadata in {filename} (found {len(lines)} lines, need 5)"
+                    )
+                    skipped_files.append((filename, f"Only {len(lines)} lines"))
+                    error_count += 1
+                    continue
+
+                # Enhanced slug normalization
+                base_name = file_path.stem  # Use stem instead of splitext
+                slug = self._normalize_slug(base_name)
 
                 # Validate slug uniqueness
                 if slug in seen_slugs:
-                    print(f"🚨 Duplicate slug detected: {slug} (from {filename})")
-                    error_count += 1
-                    continue
+                    # Try to make unique by appending number
+                    original_slug = slug
+                    counter = 2
+                    while f"{slug}-{counter}" in seen_slugs:
+                        counter += 1
+                    slug = f"{slug}-{counter}"
+                    print(f"🔄 Duplicate slug '{original_slug}' renamed to '{slug}'")
+
                 seen_slugs.add(slug)
 
-                # Read and validate file content
-                with open(file_path, "r", encoding="utf-8") as file:
-                    content = file.read().strip()
+                # Parse metadata with better error handling
+                try:
+                    title = lines[0].strip() or "Untitled Post"
+                    category = lines[1].strip() if len(lines) > 1 else "Uncategorized"
+                    date_str = lines[2].strip() if len(lines) > 2 else ""
+                    img_name = lines[3].strip() if len(lines) > 3 else ""
+                    meta_des = lines[4].strip() if len(lines) > 4 else ""
 
-                    if not content:
-                        print(f"⚠️ Empty file skipped: {filename}")
-                        error_count += 1
-                        continue
+                    # Validate and clean image name
+                    if img_name and not img_name.lower().endswith(
+                        (".jpg", ".jpeg", ".png", ".gif", ".webp", ".avif")
+                    ):
+                        print(f"⚠️ Invalid image extension in {filename}: {img_name}")
+                        img_name = ""
 
-                    lines = content.split("\n")
-                    if len(lines) < 5:
-                        print(
-                            f"⚠️ Insufficient metadata in {filename} (min 5 lines required)"
-                        )
-                        error_count += 1
-                        continue
+                except Exception as e:
+                    print(f"⚠️ Metadata parsing error in {filename}: {str(e)}")
+                    skipped_files.append((filename, "Metadata parsing error"))
+                    error_count += 1
+                    continue
 
-                    # Parse metadata with fallbacks
-                    try:
-                        title = lines[0].strip() or "Untitled Post"
-                        category = (
-                            lines[1].strip() if len(lines) > 1 else "Uncategorized"
-                        )
-                        date_str = lines[2].strip() if len(lines) > 2 else ""
-                        img_name = lines[3].strip() if len(lines) > 3 else ""
-                        meta_des = lines[4].strip() if len(lines) > 4 else ""
-                    except IndexError as e:
-                        print(f"⚠️ Metadata parsing error in {filename}: {str(e)}")
-                        error_count += 1
-                        continue
-
-                    # Date parsing with validation
-                    post_date = self._parse_date(date_str)
-                    if not date_str:
-                        print(f"ℹ️ Using current date for {filename}")
-                        post_date = datetime.now()
-
-                    # Content processing
-                    markdown_content = "\n".join(lines[5:]) if len(lines) > 5 else ""
-
-                    try:
-                        html_content = self.md.convert(markdown_content)
-                        cleaned_html = self._process_blog_html(html_content)
-                    except Exception as e:
-                        print(f"⚠️ Markdown conversion error in {filename}: {str(e)}")
-                        error_count += 1
-                        continue
-
-                    # Create blog post object
-                    posts.append(
-                        BlogPost(
-                            slug=slug,
-                            title=title,
-                            category=category,
-                            date=post_date,
-                            content_html=cleaned_html,
-                            image=img_name,
-                            meta_description=meta_des,
-                        )
+                # Enhanced date parsing
+                post_date = self._parse_date(date_str)
+                if not post_date:
+                    print(
+                        f"ℹ️ Invalid date '{date_str}' in {filename}, using current date"
                     )
-                    processed_count += 1
+                    post_date = datetime.now()
 
-            except UnicodeDecodeError:
-                print(f"❌ Encoding error in {filename} - must use UTF-8 encoding")
-                error_count += 1
+                # Content processing
+                markdown_content = "\n".join(lines[5:]) if len(lines) > 5 else ""
+
+                # Reset markdown instance for each file to avoid state issues
+                self.md.reset()
+
+                try:
+                    html_content = self.md.convert(markdown_content)
+                    cleaned_html = self._process_blog_html(html_content)
+                except Exception as e:
+                    print(f"⚠️ Markdown conversion error in {filename}: {str(e)}")
+                    skipped_files.append((filename, "Markdown conversion error"))
+                    error_count += 1
+                    continue
+
+                # Create blog post object
+                posts.append(
+                    BlogPost(
+                        slug=slug,
+                        title=title,
+                        category=category,
+                        date=post_date,
+                        content_html=cleaned_html,
+                        image=img_name,
+                        meta_description=meta_des[:160]
+                        if meta_des
+                        else title[:160],  # Limit meta description length
+                    )
+                )
+                processed_count += 1
+                print(f"✅ Successfully processed: {filename} -> {slug}")
+
             except Exception as e:
                 print(f"❌ Critical error processing {filename}: {str(e)}")
+                skipped_files.append((filename, f"Critical error: {str(e)}"))
                 error_count += 1
 
-        # Final sorting and reporting
+        # Final reporting
         posts.sort(key=lambda p: p.date, reverse=True)
-        print(f"✅ Successfully processed {processed_count} blog posts")
-        print(f"⛔ Encountered {error_count} errors")
-        print(f"📊 Total unique slugs: {len(seen_slugs)}")
+        print(f"\n📊 Blog Loading Summary:")
+        print(f"✅ Successfully processed: {processed_count} posts")
+        print(f"⛔ Errors encountered: {error_count}")
+        print(f"📁 Total files scanned: {len(all_files)}")
+
+        if skipped_files:
+            print(f"\n⚠️ Skipped files:")
+            for name, reason in skipped_files:
+                print(f"  - {name}: {reason}")
 
         return posts
+
+    def _normalize_slug(self, text: str) -> str:
+        """Normalize text to create a valid slug"""
+        import re
+
+        # Convert to lowercase
+        slug = text.lower().strip()
+
+        # Replace spaces and special characters with hyphens
+        slug = re.sub(r"[^\w\s-]", "", slug)  # Remove special chars except hyphens
+        slug = re.sub(
+            r"[-\s]+", "-", slug
+        )  # Replace spaces and multiple hyphens with single hyphen
+
+        # Remove leading/trailing hyphens
+        slug = slug.strip("-")
+
+        # Limit length
+        if len(slug) > 100:
+            slug = slug[:100].rsplit("-", 1)[0]  # Cut at last hyphen before 100 chars
+
+        return slug or "untitled"  # Fallback if slug is empty
 
     def load_services(self) -> List[Service]:
         """Load services from markdown files"""
