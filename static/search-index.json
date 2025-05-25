@@ -1,6 +1,6 @@
 [
   {
-    "id": "index",
+    "id": "page-index",
     "url": "index.html",
     "title": "AI Engineer & Tech Consultant",
     "content": "",
@@ -8,7 +8,7 @@
     "type": "page"
   },
   {
-    "id": "about",
+    "id": "page-about",
     "url": "about.html",
     "title": "About",
     "content": "",
@@ -16,7 +16,7 @@
     "type": "page"
   },
   {
-    "id": "resume",
+    "id": "page-resume",
     "url": "resume.html",
     "title": "Capt(R) Hassan Kamran, MSc",
     "content": "",
@@ -24,7 +24,7 @@
     "type": "page"
   },
   {
-    "id": "contact",
+    "id": "page-contact",
     "url": "contact.html",
     "title": "Get in Touch",
     "content": "",
@@ -32,7 +32,7 @@
     "type": "page"
   },
   {
-    "id": "privacy",
+    "id": "page-privacy",
     "url": "privacy.html",
     "title": "Privacy Policy",
     "content": "",
@@ -40,7 +40,7 @@
     "type": "page"
   },
   {
-    "id": "terms",
+    "id": "page-terms",
     "url": "terms.html",
     "title": "Terms of Service",
     "content": "",
@@ -48,7 +48,7 @@
     "type": "page"
   },
   {
-    "id": "services",
+    "id": "page-services",
     "url": "services.html",
     "title": "Services",
     "content": "",
@@ -56,7 +56,7 @@
     "type": "page"
   },
   {
-    "id": "gallery",
+    "id": "page-gallery",
     "url": "gallery.html",
     "title": "Gallery",
     "content": "",
@@ -64,7 +64,7 @@
     "type": "page"
   },
   {
-    "id": "blog-aptex-25-nust",
+    "id": "page-blog-aptex-25-nust",
     "url": "blogs/aptex-25-nust.html",
     "title": "ASEAN-PAKISTAN TECHNOLOGY EXPO 2025",
     "content": "",
@@ -72,15 +72,7 @@
     "type": "page"
   },
   {
-    "id": "blog-low-Cost-teleoperated-drone-with-integrated-sprayer-for-precision-agriculture",
-    "url": "blogs/low-Cost-teleoperated-drone-with-integrated-sprayer-for-precision-agriculture.html",
-    "title": "Low-Cost Teleoperated Drone with Integrated Sprayer for Precision Agriculture",
-    "content": "",
-    "description": "Discover how I built a $3,500 agricultural sprayer drone that works twice as fast as manual methods, uses 83% less water, and costs half as much as commercial alternatives.",
-    "type": "page"
-  },
-  {
-    "id": "blog-fedgan-federated-diabetic-retinopathy-image-generation",
+    "id": "page-blog-fedgan-federated-diabetic-retinopathy-image-generation",
     "url": "blogs/fedgan-federated-diabetic-retinopathy-image-generation.html",
     "title": "FedGAN: A Privacy-Preserving Framework for Synthetic Data Generation",
     "content": "",
@@ -88,15 +80,31 @@
     "type": "page"
   },
   {
-    "id": "blog-how-I-built-this-website",
-    "url": "blogs/how-I-built-this-website.html",
+    "id": "page-blog-low-cost-teleoperated-drone-with-integrated-sprayer-for-precision-agriculture",
+    "url": "blogs/low-cost-teleoperated-drone-with-integrated-sprayer-for-precision-agriculture.html",
+    "title": "Low-Cost Teleoperated Drone with Integrated Sprayer for Precision Agriculture",
+    "content": "",
+    "description": "Discover how I built a $3,500 agricultural sprayer drone that works twice as fast as manual methods, uses 83% less water, and costs half as much as commercial alternatives.",
+    "type": "page"
+  },
+  {
+    "id": "page-blog-how-i-built-this-website",
+    "url": "blogs/how-i-built-this-website.html",
     "title": "How I Built this Website",
     "content": "",
     "description": "Learn how I built my website from scratch! From choosing the tech stack to deploying it, I\u2019ll walk you through the process, challenges, and key decisions. Whether you're a developer or just curious, get insights into web development, design, and optimization.",
     "type": "page"
   },
   {
-    "id": "service-ai-consulting",
+    "id": "page-blog",
+    "url": "blog.html",
+    "title": "Blog",
+    "content": "",
+    "description": "Explore cutting-edge insights on AI, Federated Learning, programming, big data, and robotics.",
+    "type": "page"
+  },
+  {
+    "id": "page-service-ai-consulting",
     "url": "services/ai-consulting.html",
     "title": "AI Consulting & Strategy",
     "content": "",
@@ -104,7 +112,7 @@
     "type": "page"
   },
   {
-    "id": "service-technical-leadership",
+    "id": "page-service-technical-leadership",
     "url": "services/technical-leadership.html",
     "title": "Technical Project Management",
     "content": "",
@@ -112,7 +120,7 @@
     "type": "page"
   },
   {
-    "id": "service-software-development",
+    "id": "page-service-software-development",
     "url": "services/software-development.html",
     "title": "Custom Software Development",
     "content": "",
@@ -130,16 +138,6 @@
     "date": "2025-04-23"
   },
   {
-    "id": "blog-low-Cost-teleoperated-drone-with-integrated-sprayer-for-precision-agriculture",
-    "url": "blogs/low-Cost-teleoperated-drone-with-integrated-sprayer-for-precision-agriculture.html",
-    "title": "Low-Cost Teleoperated Drone with Integrated Sprayer for Precision Agriculture",
-    "content": "Discover how I built a $3,500 agricultural sprayer drone that works twice as fast as manual methods, uses 83% less water, and costs half as much as commercial alternatives.",
-    "description": "Discover how I built a $3,500 agricultural sprayer drone that works twice as fast as manual methods, uses 83% less water, and costs half as much as commercial alternatives.",
-    "type": "blog",
-    "category": "Robotics",
-    "date": "2025-03-23"
-  },
-  {
     "id": "blog-fedgan-federated-diabetic-retinopathy-image-generation",
     "url": "blogs/fedgan-federated-diabetic-retinopathy-image-generation.html",
     "title": "FedGAN: A Privacy-Preserving Framework for Synthetic Data Generation",
@@ -150,8 +148,18 @@
     "date": "2025-03-23"
   },
   {
-    "id": "blog-how-I-built-this-website",
-    "url": "blogs/how-I-built-this-website.html",
+    "id": "blog-low-cost-teleoperated-drone-with-integrated-sprayer-for-precision-agriculture",
+    "url": "blogs/low-cost-teleoperated-drone-with-integrated-sprayer-for-precision-agriculture.html",
+    "title": "Low-Cost Teleoperated Drone with Integrated Sprayer for Precision Agriculture",
+    "content": "Discover how I built a $3,500 agricultural sprayer drone that works twice as fast as manual methods, uses 83% less water, and costs half as much as commercial alternatives.",
+    "description": "Discover how I built a $3,500 agricultural sprayer drone that works twice as fast as manual methods, uses 83% less water, and costs half as much as commercial alternatives.",
+    "type": "blog",
+    "category": "Robotics",
+    "date": "2025-03-23"
+  },
+  {
+    "id": "blog-how-i-built-this-website",
+    "url": "blogs/how-i-built-this-website.html",
     "title": "How I Built this Website",
     "content": "Learn how I built my website from scratch! From choosing the tech stack to deploying it, I\u2019ll walk you through the process, challenges, and key decisions. Whether you're a developer or just curious, get insights into web development, design, and optimization.",
     "description": "Learn how I built my website from scratch! From choosing the tech stack to deploying it, I\u2019ll walk you through the process, challenges, and key decisions. Whether you're a developer or just curious, get insights into web development, design, and optimization.",

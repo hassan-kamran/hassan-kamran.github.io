@@ -111,19 +111,29 @@ Sitemap: {config.domain}/sitemap-images.xml"""
 def generate_search_index(
     pages: List[Page], blog_posts: List[BlogPost], services: List[Service]
 ) -> str:
-    """Generate search index JSON"""
+    """Generate search index JSON with duplicate ID protection"""
     documents = []
+    seen_ids = set()  # Track IDs to prevent duplicates
 
-    # Add static pages
+    def add_document(doc: dict):
+        """Safely add document with duplicate checking"""
+        if doc["id"] in seen_ids:
+            print(f"⚠️ Skipping duplicate ID: {doc['id']}")
+            return
+        seen_ids.add(doc["id"])
+        documents.append(doc)
+
+    # Add static pages with type prefixes
     for page in pages:
-        if (
-            hasattr(page, "slug")
-            and page.slug not in ["404"]
-            and not hasattr(page, "page_num")
-        ):
-            documents.append(
+        if hasattr(page, "slug") and page.slug not in ["404"]:
+            # Skip paginated blog pages
+            if hasattr(page, "is_paginated") and page.is_paginated:
+                continue
+
+            doc_id = f"page-{page.slug}"
+            add_document(
                 {
-                    "id": page.slug,
+                    "id": doc_id,
                     "url": str(page.output_path),
                     "title": page.title,
                     "content": "",
@@ -132,11 +142,12 @@ def generate_search_index(
                 }
             )
 
-    # Add blog posts
+    # Add blog posts with validation
     for post in blog_posts:
-        documents.append(
+        doc_id = f"blog-{post.slug}"
+        add_document(
             {
-                "id": f"blog-{post.slug}",
+                "id": doc_id,
                 "url": f"blogs/{post.slug}.html",
                 "title": post.title,
                 "content": post.meta_description,
@@ -147,11 +158,12 @@ def generate_search_index(
             }
         )
 
-    # Add services
+    # Add services with validation
     for service in services:
-        documents.append(
+        doc_id = f"service-{service.slug}"
+        add_document(
             {
-                "id": f"service-{service.slug}",
+                "id": doc_id,
                 "url": f"services/{service.slug}.html",
                 "title": service.title,
                 "content": service.meta_description,
@@ -165,6 +177,7 @@ def generate_search_index(
     output_path.parent.mkdir(exist_ok=True)
     output_path.write_text(json.dumps(documents, indent=2))
 
+    print(f"✅ Generated search index with {len(documents)} entries")
     return json.dumps(documents, indent=2)
 
 

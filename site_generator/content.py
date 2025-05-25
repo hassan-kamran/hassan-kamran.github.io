@@ -54,62 +54,87 @@ class ContentLoader:
         self.md = markdown.Markdown(extensions=["extra", "codehilite"])
 
     def load_blog_posts(self) -> List[BlogPost]:
-        """Load blog posts from text/markdown files"""
+        """Load blog posts from text/markdown files with duplicate protection"""
         posts = []
         blog_dir = Path(self.config.blog_dir)
-        seen_slugs = set()  # Track slugs to prevent duplicates
+        seen_slugs = set()  # Track normalized slugs to prevent duplicates
 
         if not blog_dir.exists():
+            print(f"⚠️ Blog directory not found: {blog_dir}")
             return posts
 
-        # Process .md files (matching original format)
-        for filename in os.listdir(blog_dir):
-            if filename.endswith(".md"):
-                # Get filename without extension
-                post_filename = os.path.splitext(filename)[0]
+        for filename in sorted(os.listdir(blog_dir)):
+            if not (filename.endswith(".md") or filename.endswith(".txt")):
+                continue
 
-                # Check for duplicate slugs
-                if post_filename in seen_slugs:
-                    print(f"⚠️ Skipping duplicate blog post: {filename}")
+            try:
+                # Normalize slug to lowercase and strip special characters
+                post_slug = os.path.splitext(filename)[0].lower().strip("-_")
+
+                # Check for duplicate slugs before processing
+                if post_slug in seen_slugs:
+                    print(
+                        f"🚨 Skipping duplicate blog slug: {post_slug} (from {filename})"
+                    )
                     continue
-                seen_slugs.add(post_filename)
 
-                filepath = os.path.join(blog_dir, filename)
+                seen_slugs.add(post_slug)
+                filepath = blog_dir / filename
+
                 with open(filepath, "r", encoding="utf-8") as file:
                     content = file.read().strip()
 
                     if not content:
-                        print(f"Skipping empty blog file: {filename}")
+                        print(f"⚠️ Skipping empty blog file: {filename}")
                         continue
 
-                    # Parse metadata from file (original format)
                     lines = content.split("\n")
-                    title = lines[0].strip()
+
+                    # Validate minimum content structure
+                    if len(lines) < 5:
+                        print(f"⚠️ Insufficient metadata in {filename} - skipping")
+                        continue
+
+                    # Parse metadata with validation
+                    title = lines[0].strip() or "Untitled Post"
                     category = lines[1].strip() if len(lines) > 1 else "Uncategorized"
-                    date_str = lines[2].strip() if len(lines) > 2 else "Unknown date"
+                    date_str = lines[2].strip() if len(lines) > 2 else ""
                     img_name = lines[3].strip() if len(lines) > 3 else ""
                     meta_des = lines[4].strip() if len(lines) > 4 else ""
 
-                    # Extract markdown content
+                    # Parse and validate date
+                    post_date = self._parse_date(date_str)
+                    if not date_str:
+                        print(f"ℹ️ Using current date for {filename} - no date provided")
+
+                    # Process content
                     markdown_content = "\n".join(lines[5:]) if len(lines) > 5 else ""
-
-                    # Convert to HTML
                     html_content = self.md.convert(markdown_content)
-                    html_content = self._process_blog_html(html_content)
+                    cleaned_html = self._process_blog_html(html_content)
 
-                    post = BlogPost(
-                        slug=post_filename,
-                        title=title,
-                        category=category,
-                        date=self._parse_date(date_str),
-                        content_html=html_content,
-                        image=img_name,
-                        meta_description=meta_des,
+                    posts.append(
+                        BlogPost(
+                            slug=post_slug,
+                            title=title,
+                            category=category,
+                            date=post_date,
+                            content_html=cleaned_html,
+                            image=img_name,
+                            meta_description=meta_des,
+                        )
                     )
-                    posts.append(post)
 
-        # Sort by date (newest first)
+            except UnicodeDecodeError:
+                print(f"🚨 Encoding error in {filename} - ensure UTF-8 format")
+            except Exception as e:
+                print(f"🚨 Error processing {filename}: {str(e)}")
+
+        # Sort posts chronologically (newest first)
         posts.sort(key=lambda p: p.date, reverse=True)
+
+        print(
+            f"✅ Loaded {len(posts)} valid blog posts ({len(seen_slugs)} unique slugs)"
+        )
         return posts
 
     def load_services(self) -> List[Service]:
@@ -300,6 +325,10 @@ class BlogListingPage(Page):
     @property
     def slug(self) -> str:
         return "blog" if self.page_num == 1 else f"blog-{self.page_num}"
+
+    @property
+    def is_paginated(self) -> bool:
+        return self.total_pages > 1
 
     @property
     def title(self) -> str:
