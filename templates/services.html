@@ -1,0 +1,43 @@
+<section class="services-section">
+  <div class="container">
+    <div class="services-hero">
+      <h1>Services</h1>
+      <p>Professional services to help transform your business through cutting-edge technology</p>
+    </div>
+    
+    <div class="services-grid">
+      {% if services %}
+        {% for service in services %}
+        <div class="service-card">
+          {% if service.icon %}
+          <div class="service-icon">
+            {{ inject_svg(service.icon, True) | safe }}
+          </div>
+          {% endif %}
+          
+          <h3>{{ service.title }}</h3>
+          <p>{{ service.meta_description }}</p>
+          
+          {% if service.features %}
+          <ul class="service-features">
+            {% for feature in service.features %}
+            <li>{{ feature }}</li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+          
+          {% if service.price %}
+          <div class="service-price">{{ service.price }}</div>
+          {% endif %}
+          
+          <a href="./services/{{ service.slug }}.html" class="service-link">Learn More →</a>
+        </div>
+        {% endfor %}
+      {% else %}
+        <div class="no-services">
+          <p>Services coming soon...</p>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>

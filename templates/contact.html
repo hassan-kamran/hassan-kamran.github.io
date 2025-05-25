@@ -16,7 +16,7 @@
 
       <div class="contact-grid">
         <div class="contact-item">
-          {{ inject_svg('orcid', True) }}
+          {{ inject_svg('orcid', True) | safe }}
           <ul>
             <li>
               <a
@@ -30,7 +30,7 @@
         </div>
 
         <div class="contact-item">
-          {{ inject_svg('mail', True) }}
+          {{ inject_svg('mail', True) | safe }}
           <div>
             <ul>
               <li>
@@ -57,7 +57,7 @@
         </div>
 
         <div class="contact-item">
-          {{ inject_svg('phone', True) }}
+          {{ inject_svg('phone', True) | safe }}
           <ul>
             <li>
               <a aria-label="Phone Number" href="tel:+923039441945"
@@ -68,7 +68,7 @@
         </div>
 
         <div class="contact-item">
-          {{ inject_svg('location', True) }}
+          {{ inject_svg('location', True) | safe}}
           <div>
             <ul>
               <li>
@@ -87,42 +87,42 @@
 
       <div class="social-links">
         <a href="https://big0.dev/" target="_blank" aria-label="Big0.dev">
-          {{ inject_svg('big0_logo', True) }}
+          {{ inject_svg('big0_logo', True) | safe }}
         </a>
         <a
           href="https://www.linkedin.com/in/engr-hassan-kamran"
           target="_blank"
           aria-label="LinkedIn"
         >
-          {{ inject_svg('linkedin', True) }}
+          {{ inject_svg('linkedin', True) | safe }}
         </a>
         <a
           href="https://github.com/hassan-kamran"
           target="_blank"
           aria-label="Github"
         >
-          {{ inject_svg('github', True) }}
+          {{ inject_svg('github', True) | safe}}
         </a>
         <a
           href="https://www.youtube.com/@EngrHassanKamran"
           target="_blank"
           aria-label="YouTube"
         >
-          {{ inject_svg('youtube', True) }}
+          {{ inject_svg('youtube', True) | safe}}
         </a>
         <a
           href="https://www.upwork.com/freelancers/~015d257597dfcd7778"
           target="_blank"
           aria-label="Upwork"
         >
-          {{ inject_svg('upwork', True) }}
+          {{ inject_svg('upwork', True) | safe}}
         </a>
         <a
           href="https://verification.pec.org.pk/v/eV/sED/i.aspx?eid=31322F303035353532"
           target="_blank"
           aria-label="PEC Verification"
         >
-          {{ inject_svg('pec-mini', True) }}
+          {{ inject_svg('pec-mini', True) | safe}}
         </a>
       </div>
     </div>

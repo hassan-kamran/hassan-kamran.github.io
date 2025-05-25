@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Learn how I built my website from scratch! From choosing the tech stack to deploying it, I’ll walk you through the process, challenges, and key decisions. Whether you're a developer or just curious, get insights into web development, design, and optimization." />
-     <link rel="canonical" href="https://engrhassankamran.com/blogs/how-I-built-this-website.html" />
-    <title>Hassan Kamran | How I Built this Website</title>
+ <link rel="canonical" href="https://engrhassankamran.com/blogs/how-I-built-this-website.html" />
+    <title>How I Built this Website</title>
     <!--
 
     <link
@@ -136,6 +136,14 @@
               <li>
                 <a href="../resume.html" aria-label="My Resume">My Resume</a>
               </li>
+
+              <li>
+                <a href="../services.html" aria-label="Services">Services</a>
+              </li>
+
+              <li>
+                <a href="../gallery.html" aria-label="Gallery">Gallery</a>
+              </li>
               <li>
                 <button class="popover-button" popovertarget="modal">
                   Get in Touch
@@ -164,6 +172,13 @@
             <li>
               <a href="../resume.html" aria-label="My Resume">My Resume</a>
             </li>
+            <li>
+            <a href="../services.html" aria-label="Services">Services</a>
+          </li>
+
+          <li>
+            <a href="../gallery.html" aria-label="Gallery">Gallery</a>
+          </li>
             <li>
               <button class="popover-button" popovertarget="modal">
                 Get in Touch
@@ -439,7 +454,7 @@
         <h1>How I Built this Website</h1>
         <div class="meta-info">
           <span class="category">Web Development</span>
-          <span class="date">2025-03-05</span>
+          <span class="date">March 05, 2025</span>
         </div>
       </div>
 
@@ -451,24 +466,7 @@
 <h2>My Solution</h2>
 <p>I chose to make use of the fundamentals, utilizing as many modern HTML/CSS features as I could to reduce my dependency on JavaScript. To avoid duplication of code, I used Jinja2 templates. I wrote a Python script that generates my pages, adding in images, canonicals, and meta descriptions where needed. The blogs are stored in markdown, and code is organized into templates.</p>
 <p>I used JavaScript for the search functionality and one external library mini-search.js which itself does not have any external dependencies. I vendorized this dependency, meaning I serve it along with all the other assets of my website.</p>
-<section class="cta blog-cta">
-<div>
-<h2>Transform Your Business Today</h2>
-<p>
-      Ready to turn challenges into competitive advantages? Let's create
-      solutions that drive real results for your business.
-    </p>
-<button class="popover-button btn" popovertarget="modal">
-      Get in Touch
-    </button>
-</div>
-<div>
-<picture>
-<source height="128" media="(max-width: 768px)" srcset="../static/cta-mini.avif" width="256"/>
-<img alt="Hassan Kamran Working" height="512" src="../static/cta.avif" width="1024"/>
-</picture>
-</div>
-</section>
+<p>{{template:cta}}</p>
 <h2>Tech Stack Summary</h2>
 <ul>
 <li>HTML</li>
@@ -495,6 +493,8 @@
             >Terms of Service</a
           >
           <a href="../sitemap.xml" aria-label="Sitemap">Sitemap</a>
+
+          <a href="../sitemap-images.xml" aria-label="Image Sitemap">Image Sitemap</a>
         </div>
         <div class="footerCopyright">
           <p>&#169; 2025 EHK. All rights reserved.</p>

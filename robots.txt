@@ -1,5 +1,6 @@
-# robots.txt for engrhassankamran.com
+# robots.txt for https://engrhassankamran.com
 User-agent: *
 Allow: /
 
 Sitemap: https://engrhassankamran.com/sitemap.xml
+Sitemap: https://engrhassankamran.com/sitemap-images.xml

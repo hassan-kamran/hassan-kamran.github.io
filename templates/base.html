@@ -3,30 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="{{ meta_des }}" />
-    {% if base_tag %} {{ base_tag|safe }} {% endif %} {{ canonical }}
-    <title>{{ title }}</title>
-    {{ comment_open }}
+    <meta name="description" content="{{ meta_des | safe }}" />
+    {% if base_tag %} {{ base_tag | safe }} {% endif %} {{ canonical | safe }}
+    <title>{{ title | safe }}</title>
+    {{ comment_open | safe }}
 
     <link
       rel="preload"
       as="image"
-      href="{{ static }}/{{ preload }}-mini.avif"
+      href="{{ static | safe }}/{{ preload | safe }}-mini.avif"
       type="image/avif"
       media="(max-width: 767px)"
     />
     <link
       rel="preload"
       as="image"
-      href="{{ static }}/{{ preload}}.avif"
+      href="{{ static | safe }}/{{ preload | safe}}.avif"
       type="image/avif"
       media="(min-width: 768px)"
     />
-    {{ comment_close}}
+    {{ comment_close | safe}}
 
     <link
       rel="preload"
-      href="{{ static }}/Exo2-Regular.woff2"
+      href="{{ static | safe }}/Exo2-Regular.woff2"
       as="font"
       type="font/woff2"
       crossorigin="anonymous"
@@ -34,21 +34,21 @@
 
     <link
       rel="preload"
-      href="{{ static }}/style.css"
+      href="{{ static | safe }}/style.css"
       as="style"
       onload="this.rel='stylesheet'"
     />
-    <noscript><link rel="stylesheet" href="{{ static }}/style.css" /></noscript>
+    <noscript><link rel="stylesheet" href="{{ static | safe }}/style.css" /></noscript>
 
     <link
       class="favicon"
       rel="icon"
       type="image/svg+xml"
-      href="{{ static }}/favicon.svg"
+      href="{{ static | safe }}/favicon.svg"
     />
-    <script src="{{ static }}/minisearch@7.1.2.min.js"></script>
-    <script src="{{ static }}/search.js" defer></script>
-    <script src="{{ static }}/readmore.js" defer></script>
+    <script src="{{ static | safe }}/minisearch@7.1.2.min.js"></script>
+    <script src="{{ static | safe }}/search.js" defer></script>
+    <script src="{{ static | safe }}/readmore.js" defer></script>
   </head>
 
   <body>
@@ -97,6 +97,14 @@
               <li>
                 <a href="{{ resume }}" aria-label="My Resume">My Resume</a>
               </li>
+
+              <li>
+                <a href="{{ services_page }}" aria-label="Services">Services</a>
+              </li>
+
+              <li>
+                <a href="{{ gallery }}" aria-label="Gallery">Gallery</a>
+              </li>
               <li>
                 <button class="popover-button" popovertarget="modal">
                   Get in Touch
@@ -122,6 +130,13 @@
             <li>
               <a href="{{ resume }}" aria-label="My Resume">My Resume</a>
             </li>
+            <li>
+            <a href="{{ services_page }}" aria-label="Services">Services</a>
+          </li>
+
+          <li>
+            <a href="{{ gallery }}" aria-label="Gallery">Gallery</a>
+          </li>
             <li>
               <button class="popover-button" popovertarget="modal">
                 Get in Touch
@@ -195,7 +210,7 @@
             <h2>Contact Information</h2>
             <div class="contact-grid">
               <div class="contact-item">
-                {{ inject_svg('orcid', True) }}
+                {{ inject_svg('orcid', True) | safe }}
                 <ul>
                   <li>
                     <a
@@ -208,7 +223,7 @@
                 </ul>
               </div>
               <div class="contact-item">
-                {{ inject_svg('mail', True) }}
+                {{ inject_svg('mail', True) | safe }}
                 <div>
                   <ul>
                     <li>
@@ -236,7 +251,7 @@
                 </div>
               </div>
               <div class="contact-item">
-                {{ inject_svg('phone', True) }}
+                {{ inject_svg('phone', True) | safe }}
                 <ul>
                   <li>
                     <a aria-label="Phone Number" href="tel:+923039441945"
@@ -246,7 +261,7 @@
                 </ul>
               </div>
               <div class="contact-item">
-                {{ inject_svg('location', True) }}
+                {{ inject_svg('location', True) | safe }}
                 <div>
                   <ul>
                     <li>
@@ -265,35 +280,35 @@
           </div>
           <div class="social-links">
             <a href="https://big0.dev/" target="_blank" aria-label="Big0.dev">
-              {{ inject_svg('big0_logo', True) }}
+              {{ inject_svg('big0_logo', True) | safe}}
             </a>
             <a
               href="https://www.linkedin.com/in/engr-hassan-kamran"
               target="_blank"
               aria-label="LinkedIn"
             >
-              {{ inject_svg('linkedin', True) }}
+              {{ inject_svg('linkedin', True) | safe }}
             </a>
             <a
               href="https://github.com/hassan-kamran"
               target="_blank"
               aria-label="Github"
             >
-              {{ inject_svg('github', True) }}
+              {{ inject_svg('github', True) | safe }}
             </a>
             <a
               href="https://www.youtube.com/@EngrHassanKamran"
               target="_blank"
               aria-label="YouTube"
             >
-              {{ inject_svg('youtube', True) }}
+              {{ inject_svg('youtube', True) | safe }}
             </a>
             <a
               href="https://www.upwork.com/freelancers/~015d257597dfcd7778"
               target="_blank"
               aria-label="Upwork"
             >
-              {{ inject_svg('upwork', True) }}
+              {{ inject_svg('upwork', True) | safe}}
             </a>
 
             <a
@@ -301,7 +316,7 @@
               target="_blank"
               aria-label="PEC Verification"
             >
-              {{ inject_svg('pec-mini', True) }}
+              {{ inject_svg('pec-mini', True) | safe }}
             </a>
           </div>
         </div>
@@ -322,7 +337,7 @@
       gtag("config", "G-BVDRQY5Y2W");
     </script>
 
-    <main>{{ content }}</main>
+    <main>{{ content | safe }}</main>
 
     <footer class="siteFooter">
       <div class="footerContent">
@@ -333,6 +348,8 @@
             >Terms of Service</a
           >
           <a href="{{ sitemap }}" aria-label="Sitemap">Sitemap</a>
+
+          <a href="{{ image_sitemap }}" aria-label="Image Sitemap">Image Sitemap</a>
         </div>
         <div class="footerCopyright">
           <p>&#169; {{ copyright }} EHK. All rights reserved.</p>

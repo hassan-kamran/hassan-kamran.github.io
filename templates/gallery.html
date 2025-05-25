@@ -1,0 +1,25 @@
+<section class="gallery-section">
+  <div class="container">
+    <div class="gallery-header">
+      <h1>Gallery</h1>
+      <p>A visual journey through projects, experiences, and achievements</p>
+    </div>
+
+    <div class="gallery-grid">
+      {% for image in images %}
+      <div class="gallery-item">
+<img src="{{ gallery_url }}/{{ image.filename }}" 
+     alt="{{ image.title }}" 
+     loading="lazy">
+        <div class="gallery-overlay">
+          <h3>{{ image.title }}</h3>
+          {% if image.description %}
+          <p>{{ image.description }}</p>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
