@@ -1,0 +1,90 @@
+/* ==============================
+   SERVICE DETAIL PAGE
+============================== */
+.service-detail {
+  padding: var(--spacing-xl) 0;
+  margin-top: var(--top-margin);
+}
+
+.service-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-xl);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.service-price-badge {
+  background-color: var(--primary-color);
+  color: white;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius);
+  font-weight: 600;
+}
+
+.service-content {
+  max-width: 800px;
+  margin: 0 auto var(--spacing-xxl);
+  line-height: 1.8;
+}
+
+.service-content h2 {
+  color: var(--primary-color);
+  margin-top: var(--spacing-xl);
+  margin-bottom: var(--spacing-md);
+}
+
+.service-content h3 {
+  color: var(--bg-dark);
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+}
+
+.service-cta {
+  background-color: var(--bg-dark);
+  color: white;
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius);
+  text-align: center;
+  margin: var(--spacing-xxl) 0;
+}
+
+.service-cta h2 {
+  color: white;
+  margin-bottom: var(--spacing-md);
+}
+
+.service-cta p {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: var(--spacing-lg);
+}
+
+.service-navigation {
+  margin-top: var(--spacing-xl);
+}
+
+.service-navigation a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color var(--transition-default);
+}
+
+.service-navigation a:hover {
+  text-decoration: underline;
+}
+
+/* ==============================
+   MEDIA QUERIES - SERVICE DETAIL
+============================== */
+@media screen and (max-width: 768px) {
+  .service-header {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    text-align: center;
+  }
+
+  .service-content {
+    padding: 0 var(--spacing-md);
+  }
+}

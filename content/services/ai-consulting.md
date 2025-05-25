@@ -1,10 +1,15 @@
 ---
-title: AI Consulting & Strategy
-description: Transform your business with cutting-edge AI solutions tailored to your unique challenges
-icon: brain
-price: Starting at $5,000/month
-features: AI strategy development, Custom ML models, Data pipeline design, Team training
+title: AI Consulting
+description: Expert AI consulting services to help your business leverage cutting-edge artificial intelligence solutions
+icon: ai-icon
+image: services/ai-consulting-hero.jpg
+price: Starting from $500/hour
+features: AI Strategy Development, Model Selection & Architecture, Implementation Roadmap, Team Training, Performance Optimization
 ---
+
+## Transform Your Business with AI
+
+Our AI consulting services help organizations navigate the complex landscape of artificial intelligence...
 
 ## Transform Your Business with AI
 

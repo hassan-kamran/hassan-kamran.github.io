@@ -32,13 +32,11 @@
       crossorigin="anonymous"
     />
 
-    <link
-      rel="preload"
-      href="{{ static | safe }}/style.css"
-      as="style"
-      onload="this.rel='stylesheet'"
-    />
-    <noscript><link rel="stylesheet" href="{{ static | safe }}/style.css" /></noscript>
+    <link rel="stylesheet" href="{{ static | safe }}/css/base.css" />
+
+    {% if custom_css %}
+        <link rel="stylesheet" href="{{ static | safe }}/css/{{ custom_css }}.css"/>
+    {% endif %}
 
     <link
       class="favicon"

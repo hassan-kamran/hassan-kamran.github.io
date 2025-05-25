@@ -32,13 +32,9 @@
       crossorigin="anonymous"
     />
 
-    <link
-      rel="preload"
-      href="static/style.css"
-      as="style"
-      onload="this.rel='stylesheet'"
-    />
-    <noscript><link rel="stylesheet" href="static/style.css" /></noscript>
+    <link rel="stylesheet" href="static/css/base.css" />
+
+        <link rel="stylesheet" href="static/css/services.css"/>
 
     <link
       class="favicon"
@@ -456,61 +452,74 @@
     
     <div class="services-grid">
         <div class="service-card">
-          <div class="service-icon">
-            <!-- SVG 'brain' not found -->
+          <div class="service-image">
+            <img src="./static/services/ai-consulting-hero.jpg" alt="AI Consulting" loading="lazy" />
           </div>
           
-          <h3>AI Consulting &amp; Strategy</h3>
-          <p>Transform your business with cutting-edge AI solutions tailored to your unique challenges</p>
-          
-          <ul class="service-features">
-            <li>AI strategy development</li>
-            <li>Custom ML models</li>
-            <li>Data pipeline design</li>
-            <li>Team training</li>
-          </ul>
-          
-          <div class="service-price">Starting at $5,000/month</div>
-          
-          <a href="./services/ai-consulting.html" class="service-link">Learn More →</a>
+          <div class="service-content">
+            <div class="service-icon">
+              <!-- SVG 'ai-icon' not found -->
+            </div>
+            
+            <h3>AI Consulting</h3>
+            <p>Expert AI consulting services to help your business leverage cutting-edge artificial intelligence solutions</p>
+            
+            <ul class="service-features">
+              <li>AI Strategy Development</li>
+              <li>Model Selection &amp; Architecture</li>
+              <li>Implementation Roadmap</li>
+              <li>Team Training</li>
+              <li>Performance Optimization</li>
+            </ul>
+            
+            <div class="service-price">Starting from $500/hour</div>
+            
+            <a href="./services/ai-consulting.html" class="service-link">Learn More →</a>
+          </div>
         </div>
         <div class="service-card">
-          <div class="service-icon">
-            <!-- SVG 'chart' not found -->
+          
+          <div class="service-content">
+            <div class="service-icon">
+              <!-- SVG 'chart' not found -->
+            </div>
+            
+            <h3>Technical Project Management</h3>
+            <p>Lead your technical projects to success with military-grade planning and execution</p>
+            
+            <ul class="service-features">
+              <li>Project planning</li>
+              <li>Team leadership</li>
+              <li>Risk management</li>
+              <li>Agile coaching</li>
+            </ul>
+            
+            <div class="service-price">Custom pricing</div>
+            
+            <a href="./services/technical-leadership.html" class="service-link">Learn More →</a>
           </div>
-          
-          <h3>Technical Project Management</h3>
-          <p>Lead your technical projects to success with military-grade planning and execution</p>
-          
-          <ul class="service-features">
-            <li>Project planning</li>
-            <li>Team leadership</li>
-            <li>Risk management</li>
-            <li>Agile coaching</li>
-          </ul>
-          
-          <div class="service-price">Custom pricing</div>
-          
-          <a href="./services/technical-leadership.html" class="service-link">Learn More →</a>
         </div>
         <div class="service-card">
-          <div class="service-icon">
-            <!-- SVG 'code' not found -->
+          
+          <div class="service-content">
+            <div class="service-icon">
+              <!-- SVG 'code' not found -->
+            </div>
+            
+            <h3>Custom Software Development</h3>
+            <p>Full-stack development services from concept to deployment with focus on scalability and performance</p>
+            
+            <ul class="service-features">
+              <li>Web applications</li>
+              <li>Mobile apps</li>
+              <li>API development</li>
+              <li>Cloud solutions</li>
+            </ul>
+            
+            <div class="service-price">$150-200/hour</div>
+            
+            <a href="./services/software-development.html" class="service-link">Learn More →</a>
           </div>
-          
-          <h3>Custom Software Development</h3>
-          <p>Full-stack development services from concept to deployment with focus on scalability and performance</p>
-          
-          <ul class="service-features">
-            <li>Web applications</li>
-            <li>Mobile apps</li>
-            <li>API development</li>
-            <li>Cloud solutions</li>
-          </ul>
-          
-          <div class="service-price">$150-200/hour</div>
-          
-          <a href="./services/software-development.html" class="service-link">Learn More →</a>
         </div>
     </div>
   </div>

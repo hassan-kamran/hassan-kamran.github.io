@@ -1,25 +1,81 @@
 <section class="gallery-section">
   <div class="container">
-    <div class="gallery-header">
+    <div class="gallery-hero">
       <h1>Gallery</h1>
-      <p>A visual journey through projects, experiences, and achievements</p>
+      <p>Projects, experiences, and achievements captured in moments</p>
     </div>
-
+    
     <div class="gallery-grid">
       {% for image in images %}
-      <div class="gallery-item">
-<img src="{{ gallery_url }}/{{ image.filename }}" 
-     alt="{{ image.title }}" 
-     loading="lazy">
-        <div class="gallery-overlay">
-          <h3>{{ image.title }}</h3>
-          {% if image.description %}
-          <p>{{ image.description }}</p>
-          {% endif %}
+      <div class="gallery-item" data-category="{{ image.category }}">
+        <a href="#image-{{ loop.index }}" class="gallery-link">
+          <img 
+            src="{{ gallery_url }}/{{ image.filename }}" 
+            alt="{{ image.title }}"
+            loading="lazy"
+          />
+          <div class="gallery-overlay">
+            <h3>{{ image.title }}</h3>
+            <p class="gallery-category">{{ image.category }}</p>
+          </div>
+        </a>
+        
+        <!-- Lightbox for this image -->
+        <div id="image-{{ loop.index }}" class="gallery-lightbox">
+          <div class="lightbox-content">
+            <a href="#close" class="lightbox-close" aria-label="Close">&times;</a>
+            <div class="lightbox-inner">
+              <img src="{{ gallery_url }}/{{ image.filename }}" alt="{{ image.title }}" />
+              <div class="lightbox-details">
+                <h2>{{ image.title }}</h2>
+                <p class="lightbox-category">{{ image.category }}</p>
+                {% if image.description %}
+                <p class="lightbox-description">{{ image.description }}</p>
+                {% endif %}
+                {% if image.tags %}
+                <p class="lightbox-tags">Tags: {{ image.tags | join(', ') }}</p>
+                {% endif %}
+                <p class="lightbox-date">{{ image.date.strftime('%B %d, %Y') }}</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       {% endfor %}
     </div>
+
+    {% if pagination %}
+    <div class="gallery-pagination">
+      <div class="pagination-controls">
+        {% if pagination.has_prev %}
+        <a href="{{ pagination.prev_url }}" class="pagination-link prev">
+          <span class="pagination-icon">{{ inject_svg('arrow-left', use_current_color=True) }}</span>
+          Previous
+        </a>
+        {% else %}
+        <span class="pagination-link disabled">
+          <span class="pagination-icon">{{ inject_svg('arrow-left', use_current_color=True) }}</span>
+          Previous
+        </span>
+        {% endif %}
+
+        <div class="pagination-info">
+          Page {{ pagination.current_page }} of {{ pagination.total_pages }}
+        </div>
+
+        {% if pagination.has_next %}
+        <a href="{{ pagination.next_url }}" class="pagination-link next">
+          Next
+          <span class="pagination-icon">{{ inject_svg('arrow-right', use_current_color=True) }}</span>
+        </a>
+        {% else %}
+        <span class="pagination-link disabled">
+          Next
+          <span class="pagination-icon">{{ inject_svg('arrow-right', use_current_color=True) }}</span>
+        </span>
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
   </div>
 </section>
-

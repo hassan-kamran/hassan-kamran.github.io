@@ -312,6 +312,7 @@ class Page(ABC):
             "inject_svg": self.renderer.inject_svg,
             "copyright": datetime.now().year,  # 👈 Use current year
             "canonical": canonical,
+            "custom_css": self.custom_css,
         }
 
         # Merge with any additional context

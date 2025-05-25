@@ -9,28 +9,36 @@
       {% if services %}
         {% for service in services %}
         <div class="service-card">
-          {% if service.icon %}
-          <div class="service-icon">
-            {{ inject_svg(service.icon, True) | safe }}
+          {% if service.image %}
+          <div class="service-image">
+            <img src="./static/{{ service.image }}" alt="{{ service.title }}" loading="lazy" />
           </div>
           {% endif %}
           
-          <h3>{{ service.title }}</h3>
-          <p>{{ service.meta_description }}</p>
-          
-          {% if service.features %}
-          <ul class="service-features">
-            {% for feature in service.features %}
-            <li>{{ feature }}</li>
-            {% endfor %}
-          </ul>
-          {% endif %}
-          
-          {% if service.price %}
-          <div class="service-price">{{ service.price }}</div>
-          {% endif %}
-          
-          <a href="./services/{{ service.slug }}.html" class="service-link">Learn More →</a>
+          <div class="service-content">
+            {% if service.icon %}
+            <div class="service-icon">
+              {{ inject_svg(service.icon, True) | safe }}
+            </div>
+            {% endif %}
+            
+            <h3>{{ service.title }}</h3>
+            <p>{{ service.meta_description }}</p>
+            
+            {% if service.features %}
+            <ul class="service-features">
+              {% for feature in service.features %}
+              <li>{{ feature }}</li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+            
+            {% if service.price %}
+            <div class="service-price">{{ service.price }}</div>
+            {% endif %}
+            
+            <a href="./services/{{ service.slug }}.html" class="service-link">Learn More →</a>
+          </div>
         </div>
         {% endfor %}
       {% else %}

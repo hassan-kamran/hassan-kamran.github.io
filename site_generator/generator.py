@@ -8,7 +8,13 @@ import os
 from .config import Config
 from .core import TemplateRenderer
 from .pages import *
-from .content import ContentLoader, BlogPostPage, ServicePage, BlogListingPage
+from .content import (
+    ContentLoader,
+    BlogPostPage,
+    ServicePage,
+    BlogListingPage,
+    GalleryListingPage,
+)
 from .utils import *
 
 
@@ -16,6 +22,7 @@ class SiteGenerator:
     """Simple site generator"""
 
     def __init__(self, config: Config):
+        """Initialize the site generator"""
         self.config = config
         self.pages: List[Page] = []
         self.blog_posts = []
@@ -35,8 +42,8 @@ class SiteGenerator:
         # Create renderer
         self.renderer = TemplateRenderer(env, config)
 
-        # Create content loader
-        self.content_loader = ContentLoader(config)
+        # Create content loader with renderer
+        self.content_loader = ContentLoader(config, self.renderer)
 
     def generate(self):
         """Generate the website"""
@@ -58,8 +65,9 @@ class SiteGenerator:
         self._create_static_pages()
         self._create_blog_pages()
         self._create_service_pages()
+        self._create_gallery_pages()  # NEW: Add gallery pages with pagination
 
-        # Render all pages - MODIFIED SECTION
+        # Render all pages
         for page in self.pages:
             output_path = Path(self.config.output_dir) / page.output_path
 
@@ -97,7 +105,7 @@ class SiteGenerator:
 
     def _create_static_pages(self):
         """Create static pages"""
-        # Standard pages
+        # Standard pages (NO GalleryPage here anymore)
         static_page_classes = [
             HomePage,
             AboutPage,
@@ -115,11 +123,6 @@ class SiteGenerator:
         services_page = ServicesPage(self.renderer)
         services_page.set_services(self.services)
         self.pages.append(services_page)
-
-        # Gallery page with data
-        gallery_page = GalleryPage(self.renderer)
-        gallery_page.set_images(self.gallery_images)
-        self.pages.append(gallery_page)
 
     def _create_blog_pages(self):
         """Create blog-related pages"""
@@ -204,6 +207,28 @@ class SiteGenerator:
 
         with open("./sitemap.xml", "w", encoding="utf-8") as file:
             file.write(sitemap_content)
+
+    def _create_gallery_pages(self):
+        """Create gallery-related pages with pagination"""
+        if not self.gallery_images:
+            # Create empty gallery page even if no images
+            self.pages.append(GalleryListingPage(self.renderer, [], 1, 1))
+            return
+
+        # Paginated gallery listing
+        imgs_per_page = self.config.gallery_imgs_per_page
+        total_pages = (len(self.gallery_images) + imgs_per_page - 1) // imgs_per_page
+
+        for page_num in range(1, total_pages + 1):
+            start = (page_num - 1) * imgs_per_page
+            end = min(start + imgs_per_page, len(self.gallery_images))
+            page_images = self.gallery_images[start:end]
+
+            self.pages.append(
+                GalleryListingPage(self.renderer, page_images, page_num, total_pages)
+            )
+
+        print(f"✅ Created {total_pages} gallery pages")
 
     def _generate_image_sitemap(self):
         """Generate image sitemap including ALL images from all pages"""

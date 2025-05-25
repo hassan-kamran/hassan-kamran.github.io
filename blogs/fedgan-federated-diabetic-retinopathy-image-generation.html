@@ -32,13 +32,9 @@
       crossorigin="anonymous"
     />
 
-    <link
-      rel="preload"
-      href="../static/style.css"
-      as="style"
-      onload="this.rel='stylesheet'"
-    />
-    <noscript><link rel="stylesheet" href="../static/style.css" /></noscript>
+    <link rel="stylesheet" href="../static/css/base.css" />
+
+        <link rel="stylesheet" href="../static/css/blog_post.css"/>
 
     <link
       class="favicon"
@@ -534,7 +530,24 @@
 <li>TFRecord storage for efficient processing</li>
 </ul>
 <p>This pipeline ensured consistency, enhanced image quality, and standardized data format for optimal GAN training.</p>
-<p>{{template:cta}}</p>
+<section class="cta">
+<div>
+<h2>Transform Your Business Today</h2>
+<p>
+      Ready to turn challenges into competitive advantages? Let's create
+      solutions that drive real results for your business.
+    </p>
+<button class="popover-button btn" popovertarget="modal">
+      Get in Touch
+    </button>
+</div>
+<div>
+<picture>
+<source height="128" media="(max-width: 768px)" srcset="static/cta-mini.avif" width="256"/>
+<img alt="Hassan Kamran Working" height="512" src="../static/cta.avif" width="1024"/>
+</picture>
+</div>
+</section>
 <h2>DCGAN Architecture</h2>
 <p>The generative model builds on the established DCGAN architecture with modifications specific to medical imaging. The generator and discriminator networks were carefully designed to balance image fidelity with computational efficiency.</p>
 <p><img alt="DCGAN Generator Architecture" src="../static/DCGAN_Generator_Architecture.avif"/>

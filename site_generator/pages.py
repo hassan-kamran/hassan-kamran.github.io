@@ -14,6 +14,10 @@ class HomePage(Page):
         return "AI Engineer & Tech Consultant"
 
     @property
+    def custom_css(self) -> str:
+        return "home"
+
+    @property
     def template(self) -> str:
         return "home.html"
 
@@ -65,6 +69,10 @@ class AboutPage(Page):
     def preload(self) -> str:
         return "cta"
 
+    @property
+    def custom_css(self) -> str:
+        return "about"
+
 
 class ResumePage(Page):
     @property
@@ -93,6 +101,10 @@ class ResumePage(Page):
             "hero": "hero-mini.avif",
         }
 
+    @property
+    def custom_css(self) -> str:
+        return "resume"
+
 
 class ContactPage(Page):
     @property
@@ -114,6 +126,10 @@ class ContactPage(Page):
     @property
     def meta_description(self) -> str:
         return "Get in touch with Hassan Kamran, Software Engineer & Developer. Connect via email, phone, or social media for collaboration opportunities."
+
+    @property
+    def custom_css(self) -> str:
+        return "contact"
 
 
 class PrivacyPage(Page):
@@ -137,6 +153,10 @@ class PrivacyPage(Page):
     def meta_description(self) -> str:
         return "Privacy Policy for Hassan Kamran's website. Learn how your personal information is collected, used, and protected when you visit engrhassankamran.com."
 
+    @property
+    def custom_css(self) -> str:
+        return "info"
+
 
 class TermsPage(Page):
     @property
@@ -158,6 +178,10 @@ class TermsPage(Page):
     @property
     def meta_description(self) -> str:
         return "Terms of Service for engrhassankamran.com. Understand the rules, guidelines, and legal agreements that govern the use of Hassan Kamran's website."
+
+    @property
+    def custom_css(self) -> str:
+        return "info"
 
 
 class NotFoundPage(Page):
@@ -183,6 +207,10 @@ class NotFoundPage(Page):
 
     def get_context(self) -> Dict[str, Any]:
         return {}
+
+    @property
+    def custom_css(self) -> str:
+        return "about"
 
 
 class ServicesPage(Page):
@@ -218,6 +246,10 @@ class ServicesPage(Page):
 
     def get_context(self) -> Dict[str, Any]:
         return {"services": self._services}
+
+    @property
+    def custom_css(self) -> str:
+        return "services"
 
 
 class GalleryPage(Page):
@@ -256,3 +288,7 @@ class GalleryPage(Page):
             "images": self._images,
             "gallery_url": f"{self.renderer.config.gallery_dir}",
         }
+
+    @property
+    def custom_css(self) -> str:
+        return "gallery"

@@ -2,87 +2,102 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://engrhassankamran.com/</loc>
-    <lastmod>2025-05-25</lastmod>
+    <lastmod>2025-05-26</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://engrhassankamran.com/about.html</loc>
-    <lastmod>2025-05-25</lastmod>
+    <lastmod>2025-05-26</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://engrhassankamran.com/resume.html</loc>
-    <lastmod>2025-05-25</lastmod>
+    <lastmod>2025-05-26</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://engrhassankamran.com/contact.html</loc>
-    <lastmod>2025-05-25</lastmod>
+    <lastmod>2025-05-26</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://engrhassankamran.com/privacy.html</loc>
-    <lastmod>2025-05-25</lastmod>
+    <lastmod>2025-05-26</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://engrhassankamran.com/terms.html</loc>
-    <lastmod>2025-05-25</lastmod>
+    <lastmod>2025-05-26</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://engrhassankamran.com/services.html</loc>
-    <lastmod>2025-05-25</lastmod>
+    <lastmod>2025-05-26</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://engrhassankamran.com/gallery.html</loc>
-    <lastmod>2025-05-25</lastmod>
-    <priority>0.8</priority>
+    <loc>https://engrhassankamran.com/blogs/what-is-a-brand-manual-and-why-its-important.html</loc>
+    <lastmod>2025-05-26</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://engrhassankamran.com/blogs/making-your-website-seo-friendly.html</loc>
+    <lastmod>2025-05-26</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://engrhassankamran.com/blogs/aptex-25-nust.html</loc>
-    <lastmod>2025-05-25</lastmod>
+    <lastmod>2025-05-26</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://engrhassankamran.com/blogs/fedgan-federated-diabetic-retinopathy-image-generation.html</loc>
-    <lastmod>2025-05-25</lastmod>
+    <lastmod>2025-05-26</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://engrhassankamran.com/blogs/low-cost-teleoperated-drone-with-integrated-sprayer-for-precision-agriculture.html</loc>
-    <lastmod>2025-05-25</lastmod>
+    <lastmod>2025-05-26</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://engrhassankamran.com/blogs/how-i-built-this-website.html</loc>
-    <lastmod>2025-05-25</lastmod>
+    <lastmod>2025-05-26</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://engrhassankamran.com/blog.html</loc>
-    <lastmod>2025-05-25</lastmod>
+    <lastmod>2025-05-26</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://engrhassankamran.com/blog-2.html</loc>
+    <lastmod>2025-05-26</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://engrhassankamran.com/services/ai-consulting.html</loc>
-    <lastmod>2025-05-25</lastmod>
+    <lastmod>2025-05-26</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://engrhassankamran.com/services/technical-leadership.html</loc>
-    <lastmod>2025-05-25</lastmod>
+    <lastmod>2025-05-26</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://engrhassankamran.com/services/software-development.html</loc>
-    <lastmod>2025-05-25</lastmod>
+    <lastmod>2025-05-26</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://engrhassankamran.com/gallery.html</loc>
+    <lastmod>2025-05-26</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://engrhassankamran.com/static/hassan_resume.pdf</loc>
-    <lastmod>2025-05-25</lastmod>
+    <lastmod>2025-05-26</lastmod>
     <priority>0.6</priority>
   </url>
 </urlset>

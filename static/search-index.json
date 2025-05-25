@@ -56,11 +56,19 @@
     "type": "page"
   },
   {
-    "id": "page-gallery",
-    "url": "gallery.html",
-    "title": "Gallery",
+    "id": "page-blog-what-is-a-brand-manual-and-why-its-important",
+    "url": "blogs/what-is-a-brand-manual-and-why-its-important.html",
+    "title": "What Is a Brand Manual and Why It\u2019s Important",
     "content": "",
-    "description": "Photo gallery showcasing Hassan Kamran's projects, experiences, and achievements in AI, robotics, and technology.",
+    "description": "Learn how a brand manual acts as your company\u2019s DNA\u2014defining visual identity, tone, and values. Discover why it\u2019s critical for consistency, recognition, and sca",
+    "type": "page"
+  },
+  {
+    "id": "page-blog-making-your-website-seo-friendly",
+    "url": "blogs/making-your-website-seo-friendly.html",
+    "title": "Making Your Website SEO-Friendly",
+    "content": "",
+    "description": "Unlock the secrets to boosting your website\u2019s search engine rankings! Learn actionable strategies for on-page optimization, technical SEO, and content enhanceme",
     "type": "page"
   },
   {
@@ -102,6 +110,42 @@
     "content": "",
     "description": "Explore cutting-edge insights on AI, Federated Learning, programming, big data, and robotics.",
     "type": "page"
+  },
+  {
+    "id": "page-blog-2",
+    "url": "blog-2.html",
+    "title": "Blog - Page 2",
+    "content": "",
+    "description": "Explore cutting-edge insights on AI, Federated Learning, programming, big data, and robotics.",
+    "type": "page"
+  },
+  {
+    "id": "page-gallery",
+    "url": "gallery.html",
+    "title": "Gallery",
+    "content": "",
+    "description": "Photo gallery showcasing Hassan Kamran's projects, experiences, and achievements in AI, robotics, and technology.",
+    "type": "page"
+  },
+  {
+    "id": "blog-what-is-a-brand-manual-and-why-its-important",
+    "url": "blogs/what-is-a-brand-manual-and-why-its-important.html",
+    "title": "What Is a Brand Manual and Why It\u2019s Important",
+    "content": "Learn how a brand manual acts as your company\u2019s DNA\u2014defining visual identity, tone, and values. Discover why it\u2019s critical for consistency, recognition, and sca",
+    "description": "Learn how a brand manual acts as your company\u2019s DNA\u2014defining visual identity, tone, and values. Discover why it\u2019s critical for consistency, recognition, and sca",
+    "type": "blog",
+    "category": "Branding & Marketing",
+    "date": "2025-05-15"
+  },
+  {
+    "id": "blog-making-your-website-seo-friendly",
+    "url": "blogs/making-your-website-seo-friendly.html",
+    "title": "Making Your Website SEO-Friendly",
+    "content": "Unlock the secrets to boosting your website\u2019s search engine rankings! Learn actionable strategies for on-page optimization, technical SEO, and content enhanceme",
+    "description": "Unlock the secrets to boosting your website\u2019s search engine rankings! Learn actionable strategies for on-page optimization, technical SEO, and content enhanceme",
+    "type": "blog",
+    "category": "SEO & Web Development",
+    "date": "2025-04-30"
   },
   {
     "id": "blog-aptex-25-nust",
@@ -146,9 +190,9 @@
   {
     "id": "service-ai-consulting",
     "url": "services/ai-consulting.html",
-    "title": "AI Consulting & Strategy",
-    "content": "Transform your business with cutting-edge AI solutions tailored to your unique challenges",
-    "description": "Transform your business with cutting-edge AI solutions tailored to your unique challenges",
+    "title": "AI Consulting",
+    "content": "Expert AI consulting services to help your business leverage cutting-edge artificial intelligence solutions",
+    "description": "Expert AI consulting services to help your business leverage cutting-edge artificial intelligence solutions",
     "type": "service"
   },
   {

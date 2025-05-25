@@ -1,8 +1,9 @@
-[
-  {
-    "filename": "logistics-dashboard.avif",
+{
+  "logistics-dashboard.avif": {
     "title": "Logistics Dashboard",
     "description": "Real-time KPI dashboard built for One World Rental, featuring advanced data visualization and machine learning insights.",
-    "category": "Data Visualization"
+    "category": "Data Visualization",
+    "date": "2025-05-25",
+    "tags": ["Data Warehouse", "Logistics", "Dashboard"]
   }
-]
+}

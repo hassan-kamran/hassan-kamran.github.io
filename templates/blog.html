@@ -29,14 +29,14 @@
     {% if pagination.has_prev %}
     <a href="{{ pagination.prev_url }}" class="pagination-link prev">
       <span class="pagination-icon"
-        >{{ inject_svg('arrow-left', use_current_color=True) }}</span
+        >{{ inject_svg('arrow-left', use_current_color=True) | safe }}</span
       >
       Previous
     </a>
     {% else %}
     <span class="pagination-link disabled">
       <span class="pagination-icon"
-        >{{ inject_svg('arrow-left', use_current_color=True) }}</span
+        >{{ inject_svg('arrow-left', use_current_color=True) | safe }}</span
       >
       Previous
     </span>
@@ -50,14 +50,14 @@
     <a href="{{ pagination.next_url }}" class="pagination-link next">
       Next
       <span class="pagination-icon"
-        >{{ inject_svg('arrow-right', use_current_color=True) }}</span
+        >{{ inject_svg('arrow-right', use_current_color=True) | safe }}</span
       >
     </a>
     {% else %}
     <span class="pagination-link disabled">
       Next
       <span class="pagination-icon"
-        >{{ inject_svg('arrow-right', use_current_color=True) }}</span
+        >{{ inject_svg('arrow-right', use_current_color=True) | safe }}</span
       >
     </span>
     {% endif %}
