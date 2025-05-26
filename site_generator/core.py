@@ -310,7 +310,7 @@ class Page(ABC):
             "meta_des": self.meta_description,
             "static": static_path,
             "inject_svg": self.renderer.inject_svg,
-            "copyright": datetime.now().year,  # 👈 Use current year
+            "copyright": datetime.now().year,
             "canonical": canonical,
             "custom_css": self.custom_css,
         }

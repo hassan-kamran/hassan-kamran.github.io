@@ -32,6 +32,8 @@ To bridge this technological gap, I designed and developed a low-cost octocopter
 
 ![Completed Drone](static/drone_landed.avif)
 
+{{video:vU7-dU0U0YQ}}
+
 ## Technical Specifications
 
 The drone platform consists of:

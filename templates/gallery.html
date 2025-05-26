@@ -8,7 +8,11 @@
     <div class="gallery-grid">
       {% for image in images %}
       <div class="gallery-item" data-category="{{ image.category }}">
-        <a href="#image-{{ loop.index }}" class="gallery-link">
+        <button 
+          class="gallery-link" 
+          popovertarget="gallery-lightbox-{{ loop.index }}"
+          popovertargetaction="toggle"
+        >
           <img 
             src="{{ gallery_url }}/{{ image.filename }}" 
             alt="{{ image.title }}"
@@ -18,12 +22,21 @@
             <h3>{{ image.title }}</h3>
             <p class="gallery-category">{{ image.category }}</p>
           </div>
-        </a>
+        </button>
         
-        <!-- Lightbox for this image -->
-        <div id="image-{{ loop.index }}" class="gallery-lightbox">
+        <!-- Lightbox popover for this image -->
+        <div 
+          id="gallery-lightbox-{{ loop.index }}" 
+          popover="manual"
+          class="gallery-lightbox-popover"
+        >
           <div class="lightbox-content">
-            <a href="#close" class="lightbox-close" aria-label="Close">&times;</a>
+            <button 
+              class="lightbox-close" 
+              popovertarget="gallery-lightbox-{{ loop.index }}"
+              popovertargetaction="hide"
+              aria-label="Close"
+            >&times;</button>
             <div class="lightbox-inner">
               <img src="{{ gallery_url }}/{{ image.filename }}" alt="{{ image.title }}" />
               <div class="lightbox-details">
@@ -49,12 +62,12 @@
       <div class="pagination-controls">
         {% if pagination.has_prev %}
         <a href="{{ pagination.prev_url }}" class="pagination-link prev">
-          <span class="pagination-icon">{{ inject_svg('arrow-left', use_current_color=True) }}</span>
+          <span class="pagination-icon">{{ inject_svg('arrow-left', use_current_color=True) | safe }}</span>
           Previous
         </a>
         {% else %}
         <span class="pagination-link disabled">
-          <span class="pagination-icon">{{ inject_svg('arrow-left', use_current_color=True) }}</span>
+          <span class="pagination-icon">{{ inject_svg('arrow-left', use_current_color=True) | safe }}</span>
           Previous
         </span>
         {% endif %}
@@ -66,12 +79,12 @@
         {% if pagination.has_next %}
         <a href="{{ pagination.next_url }}" class="pagination-link next">
           Next
-          <span class="pagination-icon">{{ inject_svg('arrow-right', use_current_color=True) }}</span>
+          <span class="pagination-icon">{{ inject_svg('arrow-right', use_current_color=True) | safe }}</span>
         </a>
         {% else %}
         <span class="pagination-link disabled">
           Next
-          <span class="pagination-icon">{{ inject_svg('arrow-right', use_current_color=True) }}</span>
+          <span class="pagination-icon">{{ inject_svg('arrow-right', use_current_color=True) | safe }}</span>
         </span>
         {% endif %}
       </div>

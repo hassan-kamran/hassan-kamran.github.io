@@ -452,7 +452,11 @@
     
     <div class="gallery-grid">
       <div class="gallery-item" data-category="General">
-        <a href="#image-1" class="gallery-link">
+        <button 
+          class="gallery-link" 
+          popovertarget="gallery-lightbox-1"
+          popovertargetaction="toggle"
+        >
           <img 
             src="./content/gallery/logistics_dashboard.avif" 
             alt="Logistics Dashboard"
@@ -462,12 +466,21 @@
             <h3>Logistics Dashboard</h3>
             <p class="gallery-category">General</p>
           </div>
-        </a>
+        </button>
         
-        <!-- Lightbox for this image -->
-        <div id="image-1" class="gallery-lightbox">
+        <!-- Lightbox popover for this image -->
+        <div 
+          id="gallery-lightbox-1" 
+          popover="manual"
+          class="gallery-lightbox-popover"
+        >
           <div class="lightbox-content">
-            <a href="#close" class="lightbox-close" aria-label="Close">&times;</a>
+            <button 
+              class="lightbox-close" 
+              popovertarget="gallery-lightbox-1"
+              popovertargetaction="hide"
+              aria-label="Close"
+            >&times;</button>
             <div class="lightbox-inner">
               <img src="./content/gallery/logistics_dashboard.avif" alt="Logistics Dashboard" />
               <div class="lightbox-details">

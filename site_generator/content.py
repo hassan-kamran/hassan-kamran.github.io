@@ -70,43 +70,45 @@ class ContentLoader:
     def _process_template_includes(
         self, markdown_content: str, is_blog: bool = True
     ) -> str:
-        """Process template includes like {{template:cta}} in markdown"""
+        """Process template includes like {{template:cta}} and video embeds"""
         import re
 
-        pattern = r"{{template:([a-zA-Z0-9_-]+)}}"
+        # Combined pattern for templates and video embeds
+        pattern = r"{{(template|video):([a-zA-Z0-9_-]+)}}"
 
         def replace_template(match):
-            template_name = match.group(1) + ".html"
+            tag_type = match.group(1)
+            value = match.group(2)
 
-            try:
-                # Create a minimal context for template rendering
-                context = {
-                    "inject_svg": self.renderer.inject_svg if self.renderer else None,
-                    "static": "../static" if is_blog else "./static",
-                }
+            if tag_type == "template":
+                template_name = value + ".html"
+                try:
+                    # Fixed context for proper static path handling
+                    context = {
+                        "inject_svg": self.renderer.inject_svg
+                        if self.renderer
+                        else None,
+                        "static": "../static" if is_blog else "./static",
+                        "config": self.config,  # Add config to context
+                    }
+                    template = self.renderer.env.get_template(template_name)
+                    rendered_content = template.render(**context)
+                    return rendered_content
+                except Exception as e:
+                    return f"<!-- Template include failed for {template_name}: {str(e)} -->"
 
-                # Get the template
-                template = self.renderer.env.get_template(template_name)
-                rendered_content = template.render(**context)
+            elif tag_type == "video":
+                # Render video template with YouTube ID
+                try:
+                    template = self.renderer.env.get_template("video.html")
+                    return template.render(
+                        youtube_id=value,
+                        config=self.config,
+                    )
+                except Exception as e:
+                    return f"<!-- Video embed failed: {str(e)} -->"
 
-                # Fix paths for blog context
-                if is_blog:
-                    rendered_content = rendered_content.replace(
-                        'src="static/', 'src="../static/'
-                    )
-                    rendered_content = rendered_content.replace(
-                        'src="./static/', 'src="../static/'
-                    )
-                    rendered_content = rendered_content.replace(
-                        'href="static/', 'href="../static/'
-                    )
-                    rendered_content = rendered_content.replace(
-                        'href="./static/', 'href="../static/'
-                    )
-
-                return rendered_content
-            except Exception as e:
-                return f"<!-- Template include failed for {template_name}: {str(e)} -->"
+            return ""
 
         return re.sub(pattern, replace_template, markdown_content)
 
