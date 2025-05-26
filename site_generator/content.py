@@ -513,7 +513,15 @@ class ServicePage(Page):
         return self.service.meta_description
 
     def get_context(self) -> Dict[str, Any]:
-        return {"service": self.service, "content": self.service.content_html}
+        return {
+            "title": self.service.title,
+            "price": self.service.price,
+            "image": self.service.image,
+            "icon": self.service.icon,
+            "features": self.service.features,
+            "service_content": self.service.content_html,
+            "meta_des": self.service.meta_description,
+        }
 
     @property
     def custom_css(self) -> str:

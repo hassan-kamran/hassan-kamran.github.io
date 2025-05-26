@@ -188,27 +188,35 @@
     "date": "2025-03-05"
   },
   {
-    "id": "service-ai-consulting",
-    "url": "services/ai-consulting.html",
-    "title": "AI Consulting",
-    "content": "Expert AI consulting services to help your business leverage cutting-edge artificial intelligence solutions",
-    "description": "Expert AI consulting services to help your business leverage cutting-edge artificial intelligence solutions",
+    "id": "service-training",
+    "url": "services/training.html",
+    "title": "Professional Training & Workshops",
+    "content": "Empower your team with cutting-edge skills in AI, cloud computing, DevOps, and modern software development through customized training programs.",
+    "description": "Empower your team with cutting-edge skills in AI, cloud computing, DevOps, and modern software development through customized training programs.",
     "type": "service"
   },
   {
-    "id": "service-technical-leadership",
-    "url": "services/technical-leadership.html",
-    "title": "Technical Project Management",
-    "content": "Lead your technical projects to success with military-grade planning and execution",
-    "description": "Lead your technical projects to success with military-grade planning and execution",
+    "id": "service-ai-consulting",
+    "url": "services/ai-consulting.html",
+    "title": "AI Consulting Services",
+    "content": "Transform your business with cutting-edge AI solutions. Expert consulting for machine learning, automation, and data intelligence strategies.",
+    "description": "Transform your business with cutting-edge AI solutions. Expert consulting for machine learning, automation, and data intelligence strategies.",
     "type": "service"
   },
   {
     "id": "service-software-development",
     "url": "services/software-development.html",
     "title": "Custom Software Development",
-    "content": "Full-stack development services from concept to deployment with focus on scalability and performance",
-    "description": "Full-stack development services from concept to deployment with focus on scalability and performance",
+    "content": "Build scalable, modern applications tailored to your business needs. From web apps to enterprise systems, we deliver quality software on time and within budget.",
+    "description": "Build scalable, modern applications tailored to your business needs. From web apps to enterprise systems, we deliver quality software on time and within budget.",
+    "type": "service"
+  },
+  {
+    "id": "service-technical-project-management",
+    "url": "services/technical-project-management.html",
+    "title": "Technical Project Management",
+    "content": "Expert project management for complex technical initiatives. From planning to delivery, ensure your projects succeed with experienced leadership and proven meth",
+    "description": "Expert project management for complex technical initiatives. From planning to delivery, ensure your projects succeed with experienced leadership and proven meth",
     "type": "service"
   }
 ]

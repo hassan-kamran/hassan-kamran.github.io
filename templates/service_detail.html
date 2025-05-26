@@ -1,25 +1,25 @@
 <section class="service-detail">
   <div class="container">
     <div class="service-header">
-      <h1>{{ service.title }}</h1>
-      {% if service.price %}
-      <div class="service-price-badge">{{ service.price }}</div>
+      <h1>{{ title }}</h1>
+      {% if price %}
+      <div class="service-price-badge">{{ price }}</div>
       {% endif %}
     </div>
 
-    {% if service.image %}
+    {% if image %}
     <div class="service-hero-image">
-      <img src="../static/{{ service.image }}" alt="{{ service.title }}" />
+      <img src="../static/{{ image }}" alt="{{ title }}" />
     </div>
     {% endif %}
 
-    <div class="service-content">{{ content | safe }}</div>
+    <div class="service-content">{{ service_content | safe }}</div>
 
-    {% if service.features %}
+    {% if features %}
     <div class="service-features-section">
       <h2>Key Features</h2>
       <ul class="service-features-list">
-        {% for feature in service.features %}
+        {% for feature in features %}
         <li>{{ feature }}</li>
         {% endfor %}
       </ul>

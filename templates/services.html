@@ -27,7 +27,7 @@
             
             {% if service.features %}
             <ul class="service-features">
-              {% for feature in service.features %}
+              {% for feature in service.features[:3] %}
               <li>{{ feature }}</li>
               {% endfor %}
             </ul>
