@@ -6,8 +6,7 @@
     <meta name="description" content="{{ meta_des | safe }}" />
     {% if base_tag %} {{ base_tag | safe }} {% endif %} {{ canonical | safe }}
     <title>{{ title | safe }}</title>
-    {{ comment_open | safe }}
-
+    {% if preload %}
     <link
       rel="preload"
       as="image"
@@ -18,11 +17,11 @@
     <link
       rel="preload"
       as="image"
-      href="{{ static | safe }}/{{ preload | safe}}.avif"
+      href="{{ static | safe }}/{{ preload | safe }}.avif"
       type="image/avif"
       media="(min-width: 768px)"
     />
-    {{ comment_close | safe}}
+    {% endif %}
 
     <link
       rel="preload"

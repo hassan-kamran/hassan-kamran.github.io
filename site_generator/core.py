@@ -265,13 +265,6 @@ class Page(ABC):
         # Render content template first with full context including static
         content = content_template.render(**context)
 
-        # Prepare base template parameters
-        comment_open = ""
-        comment_close = ""
-        if self.preload is None:
-            comment_open = "<!--"
-            comment_close = "-->"
-
         # Canonical URL
         if self.output_path.name == "index.html":
             canonical_url = f"{self.config.domain}/"
@@ -304,8 +297,6 @@ class Page(ABC):
             "services_page": page_urls.get("services_page"),
             "gallery": page_urls.get("gallery"),
             "preload": self.preload,
-            "comment_open": comment_open,
-            "comment_close": comment_close,
             "meta_des": self.meta_description,
             "static": static_path,
             "inject_svg": self.renderer.inject_svg,
