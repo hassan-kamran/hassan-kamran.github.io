@@ -22,6 +22,11 @@
   max-width: 70%;
 }
 
+.hero-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-md);
+}
+
 .hero-image {
   flex: 1;
   max-width: 30%;
