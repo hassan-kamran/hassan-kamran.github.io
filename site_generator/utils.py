@@ -65,6 +65,18 @@ def generate_image_sitemap(pages: List[Page], config) -> str:
     """Generate image sitemap XML by scanning ALL pages for images"""
     images = []
 
+    def escape_xml(text):
+        """Escape XML special characters"""
+        if not text:
+            return ""
+        return (
+            text.replace("&", "&amp;")
+            .replace("<", "&lt;")
+            .replace(">", "&gt;")
+            .replace('"', "&quot;")
+            .replace("'", "&apos;")
+        )
+
     for page in pages:
         if hasattr(page, "output_path"):
             html_path = Path(config.output_dir) / page.output_path
@@ -78,11 +90,14 @@ def generate_image_sitemap(pages: List[Page], config) -> str:
                             src = src.replace("../", "").lstrip("/")
                             img_url = f"{config.domain}/{src}"
 
+                            # Escape the alt text for XML
+                            alt_text = escape_xml(img.get("alt", ""))
+
                             images.append(f"""  <url>
     <loc>{config.domain}/{page.output_path}</loc>
     <image:image>
       <image:loc>{img_url}</image:loc>
-      <image:title>{img.get("alt", "")}</image:title>
+      <image:title>{alt_text}</image:title>
     </image:image>
   </url>""")
                 except Exception as e:

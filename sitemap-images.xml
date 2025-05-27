@@ -2,10 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://engrhassankamran.com/blog.html</loc>
+    <loc>https://engrhassankamran.com/blogs/fedgan-federated-diabetic-retinopathy-image-generation.html</loc>
     <image:image>
-      <image:loc>https://engrhassankamran.com/./static/brand_manual.avif</image:loc>
-      <image:title>What Is a Brand Manual and Why It’s Important</image:title>
+      <image:loc>https://engrhassankamran.com/static/generator_loss.avif</image:loc>
+      <image:title>Generator Loss</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://engrhassankamran.com/blogs/fedgan-federated-diabetic-retinopathy-image-generation.html</loc>
+    <image:image>
+      <image:loc>https://engrhassankamran.com/static/cta.avif</image:loc>
+      <image:title>Hassan Kamran working on engineering projects</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://engrhassankamran.com/index.html</loc>
+    <image:image>
+      <image:loc>https://engrhassankamran.com/./static/sma.svg</image:loc>
+      <image:title>Saint Mary&apos;s Academy</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://engrhassankamran.com/about.html</loc>
+    <image:image>
+      <image:loc>https://engrhassankamran.com/cta.avif</image:loc>
+      <image:title>Hassan Kamran working on engineering projects</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://engrhassankamran.com/blogs/fedgan-federated-diabetic-retinopathy-image-generation.html</loc>
+    <image:image>
+      <image:loc>https://engrhassankamran.com/static/RSNA_Sample.avif</image:loc>
+      <image:title>Sample RSNA Abdominal Trauma Dataset</image:title>
     </image:image>
   </url>
   <url>
@@ -13,13 +41,6 @@
     <image:image>
       <image:loc>https://engrhassankamran.com/./static/drone.avif</image:loc>
       <image:title>Low-Cost Teleoperated Drone with Integrated Sprayer for Precision Agriculture</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://engrhassankamran.com/blogs/fedgan-federated-diabetic-retinopathy-image-generation.html</loc>
-    <image:image>
-      <image:loc>https://engrhassankamran.com/static/loss_discriminator_7_clients.avif</image:loc>
-      <image:title>Discriminator Loss 7 Clients</image:title>
     </image:image>
   </url>
   <url>
@@ -32,8 +53,29 @@
   <url>
     <loc>https://engrhassankamran.com/blogs/low-cost-teleoperated-drone-with-integrated-sprayer-for-precision-agriculture.html</loc>
     <image:image>
-      <image:loc>https://engrhassankamran.com/static/center_of_mass.avif</image:loc>
-      <image:title>Weight Distribution Analysis</image:title>
+      <image:loc>https://engrhassankamran.com/static/drone_spraying.avif</image:loc>
+      <image:title>Drone Spraying in Action</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://engrhassankamran.com/blogs/fedgan-federated-diabetic-retinopathy-image-generation.html</loc>
+    <image:image>
+      <image:loc>https://engrhassankamran.com/static/loss_discriminator_3_clients.avif</image:loc>
+      <image:title>Discriminator Loss 3 Clients</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://engrhassankamran.com/services.html</loc>
+    <image:image>
+      <image:loc>https://engrhassankamran.com/./static/ai-consulting-hero.avif</image:loc>
+      <image:title>AI Consulting Services</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://engrhassankamran.com/blogs/fedgan-federated-diabetic-retinopathy-image-generation.html</loc>
+    <image:image>
+      <image:loc>https://engrhassankamran.com/static/mild_dr.avif</image:loc>
+      <image:title>Mild DR</image:title>
     </image:image>
   </url>
   <url>
@@ -44,108 +86,10 @@
     </image:image>
   </url>
   <url>
-    <loc>https://engrhassankamran.com/blogs/fedgan-federated-diabetic-retinopathy-image-generation.html</loc>
-    <image:image>
-      <image:loc>https://engrhassankamran.com/static/RSNA_Sample.avif</image:loc>
-      <image:title>Sample RSNA Abdominal Trauma Dataset</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://engrhassankamran.com/services/ai-consulting.html</loc>
-    <image:image>
-      <image:loc>https://engrhassankamran.com/static/ai-consulting-hero.avif</image:loc>
-      <image:title>AI Consulting Services</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://engrhassankamran.com/services.html</loc>
-    <image:image>
-      <image:loc>https://engrhassankamran.com/./static/software-development.avif</image:loc>
-      <image:title>Custom Software Development</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://engrhassankamran.com/blogs/fedgan-federated-diabetic-retinopathy-image-generation.html</loc>
-    <image:image>
-      <image:loc>https://engrhassankamran.com/static/no_dr.avif</image:loc>
-      <image:title>No DR</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://engrhassankamran.com/blogs/fedgan-federated-diabetic-retinopathy-image-generation.html</loc>
-    <image:image>
-      <image:loc>https://engrhassankamran.com/static/severe_dr.avif</image:loc>
-      <image:title>Severe DR</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://engrhassankamran.com/blogs/how-i-built-this-website.html</loc>
-    <image:image>
-      <image:loc>https://engrhassankamran.com/static/cta.avif</image:loc>
-      <image:title>Hassan Kamran working on engineering projects</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://engrhassankamran.com/gallery.html</loc>
-    <image:image>
-      <image:loc>https://engrhassankamran.com/./content/gallery/logistics_dashboard.avif</image:loc>
-      <image:title>Logistics Dashboard</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://engrhassankamran.com/blogs/low-cost-teleoperated-drone-with-integrated-sprayer-for-precision-agriculture.html</loc>
-    <image:image>
-      <image:loc>https://engrhassankamran.com/static/drone_spraying_retracted.avif</image:loc>
-      <image:title>Spray Demonstration</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://engrhassankamran.com/blogs/fedgan-federated-diabetic-retinopathy-image-generation.html</loc>
-    <image:image>
-      <image:loc>https://engrhassankamran.com/static/loss_generator_5_clients.avif</image:loc>
-      <image:title>Generator Loss 5 Clients</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://engrhassankamran.com/blogs/fedgan-federated-diabetic-retinopathy-image-generation.html</loc>
-    <image:image>
-      <image:loc>https://engrhassankamran.com/static/loss_discriminator_5_clients.avif</image:loc>
-      <image:title>Discriminator Loss 5 Clients</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://engrhassankamran.com/blogs/fedgan-federated-diabetic-retinopathy-image-generation.html</loc>
-    <image:image>
-      <image:loc>https://engrhassankamran.com/static/DCGAN_Discriminator_Architecture.avif</image:loc>
-      <image:title>DCGAN Discriminator Architecture</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://engrhassankamran.com/blogs/fedgan-federated-diabetic-retinopathy-image-generation.html</loc>
-    <image:image>
-      <image:loc>https://engrhassankamran.com/static/generated_samples_5_clients.avif</image:loc>
-      <image:title>Generated Samples 5 Clients</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://engrhassankamran.com/blogs/low-cost-teleoperated-drone-with-integrated-sprayer-for-precision-agriculture.html</loc>
-    <image:image>
-      <image:loc>https://engrhassankamran.com/static/drone_flight_test.avif</image:loc>
-      <image:title>Drone Flight Test</image:title>
-    </image:image>
-  </url>
-  <url>
     <loc>https://engrhassankamran.com/index.html</loc>
     <image:image>
-      <image:loc>https://engrhassankamran.com/./static/case.svg</image:loc>
-      <image:title>Sir Syed CASe Institute of Technology</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://engrhassankamran.com/blogs/aptex-25-nust.html</loc>
-    <image:image>
-      <image:loc>https://engrhassankamran.com/static/cta.avif</image:loc>
-      <image:title>Hassan Kamran working on engineering projects</image:title>
+      <image:loc>https://engrhassankamran.com/./static/nust.svg</image:loc>
+      <image:title>National University of Science and Technology</image:title>
     </image:image>
   </url>
   <url>
@@ -156,6 +100,20 @@
     </image:image>
   </url>
   <url>
+    <loc>https://engrhassankamran.com/services/software-development.html</loc>
+    <image:image>
+      <image:loc>https://engrhassankamran.com/static/software-development.avif</image:loc>
+      <image:title>Custom Software Development</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://engrhassankamran.com/blogs/fedgan-federated-diabetic-retinopathy-image-generation.html</loc>
+    <image:image>
+      <image:loc>https://engrhassankamran.com/static/DCGAN_Generator_Architecture.avif</image:loc>
+      <image:title>DCGAN Generator Architecture</image:title>
+    </image:image>
+  </url>
+  <url>
     <loc>https://engrhassankamran.com/index.html</loc>
     <image:image>
       <image:loc>https://engrhassankamran.com/./static/pec.svg</image:loc>
@@ -163,24 +121,31 @@
     </image:image>
   </url>
   <url>
+    <loc>https://engrhassankamran.com/resume.html</loc>
+    <image:image>
+      <image:loc>https://engrhassankamran.com/./static/hero-mini.avif</image:loc>
+      <image:title>Hassan Kamran profile picture</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://engrhassankamran.com/index.html</loc>
+    <image:image>
+      <image:loc>https://engrhassankamran.com/./static/pseb.svg</image:loc>
+      <image:title>Pakistan Software Export Board</image:title>
+    </image:image>
+  </url>
+  <url>
     <loc>https://engrhassankamran.com/blogs/fedgan-federated-diabetic-retinopathy-image-generation.html</loc>
     <image:image>
-      <image:loc>https://engrhassankamran.com/static/loss_generator_3_clients.avif</image:loc>
-      <image:title>Generator Loss 3 Clients</image:title>
+      <image:loc>https://engrhassankamran.com/static/loss_discriminator_10_clients.avif</image:loc>
+      <image:title>Discriminator Loss 10 Clients</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://engrhassankamran.com/blogs/low-cost-teleoperated-drone-with-integrated-sprayer-for-precision-agriculture.html</loc>
+    <loc>https://engrhassankamran.com/blogs/fedgan-federated-diabetic-retinopathy-image-generation.html</loc>
     <image:image>
-      <image:loc>https://engrhassankamran.com/static/gazebo_simulation.avif</image:loc>
-      <image:title>Gazebo Simulation</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://engrhassankamran.com/blog.html</loc>
-    <image:image>
-      <image:loc>https://engrhassankamran.com/./static/seo.avif</image:loc>
-      <image:title>Making Your Website SEO-Friendly</image:title>
+      <image:loc>https://engrhassankamran.com/static/severe_dr.avif</image:loc>
+      <image:title>Severe DR</image:title>
     </image:image>
   </url>
   <url>
@@ -191,24 +156,38 @@
     </image:image>
   </url>
   <url>
-    <loc>https://engrhassankamran.com/blogs/low-cost-teleoperated-drone-with-integrated-sprayer-for-precision-agriculture.html</loc>
+    <loc>https://engrhassankamran.com/index.html</loc>
     <image:image>
-      <image:loc>https://engrhassankamran.com/static/android_app.avif</image:loc>
-      <image:title>CAD Model</image:title>
+      <image:loc>https://engrhassankamran.com/./static/case.svg</image:loc>
+      <image:title>Sir Syed CASe Institute of Technology</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://engrhassankamran.com/blog.html</loc>
+    <image:image>
+      <image:loc>https://engrhassankamran.com/./static/fedgan.avif</image:loc>
+      <image:title>FedGAN: A Privacy-Preserving Framework for Synthetic Data Generation</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://engrhassankamran.com/blog-2.html</loc>
+    <image:image>
+      <image:loc>https://engrhassankamran.com/./static/work-3.avif</image:loc>
+      <image:title>How I Built this Website</image:title>
     </image:image>
   </url>
   <url>
     <loc>https://engrhassankamran.com/services.html</loc>
     <image:image>
       <image:loc>https://engrhassankamran.com/./static/training.avif</image:loc>
-      <image:title>Professional Training & Workshops</image:title>
+      <image:title>Professional Training &amp; Workshops</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://engrhassankamran.com/blogs/fedgan-federated-diabetic-retinopathy-image-generation.html</loc>
+    <loc>https://engrhassankamran.com/blogs/low-cost-teleoperated-drone-with-integrated-sprayer-for-precision-agriculture.html</loc>
     <image:image>
-      <image:loc>https://engrhassankamran.com/static/discriminator_loss.avif</image:loc>
-      <image:title>Discriminator Loss</image:title>
+      <image:loc>https://engrhassankamran.com/static/center_of_mass.avif</image:loc>
+      <image:title>Weight Distribution Analysis</image:title>
     </image:image>
   </url>
   <url>
@@ -228,106 +207,8 @@
   <url>
     <loc>https://engrhassankamran.com/blogs/fedgan-federated-diabetic-retinopathy-image-generation.html</loc>
     <image:image>
-      <image:loc>https://engrhassankamran.com/static/loss_generator_10_clients.avif</image:loc>
-      <image:title>Generator Loss 10 Clients</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://engrhassankamran.com/services/software-development.html</loc>
-    <image:image>
-      <image:loc>https://engrhassankamran.com/static/software-development.avif</image:loc>
-      <image:title>Custom Software Development</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://engrhassankamran.com/blogs/low-cost-teleoperated-drone-with-integrated-sprayer-for-precision-agriculture.html</loc>
-    <image:image>
-      <image:loc>https://engrhassankamran.com/static/cta.avif</image:loc>
-      <image:title>Hassan Kamran working on engineering projects</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://engrhassankamran.com/blogs/fedgan-federated-diabetic-retinopathy-image-generation.html</loc>
-    <image:image>
-      <image:loc>https://engrhassankamran.com/static/cta.avif</image:loc>
-      <image:title>Hassan Kamran working on engineering projects</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://engrhassankamran.com/index.html</loc>
-    <image:image>
-      <image:loc>https://engrhassankamran.com/./static/pseb.svg</image:loc>
-      <image:title>Pakistan Software Export Board</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://engrhassankamran.com/blogs/low-cost-teleoperated-drone-with-integrated-sprayer-for-precision-agriculture.html</loc>
-    <image:image>
-      <image:loc>https://engrhassankamran.com/static/drone_spraying.avif</image:loc>
-      <image:title>Drone Spraying in Action</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://engrhassankamran.com/blogs/fedgan-federated-diabetic-retinopathy-image-generation.html</loc>
-    <image:image>
-      <image:loc>https://engrhassankamran.com/static/DCGAN_Generator_Architecture.avif</image:loc>
-      <image:title>DCGAN Generator Architecture</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://engrhassankamran.com/services.html</loc>
-    <image:image>
-      <image:loc>https://engrhassankamran.com/./static/ai-consulting-hero.avif</image:loc>
-      <image:title>AI Consulting Services</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://engrhassankamran.com/blogs/making-your-website-seo-friendly.html</loc>
-    <image:image>
-      <image:loc>https://engrhassankamran.com/static/cta.avif</image:loc>
-      <image:title>Hassan Kamran working on engineering projects</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://engrhassankamran.com/blogs/fedgan-federated-diabetic-retinopathy-image-generation.html</loc>
-    <image:image>
-      <image:loc>https://engrhassankamran.com/static/loss_generator_7_clients.avif</image:loc>
-      <image:title>Generator Loss 7 Clients</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://engrhassankamran.com/blogs/fedgan-federated-diabetic-retinopathy-image-generation.html</loc>
-    <image:image>
-      <image:loc>https://engrhassankamran.com/static/loss_discriminator_3_clients.avif</image:loc>
-      <image:title>Discriminator Loss 3 Clients</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://engrhassankamran.com/index.html</loc>
-    <image:image>
-      <image:loc>https://engrhassankamran.com/./static/para.avif</image:loc>
-      <image:title>Paragliding Certificate - Army School of Physical Training Kakul</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://engrhassankamran.com/services/technical-project-management.html</loc>
-    <image:image>
-      <image:loc>https://engrhassankamran.com/static/project-management.avif</image:loc>
-      <image:title>Technical Project Management</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://engrhassankamran.com/blog-2.html</loc>
-    <image:image>
-      <image:loc>https://engrhassankamran.com/./static/work-3.avif</image:loc>
-      <image:title>How I Built this Website</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://engrhassankamran.com/blogs/fedgan-federated-diabetic-retinopathy-image-generation.html</loc>
-    <image:image>
-      <image:loc>https://engrhassankamran.com/static/unfederated_sample.avif</image:loc>
-      <image:title>Unfederated Sample</image:title>
+      <image:loc>https://engrhassankamran.com/static/loss_discriminator_5_clients.avif</image:loc>
+      <image:title>Discriminator Loss 5 Clients</image:title>
     </image:image>
   </url>
   <url>
@@ -340,15 +221,8 @@
   <url>
     <loc>https://engrhassankamran.com/blogs/fedgan-federated-diabetic-retinopathy-image-generation.html</loc>
     <image:image>
-      <image:loc>https://engrhassankamran.com/static/generated_samples_7_clients.avif</image:loc>
-      <image:title>Generated Samples 7 Clients</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://engrhassankamran.com/index.html</loc>
-    <image:image>
-      <image:loc>https://engrhassankamran.com/./static/nust.svg</image:loc>
-      <image:title>National University of Science and Technology</image:title>
+      <image:loc>https://engrhassankamran.com/static/DCGAN_Discriminator_Architecture.avif</image:loc>
+      <image:title>DCGAN Discriminator Architecture</image:title>
     </image:image>
   </url>
   <url>
@@ -359,31 +233,122 @@
     </image:image>
   </url>
   <url>
-    <loc>https://engrhassankamran.com/blog.html</loc>
+    <loc>https://engrhassankamran.com/blogs/how-i-built-this-website.html</loc>
     <image:image>
-      <image:loc>https://engrhassankamran.com/./static/fedgan.avif</image:loc>
-      <image:title>FedGAN: A Privacy-Preserving Framework for Synthetic Data Generation</image:title>
+      <image:loc>https://engrhassankamran.com/static/cta.avif</image:loc>
+      <image:title>Hassan Kamran working on engineering projects</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://engrhassankamran.com/blogs/low-cost-teleoperated-drone-with-integrated-sprayer-for-precision-agriculture.html</loc>
+    <image:image>
+      <image:loc>https://engrhassankamran.com/static/gazebo_simulation.avif</image:loc>
+      <image:title>Gazebo Simulation</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://engrhassankamran.com/blogs/low-cost-teleoperated-drone-with-integrated-sprayer-for-precision-agriculture.html</loc>
+    <image:image>
+      <image:loc>https://engrhassankamran.com/static/cta.avif</image:loc>
+      <image:title>Hassan Kamran working on engineering projects</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://engrhassankamran.com/gallery.html</loc>
+    <image:image>
+      <image:loc>https://engrhassankamran.com/./content/gallery/logistics_dashboard.avif</image:loc>
+      <image:title>Logistics Dashboard</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://engrhassankamran.com/blogs/aptex-25-nust.html</loc>
+    <image:image>
+      <image:loc>https://engrhassankamran.com/static/cta.avif</image:loc>
+      <image:title>Hassan Kamran working on engineering projects</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://engrhassankamran.com/blogs/making-your-website-seo-friendly.html</loc>
+    <image:image>
+      <image:loc>https://engrhassankamran.com/static/cta.avif</image:loc>
+      <image:title>Hassan Kamran working on engineering projects</image:title>
     </image:image>
   </url>
   <url>
     <loc>https://engrhassankamran.com/blogs/fedgan-federated-diabetic-retinopathy-image-generation.html</loc>
     <image:image>
-      <image:loc>https://engrhassankamran.com/static/generated_samples_3_clients.avif</image:loc>
-      <image:title>Generated Samples 3 Clients</image:title>
+      <image:loc>https://engrhassankamran.com/static/discriminator_loss.avif</image:loc>
+      <image:title>Discriminator Loss</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://engrhassankamran.com/index.html</loc>
+    <loc>https://engrhassankamran.com/blogs/low-cost-teleoperated-drone-with-integrated-sprayer-for-precision-agriculture.html</loc>
     <image:image>
-      <image:loc>https://engrhassankamran.com/./static/sma.svg</image:loc>
-      <image:title>Saint Mary's Academy</image:title>
+      <image:loc>https://engrhassankamran.com/static/drone_flight_test.avif</image:loc>
+      <image:title>Drone Flight Test</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://engrhassankamran.com/blogs/fedgan-federated-diabetic-retinopathy-image-generation.html</loc>
+    <image:image>
+      <image:loc>https://engrhassankamran.com/static/loss_generator_7_clients.avif</image:loc>
+      <image:title>Generator Loss 7 Clients</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://engrhassankamran.com/blogs/fedgan-federated-diabetic-retinopathy-image-generation.html</loc>
+    <image:image>
+      <image:loc>https://engrhassankamran.com/static/no_dr.avif</image:loc>
+      <image:title>No DR</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://engrhassankamran.com/blogs/fedgan-federated-diabetic-retinopathy-image-generation.html</loc>
+    <image:image>
+      <image:loc>https://engrhassankamran.com/static/unfederated_sample.avif</image:loc>
+      <image:title>Unfederated Sample</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://engrhassankamran.com/services/ai-consulting.html</loc>
+    <image:image>
+      <image:loc>https://engrhassankamran.com/static/ai-consulting-hero.avif</image:loc>
+      <image:title>AI Consulting Services</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://engrhassankamran.com/services.html</loc>
+    <image:image>
+      <image:loc>https://engrhassankamran.com/./static/software-development.avif</image:loc>
+      <image:title>Custom Software Development</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://engrhassankamran.com/blogs/fedgan-federated-diabetic-retinopathy-image-generation.html</loc>
+    <image:image>
+      <image:loc>https://engrhassankamran.com/static/generated_samples_7_clients.avif</image:loc>
+      <image:title>Generated Samples 7 Clients</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://engrhassankamran.com/blogs/fedgan-federated-diabetic-retinopathy-image-generation.html</loc>
+    <image:image>
+      <image:loc>https://engrhassankamran.com/static/loss_generator_3_clients.avif</image:loc>
+      <image:title>Generator Loss 3 Clients</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://engrhassankamran.com/blogs/low-cost-teleoperated-drone-with-integrated-sprayer-for-precision-agriculture.html</loc>
+    <image:image>
+      <image:loc>https://engrhassankamran.com/static/android_app.avif</image:loc>
+      <image:title>CAD Model</image:title>
     </image:image>
   </url>
   <url>
     <loc>https://engrhassankamran.com/services/training.html</loc>
     <image:image>
       <image:loc>https://engrhassankamran.com/static/training.avif</image:loc>
-      <image:title>Professional Training & Workshops</image:title>
+      <image:title>Professional Training &amp; Workshops</image:title>
     </image:image>
   </url>
   <url>
@@ -396,8 +361,8 @@
   <url>
     <loc>https://engrhassankamran.com/blogs/fedgan-federated-diabetic-retinopathy-image-generation.html</loc>
     <image:image>
-      <image:loc>https://engrhassankamran.com/static/generator_loss.avif</image:loc>
-      <image:title>Generator Loss</image:title>
+      <image:loc>https://engrhassankamran.com/static/generated_samples_3_clients.avif</image:loc>
+      <image:title>Generated Samples 3 Clients</image:title>
     </image:image>
   </url>
   <url>
@@ -408,31 +373,52 @@
     </image:image>
   </url>
   <url>
-    <loc>https://engrhassankamran.com/about.html</loc>
+    <loc>https://engrhassankamran.com/blogs/fedgan-federated-diabetic-retinopathy-image-generation.html</loc>
     <image:image>
-      <image:loc>https://engrhassankamran.com/cta.avif</image:loc>
-      <image:title>Hassan Kamran working on engineering projects</image:title>
+      <image:loc>https://engrhassankamran.com/static/loss_generator_5_clients.avif</image:loc>
+      <image:title>Generator Loss 5 Clients</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://engrhassankamran.com/resume.html</loc>
+    <loc>https://engrhassankamran.com/blog.html</loc>
     <image:image>
-      <image:loc>https://engrhassankamran.com/./static/hero-mini.avif</image:loc>
-      <image:title>Hassan Kamran profile picture</image:title>
+      <image:loc>https://engrhassankamran.com/./static/seo.avif</image:loc>
+      <image:title>Making Your Website SEO-Friendly</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://engrhassankamran.com/index.html</loc>
+    <image:image>
+      <image:loc>https://engrhassankamran.com/./static/para.avif</image:loc>
+      <image:title>Paragliding Certificate - Army School of Physical Training Kakul</image:title>
     </image:image>
   </url>
   <url>
     <loc>https://engrhassankamran.com/blogs/fedgan-federated-diabetic-retinopathy-image-generation.html</loc>
     <image:image>
-      <image:loc>https://engrhassankamran.com/static/loss_discriminator_10_clients.avif</image:loc>
-      <image:title>Discriminator Loss 10 Clients</image:title>
+      <image:loc>https://engrhassankamran.com/static/loss_discriminator_7_clients.avif</image:loc>
+      <image:title>Discriminator Loss 7 Clients</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://engrhassankamran.com/blogs/low-cost-teleoperated-drone-with-integrated-sprayer-for-precision-agriculture.html</loc>
+    <image:image>
+      <image:loc>https://engrhassankamran.com/static/drone_spraying_retracted.avif</image:loc>
+      <image:title>Spray Demonstration</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://engrhassankamran.com/blog.html</loc>
+    <image:image>
+      <image:loc>https://engrhassankamran.com/./static/brand_manual.avif</image:loc>
+      <image:title>What Is a Brand Manual and Why It’s Important</image:title>
     </image:image>
   </url>
   <url>
     <loc>https://engrhassankamran.com/blogs/fedgan-federated-diabetic-retinopathy-image-generation.html</loc>
     <image:image>
-      <image:loc>https://engrhassankamran.com/static/mild_dr.avif</image:loc>
-      <image:title>Mild DR</image:title>
+      <image:loc>https://engrhassankamran.com/static/generated_samples_5_clients.avif</image:loc>
+      <image:title>Generated Samples 5 Clients</image:title>
     </image:image>
   </url>
   <url>
@@ -440,6 +426,20 @@
     <image:image>
       <image:loc>https://engrhassankamran.com/./static/bss.svg</image:loc>
       <image:title>Beaconhouse School System</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://engrhassankamran.com/blogs/fedgan-federated-diabetic-retinopathy-image-generation.html</loc>
+    <image:image>
+      <image:loc>https://engrhassankamran.com/static/loss_generator_10_clients.avif</image:loc>
+      <image:title>Generator Loss 10 Clients</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://engrhassankamran.com/services/technical-project-management.html</loc>
+    <image:image>
+      <image:loc>https://engrhassankamran.com/static/project-management.avif</image:loc>
+      <image:title>Technical Project Management</image:title>
     </image:image>
   </url>
 </urlset>
