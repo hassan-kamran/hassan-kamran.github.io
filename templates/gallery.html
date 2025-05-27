@@ -118,3 +118,14 @@
     {% endif %}
   </div>
 </section>
+
+<script>
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    const openPopover = document.querySelector('.gallery-lightbox-popover:popover-open');
+    if (openPopover) {
+      openPopover.hidePopover();
+    }
+  }
+});
+</script>
