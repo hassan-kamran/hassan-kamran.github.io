@@ -1,9 +1,23 @@
 {
   "logistics-dashboard.avif": {
     "title": "Logistics Dashboard",
-    "description": "Real-time KPI dashboard built for One World Rental, featuring advanced data visualization and machine learning insights.",
+    "description": "I reverse-engineered Intellievent's poorly documented API to develop a real-time, asynchronous dashboard for One World Rental, a global company. The dashboard processed and relayed data to multiple teams, providing management with insights into the order preparation lifecycle. It was optimised for large screens, required no user interaction, and achieved a full global update in just 3 seconds. Running on an Azure VM, it delivered high performance at minimal cost.",
     "category": "Data Visualization",
     "date": "2025-05-25",
     "tags": ["Data Warehouse", "Logistics", "Dashboard"]
+  },
+  "drone-simulation.avif": {
+    "title": "Agriculture-Drone-Simulation",
+    "description": "Developed a low-cost drone-mounted sprayer with a 12V DC pump for precision agriculture, enabling automated and efficient pesticide spraying. Used Python in ROS and Gazebo for simulation, flight control, and automation testing, reducing labor costs and improving crop management.",
+    "category": "Drone",
+    "date": "2025-05-26",
+    "tags": ["Agriculture", "Drone", "Precision"]
+  },
+  "fedgan.avif": {
+    "title": "FedGan",
+    "description": "Developed FedGAN, a federated learning framework that combines GANs with cross-silo training to generate realistic diabetic retinopathy images while ensuring HIPAA and GDPR compliance. By federating the discriminator and generator via FedAvg, FedGAN achieved a realism score of 0.43, enabling secure medical AI collaboration without compromising patient privacy.",
+    "category": "Generative AI",
+    "date": "2025-05-26",
+    "tags": ["Federated Learning", "Generative Adversarial Networks", "Privacy"]
   }
 }

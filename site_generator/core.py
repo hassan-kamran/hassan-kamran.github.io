@@ -257,13 +257,12 @@ class Page(ABC):
         base_template = self.renderer.env.get_template("base.html")
         content_template = self.renderer.env.get_template(self.template)
 
-        # Prepare context
+        # Prepare context with static path included - THIS IS THE FIX
         context = self.get_context()
-        context["inject_svg"] = (
-            self.renderer.inject_svg
-        )  # 👈 Ensure inject_svg is available
+        context["inject_svg"] = self.renderer.inject_svg
+        context["static"] = static_path  # 👈 Add static path to content context
 
-        # Render content template first with full context
+        # Render content template first with full context including static
         content = content_template.render(**context)
 
         # Prepare base template parameters
@@ -292,7 +291,7 @@ class Page(ABC):
         # Base template parameters (matching original)
         template_params = {
             "title": f"{self.config.base_title} | {self.title}",
-            "content": content,  # 👈 Rendered HTML content
+            "content": content,
             "home": page_urls.get("home"),
             "blog": page_urls.get("blog"),
             "about": page_urls.get("about"),

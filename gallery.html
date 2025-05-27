@@ -451,20 +451,20 @@
     </div>
     
     <div class="gallery-grid">
-      <div class="gallery-item" data-category="General">
+      <div class="gallery-item" data-category="Drone">
         <button 
           class="gallery-link" 
           popovertarget="gallery-lightbox-1"
           popovertargetaction="toggle"
         >
           <img 
-            src="./content/gallery/logistics_dashboard.avif" 
-            alt="Logistics Dashboard"
+            src="./content/gallery/drone-simulation.avif" 
+            alt="Agriculture-Drone-Simulation"
             loading="lazy"
           />
           <div class="gallery-overlay">
-            <h3>Logistics Dashboard</h3>
-            <p class="gallery-category">General</p>
+            <h3>Agriculture-Drone-Simulation</h3>
+            <p class="gallery-category">Drone</p>
           </div>
         </button>
         
@@ -481,12 +481,148 @@
               popovertargetaction="hide"
               aria-label="Close"
             >&times;</button>
+            
+            <!-- CSS-only navigation arrows -->
+            
+            <button 
+              class="lightbox-nav next"
+              popovertarget="gallery-lightbox-1"
+              popovertargetaction="hide"
+              onclick="setTimeout(() => document.getElementById('gallery-lightbox-2').showPopover(), 50)"
+              aria-label="Next image"
+            >
+              <!-- SVG 'arrow-right' not found -->
+            </button>
+            
             <div class="lightbox-inner">
-              <img src="./content/gallery/logistics_dashboard.avif" alt="Logistics Dashboard" />
+              <img src="./content/gallery/drone-simulation.avif" alt="Agriculture-Drone-Simulation" />
+              <div class="lightbox-details">
+                <h2>Agriculture-Drone-Simulation</h2>
+                <p class="lightbox-category">Drone</p>
+                <p class="lightbox-description">Developed a low-cost drone-mounted sprayer with a 12V DC pump for precision agriculture, enabling automated and efficient pesticide spraying. Used Python in ROS and Gazebo for simulation, flight control, and automation testing, reducing labor costs and improving crop management.</p>
+                <p class="lightbox-tags">Tags: Agriculture, Drone, Precision</p>
+                <p class="lightbox-date">May 26, 2025</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="gallery-item" data-category="Generative AI">
+        <button 
+          class="gallery-link" 
+          popovertarget="gallery-lightbox-2"
+          popovertargetaction="toggle"
+        >
+          <img 
+            src="./content/gallery/fedgan.avif" 
+            alt="FedGan"
+            loading="lazy"
+          />
+          <div class="gallery-overlay">
+            <h3>FedGan</h3>
+            <p class="gallery-category">Generative AI</p>
+          </div>
+        </button>
+        
+        <!-- Lightbox popover for this image -->
+        <div 
+          id="gallery-lightbox-2" 
+          popover="manual"
+          class="gallery-lightbox-popover"
+        >
+          <div class="lightbox-content">
+            <button 
+              class="lightbox-close" 
+              popovertarget="gallery-lightbox-2"
+              popovertargetaction="hide"
+              aria-label="Close"
+            >&times;</button>
+            
+            <!-- CSS-only navigation arrows -->
+            <button 
+              class="lightbox-nav prev"
+              popovertarget="gallery-lightbox-2"
+              popovertargetaction="hide"
+              onclick="setTimeout(() => document.getElementById('gallery-lightbox-1').showPopover(), 50)"
+              aria-label="Previous image"
+            >
+              <!-- SVG 'arrow-left' not found -->
+            </button>
+            
+            <button 
+              class="lightbox-nav next"
+              popovertarget="gallery-lightbox-2"
+              popovertargetaction="hide"
+              onclick="setTimeout(() => document.getElementById('gallery-lightbox-3').showPopover(), 50)"
+              aria-label="Next image"
+            >
+              <!-- SVG 'arrow-right' not found -->
+            </button>
+            
+            <div class="lightbox-inner">
+              <img src="./content/gallery/fedgan.avif" alt="FedGan" />
+              <div class="lightbox-details">
+                <h2>FedGan</h2>
+                <p class="lightbox-category">Generative AI</p>
+                <p class="lightbox-description">Developed FedGAN, a federated learning framework that combines GANs with cross-silo training to generate realistic diabetic retinopathy images while ensuring HIPAA and GDPR compliance. By federating the discriminator and generator via FedAvg, FedGAN achieved a realism score of 0.43, enabling secure medical AI collaboration without compromising patient privacy.</p>
+                <p class="lightbox-tags">Tags: Federated Learning, Generative Adversarial Networks, Privacy</p>
+                <p class="lightbox-date">May 26, 2025</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="gallery-item" data-category="Data Visualization">
+        <button 
+          class="gallery-link" 
+          popovertarget="gallery-lightbox-3"
+          popovertargetaction="toggle"
+        >
+          <img 
+            src="./content/gallery/logistics-dashboard.avif" 
+            alt="Logistics Dashboard"
+            loading="lazy"
+          />
+          <div class="gallery-overlay">
+            <h3>Logistics Dashboard</h3>
+            <p class="gallery-category">Data Visualization</p>
+          </div>
+        </button>
+        
+        <!-- Lightbox popover for this image -->
+        <div 
+          id="gallery-lightbox-3" 
+          popover="manual"
+          class="gallery-lightbox-popover"
+        >
+          <div class="lightbox-content">
+            <button 
+              class="lightbox-close" 
+              popovertarget="gallery-lightbox-3"
+              popovertargetaction="hide"
+              aria-label="Close"
+            >&times;</button>
+            
+            <!-- CSS-only navigation arrows -->
+            <button 
+              class="lightbox-nav prev"
+              popovertarget="gallery-lightbox-3"
+              popovertargetaction="hide"
+              onclick="setTimeout(() => document.getElementById('gallery-lightbox-2').showPopover(), 50)"
+              aria-label="Previous image"
+            >
+              <!-- SVG 'arrow-left' not found -->
+            </button>
+            
+            
+            <div class="lightbox-inner">
+              <img src="./content/gallery/logistics-dashboard.avif" alt="Logistics Dashboard" />
               <div class="lightbox-details">
                 <h2>Logistics Dashboard</h2>
-                <p class="lightbox-category">General</p>
-                <p class="lightbox-date">May 27, 2025</p>
+                <p class="lightbox-category">Data Visualization</p>
+                <p class="lightbox-description">I reverse-engineered Intellievent&#39;s poorly documented API to develop a real-time, asynchronous dashboard for One World Rental, a global company. The dashboard processed and relayed data to multiple teams, providing management with insights into the order preparation lifecycle. It was optimised for large screens, required no user interaction, and achieved a full global update in just 3 seconds. Running on an Azure VM, it delivered high performance at minimal cost.</p>
+                <p class="lightbox-tags">Tags: Data Warehouse, Logistics, Dashboard</p>
+                <p class="lightbox-date">May 25, 2025</p>
               </div>
             </div>
           </div>

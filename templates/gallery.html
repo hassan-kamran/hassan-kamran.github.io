@@ -37,6 +37,32 @@
               popovertargetaction="hide"
               aria-label="Close"
             >&times;</button>
+            
+            <!-- CSS-only navigation arrows -->
+            {% if loop.index > 1 %}
+            <button 
+              class="lightbox-nav prev"
+              popovertarget="gallery-lightbox-{{ loop.index }}"
+              popovertargetaction="hide"
+              onclick="setTimeout(() => document.getElementById('gallery-lightbox-{{ loop.index - 1 }}').showPopover(), 50)"
+              aria-label="Previous image"
+            >
+              {{ inject_svg('arrow-left', use_current_color=True) | safe }}
+            </button>
+            {% endif %}
+            
+            {% if loop.index < images|length %}
+            <button 
+              class="lightbox-nav next"
+              popovertarget="gallery-lightbox-{{ loop.index }}"
+              popovertargetaction="hide"
+              onclick="setTimeout(() => document.getElementById('gallery-lightbox-{{ loop.index + 1 }}').showPopover(), 50)"
+              aria-label="Next image"
+            >
+              {{ inject_svg('arrow-right', use_current_color=True) | safe }}
+            </button>
+            {% endif %}
+            
             <div class="lightbox-inner">
               <img src="{{ gallery_url }}/{{ image.filename }}" alt="{{ image.title }}" />
               <div class="lightbox-details">
