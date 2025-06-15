@@ -246,6 +246,7 @@ class SiteGenerator:
         robots_content += "User-agent: *\n"
         robots_content += "Allow: /\n\n"
         robots_content += f"Sitemap: {self.config.domain}/sitemap.xml\n"
+        robots_content += "Disallow: /cdn-cgi/\n"
 
         if self.gallery_images:
             robots_content += f"Sitemap: {self.config.domain}/sitemap-images.xml\n"

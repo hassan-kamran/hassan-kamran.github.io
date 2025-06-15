@@ -258,7 +258,9 @@ User-agent: *
 Allow: /
 
 Sitemap: {config.domain}/sitemap.xml
-Sitemap: {config.domain}/sitemap-images.xml"""
+Sitemap: {config.domain}/sitemap-images.xml
+Disallow: /cdn-cgi/
+"""
 
 
 def generate_search_index(

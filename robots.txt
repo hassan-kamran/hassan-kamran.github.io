@@ -3,4 +3,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://engrhassankamran.com/sitemap.xml
+Disallow: /cdn-cgi/
 Sitemap: https://engrhassankamran.com/sitemap-images.xml
