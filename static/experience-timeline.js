@@ -6,35 +6,8 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentIndex = 0;
     let autoRotateInterval;
     
-    // Calculate and set container height to prevent layout shift
-    function setContainerHeight() {
-        let maxHeight = 0;
-        experienceCards.forEach(card => {
-            // Temporarily show card to measure height
-            card.style.visibility = 'hidden';
-            card.style.display = 'block';
-            card.style.position = 'relative';
-            const height = card.offsetHeight;
-            // Reset styles
-            card.style.visibility = '';
-            card.style.display = '';
-            card.style.position = '';
-            
-            if (height > maxHeight) {
-                maxHeight = height;
-            }
-        });
-        
-        if (cardsContainer && maxHeight > 0) {
-            cardsContainer.style.minHeight = maxHeight + 'px';
-        }
-    }
-    
-    // Set initial container height
-    setContainerHeight();
-    
-    // Recalculate on window resize
-    window.addEventListener('resize', setContainerHeight);
+    // Container height is now fixed in CSS to prevent layout shift
+    // No dynamic height calculation needed
     
     // Function to show specific experience
     function showExperience(index) {

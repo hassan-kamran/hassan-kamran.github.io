@@ -511,9 +511,10 @@
 /* Experience Cards Container */
 .experience-cards {
   position: relative;
-  min-height: 650px; /* Fixed height for consistent display */
-  display: flex;
-  align-items: stretch;
+  height: 650px; /* Fixed height to prevent flickering */
+  width: 100%;
+  display: block;
+  overflow: hidden;
 }
 
 /* Experience Card */
