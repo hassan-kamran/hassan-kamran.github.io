@@ -1,11 +1,8 @@
----
-title: "Planning a Website: A Comprehensive Guide to Success"
-date: 2024-11-20
-author: Hassan Kamran
-category: Web Development
-tags: [planning, strategy, web design, project management]
-excerpt: Learn the essential steps to plan a successful website, from defining objectives to launch strategy. A comprehensive guide for businesses and developers.
----
+Planning a Website: A Comprehensive Guide to Success
+Web Development
+2024-11-20
+project-diagram.avif
+Learn the essential steps to plan a successful website, from defining objectives to launch strategy. A comprehensive guide for businesses and developers.
 
 # Planning a Website: A Comprehensive Guide to Success
 

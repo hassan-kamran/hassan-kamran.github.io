@@ -1,11 +1,8 @@
----
-title: "Static Site Generation with Jinja2: Building Fast, Secure Websites"
-date: 2024-11-25
-author: Hassan Kamran
-category: Web Development
-tags: [python, jinja2, static sites, web development, performance]
-excerpt: Discover how to build lightning-fast static websites using Python and Jinja2. Learn the architecture, implementation, and best practices for modern static site generation.
----
+Static Site Generation with Jinja2: Building Fast, Secure Websites
+Web Development
+2024-11-25
+software-development.avif
+Discover how to build lightning-fast static websites using Python and Jinja2. Learn the architecture, implementation, and best practices for modern static site generation.
 
 # Static Site Generation with Jinja2: Building Fast, Secure Websites
 
