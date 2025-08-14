@@ -1,0 +1,149 @@
+# Site Configuration for Hassan Kamran's Website
+domain: https://engrhassankamran.com
+title: Hassan Kamran - AI Engineer & Software Developer
+
+# Site metadata
+meta:
+  author: Hassan Kamran
+  description: AI Engineer and Software Developer specializing in machine learning, computer vision, and full-stack development
+  keywords: AI, Machine Learning, Software Development, Computer Vision, Python, JavaScript
+  
+# Static Pages - These templates contain their own content
+static_pages:
+  - template: home.html
+    output: index.html
+    title: Hassan Kamran - AI Engineer & Software Developer
+    description: AI Engineer and Software Developer specializing in machine learning, computer vision, and full-stack development
+    
+  - template: about.html
+    output: about.html
+    title: About - Hassan Kamran
+    description: Learn about Hassan Kamran's journey in AI and software development, experience, and passion for technology
+    
+  - template: resume.html
+    output: resume.html
+    title: Resume - Hassan Kamran
+    description: Hassan Kamran's professional resume - AI Engineer with expertise in machine learning and software development
+    
+  - template: contact.html
+    output: contact.html
+    title: Contact - Hassan Kamran
+    description: Get in touch with Hassan Kamran for AI consulting, software development, and collaboration opportunities
+    
+  - template: privacy.html
+    output: privacy.html
+    title: Privacy Policy - Hassan Kamran
+    description: Privacy policy for Hassan Kamran's website
+    
+  - template: terms.html
+    output: terms.html
+    title: Terms of Service - Hassan Kamran
+    description: Terms of service for Hassan Kamran's website
+    
+  - template: 404.html
+    output: 404.html
+    title: Page Not Found - Hassan Kamran
+    description: The page you're looking for could not be found
+
+# Dynamic content configuration
+content:
+  blog:
+    source_dir: content/blogs
+    output_dir: blogs
+    template: blog_post.html
+    listing_template: blog.html
+    posts_per_page: 9
+    
+  services:
+    source_dir: content/services
+    output_dir: services
+    template: service_detail.html
+    listing_template: services.html
+    
+  gallery:
+    source_dir: content/gallery
+    output_dir: gallery
+    template: gallery.html
+    images_per_page: 12
+
+# Assets configuration
+assets:
+  static_dir: static
+  output_dir: .
+  
+# Navigation structure
+navigation:
+  main:
+    - name: Blog
+      url: /blog.html
+    - name: About
+      url: /about.html
+    - name: Resume
+      url: /resume.html
+    - name: Services
+      url: /services.html
+    - name: Gallery
+      url: /gallery.html
+    - name: Contact
+      url: /contact.html
+      
+  footer:
+    quick_links:
+      - name: Home
+        url: /
+      - name: Blog
+        url: /blog.html
+      - name: About
+        url: /about.html
+      - name: Resume
+        url: /resume.html
+        
+    services:
+      - name: AI Consulting
+        url: /services/ai-consulting.html
+      - name: Software Development
+        url: /services/software-development.html
+      - name: Technical Project Management
+        url: /services/technical-project-management.html
+      - name: Training
+        url: /services/training.html
+        
+    resources:
+      - name: Gallery
+        url: /gallery.html
+      - name: Contact
+        url: /contact.html
+      - name: Privacy Policy
+        url: /privacy.html
+      - name: Terms of Service
+        url: /terms.html
+
+# Social media links
+social:
+  github: https://github.com/hassan-kamran
+  linkedin: https://www.linkedin.com/in/engrhasankamran/
+  email: contact@engrhassankamran.com
+
+# SEO configuration
+seo:
+  google_analytics: ""  # Add your GA tracking ID if you have one
+  sitemap: true
+  robots_txt: true
+  
+# Feature flags
+features:
+  search: true
+  rss_feed: true
+  image_sitemap: true
+  
+# Redirects (old URL -> new URL)
+redirects:
+  /blog: /blog.html
+  /portfolio: /gallery.html
+  
+# Build configuration
+build:
+  minify_html: false
+  minify_css: false
+  minify_js: false
+  optimize_images: true

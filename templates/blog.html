@@ -1,66 +1,62 @@
-<section>
-  <div class="blog-hero">
-    <h1>Insights</h1>
-    <p>
-      Client success stories, expert insights, latest industry updates, and
-      upcoming developments in compliance.
-    </p>
-  </div>
-  <div class="blog-grid">
-    <div class="card-container">
+<section class="blog-section">
+  <div class="container">
+    <div class="blog-header">
+      <h1>Technical Insights</h1>
+      <p>AI, Software Development, and Engineering Solutions</p>
+    </div>
+    
+    <div class="blog-grid">
       {% for post in blog_posts %}
-      <div class="insight-card">
-        <div class="insight-card-category">{{ post.category }}</div>
-        <div class="insight-card-image">
-          <img src="{{ post.image_url }}" alt="{{ post.title }}" />
+      <article class="blog-card">
+        <div class="blog-card-image">
+          <img src="{{ static }}{{ post.image_url }}" alt="{{ post.title }}" loading="lazy">
+          <span class="blog-category">{{ post.category }}</span>
         </div>
-        <div class="insight-card-content">
-          <h3><a href="{{ post.filename }}">{{ post.title }}</a></h3>
-          <div class="insight-card-date">{{ post.date }}</div>
+        
+        <div class="blog-card-content">
+          <h3>
+            <a href="{{ post.filename }}">{{ post.title }}</a>
+          </h3>
+          
+          <p class="blog-excerpt">
+            {{ post.description }}
+          </p>
+          
+          <div class="blog-meta">
+            <span class="blog-date">{{ post.date }}</span>
+            <a href="{{ post.filename }}" class="blog-link">Read Article →</a>
+          </div>
         </div>
-      </div>
+      </article>
       {% endfor %}
     </div>
+    
+    {% if pagination %}
+    <div class="pagination">
+      {% if pagination.has_prev %}
+      <a href="{{ pagination.prev_url }}" class="pagination-btn">
+        ← Previous
+      </a>
+      {% else %}
+      <span class="pagination-btn disabled">
+        ← Previous
+      </span>
+      {% endif %}
+
+      <span class="pagination-info">
+        Page {{ pagination.current_page }} of {{ pagination.total_pages }}
+      </span>
+
+      {% if pagination.has_next %}
+      <a href="{{ pagination.next_url }}" class="pagination-btn">
+        Next →
+      </a>
+      {% else %}
+      <span class="pagination-btn disabled">
+        Next →
+      </span>
+      {% endif %}
+    </div>
+    {% endif %}
   </div>
 </section>
-{% if pagination %}
-<div class="blog-pagination">
-  <div class="pagination-controls">
-    {% if pagination.has_prev %}
-    <a href="{{ pagination.prev_url }}" class="pagination-link prev">
-      <span class="pagination-icon"
-        >{{ inject_svg('arrow-left', use_current_color=True) | safe }}</span
-      >
-      Previous
-    </a>
-    {% else %}
-    <span class="pagination-link disabled">
-      <span class="pagination-icon"
-        >{{ inject_svg('arrow-left', use_current_color=True) | safe }}</span
-      >
-      Previous
-    </span>
-    {% endif %}
-
-    <div class="pagination-info">
-      Page {{ pagination.current_page }} of {{ pagination.total_pages }}
-    </div>
-
-    {% if pagination.has_next %}
-    <a href="{{ pagination.next_url }}" class="pagination-link next">
-      Next
-      <span class="pagination-icon"
-        >{{ inject_svg('arrow-right', use_current_color=True) | safe }}</span
-      >
-    </a>
-    {% else %}
-    <span class="pagination-link disabled">
-      Next
-      <span class="pagination-icon"
-        >{{ inject_svg('arrow-right', use_current_color=True) | safe }}</span
-      >
-    </span>
-    {% endif %}
-  </div>
-</div>
-{% endif %}

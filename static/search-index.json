@@ -1,222 +1,112 @@
 [
   {
-    "id": "page-index",
-    "url": "index.html",
-    "title": "AI Engineer & Tech Consultant",
-    "content": "",
-    "description": "Engr Hassan Kamran's official website showcasing projects, research, thoughts, ideas, and expertise in AI, robotics, mechatronics, and the cutting edge.",
+    "title": "Home",
+    "url": "/",
+    "content": "Hassan Kamran AI Engineer Software Developer",
     "type": "page"
   },
   {
-    "id": "page-about",
-    "url": "about.html",
     "title": "About",
-    "content": "",
-    "description": "Discover Hassan Kamran's journey through AI, Federated Learning, and robotics. With expertise in programming, big data, cloud computing, and mechatronics.",
+    "url": "/about.html",
+    "content": "About Hassan Kamran experience background",
     "type": "page"
   },
   {
-    "id": "page-resume",
-    "url": "resume.html",
-    "title": "Capt(R) Hassan Kamran, MSc",
-    "content": "",
-    "description": "Professional resume of Capt (R) Engr Hassan Kamran - Technical Project Manager, Software Consultant and Engineer with expertise in AI, IoT, and cloud solutions.",
+    "title": "Resume",
+    "url": "/resume.html",
+    "content": "Resume CV curriculum vitae",
     "type": "page"
   },
   {
-    "id": "page-contact",
-    "url": "contact.html",
-    "title": "Get in Touch",
-    "content": "",
-    "description": "Get in touch with Hassan Kamran, Software Engineer & Developer. Connect via email, phone, or social media for collaboration opportunities.",
+    "title": "Contact",
+    "url": "/contact.html",
+    "content": "Contact email phone reach out",
     "type": "page"
   },
   {
-    "id": "page-privacy",
-    "url": "privacy.html",
-    "title": "Privacy Policy",
-    "content": "",
-    "description": "Privacy Policy for Hassan Kamran's website. Learn how your personal information is collected, used, and protected when you visit engrhassankamran.com.",
-    "type": "page"
-  },
-  {
-    "id": "page-terms",
-    "url": "terms.html",
-    "title": "Terms of Service",
-    "content": "",
-    "description": "Terms of Service for engrhassankamran.com. Understand the rules, guidelines, and legal agreements that govern the use of Hassan Kamran's website.",
-    "type": "page"
-  },
-  {
-    "id": "page-services",
-    "url": "services.html",
-    "title": "Services",
-    "content": "",
-    "description": "Professional services offered by Hassan Kamran - AI consulting, software development, technical project management, and engineering solutions.",
-    "type": "page"
-  },
-  {
-    "id": "page-blog-what-is-a-brand-manual-and-why-its-important",
-    "url": "blogs/what-is-a-brand-manual-and-why-its-important.html",
-    "title": "What Is a Brand Manual and Why It\u2019s Important",
-    "content": "",
-    "description": "Learn how a brand manual acts as your company\u2019s DNA\u2014defining visual identity, tone, and values. Discover why it\u2019s critical for consistency, recognition, and sca",
-    "type": "page"
-  },
-  {
-    "id": "page-blog-making-your-website-seo-friendly",
-    "url": "blogs/making-your-website-seo-friendly.html",
-    "title": "Making Your Website SEO-Friendly",
-    "content": "",
-    "description": "Unlock the secrets to boosting your website\u2019s search engine rankings! Learn actionable strategies for on-page optimization, technical SEO, and content enhanceme",
-    "type": "page"
-  },
-  {
-    "id": "page-blog-aptex-25-nust",
-    "url": "blogs/aptex-25-nust.html",
-    "title": "ASEAN-PAKISTAN TECHNOLOGY EXPO 2025",
-    "content": "",
-    "description": "My whirlwind networking experience at APTEX'25 in NUST Islamabad\u2014where ASEAN and Pakistani innovators converged under Minister Ahsan Iqbal's patronage. A glimps",
-    "type": "page"
-  },
-  {
-    "id": "page-blog-fedgan-federated-diabetic-retinopathy-image-generation",
-    "url": "blogs/fedgan-federated-diabetic-retinopathy-image-generation.html",
-    "title": "FedGAN: A Privacy-Preserving Framework for Synthetic Data Generation",
-    "content": "",
-    "description": "Discover FedGAN, a novel privacy-preserving framework that enables medical institutions to collaboratively train AI models for diabetic retinopathy detection wi",
-    "type": "page"
-  },
-  {
-    "id": "page-blog-low-cost-teleoperated-drone-with-integrated-sprayer-for-precision-agriculture",
-    "url": "blogs/low-cost-teleoperated-drone-with-integrated-sprayer-for-precision-agriculture.html",
-    "title": "Low-Cost Teleoperated Drone with Integrated Sprayer for Precision Agriculture",
-    "content": "",
-    "description": "Discover how I built a $3,500 agricultural sprayer drone that works twice as fast as manual methods, uses 83% less water, and costs half as much as commercial a",
-    "type": "page"
-  },
-  {
-    "id": "page-blog-how-i-built-this-website",
-    "url": "blogs/how-i-built-this-website.html",
-    "title": "How I Built this Website",
-    "content": "",
-    "description": "Learn how I built my website from scratch! From choosing the tech stack to deploying it, I\u2019ll walk you through the process, challenges, and key decisions. Wheth",
-    "type": "page"
-  },
-  {
-    "id": "page-blog",
-    "url": "blog.html",
-    "title": "Blog",
-    "content": "",
-    "description": "Explore cutting-edge insights on AI, Federated Learning, programming, big data, and robotics.",
-    "type": "page"
-  },
-  {
-    "id": "page-blog-2",
-    "url": "blog-2.html",
-    "title": "Blog - Page 2",
-    "content": "",
-    "description": "Explore cutting-edge insights on AI, Federated Learning, programming, big data, and robotics.",
-    "type": "page"
-  },
-  {
-    "id": "page-gallery",
-    "url": "gallery.html",
-    "title": "Gallery",
-    "content": "",
-    "description": "Photo gallery showcasing Hassan Kamran's projects, experiences, and achievements in AI, robotics, and technology.",
-    "type": "page"
-  },
-  {
-    "id": "blog-what-is-a-brand-manual-and-why-its-important",
-    "url": "blogs/what-is-a-brand-manual-and-why-its-important.html",
-    "title": "What Is a Brand Manual and Why It\u2019s Important",
-    "content": "Learn how a brand manual acts as your company\u2019s DNA\u2014defining visual identity, tone, and values. Discover why it\u2019s critical for consistency, recognition, and sca",
-    "description": "Learn how a brand manual acts as your company\u2019s DNA\u2014defining visual identity, tone, and values. Discover why it\u2019s critical for consistency, recognition, and sca",
+    "id": 5,
+    "title": "What Is A Brand Manual And Why Its Important",
+    "url": "/blogs/what-is-a-brand-manual-and-why-its-important.html",
+    "content": "What Is a Brand Manual and Why It’s Important  \nBranding & Marketing  \n2025-05-15  \nbrand_manual.avif  \nLearn how a brand manual acts as your company’s DNA—defining visual identity, tone, and values. Discover why it’s critical for consistency, recognition, and scaling your business effectively.\n\n# The Ultimate Guide to Brand Manuals: Building a Cohesive Identity\n\n## What Is a Brand Manual?\n\nA brand manual (or brand style guide) is a comprehensive document that codifies your company’s identity. I",
+    "description": "",
     "type": "blog",
-    "category": "Branding & Marketing",
-    "date": "2025-05-15"
+    "date": ""
   },
   {
-    "id": "blog-making-your-website-seo-friendly",
-    "url": "blogs/making-your-website-seo-friendly.html",
-    "title": "Making Your Website SEO-Friendly",
-    "content": "Unlock the secrets to boosting your website\u2019s search engine rankings! Learn actionable strategies for on-page optimization, technical SEO, and content enhanceme",
-    "description": "Unlock the secrets to boosting your website\u2019s search engine rankings! Learn actionable strategies for on-page optimization, technical SEO, and content enhanceme",
+    "id": 6,
+    "title": "Making Your Website Seo Friendly",
+    "url": "/blogs/making-your-website-seo-friendly.html",
+    "content": "Making Your Website SEO-Friendly  \nSEO & Web Development  \n2025-04-30  \nseo.avif  \nUnlock the secrets to boosting your website’s search engine rankings! Learn actionable strategies for on-page optimization, technical SEO, and content enhancement to drive organic traffic and improve visibility.\n\n# A Developer’s Guide to SEO: How to Make Your Website Search Engine Friendly\n\n## Why SEO Matters\n\nSearch Engine Optimization (SEO) is the backbone of online visibility. Whether you’re running a personal ",
+    "description": "",
     "type": "blog",
-    "category": "SEO & Web Development",
-    "date": "2025-04-30"
+    "date": ""
   },
   {
-    "id": "blog-aptex-25-nust",
-    "url": "blogs/aptex-25-nust.html",
-    "title": "ASEAN-PAKISTAN TECHNOLOGY EXPO 2025",
-    "content": "My whirlwind networking experience at APTEX'25 in NUST Islamabad\u2014where ASEAN and Pakistani innovators converged under Minister Ahsan Iqbal's patronage. A glimps",
-    "description": "My whirlwind networking experience at APTEX'25 in NUST Islamabad\u2014where ASEAN and Pakistani innovators converged under Minister Ahsan Iqbal's patronage. A glimps",
+    "id": 7,
+    "title": "Low Cost Teleoperated Drone With Integrated Sprayer For Precision Agriculture",
+    "url": "/blogs/low-cost-teleoperated-drone-with-integrated-sprayer-for-precision-agriculture.html",
+    "content": "Low-Cost Teleoperated Drone with Integrated Sprayer for Precision Agriculture\nRobotics\n2025-03-23\ndrone.avif\nDiscover how I built a $3,500 agricultural sprayer drone that works twice as fast as manual methods, uses 83% less water, and costs half as much as commercial alternatives.\n\n# How To Build a Drone For Precision Agriculture\n\n## Introduction\n\n# Building a Low-Cost Agricultural Sprayer Drone for Precision Farming\n\n![Drone Spraying in Action](static/drone_spraying.avif)\n\n## The Agricultural C",
+    "description": "",
     "type": "blog",
-    "category": "Technology Ecosystem",
-    "date": "2025-04-23"
+    "date": ""
   },
   {
-    "id": "blog-fedgan-federated-diabetic-retinopathy-image-generation",
-    "url": "blogs/fedgan-federated-diabetic-retinopathy-image-generation.html",
-    "title": "FedGAN: A Privacy-Preserving Framework for Synthetic Data Generation",
-    "content": "Discover FedGAN, a novel privacy-preserving framework that enables medical institutions to collaboratively train AI models for diabetic retinopathy detection wi",
-    "description": "Discover FedGAN, a novel privacy-preserving framework that enables medical institutions to collaboratively train AI models for diabetic retinopathy detection wi",
+    "id": 8,
+    "title": "How I Built This Website",
+    "url": "/blogs/how-i-built-this-website.html",
+    "content": "How I Built this Website\nWeb Development\n2025-03-05\nwork-3.avif\nLearn how I built my website from scratch! From choosing the tech stack to deploying it, I’ll walk you through the process, challenges, and key decisions. Whether you're a developer or just curious, get insights into web development, design, and optimization.\n\n## Introduction\n\nI wanted to make a website so that I could market myself and share my expertise. This required the website to be fast to load and search engine friendly. Anot",
+    "description": "",
     "type": "blog",
-    "category": "Artificial intelligence",
-    "date": "2025-03-23"
+    "date": ""
   },
   {
-    "id": "blog-low-cost-teleoperated-drone-with-integrated-sprayer-for-precision-agriculture",
-    "url": "blogs/low-cost-teleoperated-drone-with-integrated-sprayer-for-precision-agriculture.html",
-    "title": "Low-Cost Teleoperated Drone with Integrated Sprayer for Precision Agriculture",
-    "content": "Discover how I built a $3,500 agricultural sprayer drone that works twice as fast as manual methods, uses 83% less water, and costs half as much as commercial a",
-    "description": "Discover how I built a $3,500 agricultural sprayer drone that works twice as fast as manual methods, uses 83% less water, and costs half as much as commercial a",
+    "id": 9,
+    "title": "Fedgan Federated Diabetic Retinopathy Image Generation",
+    "url": "/blogs/fedgan-federated-diabetic-retinopathy-image-generation.html",
+    "content": "FedGAN: A Privacy-Preserving Framework for Synthetic Data Generation\nArtificial intelligence\n2025-03-23\nfedgan.avif\nDiscover FedGAN, a novel privacy-preserving framework that enables medical institutions to collaboratively train AI models for diabetic retinopathy detection without sharing sensitive patient data. Learn how this federated learning approach with GANs maintains data privacy while generating high-quality synthetic images.\n\n# FedGAN: A Privacy-Preserving Framework for Diabetic Retinop",
+    "description": "",
     "type": "blog",
-    "category": "Robotics",
-    "date": "2025-03-23"
+    "date": ""
   },
   {
-    "id": "blog-how-i-built-this-website",
-    "url": "blogs/how-i-built-this-website.html",
-    "title": "How I Built this Website",
-    "content": "Learn how I built my website from scratch! From choosing the tech stack to deploying it, I\u2019ll walk you through the process, challenges, and key decisions. Wheth",
-    "description": "Learn how I built my website from scratch! From choosing the tech stack to deploying it, I\u2019ll walk you through the process, challenges, and key decisions. Wheth",
+    "id": 10,
+    "title": "Aptex 25 Nust",
+    "url": "/blogs/aptex-25-nust.html",
+    "content": "ASEAN-PAKISTAN TECHNOLOGY EXPO 2025\nTechnology Ecosystem\n2025-04-23\naptex.avif\nMy whirlwind networking experience at APTEX'25 in NUST Islamabad—where ASEAN and Pakistani innovators converged under Minister Ahsan Iqbal's patronage. A glimpse of cutting-edge tech collaboration in digital transformation, green solutions, and AI, with a promise to explore more thoroughly next time.\n\n# Bridges of Innovation: My Experience at ASEAN-Pakistan Technology Expo 2025\n\n## A Hub of Regional Technological Coll",
+    "description": "",
     "type": "blog",
-    "category": "Web Development",
-    "date": "2025-03-05"
+    "date": ""
   },
   {
-    "id": "service-training",
-    "url": "services/training.html",
-    "title": "Professional Training & Workshops",
-    "content": "Empower your team with cutting-edge skills in AI, cloud computing, DevOps, and modern software development through customized training programs.",
-    "description": "Empower your team with cutting-edge skills in AI, cloud computing, DevOps, and modern software development through customized training programs.",
-    "type": "service"
-  },
-  {
-    "id": "service-ai-consulting",
-    "url": "services/ai-consulting.html",
+    "id": 11,
     "title": "AI Consulting Services",
-    "content": "Transform your business with cutting-edge AI solutions. Expert consulting for machine learning, automation, and data intelligence strategies.",
+    "url": "/services/ai-consulting.html",
+    "content": "---\ntitle: AI Consulting Services\ndescription: Transform your business with cutting-edge AI solutions. Expert consulting for machine learning, automation, and data intelligence strategies.\nicon: brain-circuit\nimage: ai-consulting-hero.avif\nprice: Starting at $2,500/project\nfeatures: AI Strategy Development, ML Model Implementation, Data Pipeline Design, Team Training & Workshops, Performance Optimization, Ongoing Support\n---\n\n## Unlock the Power of Artificial Intelligence\n\nIn today's rapidly evo",
     "description": "Transform your business with cutting-edge AI solutions. Expert consulting for machine learning, automation, and data intelligence strategies.",
     "type": "service"
   },
   {
-    "id": "service-software-development",
-    "url": "services/software-development.html",
+    "id": 12,
     "title": "Custom Software Development",
-    "content": "Build scalable, modern applications tailored to your business needs. From web apps to enterprise systems, we deliver quality software on time and within budget.",
+    "url": "/services/software-development.html",
+    "content": "---\ntitle: Custom Software Development\ndescription: Build scalable, modern applications tailored to your business needs. From web apps to enterprise systems, we deliver quality software on time and within budget.\nicon: terminal\nimage: software-development.avif\nprice: $10,000 - $250,000+\nfeatures: Full-Stack Development, Mobile Apps, API Development, Cloud-Native Solutions, Agile Methodology, Maintenance & Support\n---\n\n## Bring Your Vision to Life\n\nEvery business has unique challenges that off-th",
     "description": "Build scalable, modern applications tailored to your business needs. From web apps to enterprise systems, we deliver quality software on time and within budget.",
     "type": "service"
   },
   {
-    "id": "service-technical-project-management",
-    "url": "services/technical-project-management.html",
+    "id": 13,
     "title": "Technical Project Management",
-    "content": "Expert project management for complex technical initiatives. From planning to delivery, ensure your projects succeed with experienced leadership and proven meth",
-    "description": "Expert project management for complex technical initiatives. From planning to delivery, ensure your projects succeed with experienced leadership and proven meth",
+    "url": "/services/technical-project-management.html",
+    "content": "---\ntitle: Technical Project Management\ndescription: Expert project management for complex technical initiatives. From planning to delivery, ensure your projects succeed with experienced leadership and proven methodologies.\nicon: project-diagram\nimage: project-management.avif\nprice: $150 - $300/hour\nfeatures: Agile & Waterfall Methods, Risk Management, Stakeholder Communication, Resource Optimization, Quality Assurance, Timeline Management\n---\n\n## Deliver Projects On Time, On Budget, On Target\n\n",
+    "description": "Expert project management for complex technical initiatives. From planning to delivery, ensure your projects succeed with experienced leadership and proven methodologies.",
+    "type": "service"
+  },
+  {
+    "id": 14,
+    "title": "Professional Training & Workshops",
+    "url": "/services/training.html",
+    "content": "---\ntitle: Professional Training & Workshops\ndescription: Empower your team with cutting-edge skills in AI, cloud computing, DevOps, and modern software development through customized training programs.\nicon: training\nimage: training.avif\nprice: $1,500 - $5,000 per workshop\nfeatures: Customized Curriculum, Hands-on Labs, Industry Certifications, Online & On-site Options, Post-Training Support, Progress Tracking\n---\n\n## Invest in Your Team's Future\n\nTechnology evolves rapidly, and keeping your te",
+    "description": "Empower your team with cutting-edge skills in AI, cloud computing, DevOps, and modern software development through customized training programs.",
     "type": "service"
   }
 ]

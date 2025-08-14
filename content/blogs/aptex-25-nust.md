@@ -42,7 +42,6 @@ These connections hold potential for future collaborations that transcend geogra
 
 A recurring theme throughout the event was the potential for meaningful partnerships between Pakistan and ASEAN nations. The expo aimed to promote academic and industrial collaborations while exploring opportunities for joint innovation in technologies that address shared regional challenges.
 
-{{template:cta}}
 
 ## Looking Ahead
 

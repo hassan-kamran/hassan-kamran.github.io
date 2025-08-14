@@ -139,7 +139,6 @@ The system's spray effectiveness comes from careful nozzle selection and applica
 
 These technical considerations ensure maximum application efficiency while minimizing environmental impact.
 
-{{template:cta}}
 
 ## Conclusion: Democratizing Agricultural Technology
 

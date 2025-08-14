@@ -1,19 +1,92 @@
-<section class="blog-section">
+<section class="blog-post-section">
   <div class="container">
-    <div class="blog-post-container">
-      <div class="blog-header">
-        <h1>{{ title }}</h1>
-        <div class="meta-info">
-          <span class="category">{{ category }}</span>
-          <span class="date">{{ date }}</span>
+    <article class="blog-post">
+      <!-- Clean Header -->
+      <header class="blog-post-header">
+        <div class="blog-post-meta">
+          <span class="blog-category-badge">{{ category }}</span>
+          <span class="blog-date">{{ date }}</span>
+          <span class="reading-time" id="reading-time">5 min read</span>
+        </div>
+        
+        <h1 class="blog-post-title">{{ title }}</h1>
+        
+        {% if description %}
+        <p class="blog-post-lead">{{ description }}</p>
+        {% endif %}
+        
+        <div class="author-info">
+          <span class="author-name">By Hassan Kamran</span>
+        </div>
+      </header>
+
+      <!-- Reading Progress Bar -->
+      <div class="reading-progress">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="blog-post-body">
+        <div class="post-content">
+          {{ blog_content | safe }}
         </div>
       </div>
 
-      <div class="blog-content">{{ blog_content | safe }}</div>
-
-      <div class="blog-footer">
-        <a href="../blog.html">← Back to All Posts</a>
-      </div>
+      <!-- Footer -->
+      <footer class="blog-post-footer">
+        <!-- Tags Section -->
+        {% if tags %}
+        <div class="tags-section">
+          <div class="tags-list">
+            {% for tag in tags %}
+            <span class="tag-pill">#{{ tag }}</span>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+      </footer>
+    </article>
+    
+    <!-- CTA Section -->
+    {{ cta_html | safe }}
+    
+    <!-- Navigation -->
+    <div class="page-navigation">
+      <a href="../blog.html" class="btn-secondary">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        Back to all articles
+      </a>
     </div>
   </div>
+  
 </section>
+
+<script>
+// Calculate reading time
+document.addEventListener('DOMContentLoaded', function() {
+  const content = document.querySelector('.post-content');
+  if (content) {
+    const words = content.textContent.trim().split(/\s+/).length;
+    const readingTime = Math.ceil(words / 200);
+    document.getElementById('reading-time').textContent = `${readingTime} min read`;
+  }
+  
+  // Track reading progress
+  trackProgress();
+});
+
+// Track reading progress
+function trackProgress() {
+  const progressBar = document.getElementById('progressBar');
+  
+  window.addEventListener('scroll', function() {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    progressBar.style.width = scrolled + '%';
+  });
+}
+</script>

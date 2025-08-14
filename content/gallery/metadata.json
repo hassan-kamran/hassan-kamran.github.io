@@ -19,5 +19,12 @@
     "category": "Generative AI",
     "date": "2025-05-26",
     "tags": ["Federated Learning", "Generative Adversarial Networks", "Privacy"]
+  },
+  "hassan-working.avif": {
+    "title": "Hassan Kamran - AI Engineer",
+    "description": "Working on innovative AI and software engineering projects, transforming ideas into reality with cutting-edge technology. Passionate about building scalable solutions that drive real business value and improve user experiences.",
+    "category": "Professional",
+    "date": "2025-08-13",
+    "tags": ["AI Engineering", "Software Development", "Innovation"]
   }
 }

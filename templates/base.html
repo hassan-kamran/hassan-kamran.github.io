@@ -30,280 +30,172 @@
       type="font/woff2"
       crossorigin="anonymous"
     />
-
+    
+    <!-- Load Design System -->
+    <link rel="stylesheet" href="{{ static | safe }}/design-system.css" />
     <link rel="stylesheet" href="{{ static | safe }}/base.css" />
+    <link rel="stylesheet" href="{{ static | safe }}/components.css" />
+    <link rel="stylesheet" href="{{ static | safe }}/nav-modern.css" />
+    <link rel="stylesheet" href="{{ static | safe }}/nav-fix.css" />
+    <link rel="stylesheet" href="{{ static | safe }}/nav-override.css" />
+    <link rel="stylesheet" href="{{ static | safe }}/contact-form.css" />
+    
+    <style>
+      /* Force hamburger visibility on mobile */
+      @media (max-width: 1023px) {
+        .nav-mobile-toggle {
+          display: block !important;
+          visibility: visible !important;
+        }
+        .nav-desktop, .nav-search-btn {
+          display: none !important;
+        }
+      }
+      @media (min-width: 1024px) {
+        .nav-mobile-toggle {
+          display: none !important;
+        }
+      }
+    </style>
 
     {% if custom_css %}
-        <link rel="stylesheet" href="{{ static | safe }}/{{ custom_css }}.css"/>
+        <link rel="stylesheet" href="{{ static | safe }}/{{ custom_css }}.css" />
     {% endif %}
 
     <link
       class="favicon"
       rel="icon"
-      type="image/svg+xml"
-      href="{{ static | safe }}/favicon.svg"
+      type="image/png"
+      href="/favicon.png"
     />
-    <script src="{{ static | safe }}/minisearch@7.1.2.min.js"></script>
-    <script src="{{ static | safe }}/search.js" defer></script>
+    
+    <!-- RSS Feed -->
+    <link rel="alternate" type="application/rss+xml" title="Hassan Kamran - Blog RSS Feed" href="/rss.xml">
+    
+    <!-- Defer non-critical scripts -->
+    <script src="{{ static | safe }}/minisearch@7.1.2.min.js" defer></script>
+    <script src="{{ static | safe }}/search-working.js" defer></script>
     <script src="{{ static | safe }}/readmore.js" defer></script>
   </head>
 
   <body>
+    <div class="min-h-screen flex flex-col bg-light">
     <header>
-      <nav class="siteHeader">
-        <div class="siteHeaderLeft">
-          <a href="{{ home }}" aria-label="Home">
-            {{ inject_svg('logo', True, 'logo') | safe }}
-          </a>
-        </div>
-        <button
-          class="hamburger-btn"
-          popovertarget="sideMenuPopover"
-          popovertargetaction="toggle"
-          aria-label="Open menu"
-        >
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-        </button>
+      <nav class="nav-header">
+        <div class="nav-container">
+          <!-- Logo -->
+          <div class="nav-logo">
+            <a href="{{ home }}" aria-label="Home">
+              {{ inject_svg('logo', True, 'logo') | safe }}
+            </a>
+          </div>
 
-        <div popover="manual" id="sideMenuPopover" class="side-menu-popover">
-          <div class="side-menu-container">
-            <div class="popover-header">
-              <button
-                class="close-btn"
-                popovertarget="sideMenuPopover"
-                popovertargetaction="hide"
-                aria-label="Close menu"
-              >
-                <span class="close-line"></span>
-                <span class="close-line"></span>
-              </button>
-            </div>
-
-            <ul class="popover-menu">
-              <li>
-                <a href="{{ blog }}" aria-label="My Work & Ideas"
-                  >My Work & Ideas</a
-                >
-              </li>
-              <li>
-                <a href="{{ about }}" aria-label="Who I Am">Who I Am</a>
-              </li>
-
-              <li>
-                <a href="{{ resume }}" aria-label="My Resume">My Resume</a>
-              </li>
-
-              <li>
-                <a href="{{ services_page }}" aria-label="Services">Services</a>
-              </li>
-
-              <li>
-                <a href="{{ gallery }}" aria-label="Gallery">Gallery</a>
-              </li>
-              <li>
-                <button class="popover-button" popovertarget="modal">
-                  Get in Touch
-                </button>
-              </li>
-              <li>
-                <button class="search-button" popovertarget="search-box">
-                  {{ inject_svg('search_icon', True, 'search-icon') | safe }}
-                </button>
-              </li>
+          <!-- Desktop Navigation -->
+          <div class="nav-desktop">
+            <ul class="nav-links">
+              <li><a href="{{ blog }}" class="nav-link">My Work & Ideas</a></li>
+              <li><a href="{{ about }}" class="nav-link">Who I Am</a></li>
+              <li><a href="{{ resume }}" class="nav-link">My Resume</a></li>
+              <li><a href="{{ services_page }}" class="nav-link">Services</a></li>
+              <li><a href="{{ gallery_page }}" class="nav-link">Gallery</a></li>
+              <li><a href="{{ contact }}" class="nav-link">Get in Touch</a></li>
             </ul>
           </div>
-        </div>
-        <div class="siteHeaderCenter desktop-menu">
-          <ul>
-            <li>
-              <a href="{{ blog }}" aria-label="My Work & Ideas"
-                >My Work & Ideas</a
-              >
-            </li>
-            <li><a href="{{ about }}" aria-label="Who I AM">Who I Am</a></li>
 
-            <li>
-              <a href="{{ resume }}" aria-label="My Resume">My Resume</a>
-            </li>
-            <li>
-            <a href="{{ services_page }}" aria-label="Services">Services</a>
-          </li>
+          <!-- Right Side Actions -->
+          <div class="nav-actions">
+            <!-- Search Button -->
+            <button
+              class="nav-search-btn"
+              popovertarget="search-modal"
+              aria-label="Search"
+            >
+              {{ inject_svg('search_icon', True, 'icon-search') | safe }}
+            </button>
 
-          <li>
-            <a href="{{ gallery }}" aria-label="Gallery">Gallery</a>
-          </li>
-            <li>
-              <button class="popover-button" popovertarget="modal">
-                Get in Touch
-              </button>
-            </li>
-          </ul>
-        </div>
-        <div class="siteHeaderRight desktop-menu">
-          <button
-            aria-label="Search"
-            class="search-button"
-            popovertarget="search-box"
-          >
-            {{ inject_svg('search_icon', True, 'search-icon') | safe }}
-          </button>
+            <!-- Mobile Menu Button -->
+            <button
+              class="nav-mobile-toggle"
+              popovertarget="mobile-menu"
+              aria-label="Menu"
+            >
+              <span class="hamburger-line"></span>
+              <span class="hamburger-line"></span>
+              <span class="hamburger-line"></span>
+            </button>
+          </div>
         </div>
       </nav>
 
-      <div id="search-box" popover="manual" class="search-popover">
-        <div class="search-container">
-          <div class="search-header">
-            <h2>Search</h2>
+      <!-- Mobile Menu Popover -->
+      <div id="mobile-menu" popover="manual" class="mobile-menu-popover">
+        <div class="mobile-menu-content">
+          <div class="mobile-menu-header">
             <button
-              class="close-btn"
-              popovertarget="search-box"
-              aria-label="Close search"
+              class="mobile-menu-close"
+              popovertarget="mobile-menu"
+              aria-label="Close menu"
             >
-              <span class="close-line"></span>
-              <span class="close-line"></span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
             </button>
           </div>
-          <form id="search-form">
-            <div class="search-input-container">
+          <nav class="mobile-menu-nav">
+            <a href="{{ blog }}" class="mobile-menu-link">My Work & Ideas</a>
+            <a href="{{ about }}" class="mobile-menu-link">Who I Am</a>
+            <a href="{{ resume }}" class="mobile-menu-link">My Resume</a>
+            <a href="{{ services_page }}" class="mobile-menu-link">Services</a>
+            <a href="{{ gallery_page }}" class="mobile-menu-link">Gallery</a>
+            <a href="{{ contact }}" class="mobile-menu-link">Get in Touch</a>
+            <button class="mobile-menu-search" popovertarget="search-modal">
+              {{ inject_svg('search_icon', True, 'icon-search') | safe }}
+              <span>Search</span>
+            </button>
+          </nav>
+        </div>
+      </div>
+
+      <!-- Search Modal Popover -->
+      <div id="search-modal" popover="manual" class="search-modal-popover">
+        <div class="search-modal-content">
+          <div class="search-modal-header">
+            <h2>Search</h2>
+            <button
+              class="search-modal-close"
+              popovertarget="search-modal"
+              aria-label="Close search"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+          <form id="search-form" class="search-form">
+            <div class="search-input-wrapper">
+              <svg class="search-input-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
               <input
                 type="text"
                 id="search-input"
                 name="q"
                 placeholder="Search for articles, projects, etc."
-                aria-label="Search input"
+                aria-label="Search"
                 autocomplete="off"
-                required
+                class="search-input"
               />
-              <button
-                type="submit"
-                class="search-submit"
-                aria-label="Submit search"
-              >
-                {{ inject_svg('search_icon', True, 'search-submit-icon') | safe
-                }}
-              </button>
             </div>
           </form>
-
-          <div id="search-results-container" class="search-results-container">
+          <div id="search-results-container" class="search-results-container hidden">
             <div id="search-results" class="search-results"></div>
           </div>
         </div>
       </div>
 
-      <div class="modal" id="modal" popover="manual">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button class="close-btn" popovertarget="modal">
-              <span class="close-line"></span>
-              <span class="close-line"></span>
-            </button>
-            <h2>Let's Work Together</h2>
-            <p>I'm always open to new opportunities and collaborations.</p>
-          </div>
-          <div class="contact-section">
-            <h2>Contact Information</h2>
-            <div class="contact-grid">
-              <div class="contact-item">
-                {{ inject_svg('orcid', True) | safe }}
-                <ul>
-                  <li>
-                    <a
-                      href="https://orcid.org/0009-0005-3034-1679"
-                      target="_blank"
-                      aria-label="ORCID"
-                      >0009-0005-3034-1679</a
-                    >
-                  </li>
-                </ul>
-              </div>
-              <div class="contact-item">
-                {{ inject_svg('mail', True) | safe }}
-                <div>
-                  <ul>
-                    <li>
-                      <a
-                        aria-label="Primary Email"
-                        href="mailto:hassan@big0.dev"
-                        >hassan@big0.dev</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div class="contact-item">
-                {{ inject_svg('phone', True) | safe }}
-                <ul>
-                  <li>
-                    <a aria-label="Phone Number" href="tel:+923039441945"
-                      >+92 303 944 1945</a
-                    >
-                  </li>
-                </ul>
-              </div>
-              <div class="contact-item">
-                {{ inject_svg('location', True) | safe }}
-                <div>
-                  <ul>
-                    <li>
-                      <a
-                        href="https://www.google.com/maps/place/D,+4+Ln+8,+Sector+Sector+D+DHA+Phase+II,+Islamabad,+44000,+Pakistan/@33.536934,73.17158,17z/data=!4m6!3m5!1s0x38dfede671289865:0x64fc3e2e7640e099!8m2!3d33.538249!4d73.1723217!16s%2Fg%2F11jpthkvdz?entry=ttu&g_ep=EgoyMDI1MDIxMi4wIKXMDSoASAFQAw%3D%3D"
-                        target="_blank"
-                        aria-label="Address"
-                      >
-                        House 4, Lane 8, Sector D, DHA 2, Islamabad, Pakistan
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="social-links">
-            <a href="https://big0.dev/" target="_blank" aria-label="Big0.dev">
-              {{ inject_svg('big0_logo', True) | safe}}
-            </a>
-            <a
-              href="https://www.linkedin.com/in/engr-hassan-kamran"
-              target="_blank"
-              aria-label="LinkedIn"
-            >
-              {{ inject_svg('linkedin', True) | safe }}
-            </a>
-            <a
-              href="https://github.com/hassan-kamran"
-              target="_blank"
-              aria-label="Github"
-            >
-              {{ inject_svg('github', True) | safe }}
-            </a>
-            <a
-              href="https://www.youtube.com/@EngrHassanKamran"
-              target="_blank"
-              aria-label="YouTube"
-            >
-              {{ inject_svg('youtube', True) | safe }}
-            </a>
-            <a
-              href="https://www.upwork.com/freelancers/~015d257597dfcd7778"
-              target="_blank"
-              aria-label="Upwork"
-            >
-              {{ inject_svg('upwork', True) | safe}}
-            </a>
-
-            <a
-              href="https://verification.pec.org.pk/v/eV/sED/i.aspx?eid=31322F303035353532"
-              target="_blank"
-              aria-label="PEC Verification"
-            >
-              {{ inject_svg('pec-mini', True) | safe }}
-            </a>
-          </div>
-        </div>
-      </div>
     </header>
     <!-- Google tag (gtag.js) -->
     <script
@@ -320,24 +212,60 @@
       gtag("config", "G-BVDRQY5Y2W");
     </script>
 
-    <main>{{ content | safe }}</main>
+    <main class="flex-1">
+      <div class="container mx-auto px-4 py-8">
+        {{ content | safe }}
+      </div>
+    </main>
 
-    <footer class="siteFooter">
-      <div class="footerContent">
-        <div class="footerLinks">
-          <a href="{{ contact }}" aria-label="Contact">Contact</a>
-          <a href="{{ privacy }}" aria-label="Privacy Policy">Privacy Policy</a>
-          <a href="{{ terms }}" aria-label="Terms of Service"
-            >Terms of Service</a
-          >
-          <a href="{{ sitemap }}" aria-label="Sitemap">Sitemap</a>
+    <footer class="footer-main mt-auto">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col items-center gap-6">
+          <div class="flex flex-wrap justify-center gap-6">
+            <a href="{{ privacy }}" aria-label="Privacy Policy" class="footer-link">Privacy Policy</a>
+            <a href="{{ terms }}" aria-label="Terms of Service" class="footer-link"
+              >Terms of Service</a
+            >
+            <a href="/rss.xml" aria-label="RSS Feed" class="footer-link">RSS Feed</a>
+            <a href="{{ sitemap }}" aria-label="Sitemap" class="footer-link">Sitemap</a>
 
-          <a href="{{ image_sitemap }}" aria-label="Image Sitemap">Image Sitemap</a>
-        </div>
-        <div class="footerCopyright">
-          <p>&#169; {{ copyright }} EHK. All rights reserved.</p>
+            <a href="{{ image_sitemap }}" aria-label="Image Sitemap" class="footer-link">Image Sitemap</a>
+          </div>
+          <div class="text-center">
+            <p class="text-sm text-muted">&#169; {{ copyright }} EHK. All rights reserved.</p>
+          </div>
         </div>
       </div>
     </footer>
+    </div>
+    <script>
+      // Handle click outside to close popovers
+      document.addEventListener('click', (e) => {
+        const mobileMenu = document.getElementById('mobile-menu');
+        const searchModal = document.getElementById('search-modal');
+        
+        // Close mobile menu if clicking outside
+        if (mobileMenu && mobileMenu.matches(':popover-open')) {
+          if (!e.target.closest('#mobile-menu') && !e.target.closest('[popovertarget="mobile-menu"]')) {
+            mobileMenu.hidePopover();
+          }
+        }
+        
+        // Close search modal if clicking outside
+        if (searchModal && searchModal.matches(':popover-open')) {
+          if (!e.target.closest('#search-modal') && !e.target.closest('[popovertarget="search-modal"]')) {
+            searchModal.hidePopover();
+          }
+        }
+      });
+
+      // Close mobile menu when search is opened from mobile menu
+      document.querySelector('.mobile-menu-search')?.addEventListener('click', () => {
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenu) {
+          mobileMenu.hidePopover();
+        }
+      });
+    </script>
   </body>
 </html>

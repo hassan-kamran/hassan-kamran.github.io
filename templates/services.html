@@ -11,7 +11,7 @@
         <div class="service-card">
           {% if service.image %}
           <div class="service-image">
-            <img src="./static/{{ service.image }}" alt="{{ service.title }}" loading="lazy" />
+            <img src="{{ static }}/{{ service.image }}" alt="{{ service.title }}" loading="lazy" />
           </div>
           {% endif %}
           

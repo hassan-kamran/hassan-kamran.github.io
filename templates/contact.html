@@ -1,148 +1,153 @@
-<section class="contact-hero">
+<section class="contact-section">
   <div class="container">
-    <h1>Get in Touch</h1>
-    <p>
-      I'm always open to new opportunities and collaborations. Feel free to
-      reach out using any of the contact methods below.
-    </p>
-  </div>
-</section>
+    <!-- Hero Section -->
+    <div class="contact-hero">
+      <h1>Get in Touch</h1>
+      <p>Let's discuss how we can work together to bring your ideas to life</p>
+    </div>
 
-<section class="contact-page-content">
-  <div class="container">
-    <!-- Contact Information Card -->
-    <div class="contact-info-card card-base">
-      <h2>Contact Information</h2>
-
-      <div class="contact-grid">
-        <div class="contact-item">
-          {{ inject_svg('orcid', True) | safe }}
-          <ul>
-            <li>
-              <a
-                href="https://orcid.org/0009-0005-3034-1679"
-                target="_blank"
-                aria-label="ORCID"
-                >0009-0005-3034-1679</a
-              >
-            </li>
-          </ul>
-        </div>
-
-        <div class="contact-item">
-          {{ inject_svg('mail', True) | safe }}
-          <div>
-            <ul>
-              <li>
-                <a
-                  aria-label="Primary Email"
-                  href="mailto:contact@engrhassankamran.com"
-                  >contact@engrhassankamran.com</a
-                >
-              </li>
-              <li>
-                <a aria-label="Secondary Email" href="mailto:hassan@big0.dev"
-                  >hassan@big0.dev</a
-                >
-              </li>
-              <li>
-                <a
-                  aria-label="Tertiary Email"
-                  href="mailto:engr.hassan.kamran@gmail.com"
-                  >engr.hassan.kamran@gmail.com</a
-                >
-              </li>
-            </ul>
+    <!-- Contact Content Grid -->
+    <div class="contact-content">
+      <!-- Contact Information Card -->
+      <div class="contact-info-card">
+        <h2>Contact Information</h2>
+        
+        <div class="contact-method">
+          <div class="contact-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="m22 7-10 5L2 7"/>
+            </svg>
+          </div>
+          <div class="contact-details">
+            <div class="contact-label">Email</div>
+            <div class="contact-value">
+              <a href="mailto:hassan@big0.dev">hassan@big0.dev</a><br>
+              <a href="mailto:contact@engrhassankamran.com">contact@engrhassankamran.com</a>
+            </div>
           </div>
         </div>
 
-        <div class="contact-item">
-          {{ inject_svg('phone', True) | safe }}
-          <ul>
-            <li>
-              <a aria-label="Phone Number" href="tel:+923039441945"
-                >+92 303 944 1945</a
-              >
-            </li>
-          </ul>
+        <div class="contact-method">
+          <div class="contact-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          </div>
+          <div class="contact-details">
+            <div class="contact-label">Phone</div>
+            <div class="contact-value">
+              <a href="tel:+923039441945">+92 303 944 1945</a>
+            </div>
+          </div>
         </div>
 
-        <div class="contact-item">
-          {{ inject_svg('location', True) | safe}}
-          <div>
-            <ul>
-              <li>
-                <a
-                  href="https://www.google.com/maps/place/D,+4+Ln+8,+Sector+Sector+D+DHA+Phase+II,+Islamabad,+44000,+Pakistan/@33.536934,73.17158,17z/data=!4m6!3m5!1s0x38dfede671289865:0x64fc3e2e7640e099!8m2!3d33.538249!4d73.1723217!16s%2Fg%2F11jpthkvdz?entry=ttu&g_ep=EgoyMDI1MDIxMi4wIKXMDSoASAFQAw%3D%3D"
-                  target="_blank"
-                  aria-label="Address"
-                >
-                  House 4, Lane 8, Sector D, DHA 2, Islamabad, Pakistan
-                </a>
-              </li>
-            </ul>
+        <div class="contact-method">
+          <div class="contact-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <div class="contact-details">
+            <div class="contact-label">Address</div>
+            <div class="contact-value">
+              <a href="https://www.google.com/maps/place/D,+4+Ln+8,+Sector+Sector+D+DHA+Phase+II,+Islamabad,+44000,+Pakistan/@33.536934,73.17158,17z/" target="_blank">
+                House 4, Lane 8, Sector D<br>
+                DHA Phase 2, Islamabad<br>
+                Pakistan
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-method">
+          <div class="contact-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <div class="contact-details">
+            <div class="contact-label">ORCID</div>
+            <div class="contact-value">
+              <a href="https://orcid.org/0009-0005-3034-1679" target="_blank">0009-0005-3034-1679</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Social Links -->
+        <div class="social-section">
+          <h3>Connect on Social Media</h3>
+          <div class="social-links">
+            <a href="https://big0.dev/" target="_blank" aria-label="Big0.dev" class="social-link">
+              {{ inject_svg('big0_logo', True) | safe}}
+            </a>
+            
+            <a href="https://www.linkedin.com/in/engr-hassan-kamran" target="_blank" aria-label="LinkedIn" class="social-link">
+              {{ inject_svg('linkedin', True) | safe }}
+            </a>
+            
+            <a href="https://github.com/hassan-kamran" target="_blank" aria-label="Github" class="social-link">
+              {{ inject_svg('github', True) | safe }}
+            </a>
+            
+            <a href="https://www.youtube.com/@EngrHassanKamran" target="_blank" aria-label="YouTube" class="social-link">
+              {{ inject_svg('youtube', True) | safe }}
+            </a>
+            
+            <a href="https://www.upwork.com/freelancers/~015d257597dfcd7778" target="_blank" aria-label="Upwork" class="social-link">
+              {{ inject_svg('upwork', True) | safe}}
+            </a>
+            
+            <a href="https://verification.pec.org.pk/v/eV/sED/i.aspx?eid=31322F303035353532" target="_blank" aria-label="PEC Verification" class="social-link">
+              {{ inject_svg('pec-mini', True) | safe }}
+            </a>
           </div>
         </div>
       </div>
 
-      <div class="social-links">
-        <a href="https://big0.dev/" target="_blank" aria-label="Big0.dev">
-          {{ inject_svg('big0_logo', True) | safe }}
-        </a>
-        <a
-          href="https://www.linkedin.com/in/engr-hassan-kamran"
-          target="_blank"
-          aria-label="LinkedIn"
-        >
-          {{ inject_svg('linkedin', True) | safe }}
-        </a>
-        <a
-          href="https://github.com/hassan-kamran"
-          target="_blank"
-          aria-label="Github"
-        >
-          {{ inject_svg('github', True) | safe}}
-        </a>
-        <a
-          href="https://www.youtube.com/@EngrHassanKamran"
-          target="_blank"
-          aria-label="YouTube"
-        >
-          {{ inject_svg('youtube', True) | safe}}
-        </a>
-        <a
-          href="https://www.upwork.com/freelancers/~015d257597dfcd7778"
-          target="_blank"
-          aria-label="Upwork"
-        >
-          {{ inject_svg('upwork', True) | safe}}
-        </a>
-        <a
-          href="https://verification.pec.org.pk/v/eV/sED/i.aspx?eid=31322F303035353532"
-          target="_blank"
-          aria-label="PEC Verification"
-        >
-          {{ inject_svg('pec-mini', True) | safe}}
-        </a>
+      <!-- Contact Form Component -->
+      {% set form_id = 'contact-page' %}
+      {% include 'contact_form.html' %}
+    </div>
+
+    <!-- Office Hours Section -->
+    <div class="office-hours-section">
+      <h2>Office Hours & Availability</h2>
+      <div class="office-hours-grid">
+        <div class="hours-card">
+          <h3>Working Hours</h3>
+          <p class="hours-label">Monday - Friday</p>
+          <p class="hours-time">9:00 AM - 6:00 PM PKT</p>
+        </div>
+        <div class="hours-card">
+          <h3>Weekend</h3>
+          <p class="hours-label">Saturday</p>
+          <p class="hours-time">10:00 AM - 2:00 PM PKT</p>
+        </div>
+        <div class="hours-card">
+          <h3>Time Zone</h3>
+          <p class="hours-label">Pakistan Standard Time</p>
+          <p class="hours-time">UTC +5:00</p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- Map Section -->
-<section class="map-section card-base">
-  <div class="container">
-    <h2>Location</h2>
-    <div class="map-container">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.227369268801!2d73.17158!3d33.536934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfede671289865%3A0x64fc3e2e7640e099!2sD%2C%204%20Ln%208%2C%20Sector%20Sector%20D%20DHA%20Phase%20II%2C%20Islamabad%2C%2044000%2C%20Pakistan!5e0!3m2!1sen!2sus!4v1615977777777!5m2!1sen!2sus"
-        width="100%"
-        height="450"
-        style="border: 0"
-        allowfullscreen=""
-        loading="lazy"
-      >
-      </iframe>
+    <!-- Map Section -->
+    <div class="map-section">
+      <h2>Location</h2>
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.227369268801!2d73.17158!3d33.536934!2m3!1f0!2f0!3f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfede671289865%3A0x64fc3e2e7640e099!2sD%2C%204%20Ln%208%2C%20Sector%20Sector%20D%20DHA%20Phase%20II%2C%20Islamabad%2C%2044000%2C%20Pakistan!5e0!3m2!1sen!2sus!4v1615977777777!5m2!1sen!2sus"
+          width="100%"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
     </div>
   </div>
 </section>

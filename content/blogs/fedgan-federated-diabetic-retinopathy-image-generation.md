@@ -67,7 +67,6 @@ The comprehensive preprocessing pipeline included:
 
 This pipeline ensured consistency, enhanced image quality, and standardized data format for optimal GAN training.
 
-{{template:cta}}
 
 ## DCGAN Architecture
 

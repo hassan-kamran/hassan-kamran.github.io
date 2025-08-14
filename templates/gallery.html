@@ -47,7 +47,7 @@
               onclick="setTimeout(() => document.getElementById('gallery-lightbox-{{ loop.index - 1 }}').showPopover(), 50)"
               aria-label="Previous image"
             >
-              {{ inject_svg('arrow-left', use_current_color=True) | safe }}
+              {{ inject_svg('arrow-left') | safe }}
             </button>
             {% endif %}
             
@@ -59,7 +59,7 @@
               onclick="setTimeout(() => document.getElementById('gallery-lightbox-{{ loop.index + 1 }}').showPopover(), 50)"
               aria-label="Next image"
             >
-              {{ inject_svg('arrow-right', use_current_color=True) | safe }}
+              {{ inject_svg('arrow-right') | safe }}
             </button>
             {% endif %}
             
@@ -74,7 +74,9 @@
                 {% if image.tags %}
                 <p class="lightbox-tags">Tags: {{ image.tags | join(', ') }}</p>
                 {% endif %}
-                <p class="lightbox-date">{{ image.date.strftime('%B %d, %Y') }}</p>
+                {% if image.date %}
+                <p class="lightbox-date">{{ image.date }}</p>
+                {% endif %}
               </div>
             </div>
           </div>
@@ -88,12 +90,12 @@
       <div class="pagination-controls">
         {% if pagination.has_prev %}
         <a href="{{ pagination.prev_url }}" class="pagination-link prev">
-          <span class="pagination-icon">{{ inject_svg('arrow-left', use_current_color=True) | safe }}</span>
+          <span class="pagination-icon">{{ inject_svg('arrow-left') | safe }}</span>
           Previous
         </a>
         {% else %}
         <span class="pagination-link disabled">
-          <span class="pagination-icon">{{ inject_svg('arrow-left', use_current_color=True) | safe }}</span>
+          <span class="pagination-icon">{{ inject_svg('arrow-left') | safe }}</span>
           Previous
         </span>
         {% endif %}
@@ -105,12 +107,12 @@
         {% if pagination.has_next %}
         <a href="{{ pagination.next_url }}" class="pagination-link next">
           Next
-          <span class="pagination-icon">{{ inject_svg('arrow-right', use_current_color=True) | safe }}</span>
+          <span class="pagination-icon">{{ inject_svg('arrow-right') | safe }}</span>
         </a>
         {% else %}
         <span class="pagination-link disabled">
           Next
-          <span class="pagination-icon">{{ inject_svg('arrow-right', use_current_color=True) | safe }}</span>
+          <span class="pagination-icon">{{ inject_svg('arrow-right') | safe }}</span>
         </span>
         {% endif %}
       </div>

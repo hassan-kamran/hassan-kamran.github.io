@@ -1,674 +1,869 @@
 <section class="hero">
   <div class="hero-content">
     <div class="badge-container">
-      <div class="badge">
-        <p>7+ Years Experience</p>
-      </div>
-      <div class="badge">
-        <p>Trusted Globally</p>
-      </div>
+      <span class="badge">7+ Years Experience</span>
+      <span class="badge">AI & IoT Expert</span>
+      <span class="badge">Military Leader</span>
     </div>
-    <h1>Let's Work Together</h1>
+    <h1>Engineering Excellence,<br>Strategic Impact</h1>
     <p id="hero-text">
       Transforming technical challenges into business advantages through
       innovative AI, IoT, and cloud solutions. Bringing engineering leadership
-      and strategic vision to deliver measurable results for your organization.
+      and strategic vision to deliver measurable results.
     </p>
-    <button class="popover-button btn" popovertarget="modal">
+    <a href="{{ contact }}" class="btn btn-primary btn-lg">
       Get in Touch
-    </button>
-
-    <div class="educational-affiliation">
-      <div class="scroll-container">
-        <div>
-          <h2>Proud Alumnus Of</h2>
+    </a>
+    
+    <!-- Professional Affiliations -->
+    <div class="hero-affiliations">
+      <div class="hero-affiliations-label">Distinguished Professional Affiliations</div>
+      <div class="hero-affiliations-logos">
+        <div class="affiliation-logo">
+          <a href="https://www.pec.org.pk/" target="_blank" title="Pakistan Engineering Council - Regulatory body for engineering professionals">
+            {{ inject_svg('pec', False) | safe }}
+            <span>PEC Licensed Engineer</span>
+          </a>
         </div>
-        <div class="logos">
-          {% set logo_content %}
-          <div class="logo-item">
-            <a
-              href="https://www.beaconhouse.net/"
-              target="_blank"
-              aria-label="Beaconhouse School System"
-            >
-              <img
-                src="./static/bss.svg"
-                alt="Beaconhouse School System"
-                width="64"
-                height="64"
-              />
-              <div class="logo-details">
-                <p>Beaconhouse School System <br />O Level<br />2010-12</p>
-              </div>
-            </a>
-          </div>
-          <div class="logo-item">
-            <a
-              href="https://www.linkedin.com/company/saintmarysacademylalazar/"
-              target="_blank"
-              aria-label="Saint Mary's Academy"
-            >
-              <img
-                src="./static/sma.svg"
-                alt="Saint Mary's Academy"
-                width="64"
-                height="64"
-              />
-              <div class="logo-details">
-                <p>Saint Mary's Academy<br />A Level<br />2012-14</p>
-              </div>
-            </a>
-          </div>
-          <div class="logo-item">
-            <a
-              href="https://nust.edu.pk/"
-              target="_blank"
-              aria-label="National University of Secience and Technology"
-            >
-              <img
-                src="./static/nust.svg"
-                alt="National University of Science and Technology"
-                width="64"
-                height="64"
-              />
-              <div class="logo-details">
-                <p>
-                  National University of Science and Technology<br />BE
-                  Mechatronics<br />2014-19
-                </p>
-              </div>
-            </a>
-          </div>
-          <div class="logo-item">
-            <a
-              href="https://en.wikipedia.org/wiki/Pakistan_Military_Academy"
-              target="_blank"
-              aria-label="Pakistan Military Academy"
-            >
-              <img
-                src="./static/pma.svg"
-                alt="Pakistan Milirary Academy"
-                width="64"
-                height="64"
-              />
-              <div class="logo-details">
-                <p>
-                  Pakistan Military Academy<br />Officer Training<br />2019-20
-                </p>
-              </div>
-            </a>
-          </div>
-          <div class="logo-item">
-            <a
-              href="https://case.edu.pk/"
-              target="_blank"
-              aria-label="Sir Syed CASE Institute of Technology"
-            >
-              <img
-                src="./static/case.svg"
-                alt="Sir Syed CASe Institute of Technology"
-                width="64"
-                height="64"
-              />
-              <div class="logo-details">
-                <p>
-                  Sir Syed CASE Institute of Technology<br />MS Computer
-                  Science<br />2022-25
-                </p>
-              </div>
-            </a>
-          </div>
-          {% endset %} {{ logo_content }} {% for i in range(5) %} {{
-          logo_content }} {% endfor %}
+        <div class="affiliation-logo">
+          <a href="https://www.pseb.org.pk/" target="_blank" title="Pakistan Software Export Board - IT industry facilitation">
+            {{ inject_svg('pseb', False) | safe }}
+            <span>PSEB Registered Member</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  
+  <div class="hero-image-section">
+    <figure class="hero-image">
+      <picture>
+        <source
+          srcset="{{ static }}/hero-mini.avif"
+          media="(max-width: 768px)"
+          width="465"
+          height="465"
+        />
+        <img
+          src="{{ static }}/hero.avif"
+          width="258"
+          height="512"
+          alt="Hassan Kamran, confidently posing in business attire with a professional and approachable expression."
+        />
+      </picture>
+      <figcaption>Capt (Retd) Engr Hassan Kamran, MSc</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- Educational Background - Full Width -->
+<div class="hero-education">
+  <div class="hero-education-label">Proud Alumnus Of</div>
+  <div class="hero-education-logos">
+    <div class="education-logo">
+      <a href="https://www.beaconhouse.net/" target="_blank">
+        {{ inject_svg('bss', False) | safe }}
+        <span class="edu-name">BSS</span>
+        <span class="edu-degree">O Level</span>
+        <span class="edu-year">2010-12</span>
+      </a>
+    </div>
+    <div class="education-logo">
+      <a href="https://www.linkedin.com/company/saintmarysacademylalazar/" target="_blank">
+        {{ inject_svg('sma', False) | safe }}
+        <span class="edu-name">SMA</span>
+        <span class="edu-degree">A Level</span>
+        <span class="edu-year">2012-14</span>
+      </a>
+    </div>
+    <div class="education-logo">
+      <a href="https://nust.edu.pk/" target="_blank">
+        {{ inject_svg('nust', False) | safe }}
+        <span class="edu-name">NUST</span>
+        <span class="edu-degree">BE Mechatronics</span>
+        <span class="edu-year">2014-19</span>
+      </a>
+    </div>
+    <div class="education-logo">
+      <a href="https://en.wikipedia.org/wiki/Pakistan_Military_Academy" target="_blank">
+        {{ inject_svg('pma', False) | safe }}
+        <span class="edu-name">PMA</span>
+        <span class="edu-degree">Officer Training</span>
+        <span class="edu-year">2019-20</span>
+      </a>
+    </div>
+    <div class="education-logo">
+      <a href="https://case.edu.pk/" target="_blank">
+        {{ inject_svg('case', False) | safe }}
+        <span class="edu-name">CASE</span>
+        <span class="edu-degree">MS Computer Science</span>
+        <span class="edu-year">2022-25</span>
+      </a>
+    </div>
+    <div class="education-logo">
+      <a href="https://szabist.edu.pk/" target="_blank">
+        {{ inject_svg('szabist', False) | safe }}
+        <span class="edu-name">SZABIST</span>
+        <span class="edu-degree">MPM</span>
+        <span class="edu-year">2025-26</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+
+<section class="experience">
+  <h2>Professional Experience</h2>
+  
+  <!-- Horizontal Timeline -->
+  <div class="experience-timeline">
+    <div class="timeline-track">
+      <div class="timeline-point active" data-experience="big0">
+        <div class="timeline-point-dot"></div>
+        <div class="timeline-point-label">
+          <span class="timeline-point-year">2025</span>
+          <span class="timeline-point-title">Founder & CEO</span>
+        </div>
+      </div>
+      
+      <div class="timeline-point" data-experience="cyberx">
+        <div class="timeline-point-dot"></div>
+        <div class="timeline-point-label">
+          <span class="timeline-point-year">2023-2025</span>
+          <span class="timeline-point-title">Project Manager</span>
+        </div>
+      </div>
+      
+      <div class="timeline-point" data-experience="army">
+        <div class="timeline-point-dot"></div>
+        <div class="timeline-point-label">
+          <span class="timeline-point-year">2020-2023</span>
+          <span class="timeline-point-title">Captain</span>
+        </div>
+      </div>
+      
+      <div class="timeline-point part-time" data-experience="university">
+        <div class="timeline-point-dot"></div>
+        <div class="timeline-point-label">
+          <span class="timeline-point-year">2018-2019</span>
+          <span class="timeline-point-title">Part-time Roles</span>
+          <span class="timeline-point-subtitle">During University</span>
         </div>
       </div>
     </div>
   </div>
-
-  <figure class="hero-image">
-    <picture>
-      <source
-        srcset="static/hero-mini.avif"
-        media="(max-width: 768px)"
-        width="465"
-        height="465"
-      />
-      <img
-        src="./static/hero.avif"
-        width="258"
-        height="512"
-        alt="Hassan Kamran, confidently posing in business attire with a professional and approachable expression."
-      />
-    </picture>
-    <figcaption>Capt (Retd) Engr Hassan Kamran, MSc</figcaption>
-  </figure>
-</section>
-<section class="membership">
-  <h2>Distinguished Professional Affiliations</h2>
-  <div class="membership-cards">
-    <a
-      href="https://www.pec.org.pk/"
-      target="_blank"
-      class="card"
-      aria-label="Pakistan Engineering Council"
-    >
-      <img
-        src="./static/pec.svg"
-        alt="Pakistan Engineering Council"
-        width="80"
-        height="80"
-      />
-      <h3>Pakistan Engineering Council</h3>
-      <p>
-        The Pakistan Engineering Council (PEC) is a regulatory body that
-        oversees the accreditation of engineering education, the licensing of
-        engineers, and the promotion of engineering excellence in Pakistan.
-      </p>
-    </a>
-
-    <a
-      href="https://www.pseb.org.pk/"
-      target="_blank"
-      class="card"
-      aria-label="Pakistan Software Export Board"
-    >
-      <img
-        src="./static/pseb.svg"
-        alt="Pakistan Software Export Board"
-        width="80"
-        height="80"
-      />
-      <h3>Pakistan Software Export Board</h3>
-      <p>
-        The Pakistan Software Export Board (PSEB) facilitates the growth of
-        Pakistan’s IT and IT-enabled services industry by promoting exports,
-        providing support to IT firms and freelancers, and creating business
-        opportunities.
-      </p>
-    </a>
-
-    <a
-      href="https://www.ieee.org/"
-      target="_blank"
-      class="card"
-      aria-label="Institute of Electrical and Electronics Engineers"
-    >
-      <img
-        src="./static/ieee.svg"
-        alt="Institute of Electrical and Electronics Engineers"
-        width="80"
-        height="80"
-      />
-      <h3>Institute of Electrical and Electronics Engineers</h3>
-      <p>
-        IEEE is the world's largest technical professional organization
-        dedicated to advancing technology for humanity through publications,
-        conferences, and professional networking.
-      </p>
-    </a>
+  
+  <!-- Experience Cards -->
+  <div class="experience-cards">
+    <!-- Big0.Dev Card -->
+    <div class="experience-card active" id="big0">
+      <div class="experience-header">
+        <h3>Founder & CEO</h3>
+        <span class="experience-company">Big0.Dev</span>
+        <div class="experience-meta">
+          <span class="experience-duration">Feb 2025 - Present</span>
+          <span class="experience-location">Islāmābād, Pakistan</span>
+        </div>
+      </div>
+      
+      <ul>
+        <li>Leading a software consultancy delivering AI/ML and IoT solutions for industry clients</li>
+        <li>Architecting cloud-native solutions with AWS, GCP, and Azure for enterprise deployments</li>
+        <li>Built and mentored cross-functional teams of developers, designers, and data scientists</li>
+        <li>Established strategic partnerships with technology vendors and industry leaders</li>
+        <li>Generated high-quality leads with 70% client conversion rate through targeted outreach</li>
+        <li>Implemented DevOps practices reducing deployment time by 60% and improving system reliability</li>
+      </ul>
+      
+      <div class="experience-skills">
+        <div class="experience-skills-label">Key Skills</div>
+        <div class="experience-skills-list">
+          <span class="skill-tag">Artificial Intelligence</span>
+          <span class="skill-tag">Cloud Architecture</span>
+          <span class="skill-tag">Machine Learning</span>
+          <span class="skill-tag">Business Strategy</span>
+          <span class="skill-tag">Team Leadership</span>
+        </div>
+      </div>
+      
+      <a href="https://big0.dev/" class="experience-link" target="_blank">
+        Visit Company Website
+      </a>
+    </div>
+    
+    <!-- CyberX Studio Card -->
+    <div class="experience-card" id="cyberx">
+      <div class="experience-header">
+        <h3>Project Manager & Tech Lead</h3>
+        <span class="experience-company">CyberX Studio</span>
+        <div class="experience-meta">
+          <span class="experience-duration">Nov 2023 - Nov 2025</span>
+          <span class="experience-location">Islāmābād, Pakistan</span>
+        </div>
+      </div>
+      
+      <ul>
+        <li>Led development for AWT, FerroTechnics, Emerald IT, Laptop Rental AU, Yontem Teknoloji clients</li>
+        <li>Developed automation system integrating Intellievent invoices with Xero accounting platform</li>
+        <li>Setup aviation technician training center in collaboration with Yontem Teknoloji for KPSATS</li>
+        <li>Modernized legacy systems improving performance by 40% and reducing maintenance costs</li>
+        <li>Managed cross-functional teams of 10-15 developers using Agile/Scrum methodologies</li>
+        <li>Built real-time KPI dashboards for One World Rental improving decision-making efficiency</li>
+      </ul>
+      
+      <div class="experience-skills">
+        <div class="experience-skills-label">Key Skills</div>
+        <div class="experience-skills-list">
+          <span class="skill-tag">Full-Stack Development</span>
+          <span class="skill-tag">System Integration</span>
+          <span class="skill-tag">Agile Management</span>
+          <span class="skill-tag">API Development</span>
+          <span class="skill-tag">Technical Leadership</span>
+        </div>
+      </div>
+      
+      <a href="https://cyberxstudio.com/" class="experience-link" target="_blank">
+        Visit Company Website
+      </a>
+    </div>
+    
+    <!-- Pakistan Army Card -->
+    <div class="experience-card" id="army">
+      <div class="experience-header">
+        <h3>Captain (Workshop Officer)</h3>
+        <span class="experience-company">Pakistan Army, EME Corps</span>
+        <div class="experience-meta">
+          <span class="experience-duration">Oct 2020 - Oct 2023</span>
+          <span class="experience-location">Pakistan</span>
+        </div>
+      </div>
+      
+      <ul>
+        <li>Supervised vehicle & equipment maintenance operations for 200+ military vehicles</li>
+        <li>Managed team of 50+ technical personnel ensuring 95% equipment availability rate</li>
+        <li>Conducted compliance audits resulting in zero safety incidents during tenure</li>
+        <li>Coordinated maintenance workflows reducing equipment downtime by 30%</li>
+        <li>Served at 162 C Troops Workshop Company (2020) & 195 Independent Workshop Company (2022)</li>
+        <li>Implemented predictive maintenance protocols saving PKR 2M in annual repair costs</li>
+      </ul>
+      
+      <div class="experience-skills">
+        <div class="experience-skills-label">Key Skills</div>
+        <div class="experience-skills-list">
+          <span class="skill-tag">Operations Management</span>
+          <span class="skill-tag">Strategic Leadership</span>
+          <span class="skill-tag">Resource Planning</span>
+          <span class="skill-tag">Risk Assessment</span>
+          <span class="skill-tag">Team Building</span>
+        </div>
+      </div>
+      
+      <a href="https://pakistanarmy.gov.pk/" class="experience-link" target="_blank">
+        Visit Organization Website
+      </a>
+    </div>
+    
+    <!-- University Part-time Experience Card -->
+    <div class="experience-card" id="university">
+      <div class="experience-header">
+        <h3>Part-time Engineering Roles</h3>
+        <span class="experience-company part-time-badge">During B.E. Mechatronics</span>
+        <div class="experience-meta">
+          <span class="experience-duration">2018 - 2019</span>
+          <span class="experience-location">Islamabad, Pakistan</span>
+        </div>
+      </div>
+      
+      <ul class="part-time-list">
+        <li><strong>Machine Learning Engineer @ Incline AI (2018):</strong> Developed autonomous vehicle algorithms, LIDAR mapping systems, and drone navigation software using TensorFlow & ROS</li>
+        <li><strong>Research Assistant @ NUST (2018-19):</strong> Built precision agriculture drone with automated spraying system, published IEEE paper on low-cost agricultural solutions</li>
+        <li><strong>Embedded Engineer @ WisdomWheel (2018-19):</strong> Designed IoT tracking system for shipping containers using GPS/GSM modules and real-time data processing</li>
+        <li>Gained hands-on experience in robotics, computer vision, and embedded systems while maintaining 3.5+ GPA</li>
+        <li>Collaborated with industry professionals on real-world projects worth PKR 5M+ in combined value</li>
+        <li>Published research findings and presented at national engineering conferences</li>
+      </ul>
+      
+      <div class="experience-skills">
+        <div class="experience-skills-label">Combined Skills Developed</div>
+        <div class="experience-skills-list">
+          <span class="skill-tag">TensorFlow</span>
+          <span class="skill-tag">ROS/Gazebo</span>
+          <span class="skill-tag">Embedded C/C++</span>
+          <span class="skill-tag">LIDAR Processing</span>
+          <span class="skill-tag">IoT Protocols</span>
+        </div>
+      </div>
+      
+      <div class="part-time-links">
+        <a href="https://www.linkedin.com/company/incline-artificial-intelligence/" target="_blank" class="mini-link">Incline AI</a>
+        <a href="https://ceme.nust.edu.pk/" target="_blank" class="mini-link">NUST CEME</a>
+        <a href="https://www.linkedin.com/company/wisdomwheel/" target="_blank" class="mini-link">WisdomWheel</a>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="experience">
-  <h2>Professional Experience</h2>
-
-  <article>
-    <a href="https://big0.dev/" aria-label="Big0.Dev">
-      <h3>Founder</h3>
-      <p><strong>Company:</strong>Big0.Dev</p>
-      <p><strong>Employment Type:</strong> Full-time</p>
-      <p><strong>Duration:</strong> Feb 2025 - Present ({{ founder_time }})</p>
-      <p><strong>Location:</strong> Islāmābād, Pakistan (On-site)</p>
-      <ul>
-        <li>Founded Big0.Dev</li>
-        <li>Led end-to-end product development</li>
-        <li>Built and mentored cross-functional technical and design teams</li>
-        <li>Generated high-quality leads with consistent client conversion</li>
-      </ul>
-      <p>
-        <strong>Skills:</strong> Artificial Intelligence (AI), Cloud Computing,
-        Critical Thinking, Machine Learning, Mechatronics, Problem Solving,
-        Project Management, Software, Lead Generation
-      </p>
+<!-- Publications Section -->
+<section class="publications">
+  <h2>Publications & Research</h2>
+  <p class="orcid-info">
+    <span>ORCID: </span>
+    <a href="https://orcid.org/0009-0005-3034-1679" target="_blank" class="orcid-link">
+      0009-0005-3034-1679
+      <svg class="orcid-icon" viewBox="0 0 24 24" width="16" height="16">
+        <path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM6.813 11.654h1.358v5.384H6.813v-5.384zm.679-2.154c-.434 0-.785.352-.785.785s.351.785.785.785.785-.352.785-.785-.351-.785-.785-.785zm3.193 2.154h1.846c2.476 0 3.476 1.623 3.476 2.73 0 1.307-1.049 2.654-3.476 2.654h-1.846v-5.384zm1.358 1.115v3.154h.488c1.346 0 2.119-.638 2.119-1.577 0-.939-.773-1.577-2.119-1.577h-.488z" fill="currentColor"/>
+      </svg>
     </a>
-  </article>
+  </p>
+  
+  <div class="publications-grid">
+    <!-- FedGAN Paper -->
+    <div class="publication-card">
+      <div class="pub-type-badge">Journal Article</div>
+      <h3 class="pub-title">
+        FedGAN: Federated Diabetic Retinopathy Image Generation
+      </h3>
+      <p class="pub-venue">
+        <span class="venue-icon">📍</span>
+        PLOS ONE
+      </p>
+      <p class="pub-year">
+        <span class="year-icon">📅</span>
+        2025
+      </p>
+      <p class="pub-abstract">
+        A novel privacy-preserving framework combining federated learning with GANs for medical image analysis, achieving state-of-the-art results in diabetic retinopathy detection while maintaining patient data privacy across distributed healthcare institutions.
+      </p>
+      <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0326579" target="_blank" class="pub-link-button">
+        View on PLOS ONE
+      </a>
+    </div>
 
-  <article>
-    <a href="https://oneworldrental.com/" aria-label="One World Rental">
-      <h3>Project Architect and AI Developer</h3>
-      <p>
-        <strong>Company:</strong>
-        One World Rental
+    <!-- Agricultural Drone Paper -->
+    <div class="publication-card">
+      <div class="pub-type-badge">Conference</div>
+      <h3 class="pub-title">
+        Low Cost Agricultural Sprayer Drone Development
+      </h3>
+      <p class="pub-venue">
+        <span class="venue-icon">📍</span>
+        IEEE Xplore
       </p>
-      <p><strong>Employment Type:</strong> Full-time</p>
-      <p><strong>Duration:</strong> Nov 2023 - Feb 2025 (1 yr 4 mos)</p>
-      <p><strong>Location:</strong> Islamabad, Islāmābād, Pakistan (On-site)</p>
-      <ul>
-        <li>Fostered data-driven culture by aligning global teams</li>
-        <li>Created real-time KPI dashboards from multiple data sources</li>
-        <li>Coordinated effectively with global teams on project delivery</li>
-        <li>Managed 25-person team to deliver quality projects</li>
-        <li>
-          Executed projects from requirements to delivery using Agile/Scrum
-        </li>
-        <li>Migrated legacy websites to modern technology stack</li>
-        <li>Built internal process automation tools</li>
-      </ul>
-      <p>
-        <strong>Skills:</strong> SQL, Natural Language Processing (NLP), Cloud
-        Computing, Software, ETL, Machine Learning, Engineering, Web
-        Development, Leadership, Artificial Intelligence (AI), Business
-        Intelligence (BI), Convolutional Neural Networks (CNN), Data Loading,
-        Data Modeling, KPI Dashboards, Data Analysis, Project Management,
-        Documentation, Big Data, Communication, Data Pipelines
+      <p class="pub-year">
+        <span class="year-icon">📅</span>
+        2025
       </p>
-    </a>
-  </article>
+      <p class="pub-abstract">
+        Development of a cost-effective teleoperated drone system for precision agriculture applications. The system reduces water consumption by 83% and operational costs by 50% compared to traditional spraying methods, making precision farming accessible to small-scale farmers.
+      </p>
+      <a href="https://ieeexplore.ieee.org/" target="_blank" class="pub-link-button">
+        View on IEEE Xplore
+      </a>
+    </div>
 
-  <article>
-    <a href="https://cyberxstudio.com/" aria-label="CyberX Studio">
-      <h3>Chief Technology Officer</h3>
-      <p>
-        <strong>Company:</strong>
-        CyberX Studio
-      </p>
-      <p><strong>Employment Type:</strong> Part-time</p>
-      <p><strong>Duration:</strong> Nov 2023 - Feb 2025 (1 yr 4 mos)</p>
-      <p><strong>Location:</strong> Islāmābād, Pakistan (On-site)</p>
-      <ul>
-        <li>Created technical documentation for scalable solutions</li>
-        <li>Led 10-person cross-functional team to ensure on-time delivery</li>
-        <li>
-          Delivered key projects for AWT, FerroTechnics, Yontem Teknoloji, and
-          Guide to Pakistan
-        </li>
-      </ul>
-      <p>
-        <strong>Skills:</strong> Web Development, Artificial Intelligence (AI),
-        Leadership, Engineering, Documentation
-      </p>
-    </a>
-  </article>
-
-  <article>
-    <a href="https://pakistanarmy.gov.pk/" aria-label="Pakistan Army">
-      <h3>Captain</h3>
-      <p>
-        <strong>Company:</strong>
-        Pakistan Army
-      </p>
-      <p><strong>Employment Type:</strong> Full-time</p>
-      <p><strong>Duration:</strong> Oct 2020 - Sep 2023 (3 yrs)</p>
-      <p><strong>Location:</strong> On-site</p>
-      <ul>
-        <li>Directed maintenance operations ensuring equipment readiness</li>
-        <li>Led 100-150 technical personne</li>
-        <li>Enforcing strict safety and regulatory compliance</li>
-      </ul>
-      <p>
-        <strong>Skills:</strong> Engineering, Leadership, Human Resources (HR),
-        Project Management, Communication
-      </p>
-    </a>
-  </article>
-
-  <article>
-    <a
-      href="https://www.linkedin.com/company/wisdomwheel/"
-      aria-label="WisdomWheel Wireless"
-    >
-      <h3>Embedded Engineer</h3>
-      <p>
-        <strong>Company:</strong>
-
-        WisdomWheel Wireless
-      </p>
-      <p><strong>Employment Type:</strong> Part-time</p>
-      <p><strong>Duration:</strong> Dec 2018 - Nov 2019 (1 yr)</p>
-      <p><strong>Location:</strong> Islamabad, Islāmābād, Pakistan (On-site)</p>
-      <ul>
-        <li>Worked on real-time tracking system for shipping container</li>
-        <li>
-          Participated in meetings and presentations for potential clients
-        </li>
-      </ul>
-      <p>
-        <strong>Skills:</strong> Embedded Systems, Software, Mechatronics,
-        Engineering, Documentation
-      </p>
-    </a>
-  </article>
-
-  <article>
-    <a
-      href="https://ceme.nust.edu.pk/"
-      aria-label="National University of Science and Technology"
-    >
-      <h3>Research Assistant</h3>
-      <p>
-        <strong>Company:</strong>
-        National University of Sciences and Technology (NUST)
-      </p>
-      <p><strong>Employment Type:</strong> Part-time</p>
-      <p><strong>Duration:</strong> Jun 2018 - May 2019 (1 yr)</p>
-      <p><strong>Location:</strong> Islāmābād, Pakistan (On-site)</p>
-      <ul>
-        <li>Worked on the development of a low-cost sprayer drone</li>
-        <li>Created a ROS Gazebo simulation for testing drone operations</li>
-        <li>Developed control systems for fluid dispensing</li>
-      </ul>
-      <p>
-        <strong>Skills:</strong> Computer-Aided Design (CAD), Drones, Precision
-        Agriculture
-      </p>
-    </a>
-  </article>
-
-  <article>
-    <a
-      href="https://www.linkedin.com/company/incline-artificial-intelligence/"
-      aria-label="Incline"
-      Artifical
-      Intelligence
-    >
-      <h3>Machine Learning Engineer</h3>
-      <p>
-        <strong>Company:</strong>
-        Incline Artificial Intelligence<
-      </p>
-      <p><strong>Employment Type:</strong> Part-time</p>
-      <p><strong>Duration:</strong> Jan 2018 - Dec 2018 (1 yr)</p>
-      <p><strong>Location:</strong> Islamabad, Islāmābād, Pakistan (On-site)</p>
-      <ul>
-        <li>Worked with autonomous vehicles and drones</li>
-        <li>Observed self-driving car simulation development</li>
-        <li>Studied LIDAR-based urban mapping techniques</li>
-      </ul>
-      <p>
-        <strong>Skills:</strong> SQL, Autonomous Vehicles, Software,
-        Mechatronics, Sensor Fusion, Machine Learning, Engineering, Artificial
-        Intelligence (AI), Convolutional Neural Networks (CNN), Data Loading,
-        Data Modeling, Drones, Documentation
-      </p>
-    </a>
-  </article>
+    <!-- Add more publications as needed -->
+  </div>
 </section>
 
 <section class="certifications">
-  <h2>Certifications</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Certification</th>
-        <th>Issuer</th>
-        <th>Issue Date</th>
-        <th>Link</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Deep Learning Specialization</td>
-        <td>DeepLearning.AI</td>
-        <td>01/2021</td>
-        <td>
-          <a
-            href="https://www.coursera.org/account/accomplishments/specialization/MNPDUQLBGTJJ"
-            target="_blank"
-            >View Certificate</a
-          >
-        </td>
-      </tr>
+  <h2>Professional Certifications & Training</h2>
+  
+  <div class="certifications-grid">
+    <!-- Deep Learning Specialization -->
+    <div class="certification-card">
+      <div class="cert-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 11V6a3 3 0 1 1 6 0v5M3 13a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-7z"/>
+          <circle cx="12" cy="16" r="1"/>
+        </svg>
+      </div>
+      <div class="cert-content">
+        <h3>Deep Learning Specialization</h3>
+        <div class="cert-issuer">
+          <span class="issuer-icon">🏛️</span>
+          DeepLearning.AI
+        </div>
+        <div class="cert-meta">
+          <span class="cert-date">
+            <span class="date-icon">📅</span>
+            January 2021
+          </span>
+          <span class="cert-category">AI/ML</span>
+        </div>
+        <p class="cert-description">
+          Comprehensive 5-course specialization covering neural networks, CNNs, RNNs, and deep learning optimization.
+        </p>
+      </div>
+      <a href="https://www.coursera.org/account/accomplishments/specialization/MNPDUQLBGTJJ" 
+         target="_blank" 
+         class="cert-link">
+        View Certificate
+        <svg class="link-arrow" viewBox="0 0 24 24" width="16" height="16">
+          <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </a>
+    </div>
 
-      <tr>
-        <td>Build Basic Generative Adversarial Networks (GANs)</td>
-        <td>DeepLearning.AI</td>
-        <td>08/2023</td>
-        <td>
-          <a
-            href="https://www.coursera.org/account/accomplishments/records/L8ZRY5BMMTX7"
-            target="_blank"
-            >View Certificate</a
-          >
-        </td>
-      </tr>
+    <!-- GANs Certificate -->
+    <div class="certification-card">
+      <div class="cert-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <path d="M9 9h6v6H9z"/>
+        </svg>
+      </div>
+      <div class="cert-content">
+        <h3>Build Basic Generative Adversarial Networks</h3>
+        <div class="cert-issuer">
+          <span class="issuer-icon">🏛️</span>
+          DeepLearning.AI
+        </div>
+        <div class="cert-meta">
+          <span class="cert-date">
+            <span class="date-icon">📅</span>
+            August 2023
+          </span>
+          <span class="cert-category">AI/ML</span>
+        </div>
+        <p class="cert-description">
+          Specialized training in GANs architecture, implementation, and applications in generative AI.
+        </p>
+      </div>
+      <a href="https://www.coursera.org/account/accomplishments/records/L8ZRY5BMMTX7" 
+         target="_blank" 
+         class="cert-link">
+        View Certificate
+        <svg class="link-arrow" viewBox="0 0 24 24" width="16" height="16">
+          <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </a>
+    </div>
 
-      <tr>
-        <td>Foundations of Project Management</td>
-        <td>Google</td>
-        <td>06/2024</td>
-        <td>
-          <a
-            href="https://www.coursera.org/account/accomplishments/certificate/YR6GQ7XESHPB"
-            target="_blank"
-            >View Certificate</a
-          >
-        </td>
-      </tr>
+    <!-- PEC Generative AI Certificate -->
+    <div class="certification-card pec-cert">
+      <div class="cert-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+          <path d="M9 12l2 2 4-4"/>
+        </svg>
+      </div>
+      <div class="cert-content">
+        <h3>Generative AI Application Developer</h3>
+        <div class="cert-issuer">
+          <span class="issuer-icon">🏛️</span>
+          Pakistan Engineering Council
+        </div>
+        <div class="cert-meta">
+          <span class="cert-date">
+            <span class="date-icon">📅</span>
+            April 2025
+          </span>
+          <span class="cert-category">AI/ML</span>
+          <span class="cert-category pec-badge">PEC Certified</span>
+        </div>
+        <p class="cert-description">
+          Official PEC certification in Generative AI application development, demonstrating expertise in LLMs, prompt engineering, and AI integration.
+        </p>
+        <div class="cert-credential">
+          <span class="credential-label">Credential ID:</span>
+          <span class="credential-id">#d9da4ff11c6d542e</span>
+        </div>
+      </div>
+      <a href="https://quiz.ideagist.com/ideagist-certificate/?cert_hash=d9da4ff11c6d542e" 
+         target="_blank" 
+         class="cert-link">
+        View Certificate
+        <svg class="link-arrow" viewBox="0 0 24 24" width="16" height="16">
+          <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </a>
+    </div>
 
-      <tr>
-        <td>Paragliding Certificate</td>
-        <td>Army School of Physical Training Kakul</td>
-        <td>06/2013</td>
-        <td>
-          <a href="./static/para.avif" target="_blank">
-            <img
-              src="./static/para.avif"
-              alt="Paragliding Certificate - Army School of Physical Training Kakul"
-              width="0"
-              height="0"
-            />
+    <!-- Project Management Certificate -->
+    <div class="certification-card">
+      <div class="cert-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+          <path d="M9 12h6M9 16h6"/>
+        </svg>
+      </div>
+      <div class="cert-content">
+        <h3>Foundations of Project Management</h3>
+        <div class="cert-issuer">
+          <span class="issuer-icon">🌟</span>
+          Google
+        </div>
+        <div class="cert-meta">
+          <span class="cert-date">
+            <span class="date-icon">📅</span>
+            June 2024
+          </span>
+          <span class="cert-category">Management</span>
+        </div>
+        <p class="cert-description">
+          Google's professional certificate covering project lifecycle, methodologies, and stakeholder management.
+        </p>
+      </div>
+      <a href="https://www.coursera.org/account/accomplishments/certificate/YR6GQ7XESHPB" 
+         target="_blank" 
+         class="cert-link">
+        View Certificate
+        <svg class="link-arrow" viewBox="0 0 24 24" width="16" height="16">
+          <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </a>
+    </div>
 
-            View Certificate</a
-          >
-        </td>
-      </tr>
-    </tbody>
-  </table>
+    <!-- Paragliding Certificate -->
+    <div class="certification-card special">
+      <div class="cert-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2C6 2 2 6 2 8c0 1.5 1 3 2 3.5V22l8-4 8 4V11.5c1-.5 2-2 2-3.5 0-2-4-6-10-6z"/>
+          <path d="M12 8v7"/>
+        </svg>
+      </div>
+      <div class="cert-content">
+        <h3>Paragliding Certificate</h3>
+        <div class="cert-issuer">
+          <span class="issuer-icon">🪂</span>
+          Army School of Physical Training
+        </div>
+        <div class="cert-meta">
+          <span class="cert-date">
+            <span class="date-icon">📅</span>
+            June 2013
+          </span>
+          <span class="cert-category special-category">Adventure</span>
+        </div>
+        <p class="cert-description">
+          Professional paragliding certification demonstrating leadership, risk assessment, and adventure sports expertise.
+        </p>
+      </div>
+      <a href="{{ static }}/para.avif" 
+         target="_blank" 
+         class="cert-link">
+        View Certificate
+        <svg class="link-arrow" viewBox="0 0 24 24" width="16" height="16">
+          <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </a>
+    </div>
+  </div>
 </section>
 
 <section class="testimonials-container">
-  <h2>What My Clients Say</h2>
+  <h2>Testimonials & Recommendations</h2>
+  <p class="testimonials-subtitle">What clients, colleagues, and partners say about working with me</p>
 
   <div class="testimonial-grid">
-    <div class="testimonial-card">
-      <div class="testimonial-icon">"</div>
+    <!-- Featured Testimonial -->
+    <div class="testimonial-card featured">
+      <div class="testimonial-rating">
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+      </div>
       <div class="testimonial-content">
         <p class="testimonial-text">
-          "Excellent work from Hassan. He completed not just the original job
+          Excellent work from Hassan. He completed not just the original job
           but also a second milestone, which included updates and enhancements
           to the initial project. Hassan was very structured, communicative, and
           committed to delivering exactly what we needed. He went above and
           beyond to ensure a thorough understanding of the project's
           deliverables. We highly recommend Hassan and look forward to working
-          with him again!"
+          with him again!
         </p>
-        <div class="testimonial-footer">
-          <div class="testimonial-avatar">
-            <div class="avatar-placeholder"></div>
+        <div class="testimonial-highlight">
+          <span class="highlight-tag">Exceeded Expectations</span>
+          <span class="highlight-tag">Great Communication</span>
+        </div>
+      </div>
+      <div class="testimonial-footer">
+        <div class="testimonial-author">
+          <div class="author-avatar">
+            <span class="avatar-initial">M</span>
           </div>
-          <div class="testimonial-info">
-            <h3>Mohammed Hoosen</h3>
-            <p>Upwork Client</p>
+          <div class="author-info">
+            <h4 class="author-name">Mohammed Hoosen</h4>
+            <p class="author-title">Upwork Client</p>
+            <p class="author-project">Enterprise Web Application</p>
           </div>
+        </div>
+        <div class="testimonial-source">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="#14A800">
+            <path d="M18.561 5.025c-2.539 0-4.51 1.649-5.31 3.898-.618-1.898-1.981-3.898-4.06-3.898C6.628 5.025 5 6.934 5 9.5c0 2.566 1.628 4.475 4.191 4.475 1.809 0 3.288-1.234 3.888-2.859.282.857.78 1.641 1.428 2.25.758.71 1.725 1.109 2.754 1.109 2.539 0 4.239-1.909 4.239-4.475 0-2.566-1.7-4.475-4.239-4.475z"/>
+          </svg>
+          <span class="source-label">Upwork Verified</span>
         </div>
       </div>
     </div>
 
-    <div class="testimonial-card">
-      <div class="testimonial-icon">"</div>
+    <!-- Compact Card 1 -->
+    <div class="testimonial-card compact">
+      <div class="testimonial-rating">
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+      </div>
       <div class="testimonial-content">
         <p class="testimonial-text">
-          "Hassan Kamran is skilled in front-end development and
+          Hassan Kamran is skilled in front-end development and
           troubleshooting, proficient in HTML, CSS, and JavaScript. His
           problem-solving abilities ensure efficient issue resolution, making
-          him a valuable asset to any team."
+          him a valuable asset to any team.
         </p>
-        <div class="testimonial-footer">
-          <div class="testimonial-avatar">
-            <div class="avatar-placeholder"></div>
+      </div>
+      <div class="testimonial-footer">
+        <div class="testimonial-author">
+          <div class="author-avatar small">
+            <span class="avatar-initial">S</span>
           </div>
-          <div class="testimonial-info">
-            <h3>Syed Ikram</h3>
-            <p>Security Analyst, Ferro Technics</p>
+          <div class="author-info">
+            <h4 class="author-name">Syed Ikram</h4>
+            <p class="author-title">Security Analyst</p>
+            <p class="author-company">Ferro Technics</p>
           </div>
+        </div>
+        <div class="testimonial-source linkedin">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="#0077B5">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+          </svg>
+          <span class="source-label">LinkedIn</span>
         </div>
       </div>
     </div>
 
-    <div class="testimonial-card long-testimonial">
-      <div class="testimonial-icon">"</div>
-      <div class="testimonial-content">
-        <div class="testimonial-text-container">
-          <p class="testimonial-text">
-            "I had the privilege of studying and collaborating with Hassan on
-            several projects. He consistently demonstrated exceptional technical
-            expertise and a strong work ethic. Hassan's ability to lead teams,
-            develop innovative solutions, and deliver high-quality results makes
-            him a reliable and highly skilled professional. His dedication and
-            collaborative spirit were evident in every task he undertook, making
-            him an invaluable team member."
-          </p>
-        </div>
-        <button class="read-more-btn">Read More</button>
-        <div class="testimonial-footer">
-          <div class="testimonial-avatar">
-            <div class="avatar-placeholder"></div>
-          </div>
-          <div class="testimonial-info">
-            <h3>Hamza Nawaz</h3>
-            <p>Co-founder NCORP</p>
-          </div>
-        </div>
+    <!-- Compact Card 2 -->
+    <div class="testimonial-card compact">
+      <div class="testimonial-rating">
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
       </div>
-    </div>
-
-    <div class="testimonial-card">
-      <div class="testimonial-icon">"</div>
       <div class="testimonial-content">
         <p class="testimonial-text">
-          "I worked with him, He is a skilled problem-solver."
+          I had the privilege of studying and collaborating with Hassan on
+          several projects. He consistently demonstrated exceptional technical
+          expertise and a strong work ethic. Hassan's ability to lead teams
+          and deliver high-quality results makes him invaluable.
         </p>
-        <div class="testimonial-footer">
-          <div class="testimonial-avatar">
-            <div class="avatar-placeholder"></div>
+      </div>
+      <div class="testimonial-footer">
+        <div class="testimonial-author">
+          <div class="author-avatar small">
+            <span class="avatar-initial">H</span>
           </div>
-          <div class="testimonial-info">
-            <h3>Snawar Hussain</h3>
-            <p>Researcher, Fraunhofer MEVIS</p>
+          <div class="author-info">
+            <h4 class="author-name">Hamza Nawaz</h4>
+            <p class="author-title">Co-founder</p>
+            <p class="author-company">NCORP</p>
           </div>
+        </div>
+        <div class="testimonial-source linkedin">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="#0077B5">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+          </svg>
+          <span class="source-label">LinkedIn</span>
         </div>
       </div>
     </div>
 
-    <div class="testimonial-card">
-      <div class="testimonial-icon">"</div>
+    <!-- Compact Card 3 -->
+    <div class="testimonial-card compact">
+      <div class="testimonial-rating">
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+      </div>
       <div class="testimonial-content">
         <p class="testimonial-text">
-          "Having known him personally I can easily say that Hassan is one
-          dedicated and hardworking professional who handle all tasks
-          responsibly. And would be a great fit for any team."
+          I worked with Hassan on complex technical challenges. He is an exceptional problem-solver with deep technical knowledge and the ability to find innovative solutions quickly.
         </p>
-        <div class="testimonial-footer">
-          <div class="testimonial-avatar">
-            <div class="avatar-placeholder"></div>
+      </div>
+      <div class="testimonial-footer">
+        <div class="testimonial-author">
+          <div class="author-avatar small">
+            <span class="avatar-initial">S</span>
           </div>
-          <div class="testimonial-info">
-            <h3>Ehtisham ul Haq</h3>
-            <p>Manager Information Technology Advisory, KPMG In Pakistan</p>
+          <div class="author-info">
+            <h4 class="author-name">Snawar Hussain</h4>
+            <p class="author-title">Researcher</p>
+            <p class="author-company">Fraunhofer MEVIS</p>
           </div>
+        </div>
+        <div class="testimonial-source linkedin">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="#0077B5">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+          </svg>
+          <span class="source-label">LinkedIn</span>
         </div>
       </div>
     </div>
 
-    <div class="testimonial-card long-testimonial">
-      <div class="testimonial-icon">"</div>
-      <div class="testimonial-content">
-        <div class="testimonial-text-container">
-          <p class="testimonial-text">
-            "I had the privilege of working alongside him in the Army, where he
-            consistently demonstrated exceptional skills, dedication, and a
-            strong work ethic. He possesses a remarkable ability to, solve
-            complex problems, or lead teams effectively. He is a highly
-            motivated individual who is always eager to learn and grow. In
-            addition to his technical expertise, Hassan is an excellent team
-            player. He is always willing to help others and is highly respected
-            by colleagues. I am confident that Hassan will be a valuable asset
-            to any team."
-          </p>
-        </div>
-        <button class="read-more-btn">Read More</button>
-        <div class="testimonial-footer">
-          <div class="testimonial-avatar">
-            <div class="avatar-placeholder"></div>
-          </div>
-          <div class="testimonial-info">
-            <h3>Muhammad Hashir</h3>
-            <p>Technical Lead, Poplin</p>
-          </div>
-        </div>
+    <!-- Compact Card 4 -->
+    <div class="testimonial-card compact">
+      <div class="testimonial-rating">
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
       </div>
-    </div>
-
-    <div class="testimonial-card long-testimonial">
-      <div class="testimonial-icon">"</div>
-      <div class="testimonial-content">
-        <div class="testimonial-text-container">
-          <p class="testimonial-text">
-            "I had the pleasure of working with Hassan Kamran for a year at
-            Wisdom Wheel Wireless, where he served as an Embedded Engineer and
-            played a crucial role in business development. Hassan's technical
-            expertise and dedication were evident from the start, and he quickly
-            became an invaluable member of our team. As an Embedded Engineer,
-            Hassan demonstrated exceptional skill in designing and implementing
-            embedded systems. His deep understanding of both hardware and
-            software, combined with his problem-solving abilities, allowed him
-            to tackle complex technical challenges with ease. He consistently
-            delivered high-quality work, ensuring that our projects were
-            completed on time and exceeded expectations. In addition to his
-            technical contributions, Hassan also made significant impacts in
-            business development. His strategic thinking and ability to identify
-            new opportunities helped drive the growth of our company. He
-            effectively communicated with clients and stakeholders, building
-            strong relationships and fostering a collaborative environment.
-            Hassan's hard work, dedication, and positive attitude made a lasting
-            impression on everyone he worked with. He is not only a skilled
-            engineer but also a proactive and innovative business professional.
-            I am confident that Hassan will continue to achieve great success in
-            his future endeavors and highly recommend him for any role he
-            pursues."
-          </p>
-        </div>
-        <button class="read-more-btn">Read More</button>
-        <div class="testimonial-footer">
-          <div class="testimonial-avatar">
-            <div class="avatar-placeholder"></div>
-          </div>
-          <div class="testimonial-info">
-            <h3>Rooshaan Rajput</h3>
-            <p>Sales and Design Engineer, Foundation Solar Energy Ltd</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="testimonial-card">
-      <div class="testimonial-icon">"</div>
       <div class="testimonial-content">
         <p class="testimonial-text">
-          "Hassan had been very responsive at work. His ability to grasp things
+          Having known Hassan personally, I can easily say he is one
+          dedicated and hardworking professional who handles all tasks
+          responsibly. He would be a great fit for any team.
+        </p>
+      </div>
+      <div class="testimonial-footer">
+        <div class="testimonial-author">
+          <div class="author-avatar small">
+            <span class="avatar-initial">E</span>
+          </div>
+          <div class="author-info">
+            <h4 class="author-name">Ehtisham ul Haq</h4>
+            <p class="author-title">IT Advisory Manager</p>
+            <p class="author-company">KPMG Pakistan</p>
+          </div>
+        </div>
+        <div class="testimonial-source linkedin">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="#0077B5">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+          </svg>
+          <span class="source-label">LinkedIn</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Medium Card 1 -->
+    <div class="testimonial-card medium">
+      <div class="testimonial-rating">
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+      </div>
+      <div class="testimonial-content">
+        <p class="testimonial-text">
+          I had the privilege of working alongside Hassan in the Army, where he
+          consistently demonstrated exceptional skills, dedication, and a
+          strong work ethic. He possesses a remarkable ability to solve
+          complex problems and lead teams effectively. Hassan is an excellent team
+          player who is always willing to help others and is highly respected
+          by colleagues.
+        </p>
+        <div class="testimonial-highlight">
+          <span class="highlight-tag">Leadership</span>
+          <span class="highlight-tag">Team Player</span>
+        </div>
+      </div>
+      <div class="testimonial-footer">
+        <div class="testimonial-author">
+          <div class="author-avatar">
+            <span class="avatar-initial">M</span>
+          </div>
+          <div class="author-info">
+            <h4 class="author-name">Muhammad Hashir</h4>
+            <p class="author-title">Technical Lead</p>
+            <p class="author-company">Poplin</p>
+          </div>
+        </div>
+        <div class="testimonial-source linkedin">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="#0077B5">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+          </svg>
+          <span class="source-label">LinkedIn</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Medium Card 2 -->
+    <div class="testimonial-card medium">
+      <div class="testimonial-rating">
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+      </div>
+      <div class="testimonial-content">
+        <p class="testimonial-text">
+          Hassan's technical expertise at Wisdom Wheel Wireless was exceptional. 
+          As an Embedded Engineer, he demonstrated remarkable skill in designing 
+          and implementing embedded systems. His deep understanding of both hardware 
+          and software allowed him to tackle complex challenges with ease. Beyond 
+          technical contributions, Hassan made significant impacts in business 
+          development, identifying opportunities that drove company growth.
+        </p>
+        <div class="testimonial-highlight">
+          <span class="highlight-tag">Hardware Expert</span>
+          <span class="highlight-tag">Business Savvy</span>
+        </div>
+      </div>
+      <div class="testimonial-footer">
+        <div class="testimonial-author">
+          <div class="author-avatar">
+            <span class="avatar-initial">R</span>
+          </div>
+          <div class="author-info">
+            <h4 class="author-name">Rooshaan Rajput</h4>
+            <p class="author-title">Sales & Design Engineer</p>
+            <p class="author-company">Foundation Solar Energy</p>
+          </div>
+        </div>
+        <div class="testimonial-source linkedin">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="#0077B5">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+          </svg>
+          <span class="source-label">LinkedIn</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Compact Card 5 -->
+    <div class="testimonial-card compact">
+      <div class="testimonial-rating">
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+      </div>
+      <div class="testimonial-content">
+        <p class="testimonial-text">
+          Hassan had been very responsive at work. His ability to grasp things
           in shortest time and managing work load makes him valuable addition to
-          businesses. His interpersonal skills also add upto his bouquet of
-          traits that offer helping hand in negotiations. I recommend working
-          with him and wish him all the best."
+          businesses. His interpersonal skills offer great help in negotiations.
         </p>
-        <div class="testimonial-footer">
-          <div class="testimonial-avatar">
-            <div class="avatar-placeholder"></div>
+      </div>
+      <div class="testimonial-footer">
+        <div class="testimonial-author">
+          <div class="author-avatar small">
+            <span class="avatar-initial">F</span>
           </div>
-          <div class="testimonial-info">
-            <h3>Faiq Ahmad Butt</h3>
-            <p>Head, FAB TRONICS</p>
+          <div class="author-info">
+            <h4 class="author-name">Faiq Ahmad Butt</h4>
+            <p class="author-title">Head</p>
+            <p class="author-company">FAB TRONICS</p>
           </div>
+        </div>
+        <div class="testimonial-source linkedin">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="#0077B5">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+          </svg>
+          <span class="source-label">LinkedIn</span>
         </div>
       </div>
     </div>
@@ -770,3 +965,17 @@
     </p>
   </details>
 </section>
+
+<!-- Contact Form Section -->
+<section class="homepage-contact-section">
+  <div class="container">
+    <div class="homepage-contact-header">
+      <h2>Let's Work Together</h2>
+      <p>Have a project in mind? Get in touch and let's create something amazing.</p>
+    </div>
+    
+    {% include 'contact_form.html' %}
+  </div>
+</section>
+
+<script src="{{ static }}/experience-timeline.js"></script>

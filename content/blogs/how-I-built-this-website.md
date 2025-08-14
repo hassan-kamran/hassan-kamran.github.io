@@ -20,7 +20,6 @@ I chose to make use of the fundamentals, utilizing as many modern HTML/CSS featu
 
 I used JavaScript for the search functionality and one external library mini-search.js which itself does not have any external dependencies. I vendorized this dependency, meaning I serve it along with all the other assets of my website.
 
-{{template:cta}}
 
 ## Tech Stack Summary
 

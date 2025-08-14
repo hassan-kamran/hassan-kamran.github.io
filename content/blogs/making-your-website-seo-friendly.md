@@ -107,7 +107,6 @@ Google’s Core Web Vitals are critical for rankings. Here’s how I improved my
 
 ---
 
-{{template:cta}}
 
 ## Future-Proofing Your SEO Strategy
 

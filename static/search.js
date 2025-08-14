@@ -3,16 +3,16 @@
 // ==========================
 
 document.addEventListener("DOMContentLoaded", () => {
-  // DOM Elements
-  const searchButton = document.querySelector(".search-button");
-  const searchPopover = document.getElementById("search-box");
+  // DOM Elements - updated for new navigation
+  const searchButtons = document.querySelectorAll('[popovertarget="search-modal"], [popovertarget="search-box"]');
+  const searchPopover = document.getElementById("search-modal") || document.getElementById("search-box");
   const searchInput = document.getElementById("search-input");
   const searchForm = document.getElementById("search-form");
   const searchResultsContainer = document.getElementById(
     "search-results-container",
   );
   const searchResults = document.getElementById("search-results");
-  const closeSearchButton = document.querySelector("#search-box .close-btn");
+  const closeSearchButton = searchPopover ? searchPopover.querySelector(".search-modal-close, .btn-close, .close-btn") : null;
 
   // MiniSearch instance
   let miniSearch = null;
@@ -118,8 +118,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Clear search results
   function clearSearchResults() {
-    searchResultsContainer.classList.remove("visible");
-    searchResults.innerHTML = "";
+    if (searchResultsContainer) {
+      searchResultsContainer.classList.add("hidden");
+    }
+    if (searchResults) {
+      searchResults.innerHTML = "";
+    }
   }
 
   // Format type name for display
@@ -135,7 +139,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Perform search
   function performSearch(query) {
+    console.log("Performing search for:", query);
+    
     if (!miniSearch || !query.trim()) {
+      console.log("No miniSearch instance or empty query");
       clearSearchResults();
       return;
     }
@@ -145,6 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Search the index - get raw results from MiniSearch
     const results = miniSearch.search(query);
+    console.log("Search results:", results);
 
     if (results.length > 0) {
       displayResults(results, query);
@@ -229,18 +237,26 @@ document.addEventListener("DOMContentLoaded", () => {
             `;
     }
 
-    searchResults.innerHTML = html;
-    searchResultsContainer.classList.add("visible");
+    if (searchResults) {
+      searchResults.innerHTML = html;
+    }
+    if (searchResultsContainer) {
+      searchResultsContainer.classList.remove("hidden");
+    }
   }
 
   // Display no results message
   function displayNoResults() {
-    searchResults.innerHTML = `
+    if (searchResults) {
+      searchResults.innerHTML = `
             <div class="no-results">
                 <p>No results found. Try different keywords.</p>
             </div>
         `;
-    searchResultsContainer.classList.add("visible");
+    }
+    if (searchResultsContainer) {
+      searchResultsContainer.classList.remove("hidden");
+    }
   }
 
   // Find multiple matching snippets in content
@@ -343,10 +359,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Polyfill for popover API if not supported
   function togglePopover(element, force) {
-    if (
-      force === true ||
-      (force !== false && !element.hasAttribute("popover-open"))
-    ) {
+    if (!element) return;
+    
+    const isOpen = element.hasAttribute("popover-open") || element.matches(':popover-open');
+    
+    if (force === true || (force !== false && !isOpen)) {
       element.setAttribute("popover-open", "");
       element.style.display = "flex";
     } else {
@@ -355,9 +372,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Event Listeners
-  if (searchButton) {
-    document.querySelectorAll(".search-button").forEach((btn) => {
+  // Event Listeners for search buttons
+  if (searchButtons && searchButtons.length > 0) {
+    searchButtons.forEach((btn) => {
       btn.addEventListener("click", (e) => {
         e.preventDefault();
         openSearch();
@@ -402,7 +419,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("keydown", (e) => {
     if ((e.ctrlKey || e.metaKey) && e.key === "k") {
       e.preventDefault();
-      if (searchPopover.hasAttribute("popover-open")) {
+      if (searchPopover && (searchPopover.hasAttribute("popover-open") || searchPopover.matches(':popover-open'))) {
         closeSearch();
       } else {
         openSearch();
@@ -412,12 +429,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Close search on click outside
   document.addEventListener("click", (e) => {
-    if (
-      searchPopover.hasAttribute("popover-open") &&
+    if (searchPopover && 
+      (searchPopover.hasAttribute("popover-open") || searchPopover.matches(':popover-open')) &&
       !searchPopover.contains(e.target) &&
-      !Array.from(document.querySelectorAll(".search-button")).some((btn) =>
-        btn.contains(e.target),
-      )
+      !Array.from(searchButtons).some((btn) => btn.contains(e.target))
     ) {
       closeSearch();
     }

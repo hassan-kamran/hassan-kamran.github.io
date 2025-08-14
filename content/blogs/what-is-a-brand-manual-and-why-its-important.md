@@ -109,7 +109,6 @@ Share drafts with stakeholders and simulate real-world scenarios:
 
 ---
 
-{{template:cta}}
 
 ## Common Mistakes to Avoid
 
