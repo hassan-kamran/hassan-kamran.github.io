@@ -2,40 +2,72 @@
 
 ## Overview
 
-This is the source code for my personal portfolio website, showcasing my professional experience, projects, publications, and insights as an AI Engineer and Technical Project Manager.
+This is the source code for my personal portfolio website, showcasing my professional experience, projects, publications, and insights as a Founder, AI Engineer, and Technical Project Manager.
 
 ### 🌐 Website
-- **Live Site**: [engrhassankamran.com](https://engrhassankamran.com)
+- **Live Site**: [capt.pk](https://capt.pk)
+- **Business Site**: [big0.dev](https://big0.dev)
 
 ## 🚀 Features
 
-- Responsive design
-- Blog with dynamic content generation
-- Professional portfolio sections
-- SEO-optimized
-- Sitemap and robots.txt generation
-- SVG icon management
-- Modern web technologies
+### Core Features
+- **Responsive Design**: Mobile-first approach with optimized layouts for all devices
+- **Static Site Generation**: Fast, secure, and SEO-friendly static site built with Python and Jinja2
+- **Blog System**: Dynamic blog generation from Markdown files with categories and pagination
+- **Professional Portfolio**: Showcasing experience, certifications, and achievements
+- **Interactive Timeline**: JavaScript-free experience timeline using CSS animations
+- **Client-Side Search**: MiniSearch integration for instant content discovery
+- **Image Gallery**: Responsive gallery with zoom functionality
+- **Contact Integration**: Direct links to social profiles and professional networks
+
+### Performance & SEO
+- **Optimized Assets**: Minified CSS/JS and AVIF image format for faster loading
+- **Comprehensive Sitemaps**: XML sitemap and image sitemap for better indexing
+- **RSS Feed**: Auto-generated RSS feed for blog subscribers
+- **Meta Tags**: Open Graph and Twitter Card support
+- **Clean URLs**: SEO-friendly URL structure with redirects for legacy links
+
+### Design System
+- **CSS Variables**: Consistent design tokens for colors, spacing, and typography
+- **Component-Based**: Reusable components for cards, buttons, and layouts
+- **Modern CSS**: Flexbox, Grid, and CSS custom properties
+- **Accessibility**: ARIA labels, semantic HTML, and keyboard navigation
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: HTML5, CSS3
-- **Static Site Generation**: Python, Jinja2
-- **Deployment**: GitHub Pages
+- **Frontend**: HTML5, CSS3, Modern JavaScript (ES6+)
+- **Static Site Generation**: Python 3.13, Jinja2
+- **Build Tools**: Python scripts for generation and optimization
+- **Search**: MiniSearch for client-side full-text search
+- **Deployment**: GitHub Pages with custom domain
+- **Image Format**: AVIF for optimal compression and quality
 
 ## 📦 Project Structure
 
 ```
 .
-├── static/             # Static assets (SVGs, images)
+├── build/              # Generated static site output
+├── content/            # Content source files
+│   ├── blogs/          # Blog posts in Markdown format
+│   ├── gallery/        # Gallery metadata
+│   └── services/       # Service descriptions
+├── static/             # Static assets
+│   ├── *.css           # Stylesheets (base, components, page-specific)
+│   ├── *.avif          # Optimized images
+│   ├── *.svg           # Vector graphics and icons
+│   └── *.js            # JavaScript files (search, timeline, etc.)
 ├── templates/          # Jinja2 HTML templates
-│   ├── base.html       # Main page layout
-│   ├── home.html       # Homepage template
-│   ├── blog.html       # Blog listing template
-│   └── blog_post.html  # Individual blog post template
-├── text/               # Blog post content files
-├── generate_website.py # Static site generation script
-├── pyproject.toml      # Project dependencies
+│   ├── base.html       # Main layout template
+│   ├── home.html       # Homepage with experience timeline
+│   ├── blog.html       # Blog listing with pagination
+│   ├── about.html      # About page
+│   ├── resume.html     # Interactive resume
+│   ├── services.html   # Services overview
+│   ├── gallery.html    # Image gallery
+│   └── contact.html    # Contact information
+├── generate.py         # Main static site generation script
+├── site_config.yaml    # Site configuration
+├── pyproject.toml      # Project dependencies (uv)
 └── README.md           # Project documentation
 ```
 
@@ -44,7 +76,7 @@ This is the source code for my personal portfolio website, showcasing my profess
 ### Prerequisites
 
 - Python 3.13+
-- pip
+- uv (Python package manager) or pip
 
 ### Installation
 
@@ -54,28 +86,50 @@ This is the source code for my personal portfolio website, showcasing my profess
    cd hassan-kamran.github.io
    ```
 
-2. Create a virtual environment
+2. Install dependencies using uv (recommended)
    ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+   uv pip install -r requirements.txt
    ```
-
-3. Install dependencies
+   
+   Or using pip:
    ```bash
    pip install -r requirements.txt
    ```
 
-4. Generate the static site
+3. Generate the static site
    ```bash
-   python generate_website.py
+   python generate.py
    ```
+
+4. Serve locally for development
+   ```bash
+   cd build
+   python -m http.server 8000
+   ```
+
+5. Visit `http://localhost:8000` in your browser
 
 ## 🌈 Key Functionalities
 
-- **Dynamic Blog Generation**: Automatically generates blog pages from markdown files
-- **SVG Injection**: Custom SVG handling with color manipulation
-- **Responsive Design**: Mobile-friendly layout
-- **SEO Optimization**: Sitemap and robots.txt generation
+### Content Management
+- **Markdown Blog Posts**: Write blog posts in Markdown with YAML frontmatter
+- **Automatic Pagination**: Blog posts are automatically paginated (9 per page)
+- **Category System**: Organize content by categories
+- **Image Optimization**: Automatic image sitemap generation
+
+### Developer Experience
+- **Hot Reload**: Local development server with Python's built-in server
+- **Clean URLs**: Automatic URL generation from filenames
+- **Redirect Handling**: Legacy URL redirects for SEO preservation
+- **Build Optimization**: Automatic CSS/JS minification in production
+
+### Recent Updates (2025)
+- **CSS Optimization**: Consolidated design system with reduced redundancy
+- **Experience Timeline**: Fixed card flickering with proper height management
+- **SVG Fixes**: Improved color inheritance for logo SVGs
+- **Blog Enhancements**: Added comprehensive content for technical blogs
+- **Image Sitemaps**: Complete image indexing for all site images
+- **PDF Button**: Improved hover state legibility on resume download
 
 ## 🤝 Contributing
 
