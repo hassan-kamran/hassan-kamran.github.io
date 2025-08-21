@@ -60,6 +60,9 @@
 
     {% if custom_css %}
         <link rel="stylesheet" href="{{ static | safe }}/{{ custom_css }}.css" />
+        {% if custom_css == 'home' %}
+            <link rel="stylesheet" href="{{ static | safe }}/experience-timeline.css" />
+        {% endif %}
     {% endif %}
 
     <link

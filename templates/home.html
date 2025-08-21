@@ -1,7 +1,7 @@
 <section class="hero">
   <div class="hero-content">
     <div class="badge-container">
-      <span class="badge">7+ Years Experience</span>
+      <span class="badge">{{ years_experience }}+ Years Experience</span>
       <span class="badge">AI & IoT Expert</span>
       <span class="badge">Military Leader</span>
     </div>
@@ -97,7 +97,7 @@
       <a href="https://case.edu.pk/" target="_blank">
         {{ inject_svg('case', False) | safe }}
         <span class="edu-name">CASE</span>
-        <span class="edu-degree">MS Computer Science</span>
+        <span class="edu-degree">MS Computer Sci.</span>
         <span class="edu-year">2022-25</span>
       </a>
     </div>
@@ -105,8 +105,16 @@
       <a href="https://szabist.edu.pk/" target="_blank">
         {{ inject_svg('szabist', False) | safe }}
         <span class="edu-name">SZABIST</span>
-        <span class="edu-degree">MPM</span>
+        <span class="edu-degree">MS Project Mgmt.</span>
         <span class="edu-year">2025-26</span>
+      </a>
+    </div>
+    <div class="education-logo">
+      <a href="https://www.nu.edu.pk/" target="_blank">
+        {{ inject_svg('nuces', False) | safe }}
+        <span class="edu-name">NUCES</span>
+        <span class="edu-degree">PhD Software Eng.</span>
+        <span class="edu-year">2025-30</span>
       </a>
     </div>
   </div>
@@ -114,185 +122,48 @@
 
 
 
-<section class="experience">
-  <h2>Professional Experience</h2>
+<section class="experience-compact">
+  <h2>Professional Journey</h2>
+  <p class="experience-subtitle">Full details on <a href="https://www.linkedin.com/in/engr-hassan-kamran/" target="_blank">LinkedIn</a></p>
   
-  <!-- Horizontal Timeline -->
-  <div class="experience-timeline">
-    <div class="timeline-track">
-      <div class="timeline-point active" data-experience="big0">
-        <div class="timeline-point-dot"></div>
-        <div class="timeline-point-label">
-          <span class="timeline-point-year">2025</span>
-          <span class="timeline-point-title">Founder & CEO</span>
-        </div>
-      </div>
-      
-      <div class="timeline-point" data-experience="cyberx">
-        <div class="timeline-point-dot"></div>
-        <div class="timeline-point-label">
-          <span class="timeline-point-year">2023-2025</span>
-          <span class="timeline-point-title">Project Manager</span>
-        </div>
-      </div>
-      
-      <div class="timeline-point" data-experience="army">
-        <div class="timeline-point-dot"></div>
-        <div class="timeline-point-label">
-          <span class="timeline-point-year">2020-2023</span>
-          <span class="timeline-point-title">Captain</span>
-        </div>
-      </div>
-      
-      <div class="timeline-point part-time" data-experience="university">
-        <div class="timeline-point-dot"></div>
-        <div class="timeline-point-label">
-          <span class="timeline-point-year">2018-2019</span>
-          <span class="timeline-point-title">Part-time Roles</span>
-          <span class="timeline-point-subtitle">During University</span>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Experience Cards -->
-  <div class="experience-cards">
-    <!-- Big0.Dev Card -->
-    <div class="experience-card active" id="big0">
-      <div class="experience-header">
-        <h3>Founder & CEO</h3>
-        <span class="experience-company">Big0.Dev</span>
-        <div class="experience-meta">
-          <span class="experience-duration">Feb 2025 - Current</span>
-          <span class="experience-location">Islāmābād, Pakistan</span>
-        </div>
-      </div>
-      
-      <ul>
-        <li>Leading a software consultancy delivering AI/ML and IoT solutions for industry clients</li>
-      </ul>
-      
-      <div class="experience-skills">
-        <div class="experience-skills-label">Key Skills</div>
-        <div class="experience-skills-list">
-          <span class="skill-tag">Artificial Intelligence</span>
-          <span class="skill-tag">Cloud Architecture</span>
-          <span class="skill-tag">Machine Learning</span>
-          <span class="skill-tag">Business Strategy</span>
-          <span class="skill-tag">Team Leadership</span>
-        </div>
-      </div>
-      
-      <a href="https://big0.dev/" class="experience-link" target="_blank">
-        Visit Company Website
-      </a>
+  <!-- Compact Horizontal Timeline -->
+  <div class="horizontal-timeline">
+    <div class="timeline-line"></div>
+    
+    <div class="timeline-stop">
+      <div class="timeline-year">2018</div>
+      <div class="timeline-role">ML Engineer</div>
+      <a href="https://www.linkedin.com/company/incline-artificial-intelligence/" target="_blank" class="timeline-company">Incline AI</a>
     </div>
     
-    <!-- CyberX Studio Card -->
-    <div class="experience-card" id="cyberx">
-      <div class="experience-header">
-        <h3>Project Manager & Tech Lead</h3>
-        <span class="experience-company">CyberX Studio</span>
-        <div class="experience-meta">
-          <span class="experience-duration">Nov 2023 - Nov 2025</span>
-          <span class="experience-location">Islāmābād, Pakistan</span>
-        </div>
-      </div>
-      
-      <ul>
-        <li>Led website development for AWT, FerroTechnics, CyberX Soft, Emerald IT, Laptop Rental AU, Yontem Teknoloji, Guide to Pakistan, Rawaan Pakistan & other clients</li>
-        <li>Developed & deployed internal automation tools such as a system that automatically retrieved new invoices from Intellievent and uploaded them to Xero</li>
-        <li>Setup a aviation technician training center in collaboration with Yontem Teknoloji for KPSATS</li>
-        <li>Modernized legacy websites & systems</li>
-        <li>Managed cross-functional teams of 10-15 developers & support staff using Agile/Scrum</li>
-        <li>Built real-time KPI dashboards & analytics solutions for One World Rental</li>
-        <li>Created technical roadmaps & secured stakeholder approval for projects</li>
-      </ul>
-      
-      <div class="experience-skills">
-        <div class="experience-skills-label">Key Skills</div>
-        <div class="experience-skills-list">
-          <span class="skill-tag">Full-Stack Development</span>
-          <span class="skill-tag">System Integration</span>
-          <span class="skill-tag">Agile Management</span>
-          <span class="skill-tag">API Development</span>
-          <span class="skill-tag">Technical Leadership</span>
-        </div>
-      </div>
-      
-      <a href="https://cyberxstudio.com/" class="experience-link" target="_blank">
-        Visit Company Website
-      </a>
+    <div class="timeline-stop">
+      <div class="timeline-year">2019</div>
+      <div class="timeline-role">Research Assistant</div>
+      <a href="https://ceme.nust.edu.pk/" target="_blank" class="timeline-company">NUST</a>
     </div>
     
-    <!-- Pakistan Army Card -->
-    <div class="experience-card" id="army">
-      <div class="experience-header">
-        <h3>Captain (Workshop Officer)</h3>
-        <span class="experience-company">Pakistan Army, EME Corps</span>
-        <div class="experience-meta">
-          <span class="experience-duration">Oct 2020 - Oct 2023</span>
-          <span class="experience-location">Pakistan</span>
-        </div>
-      </div>
-      
-      <ul>
-        <li>Supervised vehicle & equipment maintenance operations</li>
-        <li>Managed team of 50+ technical personnel & maintenance schedules</li>
-        <li>Conducted compliance audits & implemented safety improvements</li>
-        <li>Coordinated maintenance workflows & resource planning</li>
-        <li>Served at 162 C Troops Workshop Company (2020) & 195 Independent Workshop Company (2022)</li>
-      </ul>
-      
-      <div class="experience-skills">
-        <div class="experience-skills-label">Key Skills</div>
-        <div class="experience-skills-list">
-          <span class="skill-tag">Operations Management</span>
-          <span class="skill-tag">Strategic Leadership</span>
-          <span class="skill-tag">Resource Planning</span>
-          <span class="skill-tag">Risk Assessment</span>
-          <span class="skill-tag">Team Building</span>
-        </div>
-      </div>
-      
-      <a href="https://pakistanarmy.gov.pk/" class="experience-link" target="_blank">
-        Visit Organization Website
-      </a>
+    <div class="timeline-stop">
+      <div class="timeline-year">2019</div>
+      <div class="timeline-role">Embedded Engineer</div>
+      <a href="https://www.linkedin.com/company/wisdomwheel/" target="_blank" class="timeline-company">WisdomWheel</a>
     </div>
     
-    <!-- University Part-time Experience Card -->
-    <div class="experience-card" id="university">
-      <div class="experience-header">
-        <h3>Part-time Engineering Roles</h3>
-        <span class="experience-company part-time-badge">During B.E. Mechatronics</span>
-        <div class="experience-meta">
-          <span class="experience-duration">2018 - 2019</span>
-          <span class="experience-location">Islamabad, Pakistan</span>
-        </div>
-      </div>
-      
-      <ul class="part-time-list">
-        <li><strong>Machine Learning Engineer @ Incline AI (2018):</strong> Developed autonomous vehicle algorithms using TensorFlow & ROS</li>
-        <li><strong>Research Assistant @ NUST (2018-19):</strong> Built precision agriculture drone with automated spraying system</li>
-        <li><strong>Embedded Engineer @ WisdomWheel (2018-19):</strong> Designed IoT tracking system for shipping containers</li>
-      </ul>
-      
-      <div class="experience-skills">
-        <div class="experience-skills-label">Combined Skills Developed</div>
-        <div class="experience-skills-list">
-          <span class="skill-tag">TensorFlow</span>
-          <span class="skill-tag">ROS/Gazebo</span>
-          <span class="skill-tag">Embedded C/C++</span>
-          <span class="skill-tag">LIDAR Processing</span>
-          <span class="skill-tag">IoT Protocols</span>
-        </div>
-      </div>
-      
-      <div class="part-time-links">
-        <a href="https://www.linkedin.com/company/incline-artificial-intelligence/" target="_blank" class="mini-link">Incline AI</a>
-        <a href="https://ceme.nust.edu.pk/" target="_blank" class="mini-link">NUST CEME</a>
-        <a href="https://www.linkedin.com/company/wisdomwheel/" target="_blank" class="mini-link">WisdomWheel</a>
-      </div>
+    <div class="timeline-stop">
+      <div class="timeline-year">2020</div>
+      <div class="timeline-role">Captain</div>
+      <a href="https://pakistanarmy.gov.pk/" target="_blank" class="timeline-company">Pakistan Army</a>
+    </div>
+    
+    <div class="timeline-stop">
+      <div class="timeline-year">2023</div>
+      <div class="timeline-role">Project Manager</div>
+      <a href="https://cyberxstudio.com/" target="_blank" class="timeline-company">CyberX Studio</a>
+    </div>
+    
+    <div class="timeline-stop current">
+      <div class="timeline-year">2025</div>
+      <div class="timeline-role">Founder & CEO</div>
+      <a href="https://big0.dev/" target="_blank" class="timeline-company">Big0.Dev</a>
     </div>
   </div>
 </section>

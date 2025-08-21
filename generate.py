@@ -453,6 +453,10 @@ class SiteGenerator:
                 if template_name == 'home.html':
                     context['custom_css'] = 'home'
                     context['preload'] = 'hero'
+                    # Calculate years of experience (from 2018)
+                    experience_start = 2018
+                    current_year = datetime.now().year
+                    context['years_experience'] = current_year - experience_start
                     # Calculate founder time
                     try:
                         from dateutil.relativedelta import relativedelta
