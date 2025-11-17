@@ -1,12 +1,12 @@
 <section class="cta-section">
   <div class="cta-container">
     <div class="cta-wrapper">
-      <h2 class="cta-title">Ready to Build Something Amazing?</h2>
+      <h2 class="cta-title">{{ cta_title | default("Ready to Build Something Amazing?") }}</h2>
       <p class="cta-description">
-        Let's transform your ideas into reality with cutting-edge technology and proven expertise.
+        {{ cta_description | default("Let's transform your ideas into reality with cutting-edge technology and proven expertise.") }}
       </p>
-      <a href="/contact.html" class="cta-button">
-        Start Your Project
+      <a href="{{ cta_link | default('/contact.html') }}" class="cta-button">
+        {{ cta_button_text | default("Start Your Project") }}
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <line x1="5" y1="12" x2="19" y2="12"></line>
           <polyline points="12 5 19 12 12 19"></polyline>

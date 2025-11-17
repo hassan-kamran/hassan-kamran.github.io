@@ -285,27 +285,11 @@ class SiteGenerator:
                 # Fix image paths - add leading slash if missing
                 import re
                 blog_content = re.sub(r'!\[([^\]]*)\]\(static/', r'![\1](/static/', blog_content)
-                
-                # Replace CTA template with actual HTML
-                cta_html = '''
-<section class="cta-section">
-  <div class="cta-container">
-    <div class="cta-wrapper">
-      <h2 class="cta-title">Ready to Build Something Amazing?</h2>
-      <p class="cta-description">
-        Let's transform your ideas into reality with cutting-edge technology and proven expertise.
-      </p>
-      <a href="/contact.html" class="cta-button">
-        Start Your Project
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <line x1="5" y1="12" x2="19" y2="12"></line>
-          <polyline points="12 5 19 12 12 19"></polyline>
-        </svg>
-      </a>
-    </div>
-  </div>
-</section>
-'''
+
+                # Replace CTA template with actual rendered HTML
+                cta_template = self.env.get_template('cta.html')
+                cta_context = self._get_base_context('blog')
+                cta_html = cta_template.render(**cta_context)
                 blog_content = blog_content.replace('{{template:cta}}', cta_html)
                 
                 # Replace video embeds with YouTube iframe
