@@ -176,7 +176,7 @@
 
 /* Button Variants */
 .btn-primary {
-  color: #FFFFFF;
+  color: var(--color-text-inverse);
   background-color: var(--color-primary-600);
   border-color: var(--color-primary-600);
   font-weight: var(--font-semibold);
@@ -324,7 +324,7 @@
 
 /* Cards */
 .card {
-  background-color: #FFFFFF;
+  background-color: var(--color-background);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-xl);
   padding: var(--space-6);
@@ -461,7 +461,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 1rem 2rem;
-  background-color: #FFFFFF;
+  background-color: var(--color-background);
   border-bottom: 2px solid var(--color-primary-100);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
   height: 80px;
@@ -595,7 +595,7 @@
   bottom: 0;
   width: 100%;
   max-width: 320px;
-  background-color: #FFFFFF;
+  background-color: var(--color-background);
   box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
   z-index: 100;
   transform: translateX(100%);
@@ -725,6 +725,8 @@
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
+  position: relative;
+  z-index: 1;
 }
 
 .footer-link {

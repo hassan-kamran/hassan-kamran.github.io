@@ -1,6 +1,11 @@
-<section class="blog-post-section">
+<!-- Reading Progress Bar - Fixed at top -->
+<div class="reading-progress">
+  <div class="progress-bar" id="progressBar"></div>
+</div>
+
+<section class="blog-post-section premium-section-gradient">
   <div class="container">
-    <article class="blog-post">
+    <article class="blog-post premium-card">
       <!-- Clean Header -->
       <header class="blog-post-header">
         <div class="blog-post-meta">
@@ -8,22 +13,17 @@
           <span class="blog-date">{{ date }}</span>
           <span class="reading-time" id="reading-time">5 min read</span>
         </div>
-        
+
         <h1 class="blog-post-title">{{ title }}</h1>
-        
+
         {% if description %}
         <p class="blog-post-lead">{{ description }}</p>
         {% endif %}
-        
+
         <div class="author-info">
           <span class="author-name">By Hassan Kamran</span>
         </div>
       </header>
-
-      <!-- Reading Progress Bar -->
-      <div class="reading-progress">
-        <div class="progress-bar" id="progressBar"></div>
-      </div>
 
       <!-- Main Content -->
       <div class="blog-post-body">
@@ -52,7 +52,7 @@
     
     <!-- Navigation -->
     <div class="page-navigation">
-      <a href="../blog.html" class="btn-secondary">
+      <a href="../blog.html" class="premium-btn premium-btn-secondary">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <line x1="19" y1="12" x2="5" y2="12"></line>
           <polyline points="12 19 5 12 12 5"></polyline>

@@ -1,4 +1,6 @@
-/* Modern Navigation Styles */
+/* ===========================================
+   CONSOLIDATED NAVIGATION STYLES
+   =========================================== */
 
 /* Navigation Header */
 .nav-header {
@@ -13,14 +15,19 @@
   height: 64px;
 }
 
+.nav-header * {
+  box-sizing: border-box;
+}
+
 .nav-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 1rem;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
 }
 
 /* Logo */
@@ -49,18 +56,9 @@
   stroke: #7f3e98 !important;
 }
 
-/* Desktop Navigation */
+/* Desktop Navigation - Hidden on mobile */
 .nav-desktop {
-  display: flex;
-  flex: 1;
-  justify-content: center;
-  padding: 0 2rem;
-}
-
-@media (max-width: 1023px) {
-  .nav-desktop {
-    display: none; /* Hide on mobile/tablet */
-  }
+  display: none;
 }
 
 .nav-links {
@@ -72,10 +70,7 @@
   padding: 0;
 }
 
-.nav-link,
-.nav-links .nav-link,
-.nav-desktop .nav-link,
-a.nav-link {
+.nav-link {
   font-size: 0.95rem;
   font-weight: 500;
   color: #374151;
@@ -86,13 +81,9 @@ a.nav-link {
   border-bottom: none !important;
 }
 
-.nav-link:hover,
-.nav-links .nav-link:hover,
-.nav-desktop .nav-link:hover,
-a.nav-link:hover {
+.nav-link:hover {
   color: #7f3e98;
   text-decoration: none !important;
-  border-bottom: none !important;
 }
 
 .nav-link::after {
@@ -115,12 +106,12 @@ a.nav-link:hover {
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.5rem;
 }
 
-/* Search Button */
+/* Search Button - Hidden on mobile */
 .nav-search-btn {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   width: 40px;
@@ -130,12 +121,6 @@ a.nav-link:hover {
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.2s ease;
-}
-
-@media (max-width: 1023px) {
-  .nav-search-btn {
-    display: none; /* Hide on mobile, search is in mobile menu */
-  }
 }
 
 .nav-search-btn:hover {
@@ -149,38 +134,80 @@ a.nav-link:hover {
 
 /* Mobile Menu Toggle */
 .nav-mobile-toggle {
-  display: none !important; /* Hidden by default on desktop */
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 40px;
   height: 40px;
-  background: transparent;
-  border: none;
+  background: white;
+  border: 2px solid #7f3e98;
   border-radius: 8px;
   cursor: pointer;
   padding: 0;
-  transition: background-color 0.2s ease;
-}
-
-@media (max-width: 1023px) {
-  .nav-mobile-toggle {
-    display: flex !important; /* Show on mobile/tablet - override any conflicts */
-  }
 }
 
 .nav-mobile-toggle:hover {
-  background-color: rgba(127, 62, 152, 0.08);
+  background-color: #f3f4f6;
 }
 
 .hamburger-line {
-  display: block !important;
-  width: 20px;
+  display: block;
+  width: 18px;
   height: 2px;
-  background-color: #374151 !important;
-  margin: 2px 0;
-  transition: all 0.3s ease;
+  background-color: #7f3e98;
+  margin: 3px 0;
   border-radius: 1px;
+  transition: all 0.3s ease;
+}
+
+/* Hide old nav toggle from components.css */
+.nav-toggle {
+  display: none !important;
+}
+
+/* Desktop styles */
+@media (min-width: 1024px) {
+  .nav-container {
+    padding: 0 1.5rem;
+  }
+
+  .nav-desktop {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    padding: 0 2rem;
+  }
+
+  .nav-search-btn {
+    display: flex;
+  }
+
+  .nav-mobile-toggle {
+    display: none !important;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 1023px) {
+  .nav-desktop,
+  .nav-menu,
+  .nav-links:not(.nav-mobile-links),
+  .nav-search-btn {
+    display: none !important;
+  }
+
+  .nav-actions {
+    display: flex !important;
+    margin-left: auto;
+  }
+
+  .nav-mobile-toggle {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 100;
+  }
 }
 
 /* Mobile Menu Popover */
@@ -204,7 +231,6 @@ a.nav-link:hover {
   right: 0;
 }
 
-/* Overlay for mobile menu */
 .mobile-menu-popover::backdrop {
   background-color: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(2px);
@@ -456,50 +482,24 @@ a.nav-link:hover {
   line-height: 1.5;
 }
 
-/* Responsive adjustments */
+/* Small screen adjustments */
 @media (max-width: 640px) {
-  .nav-container {
-    padding: 0 1rem;
-  }
-  
   .search-modal-popover {
     width: 95%;
     max-height: 90vh;
   }
-  
+
   .mobile-menu-popover {
     max-width: 100%;
   }
 }
 
-/* Ensure proper stacking */
+/* Ensure proper stacking for main content */
 main {
   padding-top: 64px;
 }
 
-/* Override any conflicting styles from components.css */
-.nav-toggle {
-  display: none !important; /* Hide old hamburger */
-}
-
-/* Force hamburger visibility on mobile with high specificity */
-@media screen and (max-width: 1023px) {
-  nav.nav-header .nav-mobile-toggle {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
-  
-  nav.nav-header .nav-desktop {
-    display: none !important;
-  }
-  
-  nav.nav-header .nav-search-btn {
-    display: none !important;
-  }
-}
-
-/* Icon styling consistency */
+/* Icon styling */
 .icon-search {
   fill: none !important;
   stroke: #7f3e98 !important;

@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="{{ meta_des | safe }}" />
+    <meta name="theme-color" content="#ffffff" />
     {% if base_tag %} {{ base_tag | safe }} {% endif %} {{ canonical | safe }}
     <title>{{ title | safe }}</title>
     {% if preload %}
@@ -30,34 +31,19 @@
       type="font/woff2"
       crossorigin="anonymous"
     />
-    
+
     <!-- Load Design System -->
     <link rel="stylesheet" href="{{ static | safe }}/design-system.css" />
     <link rel="stylesheet" href="{{ static | safe }}/base.css" />
     <link rel="stylesheet" href="{{ static | safe }}/components.css" />
-    <link rel="stylesheet" href="{{ static | safe }}/nav-modern.css" />
-    <link rel="stylesheet" href="{{ static | safe }}/nav-fix.css" />
-    <link rel="stylesheet" href="{{ static | safe }}/nav-override.css" />
+    <link rel="stylesheet" href="{{ static | safe }}/nav.css" />
     <link rel="stylesheet" href="{{ static | safe }}/contact-form.css" />
     <link rel="stylesheet" href="{{ static | safe }}/cookie-consent.css" />
-    
-    <style>
-      /* Force hamburger visibility on mobile */
-      @media (max-width: 1023px) {
-        .nav-mobile-toggle {
-          display: block !important;
-          visibility: visible !important;
-        }
-        .nav-desktop, .nav-search-btn {
-          display: none !important;
-        }
-      }
-      @media (min-width: 1024px) {
-        .nav-mobile-toggle {
-          display: none !important;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="{{ static | safe }}/animations.css" />
+    <link rel="stylesheet" href="{{ static | safe }}/wild-effects.css" />
+    <link rel="stylesheet" href="{{ static | safe }}/ultra-effects.css" />
+    <link rel="stylesheet" href="{{ static | safe }}/mega-effects.css" />
+    <link rel="stylesheet" href="{{ static | safe }}/pages-premium.css" />
 
     {% if custom_css %}
         <link rel="stylesheet" href="{{ static | safe }}/{{ custom_css }}.css" />
@@ -305,5 +291,14 @@
         }
       });
     </script>
+
+    <!-- Animations Script -->
+    <script src="{{ static | safe }}/animations.js" defer></script>
+    <script src="{{ static | safe }}/ultra-effects.js" defer></script>
+    <script src="{{ static | safe }}/mega-effects.js" defer></script>
+
+    <!-- Visual Overlays -->
+    <div class="noise-overlay" aria-hidden="true"></div>
+    <div class="mesh-gradient-bg" aria-hidden="true"></div>
   </body>
 </html>

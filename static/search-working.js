@@ -89,16 +89,12 @@ document.addEventListener("DOMContentLoaded", () => {
         return response.json();
       })
       .then((documents) => {
-        console.log("Loaded search index with", documents.length, "documents");
         // Store documents for context extraction
         searchDocuments = documents;
-
         // Add documents to the index
         miniSearch.addAll(documents);
       })
-      .catch((error) => {
-        console.error("Error loading search index:", error);
-      });
+      .catch(() => {});
   }
 
   // Initialize search on page load
@@ -158,10 +154,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Perform search
   function performSearch(query) {
-    console.log("Performing search for:", query);
-    
     if (!miniSearch || !query.trim()) {
-      console.log("No miniSearch instance or empty query");
       clearSearchResults();
       return;
     }
@@ -171,7 +164,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Search the index - get raw results from MiniSearch
     const results = miniSearch.search(query);
-    console.log("Search results:", results);
 
     if (results.length > 0) {
       displayResults(results, query);

@@ -1,19 +1,47 @@
-<section class="hero">
+<section class="hero" data-blob-bg>
+  <!-- Floating Particles -->
+  <div class="hero-particles">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+  <!-- Floating Shapes -->
+  <div class="floating-shapes">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+  </div>
   <div class="hero-content">
     <div class="badge-container">
-      <span class="badge">{{ years_experience }}+ Years Experience</span>
-      <span class="badge">AI & IoT Expert</span>
-      <span class="badge">Military Leader</span>
+      <span class="badge shine-sweep">{{ years_experience }}+ Years Building</span>
+      <span class="badge shine-sweep">AI & Robotics</span>
+      <span class="badge shine-sweep">Army Captain</span>
     </div>
-    <h1>Engineering Excellence,<br>Strategic Impact</h1>
-    <p id="hero-text">
-      Transforming technical challenges into business advantages through
-      innovative AI, IoT, and cloud solutions. Bringing engineering leadership
-      and strategic vision to deliver measurable results.
+    <h1 class="hero-title">
+      <span class="gradient-text-animated">Engineer.</span>
+      <span class="gradient-text-animated">Innovator.</span><br>
+      <span class="hero-role" data-scramble="Problem Solver.|System Architect.|AI Developer.|Team Leader.">Problem Solver.</span>
+    </h1>
+    <p id="hero-text" data-split-reveal>
+      I build intelligent systems that solve real problems. From AI-powered healthcare
+      diagnostics to autonomous drones, I transform complex challenges into elegant solutions
+      that deliver measurable impact.
     </p>
-    <a href="{{ contact }}" class="btn btn-primary btn-lg">
-      Get in Touch
-    </a>
+    <div class="hero-cta-group">
+      <a href="{{ contact }}" class="btn btn-hero-primary">
+        Start a Project
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+          <line x1="22" y1="2" x2="11" y2="13"/>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+        </svg>
+      </a>
+      <a href="{{ blog }}" class="btn btn-hero-secondary">
+        View My Work
+      </a>
+    </div>
     
     <!-- Professional Affiliations -->
     <div class="hero-affiliations">
@@ -122,10 +150,176 @@
   </div>
 </div>
 
+<!-- Infinite Tech Marquee -->
 
+<!-- Impact Stats Section - Redesigned -->
+<section class="stats-section" data-reveal="fade-up">
+  <div class="stats-container">
+    <div class="stats-header">
+      <span class="stats-eyebrow">Track Record</span>
+      <h2>Building Things That Matter</h2>
+      <p>From military operations to cutting-edge AI research</p>
+    </div>
+    <div class="stats-bento-grid">
+      <!-- Large featured stat -->
+      <div class="stat-card stat-featured glass-card hover-card-lift" data-tilt data-spotlight>
+        <div class="stat-card-glow"></div>
+        <div class="stat-card-content">
+          <span class="stat-number-large" data-counter data-target="7" data-suffix="+">0+</span>
+          <span class="stat-label-large">Years of Experience</span>
+          <p class="stat-description">From embedded systems to enterprise AI, continuously pushing boundaries</p>
+          <div class="stat-timeline-mini">
+            <span>2018</span>
+            <div class="timeline-progress"><div class="timeline-fill"></div></div>
+            <span>Now</span>
+          </div>
+        </div>
+      </div>
 
-<section class="experience-compact">
-  <h2>Professional Journey</h2>
+      <!-- Research impact -->
+      <div class="stat-card stat-research glass-card hover-card-lift" data-tilt data-spotlight>
+        <div class="stat-icon-floating">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/>
+          </svg>
+        </div>
+        <span class="stat-number" data-counter data-target="2">0</span>
+        <span class="stat-label">Peer-Reviewed Publications</span>
+        <div class="stat-badges">
+          <span class="pub-badge">IEEE</span>
+          <span class="pub-badge">PLOS ONE</span>
+        </div>
+      </div>
+
+      <!-- Military leadership -->
+      <div class="stat-card stat-military glass-card hover-card-lift" data-tilt data-spotlight>
+        <div class="stat-icon-floating military-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/>
+          </svg>
+        </div>
+        <div class="captain-rank-display">
+          <span class="captain-pips">
+            <span class="pip-row"><span class="pip"></span></span>
+            <span class="pip-row"><span class="pip"></span><span class="pip"></span></span>
+          </span>
+          <span class="stat-number">Captain</span>
+        </div>
+        <span class="stat-label">Pakistan Army (Retd)</span>
+        <p class="stat-micro">Led teams in high-stakes environments</p>
+      </div>
+
+      <!-- Education -->
+      <div class="stat-card stat-education glass-card hover-card-lift" data-tilt data-spotlight>
+        <div class="stat-icon-floating">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5"/>
+          </svg>
+        </div>
+        <span class="stat-number" data-counter data-target="3">0</span>
+        <span class="stat-label">Degrees & Counting</span>
+        <div class="degree-stack">
+          <span>BE Mechatronics</span>
+          <span>MS Computer Science</span>
+          <span>MS Project Management</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Tech Arsenal Section - Separate Orbital Design -->
+<section class="tech-arsenal-section" data-reveal="fade-up">
+  <div class="tech-arsenal-container">
+    <div class="tech-arsenal-header">
+      <span class="section-eyebrow">Technology Stack</span>
+      <h2>Tech Arsenal</h2>
+      <p>25+ technologies mastered across AI, full-stack, and DevOps</p>
+    </div>
+
+    <div class="tech-orbit-container">
+      <!-- Central Nucleus -->
+      <div class="orbit-nucleus">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/>
+        </svg>
+      </div>
+
+      <!-- Inner Orbit - Core Languages -->
+      <div class="orbit-ring orbit-ring-1">
+        <div class="orbit-tech" data-tech="Python">
+          {{ inject_svg('tech-python', False) | safe }}
+        </div>
+        <div class="orbit-tech" data-tech="JavaScript">
+          {{ inject_svg('tech-javascript', False) | safe }}
+        </div>
+        <div class="orbit-tech" data-tech="C++">
+          {{ inject_svg('tech-cpp', False) | safe }}
+        </div>
+        <div class="orbit-tech" data-tech="TypeScript">
+          {{ inject_svg('tech-typescript', False) | safe }}
+        </div>
+      </div>
+
+      <!-- Middle Orbit - AI/ML -->
+      <div class="orbit-ring orbit-ring-2">
+        <div class="orbit-tech" data-tech="TensorFlow">
+          {{ inject_svg('tech-tensorflow', False) | safe }}
+        </div>
+        <div class="orbit-tech" data-tech="PyTorch">
+          {{ inject_svg('tech-pytorch', False) | safe }}
+        </div>
+        <div class="orbit-tech" data-tech="OpenCV">
+          {{ inject_svg('tech-opencv', False) | safe }}
+        </div>
+        <div class="orbit-tech" data-tech="Keras">
+          {{ inject_svg('tech-keras', False) | safe }}
+        </div>
+        <div class="orbit-tech" data-tech="ROS">
+          {{ inject_svg('tech-ros', False) | safe }}
+        </div>
+        <div class="orbit-tech" data-tech="FastAPI">
+          {{ inject_svg('tech-fastapi', False) | safe }}
+        </div>
+      </div>
+
+      <!-- Outer Orbit - DevOps & Tools -->
+      <div class="orbit-ring orbit-ring-3">
+        <div class="orbit-tech" data-tech="Docker">
+          {{ inject_svg('tech-docker', False) | safe }}
+        </div>
+        <div class="orbit-tech" data-tech="Kubernetes">
+          {{ inject_svg('tech-kubernetes', False) | safe }}
+        </div>
+        <div class="orbit-tech" data-tech="AWS">
+          {{ inject_svg('tech-aws', False) | safe }}
+        </div>
+        <div class="orbit-tech" data-tech="React">
+          {{ inject_svg('tech-react', False) | safe }}
+        </div>
+        <div class="orbit-tech" data-tech="Node.js">
+          {{ inject_svg('tech-nodejs', False) | safe }}
+        </div>
+        <div class="orbit-tech" data-tech="PostgreSQL">
+          {{ inject_svg('tech-postgresql', False) | safe }}
+        </div>
+        <div class="orbit-tech" data-tech="Git">
+          {{ inject_svg('tech-git', False) | safe }}
+        </div>
+        <div class="orbit-tech" data-tech="GraphQL">
+          {{ inject_svg('tech-graphql', False) | safe }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="experience-compact" data-reveal="fade-up">
+  <div class="experience-header">
+    <span class="section-eyebrow">Career Timeline</span>
+    <h2>Professional Journey</h2>
+  </div>
   <p class="experience-subtitle">Full details on <a href="https://www.linkedin.com/in/engr-hassan-kamran/" target="_blank">LinkedIn</a></p>
   
   <!-- Compact Horizontal Timeline -->
@@ -170,219 +364,816 @@
   </div>
 </section>
 
-<!-- Publications Section -->
-<section class="publications">
-  <h2>Publications & Research</h2>
-  <p class="orcid-info">
-    <span>ORCID: </span>
-    <a href="https://orcid.org/0009-0005-3034-1679" target="_blank" class="orcid-link">
-      0009-0005-3034-1679
-      <svg class="orcid-icon" viewBox="0 0 24 24" width="16" height="16">
+<!-- Publications Section - Research Showcase -->
+<section class="research-showcase" data-reveal="fade-up">
+  <div class="research-bg-effects">
+    <div class="research-grid-pattern"></div>
+    <div class="research-glow research-glow-1"></div>
+    <div class="research-glow research-glow-2"></div>
+    <div class="floating-molecule molecule-1">
+      <svg viewBox="0 0 100 100" fill="none">
+        <circle cx="50" cy="20" r="8" fill="currentColor" opacity="0.6"/>
+        <circle cx="20" cy="70" r="8" fill="currentColor" opacity="0.6"/>
+        <circle cx="80" cy="70" r="8" fill="currentColor" opacity="0.6"/>
+        <line x1="50" y1="28" x2="25" y2="62" stroke="currentColor" stroke-width="2" opacity="0.4"/>
+        <line x1="50" y1="28" x2="75" y2="62" stroke="currentColor" stroke-width="2" opacity="0.4"/>
+        <line x1="28" y1="70" x2="72" y2="70" stroke="currentColor" stroke-width="2" opacity="0.4"/>
+      </svg>
+    </div>
+    <div class="floating-molecule molecule-2">
+      <svg viewBox="0 0 80 80" fill="none">
+        <circle cx="40" cy="40" r="12" fill="currentColor" opacity="0.5"/>
+        <circle cx="10" cy="40" r="6" fill="currentColor" opacity="0.4"/>
+        <circle cx="70" cy="40" r="6" fill="currentColor" opacity="0.4"/>
+        <circle cx="40" cy="10" r="6" fill="currentColor" opacity="0.4"/>
+        <circle cx="40" cy="70" r="6" fill="currentColor" opacity="0.4"/>
+        <line x1="28" y1="40" x2="16" y2="40" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+        <line x1="52" y1="40" x2="64" y2="40" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+        <line x1="40" y1="28" x2="40" y2="16" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+        <line x1="40" y1="52" x2="40" y2="64" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="research-header">
+    <div class="research-badge">
+      <span class="badge-pulse"></span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+      </svg>
+      Peer-Reviewed Research
+    </div>
+    <h2 class="section-title">Publications & Research</h2>
+    <p class="research-subtitle">Contributing to the frontiers of AI, healthcare, and autonomous systems</p>
+
+    <div class="orcid-badge">
+      <svg class="orcid-logo" viewBox="0 0 24 24" width="20" height="20">
         <path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM6.813 11.654h1.358v5.384H6.813v-5.384zm.679-2.154c-.434 0-.785.352-.785.785s.351.785.785.785.785-.352.785-.785-.351-.785-.785-.785zm3.193 2.154h1.846c2.476 0 3.476 1.623 3.476 2.73 0 1.307-1.049 2.654-3.476 2.654h-1.846v-5.384zm1.358 1.115v3.154h.488c1.346 0 2.119-.638 2.119-1.577 0-.939-.773-1.577-2.119-1.577h-.488z" fill="currentColor"/>
       </svg>
-    </a>
-  </p>
-  
-  <div class="publications-grid">
-    <!-- FedGAN Paper -->
-    <div class="publication-card">
-      <div class="pub-type-badge">Journal Article</div>
-      <h3 class="pub-title">
-        FedGAN: Federated Diabetic Retinopathy Image Generation
-      </h3>
-      <p class="pub-venue">
-        <span class="venue-icon">📍</span>
-        PLOS ONE
-      </p>
-      <p class="pub-year">
-        <span class="year-icon">📅</span>
-        2025
-      </p>
-      <p class="pub-abstract">
-        A novel privacy-preserving framework combining federated learning with GANs for medical image analysis, achieving state-of-the-art results in diabetic retinopathy detection while maintaining patient data privacy across distributed healthcare institutions.
-      </p>
-      <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0326579" target="_blank" class="pub-link-button">
-        View on PLOS ONE
-      </a>
+      <a href="https://orcid.org/0009-0005-3034-1679" target="_blank" class="orcid-id">0009-0005-3034-1679</a>
     </div>
+  </div>
+
+  <div class="research-stats-bar">
+    <div class="research-stat">
+      <span class="stat-value" data-count="2">2</span>
+      <span class="stat-label">Publications</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="research-stat">
+      <span class="stat-value">2025</span>
+      <span class="stat-label">Latest Year</span>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="research-stat">
+      <span class="stat-value">2</span>
+      <span class="stat-label">Research Areas</span>
+    </div>
+  </div>
+
+  <div class="publications-showcase">
+    <!-- FedGAN Paper -->
+    <article class="pub-card">
+      <div class="pub-card-border"></div>
+      <div class="pub-card-shine"></div>
+      <div class="pub-card-content">
+        <div class="pub-header">
+          <div class="pub-type">
+            <span class="pub-type-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+              </svg>
+            </span>
+            Journal Article
+          </div>
+          <div class="pub-venue-tag">
+            <span>PLOS ONE</span>
+          </div>
+        </div>
+
+        <h3 class="pub-title">
+          <span class="title-text">FedGAN: Federated Diabetic Retinopathy Image Generation</span>
+        </h3>
+
+        <div class="pub-meta">
+          <span class="pub-year">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+            2025
+          </span>
+          <span class="pub-field">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+            Healthcare AI
+          </span>
+        </div>
+
+        <p class="pub-abstract">
+          A novel privacy-preserving framework combining federated learning with GANs for medical image analysis, achieving state-of-the-art results in diabetic retinopathy detection while maintaining patient data privacy.
+        </p>
+
+        <div class="pub-impact-metrics">
+          <div class="metric">
+            <span class="metric-value">SOTA</span>
+            <span class="metric-label">Performance</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">100%</span>
+            <span class="metric-label">Privacy</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">5+</span>
+            <span class="metric-label">Institutions</span>
+          </div>
+        </div>
+
+        <div class="pub-keywords">
+          <span class="keyword">Federated Learning</span>
+          <span class="keyword">GANs</span>
+          <span class="keyword">Medical Imaging</span>
+          <span class="keyword">Privacy</span>
+        </div>
+
+        <div class="pub-actions">
+          <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0326579" target="_blank" class="pub-btn pub-btn-primary">
+            <span>Read Paper</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+              <polyline points="15 3 21 3 21 9"/>
+              <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </article>
 
     <!-- Agricultural Drone Paper -->
-    <div class="publication-card">
-      <div class="pub-type-badge">Conference</div>
-      <h3 class="pub-title">
-        Low-Cost Agricultural Sprayer Drone Development
-      </h3>
-      <p class="pub-venue">
-        <span class="venue-icon">📍</span>
-        2025 4th International Conference on Communication, Computing and Digital Systems (C-CODE)
-      </p>
-      <p class="pub-year">
-        <span class="year-icon">📅</span>
-        October 2025
-      </p>
-      <p class="pub-abstract">
-        Simulation-driven development of a cost-effective octocopter for agricultural spraying using ROS, Gazebo, and PX4. Achieved 92±3% spray uniformity, 84% water usage reduction, and 7.49 minutes per acre coverage versus 16.05 minutes manual methods. Production costs totaled $3,500, significantly below commercial alternatives ($6,000-$10,000).
-      </p>
-      <a href="https://ieeexplore-dev.ieee.org/document/11204042" target="_blank" class="pub-link-button">
-        View on IEEE Xplore
-      </a>
-    </div>
+    <article class="pub-card">
+      <div class="pub-card-border"></div>
+      <div class="pub-card-shine"></div>
+      <div class="pub-card-content">
+        <div class="pub-header">
+          <div class="pub-type">
+            <span class="pub-type-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+                <path d="M16 3.13a4 4 0 010 7.75"/>
+              </svg>
+            </span>
+            Conference Paper
+          </div>
+          <div class="pub-venue-tag">
+            <span>IEEE C-CODE 2025</span>
+          </div>
+        </div>
 
-    <!-- Add more publications as needed -->
+        <h3 class="pub-title">
+          <span class="title-text">Low-Cost Agricultural Sprayer Drone Development</span>
+        </h3>
+
+        <div class="pub-meta">
+          <span class="pub-year">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+            2025
+          </span>
+          <span class="pub-field">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+            Autonomous Systems
+          </span>
+        </div>
+
+        <p class="pub-abstract">
+          Simulation-driven development of a cost-effective octocopter for agricultural spraying using ROS, Gazebo, and PX4. Achieved exceptional spray uniformity with major water usage reduction.
+        </p>
+
+        <div class="pub-impact-metrics">
+          <div class="metric">
+            <span class="metric-value">92%</span>
+            <span class="metric-label">Spray Uniformity</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">84%</span>
+            <span class="metric-label">Water Saved</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">$3.5K</span>
+            <span class="metric-label">Build Cost</span>
+          </div>
+        </div>
+
+        <div class="pub-keywords">
+          <span class="keyword">ROS</span>
+          <span class="keyword">PX4</span>
+          <span class="keyword">Gazebo</span>
+          <span class="keyword">Agriculture</span>
+        </div>
+
+        <div class="pub-actions">
+          <a href="https://ieeexplore.ieee.org/document/11204042" target="_blank" class="pub-btn pub-btn-primary">
+            <span>Read Paper</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+              <polyline points="15 3 21 3 21 9"/>
+              <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </article>
   </div>
 </section>
 
-<section class="certifications">
-  <h2>Professional Certifications & Training</h2>
-  
-  <div class="certifications-grid">
-    <!-- Deep Learning Specialization -->
-    <div class="certification-card">
-      <div class="cert-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M9 11V6a3 3 0 1 1 6 0v5M3 13a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-7z"/>
-          <circle cx="12" cy="16" r="1"/>
+<section class="certifications-showcase" data-reveal="fade-up">
+  <!-- Animated background elements -->
+  <div class="certs-bg-grid"></div>
+  <div class="certs-floating-shapes">
+    <div class="cert-shape shape-1"></div>
+    <div class="cert-shape shape-2"></div>
+    <div class="cert-shape shape-3"></div>
+  </div>
+
+  <div class="certifications-header">
+    <div class="certs-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+        <path d="M12 15l-3 3m0 0l-3-3m3 3V9m12 3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+      </svg>
+      Continuous Learning
+    </div>
+    <h2 class="section-title">Certifications & Training</h2>
+    <p class="certs-subtitle">Industry-recognized credentials powering real-world expertise</p>
+
+    <!-- Floating credential stats -->
+    <div class="certs-stats-orbit">
+      <div class="orbit-stat">
+        <span class="orbit-value">12+</span>
+        <span class="orbit-label">Certifications</span>
+      </div>
+      <div class="orbit-stat">
+        <span class="orbit-value">5</span>
+        <span class="orbit-label">Platforms</span>
+      </div>
+      <div class="orbit-stat">
+        <span class="orbit-value">2024</span>
+        <span class="orbit-label">Latest</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="certs-grid-showcase">
+    <!-- ROW 1: Hero (2x3) + PEC Tall (1x2) stacked with Google Mini (1x1) -->
+
+    <!-- Featured: Deep Learning Specialization -->
+    <article class="cert-showcase-card cert-hero">
+      <div class="cert-glow-orb"></div>
+      <div class="cert-glow-orb orb-2"></div>
+      <div class="cert-holographic-border"></div>
+
+      <!-- Neural Network Animation Background -->
+      <div class="neural-network-bg">
+        <svg class="neural-svg" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="neuralGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:rgba(255,255,255,0.3)"/>
+              <stop offset="100%" style="stop-color:rgba(255,255,255,0.05)"/>
+            </linearGradient>
+          </defs>
+          <!-- Neural nodes -->
+          <circle class="neural-node n1" cx="50" cy="50" r="4"/>
+          <circle class="neural-node n2" cx="50" cy="150" r="4"/>
+          <circle class="neural-node n3" cx="50" cy="250" r="4"/>
+          <circle class="neural-node n4" cx="150" cy="75" r="5"/>
+          <circle class="neural-node n5" cx="150" cy="150" r="5"/>
+          <circle class="neural-node n6" cx="150" cy="225" r="5"/>
+          <circle class="neural-node n7" cx="250" cy="100" r="5"/>
+          <circle class="neural-node n8" cx="250" cy="200" r="5"/>
+          <circle class="neural-node n9" cx="350" cy="150" r="6"/>
+          <!-- Neural connections -->
+          <line class="neural-line" x1="50" y1="50" x2="150" y2="75"/>
+          <line class="neural-line" x1="50" y1="50" x2="150" y2="150"/>
+          <line class="neural-line" x1="50" y1="150" x2="150" y2="75"/>
+          <line class="neural-line" x1="50" y1="150" x2="150" y2="150"/>
+          <line class="neural-line" x1="50" y1="150" x2="150" y2="225"/>
+          <line class="neural-line" x1="50" y1="250" x2="150" y2="150"/>
+          <line class="neural-line" x1="50" y1="250" x2="150" y2="225"/>
+          <line class="neural-line" x1="150" y1="75" x2="250" y2="100"/>
+          <line class="neural-line" x1="150" y1="75" x2="250" y2="200"/>
+          <line class="neural-line" x1="150" y1="150" x2="250" y2="100"/>
+          <line class="neural-line" x1="150" y1="150" x2="250" y2="200"/>
+          <line class="neural-line" x1="150" y1="225" x2="250" y2="100"/>
+          <line class="neural-line" x1="150" y1="225" x2="250" y2="200"/>
+          <line class="neural-line" x1="250" y1="100" x2="350" y2="150"/>
+          <line class="neural-line" x1="250" y1="200" x2="350" y2="150"/>
+          <!-- Data pulses -->
+          <circle class="data-pulse p1" cx="50" cy="50" r="3"/>
+          <circle class="data-pulse p2" cx="50" cy="150" r="3"/>
+          <circle class="data-pulse p3" cx="50" cy="250" r="3"/>
         </svg>
       </div>
-      <div class="cert-content">
-        <h3>Deep Learning Specialization</h3>
-        <div class="cert-issuer">
-          <span class="issuer-icon">🏛️</span>
-          DeepLearning.AI
+
+      <div class="cert-card-inner">
+        <div class="cert-header-row">
+          <div class="cert-platform-badge coursera">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+              <path d="M11.374 23.083c-4.968-.682-9.026-4.463-10.152-9.333-.179-.786-.244-1.32-.244-2.75s.065-1.964.244-2.75C2.348 3.52 6.406-.26 11.374-.943V4.54c-3.067.57-5.537 2.92-6.247 5.96-.122.52-.122 2.48 0 3-.71 3.04 3.18 5.39 6.247 5.96v4.54z"/>
+              <path d="M12.626-.943c4.968.682 9.026 4.463 10.152 9.333.179.786.244 1.32.244 2.75s-.065 1.964-.244 2.75c-1.126 4.87-5.184 8.651-10.152 9.333v-5.483c3.067-.57 5.537-2.92 6.247-5.96.122-.52.122-2.48 0-3-.71-3.04-3.18-5.39-6.247-5.96V-.943z"/>
+            </svg>
+            Coursera
+          </div>
+          <div class="cert-course-count">
+            <span class="count-num">5</span>
+            <span class="count-label">Courses</span>
+          </div>
         </div>
-        <div class="cert-meta">
-          <span class="cert-date">
-            <span class="date-icon">📅</span>
-            January 2021
+
+        <div class="cert-icon-showcase">
+          <div class="cert-icon-ring pulse-ring">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              <circle cx="12" cy="9" r="2" fill="currentColor" opacity="0.5"/>
+            </svg>
+          </div>
+        </div>
+
+        <h3 class="cert-title-main">Deep Learning Specialization</h3>
+        <p class="cert-issuer-main">
+          <span class="issuer-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
           </span>
-          <span class="cert-category">AI/ML</span>
-        </div>
-        <p class="cert-description">
-          Comprehensive 5-course specialization covering neural networks, CNNs, RNNs, and deep learning optimization.
+          DeepLearning.AI • Andrew Ng
         </p>
+
+        <p class="cert-description">Master neural networks, CNNs, RNNs, sequence models, and optimization techniques in this comprehensive deep learning program.</p>
+
+        <div class="cert-tech-stack">
+          <span class="tech-chip" data-glow>TensorFlow</span>
+          <span class="tech-chip" data-glow>Keras</span>
+          <span class="tech-chip" data-glow>Python</span>
+          <span class="tech-chip" data-glow>NumPy</span>
+        </div>
+
+        <a href="https://www.coursera.org/account/accomplishments/specialization/MNPDUQLBGTJJ" target="_blank" class="cert-cta-btn shine-btn">
+          <span>View Credential</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+          </svg>
+        </a>
       </div>
-      <a href="https://www.coursera.org/account/accomplishments/specialization/MNPDUQLBGTJJ" 
-         target="_blank" 
-         class="cert-link">
-        View Certificate
-        <svg class="link-arrow" viewBox="0 0 24 24" width="16" height="16">
-          <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </article>
+
+    <!-- PEC Official - Generative AI - TALL (will stack with mini below) -->
+    <article class="cert-showcase-card cert-tall cert-pec">
+      <!-- AI Generation Visual -->
+      <div class="ai-generation-bg">
+        <div class="ai-particle p1"></div>
+        <div class="ai-particle p2"></div>
+        <div class="ai-particle p3"></div>
+        <div class="ai-particle p4"></div>
+        <div class="ai-particle p5"></div>
+        <div class="ai-wave"></div>
+      </div>
+      <div class="cert-card-overlay dark-overlay"></div>
+
+      <div class="cert-tall-inner">
+        <div class="cert-tall-icon pec-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="40" height="40">
+            <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+          </svg>
+        </div>
+        <div class="cert-tall-content">
+          <h3>Generative AI Developer</h3>
+          <p>Pakistan Engineering Council (PEC)</p>
+          <span class="cert-tall-desc">Official certification for AI/ML development and generative AI systems</span>
+          <div class="cert-tall-domains">
+            <span class="domain-tag">LLMs</span>
+            <span class="domain-tag">Prompt Engineering</span>
+            <span class="domain-tag">AI Ethics</span>
+          </div>
+        </div>
+        <a href="https://quiz.ideagist.com/ideagist-certificate/?cert_hash=d9da4ff11c6d542e" target="_blank" class="cert-tall-verify-btn">
+          <span>Verify Credential</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+          </svg>
+        </a>
+      </div>
+    </article>
+
+    <!-- Google PM - MINI (stacks next to PEC tall) -->
+    <article class="cert-showcase-card cert-mini cert-google-pm">
+      <!-- Google Colors Animation -->
+      <div class="google-colors-bg">
+        <div class="g-color blue"></div>
+        <div class="g-color red"></div>
+        <div class="g-color yellow"></div>
+        <div class="g-color green"></div>
+      </div>
+      <div class="mini-card-glow google-glow"></div>
+      <div class="cert-mini-inner">
+        <div class="cert-mini-icon google-icon spinning-google">
+          <svg viewBox="0 0 24 24" width="24" height="24">
+            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+          </svg>
+        </div>
+        <div class="cert-mini-content">
+          <h4>Project Management</h4>
+          <p>Google Career Certificates</p>
+          <span class="cert-mini-desc">Agile, Scrum & waterfall</span>
+        </div>
+      </div>
+      <a href="https://www.coursera.org/account/accomplishments/certificate/YR6GQ7XESHPB" target="_blank" class="cert-mini-verify-btn google-verify">
+        <span>Verify</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+          <path d="M7 17L17 7M17 7H7M17 7V17"/>
         </svg>
       </a>
-    </div>
+    </article>
 
-    <!-- GANs Certificate -->
-    <div class="certification-card">
-      <div class="cert-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <rect x="3" y="3" width="18" height="18" rx="2"/>
-          <path d="M9 9h6v6H9z"/>
+    <!-- PMP - MINI -->
+    <article class="cert-showcase-card cert-mini cert-pmp-mini">
+      <!-- Animated Gantt Chart Background -->
+      <div class="gantt-bg">
+        <div class="gantt-bar bar-1"></div>
+        <div class="gantt-bar bar-2"></div>
+        <div class="gantt-bar bar-3"></div>
+        <div class="gantt-bar bar-4"></div>
+        <div class="gantt-milestone"></div>
+      </div>
+      <div class="cert-card-overlay dark-overlay"></div>
+      <div class="cert-mini-inner">
+        <div class="cert-mini-icon pmp-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24">
+            <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+            <path d="M9 12l2 2 4-4"/>
+          </svg>
+        </div>
+        <div class="cert-mini-content">
+          <h4>PMP</h4>
+          <p>PMI</p>
+          <span class="cert-mini-desc">Project Management Professional</span>
+        </div>
+      </div>
+      <div class="cert-mini-status pursuing">
+        <span>Pursuing</span>
+      </div>
+    </article>
+
+    <!-- CISSP - TALL -->
+    <article class="cert-showcase-card cert-tall cert-cissp">
+      <!-- Cyber Grid Animation -->
+      <div class="cyber-grid-bg">
+        <div class="cyber-hex h1"></div>
+        <div class="cyber-hex h2"></div>
+        <div class="cyber-hex h3"></div>
+        <div class="cyber-hex h4"></div>
+        <div class="cyber-hex h5"></div>
+        <div class="cyber-scan"></div>
+      </div>
+      <div class="cert-card-overlay dark-overlay"></div>
+      <div class="cert-tall-inner">
+        <div class="cert-tall-icon cissp-icon">
+          <svg viewBox="0 0 24 24" width="40" height="40">
+            <path fill="#00A651" d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z"/>
+            <path fill="#fff" d="M12 5l6 3v4c0 4.1-2.5 7.9-6 9.5-3.5-1.6-6-5.4-6-9.5V8l6-3z"/>
+            <path fill="#00A651" d="M10.5 13.5l-2-2 1-1 1 1 3-3 1 1-4 4z"/>
+          </svg>
+        </div>
+        <div class="cert-tall-content">
+          <h3>CISSP</h3>
+          <p>ISC² - International Information System Security Certification Consortium</p>
+          <span class="cert-tall-desc">Certified Information Systems Security Professional - Gold standard for security professionals worldwide</span>
+          <div class="cert-tall-domains">
+            <span class="domain-tag">Security Architecture</span>
+            <span class="domain-tag">Risk Management</span>
+            <span class="domain-tag">Cryptography</span>
+          </div>
+        </div>
+        <div class="cert-tall-status pursuing">
+          <span>Pursuing</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- Network+ - CompTIA - MINI (stacks next to CISSP tall) -->
+    <article class="cert-showcase-card cert-mini cert-network">
+      <!-- Network Nodes Animation -->
+      <div class="network-nodes-bg">
+        <div class="net-node n1"></div>
+        <div class="net-node n2"></div>
+        <div class="net-node n3"></div>
+        <div class="net-line l1"></div>
+        <div class="net-line l2"></div>
+        <div class="net-pulse"></div>
+      </div>
+      <div class="cert-card-overlay light-overlay"></div>
+      <div class="cert-mini-inner">
+        <div class="cert-mini-icon network-icon">
+          <svg viewBox="0 0 24 24" width="24" height="24">
+            <circle cx="12" cy="12" r="3" fill="#C8202F"/>
+            <circle cx="5" cy="6" r="2" fill="#C8202F"/>
+            <circle cx="19" cy="6" r="2" fill="#C8202F"/>
+            <circle cx="5" cy="18" r="2" fill="#C8202F"/>
+            <circle cx="19" cy="18" r="2" fill="#C8202F"/>
+            <path stroke="#C8202F" stroke-width="1.5" fill="none" d="M7 7l3 3M14 10l3-3M7 17l3-3M14 14l3 3"/>
+          </svg>
+        </div>
+        <div class="cert-mini-content">
+          <h4>Network+</h4>
+          <p>CompTIA</p>
+          <span class="cert-mini-desc">Networking fundamentals</span>
+        </div>
+      </div>
+      <div class="cert-mini-status pursuing">
+        <span>Pursuing</span>
+      </div>
+    </article>
+
+    <!-- SSBB - MINI (stacks next to CISSP tall) -->
+    <article class="cert-showcase-card cert-mini cert-sixsigma">
+      <!-- Six Sigma Bell Curve Animation -->
+      <div class="sigma-bg">
+        <svg class="bell-curve" viewBox="0 0 100 40">
+          <path d="M0 35 Q25 35 35 25 Q50 5 50 5 Q50 5 65 25 Q75 35 100 35"
+                fill="none" stroke="rgba(16,185,129,0.3)" stroke-width="2"/>
+          <path class="sigma-fill" d="M35 35 Q35 35 35 25 Q50 5 50 5 Q50 5 65 25 Q65 35 65 35 Z"
+                fill="rgba(16,185,129,0.15)"/>
+        </svg>
+        <div class="sigma-symbol">σ</div>
+      </div>
+      <div class="cert-card-overlay light-overlay"></div>
+      <div class="cert-mini-inner">
+        <div class="cert-mini-icon sixsigma-icon">
+          <svg viewBox="0 0 24 24" width="24" height="24">
+            <circle cx="12" cy="12" r="10" fill="#10B981"/>
+            <text x="12" y="16" text-anchor="middle" fill="#fff" font-size="10" font-weight="bold">6σ</text>
+          </svg>
+        </div>
+        <div class="cert-mini-content">
+          <h4>SSBB</h4>
+          <p>ASQ</p>
+          <span class="cert-mini-desc">Six Sigma Black Belt</span>
+        </div>
+      </div>
+      <div class="cert-mini-status pursuing">
+        <span>Pursuing</span>
+      </div>
+    </article>
+
+    <!-- CKA - CNCF (Kubernetes Admin) - TALL CARD -->
+    <article class="cert-showcase-card cert-tall cert-k8s-tall">
+      <!-- Kubernetes Wheel Animation -->
+      <div class="k8s-wheel-bg">
+        <svg class="k8s-wheel spinning-k8s" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="40" fill="none" stroke="rgba(50,108,229,0.2)" stroke-width="3"/>
+          <circle cx="50" cy="50" r="25" fill="none" stroke="rgba(50,108,229,0.3)" stroke-width="2"/>
+          <circle cx="50" cy="10" r="6" fill="#326CE5"/>
+          <circle cx="84" cy="30" r="6" fill="#326CE5"/>
+          <circle cx="84" cy="70" r="6" fill="#326CE5"/>
+          <circle cx="50" cy="90" r="6" fill="#326CE5"/>
+          <circle cx="16" cy="70" r="6" fill="#326CE5"/>
+          <circle cx="16" cy="30" r="6" fill="#326CE5"/>
         </svg>
       </div>
-      <div class="cert-content">
-        <h3>Build Basic Generative Adversarial Networks</h3>
-        <div class="cert-issuer">
-          <span class="issuer-icon">🏛️</span>
-          DeepLearning.AI
+      <div class="cert-card-overlay dark-overlay"></div>
+      <div class="cert-tall-inner">
+        <div class="cert-tall-icon k8s-tall-icon">
+          <svg viewBox="0 0 24 24" width="40" height="40">
+            <path fill="#326CE5" d="M12 2L4 6v6c0 5.5 3.8 10.7 8 12 4.2-1.3 8-6.5 8-12V6l-8-4zm0 4l5 2.5v3.9c0 3.8-2.6 7.4-5 8.4-2.4-1-5-4.6-5-8.4V8.5L12 6z"/>
+            <circle cx="12" cy="12" r="2.5" fill="#326CE5"/>
+          </svg>
         </div>
-        <div class="cert-meta">
-          <span class="cert-date">
-            <span class="date-icon">📅</span>
-            August 2023
-          </span>
-          <span class="cert-category">AI/ML</span>
+        <div class="cert-tall-content">
+          <h3>CKA</h3>
+          <p>Cloud Native Computing Foundation</p>
+          <span class="cert-tall-desc">Certified Kubernetes Administrator - Master container orchestration & cloud-native infra</span>
+          <div class="cert-tall-domains">
+            <span class="domain-tag">Containers</span>
+            <span class="domain-tag">Orchestration</span>
+            <span class="domain-tag">Cloud Native</span>
+          </div>
         </div>
-        <p class="cert-description">
-          Specialized training in GANs architecture, implementation, and applications in generative AI.
-        </p>
+        <div class="cert-tall-status pursuing">
+          <span>Pursuing</span>
+        </div>
       </div>
-      <a href="https://www.coursera.org/account/accomplishments/records/L8ZRY5BMMTX7" 
-         target="_blank" 
-         class="cert-link">
-        View Certificate
-        <svg class="link-arrow" viewBox="0 0 24 24" width="16" height="16">
-          <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </article>
+
+    <!-- GANs Specialization - MINI (stacks with CKA tall) -->
+    <article class="cert-showcase-card cert-mini cert-gans-mini">
+      <!-- GAN Visual: Generator vs Discriminator -->
+      <div class="gan-visual-bg">
+        <div class="gan-node generator"></div>
+        <div class="gan-arrow"></div>
+        <div class="gan-node discriminator"></div>
+      </div>
+      <div class="cert-card-overlay light-overlay"></div>
+      <div class="cert-mini-inner">
+        <div class="cert-mini-icon gan-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24">
+            <rect x="3" y="3" width="7" height="7"/>
+            <rect x="14" y="3" width="7" height="7"/>
+            <rect x="14" y="14" width="7" height="7"/>
+            <rect x="3" y="14" width="7" height="7"/>
+            <path d="M10 6h4M10 18h4M6 10v4M18 10v4"/>
+          </svg>
+        </div>
+        <div class="cert-mini-content">
+          <h4>GANs Specialization</h4>
+          <p>DeepLearning.AI</p>
+          <span class="cert-mini-desc">Generative adversarial networks</span>
+        </div>
+      </div>
+      <a href="https://www.coursera.org/account/accomplishments/records/L8ZRY5BMMTX7" target="_blank" class="cert-mini-verify-btn">
+        <span>Verify</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+          <path d="M7 17L17 7M17 7H7M17 7V17"/>
         </svg>
       </a>
-    </div>
+    </article>
 
-    <!-- PEC Generative AI Certificate -->
-    <div class="certification-card pec-cert">
-      <div class="cert-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
-          <path d="M9 12l2 2 4-4"/>
+    <!-- CKAD - MINI (stacks with CKA tall) -->
+    <article class="cert-showcase-card cert-mini cert-k8s-dev">
+      <!-- Container Pods Animation -->
+      <div class="pods-bg">
+        <div class="pod pod-1"></div>
+        <div class="pod pod-2"></div>
+        <div class="pod pod-3"></div>
+      </div>
+      <div class="cert-card-overlay light-overlay"></div>
+      <div class="cert-mini-inner">
+        <div class="cert-mini-icon k8s-icon">
+          <svg viewBox="0 0 24 24" width="24" height="24">
+            <rect x="3" y="3" width="7" height="7" rx="1" fill="#326CE5"/>
+            <rect x="14" y="3" width="7" height="7" rx="1" fill="#326CE5"/>
+            <rect x="3" y="14" width="7" height="7" rx="1" fill="#326CE5"/>
+            <rect x="14" y="14" width="7" height="7" rx="1" fill="#326CE5" opacity="0.5"/>
+            <path stroke="#fff" stroke-width="1.5" d="M6.5 5v3M17.5 5v3M6.5 16v3"/>
+          </svg>
+        </div>
+        <div class="cert-mini-content">
+          <h4>CKAD</h4>
+          <p>CNCF</p>
+          <span class="cert-mini-desc">Kubernetes developer</span>
+        </div>
+      </div>
+      <div class="cert-mini-status pursuing">
+        <span>Pursuing</span>
+      </div>
+    </article>
+
+    <!-- LFCS - Linux Foundation - TALL CARD -->
+    <article class="cert-showcase-card cert-tall cert-linux-tall">
+      <!-- Terminal Animation Background -->
+      <div class="terminal-bg">
+        <div class="terminal-line line-1">$ sudo systemctl status nginx</div>
+        <div class="terminal-line line-2">● nginx.service - A high performance web server</div>
+        <div class="terminal-line line-3">   Active: active (running)</div>
+        <div class="terminal-line line-4">$ _</div>
+      </div>
+      <div class="cert-card-overlay dark-overlay"></div>
+      <div class="cert-tall-inner">
+        <div class="cert-tall-icon linux-tall-icon">
+          <svg viewBox="0 0 24 24" width="40" height="40">
+            <path fill="#FCC624" d="M12.5 5.5c-.3 0-.5.2-.5.5v1c0 .3.2.5.5.5s.5-.2.5-.5V6c0-.3-.2-.5-.5-.5z"/>
+            <path fill="#fff" d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z"/>
+            <path fill="#fff" d="M15.5 14c-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5 1.5-.7 1.5-1.5-.7-1.5-1.5-1.5zM8.5 14c-.8 0-1.5.7-1.5 1.5S7.7 17 8.5 17s1.5-.7 1.5-1.5S9.3 14 8.5 14z"/>
+          </svg>
+        </div>
+        <div class="cert-tall-content">
+          <h3>LFCS</h3>
+          <p>Linux Foundation</p>
+          <span class="cert-tall-desc">Certified Sysadmin - Enterprise Linux administration, security & automation</span>
+          <div class="cert-tall-domains">
+            <span class="domain-tag">System Admin</span>
+            <span class="domain-tag">Security</span>
+            <span class="domain-tag">Automation</span>
+          </div>
+        </div>
+        <div class="cert-tall-status pursuing">
+          <span>Pursuing</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- CKS - CNCF (Kubernetes Security) - MINI (stacks with LFCS tall) -->
+    <article class="cert-showcase-card cert-mini cert-k8s-sec">
+      <!-- Security Shield Animation -->
+      <div class="shield-bg">
+        <div class="shield-ring ring-1"></div>
+        <div class="shield-ring ring-2"></div>
+        <div class="shield-lock"></div>
+      </div>
+      <div class="cert-card-overlay light-overlay"></div>
+      <div class="cert-mini-inner">
+        <div class="cert-mini-icon security-icon">
+          <svg viewBox="0 0 24 24" width="24" height="24">
+            <path fill="#326CE5" d="M12 2L4 6v5c0 5.5 3.4 10.3 8 12 4.6-1.7 8-6.5 8-12V6l-8-4z"/>
+            <path fill="#fff" d="M11 7h2v5h-2zM11 14h2v2h-2z"/>
+          </svg>
+        </div>
+        <div class="cert-mini-content">
+          <h4>CKS</h4>
+          <p>CNCF</p>
+          <span class="cert-mini-desc">Kubernetes security specialist</span>
+        </div>
+      </div>
+      <div class="cert-mini-status pursuing">
+        <span>Pursuing</span>
+      </div>
+    </article>
+
+    <!-- Adventure: Paragliding - With Animation -->
+    <article class="cert-showcase-card cert-mini cert-adventure-mini">
+      <div class="adventure-bg-animation">
+        <div class="cloud cloud-1"></div>
+        <div class="cloud cloud-2"></div>
+        <div class="cloud cloud-3"></div>
+      </div>
+
+      <!-- Paraglider Animation -->
+      <div class="paraglider-animation">
+        <svg class="paraglider-svg" viewBox="0 0 100 60" fill="none">
+          <!-- Canopy -->
+          <ellipse cx="50" cy="12" rx="35" ry="10" fill="rgba(255,255,255,0.4)"/>
+          <ellipse cx="50" cy="12" rx="30" ry="8" fill="rgba(255,255,255,0.3)"/>
+          <!-- Lines -->
+          <line x1="20" y1="18" x2="45" y2="40" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
+          <line x1="35" y1="20" x2="48" y2="40" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
+          <line x1="50" y1="22" x2="50" y2="40" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
+          <line x1="65" y1="20" x2="52" y2="40" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
+          <line x1="80" y1="18" x2="55" y2="40" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
+          <!-- Pilot -->
+          <circle cx="50" cy="44" r="4" fill="rgba(255,255,255,0.5)"/>
+          <line x1="50" y1="48" x2="50" y2="55" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
         </svg>
       </div>
-      <div class="cert-content">
-        <h3>Generative AI Application Developer</h3>
-        <div class="cert-issuer">
-          <span class="issuer-icon">🏛️</span>
-          Pakistan Engineering Council
+      <div class="mini-card-glow adventure-glow"></div>
+
+      <div class="cert-mini-inner adventure-mini-inner">
+        <div class="cert-mini-icon adventure-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 2C6 2 2 6 2 8c0 1.5 1 3 2 3.5V22l8-4 8 4V11.5c1-.5 2-2 2-3.5 0-2-4-6-10-6z"/>
+          </svg>
         </div>
-        <div class="cert-meta">
-          <span class="cert-date">
-            <span class="date-icon">📅</span>
-            April 2025
-          </span>
-          <span class="cert-category">AI/ML</span>
-          <span class="cert-category pec-badge">PEC Certified</span>
-        </div>
-        <p class="cert-description">
-          Official PEC certification in Generative AI application development, demonstrating expertise in LLMs, prompt engineering, and AI integration.
-        </p>
-        <div class="cert-credential">
-          <span class="credential-label">Credential ID:</span>
-          <span class="credential-id">#d9da4ff11c6d542e</span>
+        <div class="cert-mini-content">
+          <h4>Paragliding Certificate</h4>
+          <p>Army PT School • 2013</p>
+          <span class="cert-mini-desc">Professional adventure sports certification</span>
         </div>
       </div>
-      <a href="https://quiz.ideagist.com/ideagist-certificate/?cert_hash=d9da4ff11c6d542e" 
-         target="_blank" 
-         class="cert-link">
-        View Certificate
-        <svg class="link-arrow" viewBox="0 0 24 24" width="16" height="16">
-          <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <a href="/paragliding.html" class="cert-mini-verify-btn adventure-verify">
+        <span>View</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14">
+          <path d="M7 17L17 7M17 7H7M17 7V17"/>
         </svg>
       </a>
-    </div>
+    </article>
 
-    <!-- Project Management Certificate -->
-    <div class="certification-card">
-      <div class="cert-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
-          <path d="M9 12h6M9 16h6"/>
-        </svg>
+    <!-- Coming Soon - WIDE (fills remaining 2 cells) -->
+    <article class="cert-showcase-card cert-wide cert-coming-soon">
+      <div class="coming-soon-bg">
+        <div class="pulse-ring ring-1"></div>
+        <div class="pulse-ring ring-2"></div>
+        <div class="pulse-ring ring-3"></div>
       </div>
-      <div class="cert-content">
-        <h3>Foundations of Project Management</h3>
-        <div class="cert-issuer">
-          <span class="issuer-icon">🌟</span>
-          Google
+      <div class="cert-wide-inner">
+        <div class="cert-wide-icon coming-soon-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="32" height="32">
+            <path d="M12 6v6l4 2"/>
+            <circle cx="12" cy="12" r="10"/>
+          </svg>
         </div>
-        <div class="cert-meta">
-          <span class="cert-date">
-            <span class="date-icon">📅</span>
-            June 2024
-          </span>
-          <span class="cert-category">Management</span>
+        <div class="cert-wide-content">
+          <h3>More Certifications In Progress</h3>
+          <p>Continuous Learning Journey</p>
+          <span class="cert-wide-desc">AWS, Azure, and more coming soon...</span>
         </div>
-        <p class="cert-description">
-          Google's professional certificate covering project lifecycle, methodologies, and stakeholder management.
-        </p>
       </div>
-      <a href="https://www.coursera.org/account/accomplishments/certificate/YR6GQ7XESHPB" 
-         target="_blank" 
-         class="cert-link">
-        View Certificate
-        <svg class="link-arrow" viewBox="0 0 24 24" width="16" height="16">
-          <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </a>
-    </div>
+    </article>
+  </div>
+</section>
 
-    <!-- Paragliding Certificate -->
-    <div class="certification-card special">
+<section class="certifications" data-reveal="fade-up" style="display: none;">
+  <!-- Hidden for backwards compatibility -->
+  <div class="certification-card special">
       <div class="cert-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 2C6 2 2 6 2 8c0 1.5 1 3 2 3.5V22l8-4 8 4V11.5c1-.5 2-2 2-3.5 0-2-4-6-10-6z"/>
@@ -418,9 +1209,90 @@
   </div>
 </section>
 
-<section class="testimonials-container">
-  <h2>Testimonials & Recommendations</h2>
-  <p class="testimonials-subtitle">What clients, colleagues, and partners say about working with me</p>
+<!-- Fun Project Mosaic -->
+<section class="mosaic-section" data-reveal="fade-up">
+  <div class="mosaic-header">
+    <span class="section-eyebrow">Visual Journey</span>
+    <h2>Project Snapshots</h2>
+    <p class="mosaic-subtitle">A glimpse into the work that drives innovation</p>
+  </div>
+
+  <div class="mosaic-container">
+    <div class="mosaic-track mosaic-track-1">
+      <div class="mosaic-item"><img src="{{ static }}/drone.avif" alt="Drone" loading="lazy"></div>
+      <div class="mosaic-item"><img src="{{ static }}/ai-consulting-hero.avif" alt="AI Consulting" loading="lazy"></div>
+      <div class="mosaic-item"><img src="{{ static }}/flight_controller.avif" alt="Flight Controller" loading="lazy"></div>
+      <div class="mosaic-item"><img src="{{ static }}/software-development.avif" alt="Software Development" loading="lazy"></div>
+      <div class="mosaic-item"><img src="{{ static }}/drone_landed.avif" alt="Drone Landed" loading="lazy"></div>
+      <div class="mosaic-item"><img src="{{ static }}/agricultural_application.avif" alt="Agricultural Application" loading="lazy"></div>
+      <div class="mosaic-item"><img src="{{ static }}/project-management.avif" alt="Project Management" loading="lazy"></div>
+      <div class="mosaic-item"><img src="{{ static }}/training.avif" alt="Training" loading="lazy"></div>
+      <!-- Duplicate for seamless loop -->
+      <div class="mosaic-item"><img src="{{ static }}/drone.avif" alt="Drone" loading="lazy"></div>
+      <div class="mosaic-item"><img src="{{ static }}/ai-consulting-hero.avif" alt="AI Consulting" loading="lazy"></div>
+      <div class="mosaic-item"><img src="{{ static }}/flight_controller.avif" alt="Flight Controller" loading="lazy"></div>
+      <div class="mosaic-item"><img src="{{ static }}/software-development.avif" alt="Software Development" loading="lazy"></div>
+    </div>
+
+    <div class="mosaic-track mosaic-track-2">
+      <div class="mosaic-item"><img src="{{ static }}/mission_planning.avif" alt="Mission Planning" loading="lazy"></div>
+      <div class="mosaic-item"><img src="{{ static }}/spray_coverage.avif" alt="Spray Coverage" loading="lazy"></div>
+      <div class="mosaic-item"><img src="{{ static }}/tank_design.avif" alt="Tank Design" loading="lazy"></div>
+      <div class="mosaic-item"><img src="{{ static }}/para.avif" alt="Paragliding" loading="lazy"></div>
+      <div class="mosaic-item"><img src="{{ static }}/flight_data.avif" alt="Flight Data" loading="lazy"></div>
+      <div class="mosaic-item"><img src="{{ static }}/px4_sitl_output.avif" alt="PX4 Simulation" loading="lazy"></div>
+      <div class="mosaic-item"><img src="{{ static }}/seo.avif" alt="SEO" loading="lazy"></div>
+      <div class="mosaic-item"><img src="{{ static }}/work.avif" alt="Work" loading="lazy"></div>
+      <!-- Duplicate for seamless loop -->
+      <div class="mosaic-item"><img src="{{ static }}/mission_planning.avif" alt="Mission Planning" loading="lazy"></div>
+      <div class="mosaic-item"><img src="{{ static }}/spray_coverage.avif" alt="Spray Coverage" loading="lazy"></div>
+      <div class="mosaic-item"><img src="{{ static }}/tank_design.avif" alt="Tank Design" loading="lazy"></div>
+      <div class="mosaic-item"><img src="{{ static }}/para.avif" alt="Paragliding" loading="lazy"></div>
+    </div>
+
+    <div class="mosaic-track mosaic-track-3">
+      <div class="mosaic-item"><img src="{{ static }}/sprayer_design.avif" alt="Sprayer Design" loading="lazy"></div>
+      <div class="mosaic-item"><img src="{{ static }}/work-2.avif" alt="Work 2" loading="lazy"></div>
+      <div class="mosaic-item"><img src="{{ static }}/assembly_process.avif" alt="Assembly" loading="lazy"></div>
+      <div class="mosaic-item"><img src="{{ static }}/brand_manual.avif" alt="Brand Manual" loading="lazy"></div>
+      <div class="mosaic-item"><img src="{{ static }}/work-3.avif" alt="Work 3" loading="lazy"></div>
+      <div class="mosaic-item"><img src="{{ static }}/manual_spraying.avif" alt="Manual Spraying" loading="lazy"></div>
+      <div class="mosaic-item"><img src="{{ static }}/nozzle_types.avif" alt="Nozzle Types" loading="lazy"></div>
+      <div class="mosaic-item"><img src="{{ static }}/project-diagram.avif" alt="Project Diagram" loading="lazy"></div>
+      <!-- Duplicate for seamless loop -->
+      <div class="mosaic-item"><img src="{{ static }}/sprayer_design.avif" alt="Sprayer Design" loading="lazy"></div>
+      <div class="mosaic-item"><img src="{{ static }}/work-2.avif" alt="Work 2" loading="lazy"></div>
+      <div class="mosaic-item"><img src="{{ static }}/assembly_process.avif" alt="Assembly" loading="lazy"></div>
+      <div class="mosaic-item"><img src="{{ static }}/brand_manual.avif" alt="Brand Manual" loading="lazy"></div>
+    </div>
+  </div>
+
+  <div class="mosaic-gradient-left"></div>
+  <div class="mosaic-gradient-right"></div>
+</section>
+
+<section class="testimonials-container" data-reveal="fade-up">
+  <div class="testimonials-header">
+    <span class="section-eyebrow">Client Feedback</span>
+    <h2>Testimonials & Recommendations</h2>
+    <p class="testimonials-subtitle">What clients, colleagues, and partners say about working with me</p>
+  </div>
+
+  <!-- Stats Bar -->
+  <div class="testimonials-stats">
+    <div class="testimonial-stat">
+      <span class="testimonial-stat-number">100%</span>
+      <span class="testimonial-stat-label">Job Success</span>
+    </div>
+    <div class="testimonial-stat">
+      <span class="testimonial-stat-number">5.0</span>
+      <span class="testimonial-stat-label">Avg Rating</span>
+    </div>
+    <div class="testimonial-stat">
+      <span class="testimonial-stat-number">20+</span>
+      <span class="testimonial-stat-label">Recommendations</span>
+    </div>
+  </div>
 
   <div class="testimonial-grid">
     <!-- Featured Testimonial -->
@@ -445,6 +1317,7 @@
         <div class="testimonial-highlight">
           <span class="highlight-tag">Exceeded Expectations</span>
           <span class="highlight-tag">Great Communication</span>
+          <span class="highlight-tag">Top Rated</span>
         </div>
       </div>
       <div class="testimonial-footer">
@@ -458,7 +1331,7 @@
             <p class="author-project">Enterprise Web Application</p>
           </div>
         </div>
-        <div class="testimonial-source">
+        <div class="testimonial-source upwork">
           <svg viewBox="0 0 24 24" width="20" height="20" fill="#14A800">
             <path d="M18.561 5.025c-2.539 0-4.51 1.649-5.31 3.898-.618-1.898-1.981-3.898-4.06-3.898C6.628 5.025 5 6.934 5 9.5c0 2.566 1.628 4.475 4.191 4.475 1.809 0 3.288-1.234 3.888-2.859.282.857.78 1.641 1.428 2.25.758.71 1.725 1.109 2.754 1.109 2.539 0 4.239-1.909 4.239-4.475 0-2.566-1.7-4.475-4.239-4.475z"/>
           </svg>
@@ -483,6 +1356,9 @@
           problem-solving abilities ensure efficient issue resolution, making
           him a valuable asset to any team.
         </p>
+        <div class="testimonial-highlight">
+          <span class="highlight-tag">Problem Solver</span>
+        </div>
       </div>
       <div class="testimonial-footer">
         <div class="testimonial-author">
@@ -554,6 +1430,9 @@
         <p class="testimonial-text">
           I worked with Hassan on complex technical challenges. He is an exceptional problem-solver with deep technical knowledge and the ability to find innovative solutions quickly.
         </p>
+        <div class="testimonial-highlight">
+          <span class="highlight-tag">Innovator</span>
+        </div>
       </div>
       <div class="testimonial-footer">
         <div class="testimonial-author">
@@ -712,6 +1591,9 @@
           in shortest time and managing work load makes him valuable addition to
           businesses. His interpersonal skills offer great help in negotiations.
         </p>
+        <div class="testimonial-highlight">
+          <span class="highlight-tag">Quick Learner</span>
+        </div>
       </div>
       <div class="testimonial-footer">
         <div class="testimonial-author">
@@ -735,10 +1617,15 @@
   </div>
 </section>
 
-<section class="faq">
-  <h2>Frequently Asked Questions</h2>
+<section class="faq" data-reveal="fade-up">
+  <div class="faq-header">
+    <span class="section-eyebrow">Common Questions</span>
+    <h2>Frequently Asked Questions</h2>
+    <p class="faq-subtitle">Got questions? I've got answers.</p>
+  </div>
+  <div class="faq-container">
   <details class="faq-item">
-    <summary>What services do you offer?</summary>
+    <summary>What services do you offer?<span class="faq-icon"></span></summary>
     <p>
       I am a problem solver at heart, specializing in AI-driven solutions, IoT
       integrations, and scalable cloud applications. Whether it's optimizing
@@ -748,7 +1635,7 @@
     </p>
   </details>
   <details class="faq-item">
-    <summary>How can I contact you for a project?</summary>
+    <summary>How can I contact you for a project?<span class="faq-icon"></span></summary>
     <p>
       I'm happy to help! Feel free to book a free consultation to discuss your
       project. You can reach me via email at contact@engrhassankamran.com or
@@ -757,7 +1644,7 @@
   </details>
 
   <details class="faq-item">
-    <summary>What makes your approch so unique?</summary>
+    <summary>What makes your approach so unique?<span class="faq-icon"></span></summary>
     <p>
       I take a holistic approach to problem-solving, drawing from my
       multidisciplinary background in Mechatronics, AI, and Computer Science. As
@@ -771,7 +1658,7 @@
   </details>
 
   <details class="faq-item">
-    <summary>How did you get started?</summary>
+    <summary>How did you get started?<span class="faq-icon"></span></summary>
     <p>
       I've always had a deep passion for technology and began teaching myself to
       program early on. My journey has been driven by persistence and continuous
@@ -784,7 +1671,7 @@
   </details>
 
   <details class="faq-item">
-    <summary>Tell me about your background?</summary>
+    <summary>Tell me about your background?<span class="faq-icon"></span></summary>
     <p>
       I am a Mechatronics Engineer and Computer Scientist with a diverse
       background spanning AI development, embedded systems, and cloud computing.
@@ -798,19 +1685,19 @@
   </details>
 
   <details class="faq-item">
-    <summary>How do you solve problems?</summary>
+    <summary>How do you solve problems?<span class="faq-icon"></span></summary>
     <p>
       I bring a unique blend of expertise and innovation, solving cutting-edge
       problems with cutting-edge solutions. My multidisciplinary background
       allows me to approach challenges from multiple perspectives, ensuring
       efficient, forward-thinking, and impactful results. When you work with me,
-      you’re not just getting a solution—you’re getting a strategic,
+      you're not just getting a solution—you're getting a strategic,
       future-proof approach to problem-solving.
     </p>
   </details>
 
   <details class="faq-item">
-    <summary>How does you military experience enhance you services?</summary>
+    <summary>How does your military experience enhance your services?<span class="faq-icon"></span></summary>
     <p>
       My military background has trained me to deliver results in
       mission-critical, high-stress environments. I excel under pressure,
@@ -821,7 +1708,7 @@
   </details>
 
   <details class="faq-item">
-    <summary>Why did you make this website?</summary>
+    <summary>Why did you make this website?<span class="faq-icon"></span></summary>
     <p>
       I created this website to share my thoughts, expertise, and innovative
       solutions with the world. It serves as a platform to showcase my work,
@@ -829,12 +1716,14 @@
       technical challenges.
     </p>
   </details>
+  </div>
 </section>
 
 <!-- Contact Form Section -->
 <section class="homepage-contact-section">
   <div class="container">
     <div class="homepage-contact-header">
+      <span class="section-eyebrow">Start a Project</span>
       <h2>Let's Work Together</h2>
       <p>Have a project in mind? Get in touch and let's create something amazing.</p>
     </div>

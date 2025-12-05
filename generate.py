@@ -412,6 +412,7 @@ class SiteGenerator:
             ('contact.html', 'contact.html', 'Contact - Hassan Kamran'),
             ('privacy.html', 'privacy.html', 'Privacy Policy - Hassan Kamran'),
             ('terms.html', 'terms.html', 'Terms of Service - Hassan Kamran'),
+            ('paragliding.html', 'paragliding.html', 'Paragliding Certificate - Hassan Kamran'),
             ('404.html', '404.html', 'Page Not Found - Hassan Kamran'),
         ]
         
@@ -574,7 +575,6 @@ class SiteGenerator:
                 
         # Generate blog listing pages with pagination
         posts_per_page = self.config.get('content', {}).get('blog', {}).get('posts_per_page', 9)
-        print(f"Debug: posts_per_page = {posts_per_page}, total posts = {len(self.blog_posts)}")
         total_pages = (len(self.blog_posts) + posts_per_page - 1) // posts_per_page
         
         base_template = self.env.get_template('base.html')
@@ -585,7 +585,6 @@ class SiteGenerator:
                 start = (page_num - 1) * posts_per_page
                 end = min(start + posts_per_page, len(self.blog_posts))
                 page_posts = self.blog_posts[start:end]
-                print(f"Debug: Page {page_num} - showing posts {start} to {end} (total: {len(page_posts)} posts)")
                 
                 context = self._get_base_context('blog')
                 context.update({
@@ -1042,7 +1041,11 @@ class SiteGenerator:
                         
                         # Minify HTML - use simpler configuration
                         try:
-                            minified = minify_html.minify(html_content)
+                            minified = minify_html.minify(
+                                html_content,
+                                keep_closing_tags=True,
+                                keep_html_and_head_opening_tags=True
+                            )
                         except:
                             # Fallback if minification fails
                             minified = html_content
@@ -1086,12 +1089,26 @@ class SiteGenerator:
                     try:
                         with open(file_path, 'r', encoding='utf-8') as f:
                             js_content = f.read()
-                        
+
+                        original_len = len(js_content)
+
+                        # Check if file ends properly (has closing brace/paren)
+                        stripped = js_content.rstrip()
+                        if not (stripped.endswith(';') or stripped.endswith('}') or stripped.endswith(')')):
+                            print(f"  ⚠️ Skipping {file}: source appears incomplete")
+                            continue
+
                         minified = jsmin.jsmin(js_content)
-                        
-                        with open(file_path, 'w', encoding='utf-8') as f:
-                            f.write(minified)
-                        js_count += 1
+
+                        # Verify minified output ends properly too
+                        min_stripped = minified.rstrip()
+                        if len(minified) > original_len * 0.3 and (min_stripped.endswith(';') or min_stripped.endswith('}') or min_stripped.endswith(')')):
+                            with open(file_path, 'w', encoding='utf-8') as f:
+                                f.write(minified)
+                            js_count += 1
+                        else:
+                            # Keep original unminified
+                            print(f"  ⚠️ Skipping {file}: minification produced invalid output")
                     except Exception as e:
                         print(f"  ⚠️ Error minifying {file}: {e}")
         

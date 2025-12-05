@@ -1,30 +1,32 @@
-<section class="services-section">
+<section class="services-section premium-section-gradient">
   <div class="container">
-    <div class="services-hero">
-      <h1>Services</h1>
-      <p>Professional services to help transform your business through cutting-edge technology</p>
+    <!-- Hero Section -->
+    <div class="page-hero services-hero">
+      <span class="page-eyebrow">What I Offer</span>
+      <h1 class="page-title">Services</h1>
+      <p class="page-subtitle">Professional services to help transform your business through cutting-edge technology</p>
     </div>
-    
+
     <div class="services-grid">
       {% if services %}
         {% for service in services %}
-        <div class="service-card">
+        <a href="./services/{{ service.slug }}.html" class="premium-card service-card stagger-item service-card-link">
           {% if service.image %}
           <div class="service-image">
             <img src="{{ static }}/{{ service.image }}" alt="{{ service.title }}" loading="lazy" />
           </div>
           {% endif %}
-          
+
           <div class="service-content">
             {% if service.icon %}
-            <div class="service-icon">
+            <div class="premium-card-icon service-icon">
               {{ inject_svg(service.icon, True) | safe }}
             </div>
             {% endif %}
-            
-            <h3>{{ service.title }}</h3>
-            <p>{{ service.meta_description }}</p>
-            
+
+            <h3 class="premium-card-title">{{ service.title }}</h3>
+            <p class="premium-card-desc">{{ service.meta_description }}</p>
+
             {% if service.features %}
             <ul class="service-features">
               {% for feature in service.features[:3] %}
@@ -32,14 +34,19 @@
               {% endfor %}
             </ul>
             {% endif %}
-            
+
             {% if service.price %}
             <div class="service-price">{{ service.price }}</div>
             {% endif %}
-            
-            <a href="./services/{{ service.slug }}.html" class="service-link">Learn More →</a>
+
+            <span class="service-link">
+              Learn More
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M7 17L17 7M17 7H7M17 7V17"/>
+              </svg>
+            </span>
           </div>
-        </div>
+        </a>
         {% endfor %}
       {% else %}
         <div class="no-services">

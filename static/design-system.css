@@ -139,10 +139,22 @@
   /* Gradients */
   --gradient-primary: linear-gradient(135deg, var(--color-primary-600) 0%, var(--color-primary-500) 100%);
   --gradient-primary-reverse: linear-gradient(135deg, var(--color-primary-500) 0%, var(--color-primary-600) 100%);
+  --gradient-primary-vibrant: linear-gradient(135deg, #a855f7, #7c3aed);
   --gradient-text: linear-gradient(135deg, var(--color-text-primary) 0%, var(--color-text-secondary) 100%);
+  --gradient-text-primary: linear-gradient(135deg, #1f2937 0%, #7c3aed 50%, #a855f7 100%);
+  --gradient-text-primary-dark: linear-gradient(135deg, #f3f4f6 0%, #a78bfa 50%, #c4b5fd 100%);
   --gradient-surface: linear-gradient(135deg, var(--color-gray-50) 0%, var(--color-gray-100) 100%);
-  --gradient-card: linear-gradient(135deg, #FFFFFF 0%, #F9FAFB 100%);
+  --gradient-surface-light: linear-gradient(180deg, #faf5ff 0%, #ffffff 50%, #f5f0ff 100%);
+  --gradient-surface-light-alt: linear-gradient(180deg, #f5f0ff 0%, #ffffff 50%, #faf5ff 100%);
+  --gradient-surface-dark: linear-gradient(180deg, #0f0f14 0%, #1a1525 50%, #0f0f14 100%);
+  --gradient-card: linear-gradient(135deg, var(--color-surface) 0%, var(--color-surface-hover) 100%);
   --gradient-hero-glow: radial-gradient(circle, var(--color-primary-600) 0%, transparent 70%);
+  --gradient-timeline: linear-gradient(180deg, #a855f7, #7c3aed, #6366f1);
+
+  /* Accent Colors for special elements */
+  --color-accent-indigo: #6366f1;
+  --color-accent-violet: #a78bfa;
+  --color-accent-fuchsia: #c4b5fd;
   
   /* Transitions */
   --transition-none: none;
@@ -217,6 +229,8 @@ html, body {
   padding-left: 1rem;
   padding-right: 1rem;
   box-sizing: border-box;
+  position: relative;
+  z-index: 1;
 }
 
 .flex { display: flex; }
@@ -396,7 +410,7 @@ html, body {
 .h-12 { height: var(--space-12); }
 .h-16 { height: var(--space-16); }
 
-.min-h-screen { min-height: 100vh; }
+.min-h-screen { min-height: 100vh; position: relative; z-index: 1; }
 .max-w-sm { max-width: 24rem; }
 .max-w-md { max-width: 28rem; }
 .max-w-lg { max-width: 32rem; }
@@ -740,6 +754,60 @@ html, body {
   overflow: visible;
   clip: auto;
   white-space: normal;
+}
+
+/* ===========================================
+   PREMIUM REUSABLE UTILITIES
+=========================================== */
+
+/* Gradient Text - Primary */
+.text-gradient {
+  background: var(--gradient-text-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Full-width background that bleeds past container */
+.full-bleed {
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  padding-left: calc(50vw - 50%);
+  padding-right: calc(50vw - 50%);
+}
+
+/* Glassmorphism card base */
+.glass {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(168, 85, 247, 0.1);
+}
+
+/* Filter Button - Reusable */
+.filter-btn {
+  padding: 10px 24px;
+  background: white;
+  border: 2px solid var(--color-border);
+  border-radius: 9999px;
+  color: var(--color-text-muted);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  border-color: var(--color-primary-600);
+  color: var(--color-primary-600);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(127, 62, 152, 0.15);
+}
+
+.filter-btn.active {
+  background: var(--gradient-primary);
+  border-color: transparent;
+  color: white;
 }
 
 /* Custom Utilities */

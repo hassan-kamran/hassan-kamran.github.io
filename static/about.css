@@ -1,60 +1,35 @@
-/* About Page Styles */
+/* ===========================================
+   ABOUT PAGE - PREMIUM DESIGN
+   Glassmorphism, Gradients & Modern Effects
+=========================================== */
 
 .about-section {
-  padding: 40px 0 60px;
-  background: #FFFFFF;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
 }
 
 .about-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 var(--space-6);
 }
 
-/* Hero Section */
-.about-hero {
-  text-align: center;
-  margin-bottom: 80px;
-  position: relative;
+/* Hero Section - Override */
+.about-section .page-hero {
+  padding-bottom: var(--space-8);
+  margin-bottom: 0;
 }
 
-.about-hero::before {
-  content: '';
-  position: absolute;
-  top: -40px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
-  height: 100px;
-  background: var(--gradient-primary);
-  border-radius: 50%;
-  opacity: 0.1;
-  filter: blur(40px);
-}
-
-.about-title {
-  font-size: 3.5rem;
-  font-weight: 800;
-  color: var(--color-text-primary);
-  margin-bottom: 16px;
-  background: linear-gradient(135deg, var(--color-text-primary) 0%, var(--color-text-secondary) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  letter-spacing: -0.02em;
-}
-
-.about-subtitle {
-  font-size: 1.25rem;
-  color: var(--color-primary-600);
-  font-weight: 500;
-  margin-bottom: 32px;
-  letter-spacing: 0.05em;
+.about-section .about-hero::before,
+.about-section .about-hero::after {
+  display: none;
 }
 
 .about-intro {
   max-width: 700px;
-  margin: 0 auto;
+  margin: var(--space-6) auto 0;
 }
 
 .about-intro p {
@@ -63,308 +38,132 @@
   color: var(--color-text-secondary);
 }
 
-/* Journey Timeline */
-.about-journey {
-  margin-bottom: 80px;
-}
-
-.section-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--color-text-primary);
+/* Section Headers */
+.section-header {
   text-align: center;
-  margin-bottom: 48px;
-  position: relative;
+  margin-bottom: var(--space-12);
 }
 
-.section-title::after {
-  content: '';
-  position: absolute;
-  bottom: -12px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 4px;
-  background: var(--gradient-primary);
-  border-radius: 2px;
+/* Section titles use .text-gradient from design-system.css */
+.about-section .section-title {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 800;
+  margin-bottom: 0;
 }
 
-.timeline {
-  position: relative;
-  padding-left: 40px;
+.about-section .section-title::after {
+  display: none;
+}
+
+/* Journey Timeline - Uses full-bleed from design-system.css */
+.about-journey {
+  background: var(--gradient-surface-light);
+}
+
+.about-journey .section-header,
+.about-journey .premium-timeline {
   max-width: 800px;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 15px;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: var(--gradient-primary);
-}
-
-.timeline-item {
-  position: relative;
-  padding-bottom: 40px;
-}
-
-.timeline-item:last-child {
-  padding-bottom: 0;
-}
-
-.timeline-marker {
-  position: absolute;
-  left: -25px;
-  top: 8px;
-  width: 12px;
-  height: 12px;
-  background: var(--color-primary-600);
-  border-radius: 50%;
-  box-shadow: 0 0 0 4px #FFFFFF, 0 0 0 6px rgba(127, 62, 152, 0.2);
-}
-
-.timeline-content {
-  background: white;
-  padding: 24px;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.timeline-content:hover {
-  transform: translateX(4px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
-}
-
-.timeline-content h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--color-text-primary);
-  margin-bottom: 12px;
-}
-
-.timeline-content p {
-  color: var(--color-text-secondary);
-  line-height: 1.7;
-  margin: 0;
-}
-
-.timeline-content a {
+/* Timeline link styling */
+.premium-timeline-content a {
   color: var(--color-primary-600);
   text-decoration: none;
   font-weight: 500;
   border-bottom: 1px dotted var(--color-primary-600);
-  transition: border-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-.timeline-content a:hover {
+.premium-timeline-content a:hover {
   border-bottom-style: solid;
+  color: var(--color-accent-indigo);
 }
 
-/* Skills Grid */
+/* Skills Grid - Uses full-bleed from design-system.css */
 .about-skills {
-  margin-bottom: 80px;
+  background: var(--gradient-surface-light-alt);
 }
 
 .skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 24px;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
-.skill-card {
-  background: white;
-  padding: 32px;
-  border-radius: 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+.about-skills .skill-card {
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-  overflow: hidden;
 }
 
-.skill-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: var(--gradient-primary);
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
-  transform-origin: left;
-}
-
-.skill-card:hover::before {
-  transform: scaleX(1);
-}
-
-.skill-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-}
-
-.skill-icon {
-  width: 56px;
-  height: 56px;
-  margin: 0 auto 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, rgba(127, 62, 152, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%);
-  border-radius: 12px;
-}
-
-.skill-icon svg {
-  width: 28px;
-  height: 28px;
-  stroke: var(--color-primary-600);
-}
-
-.skill-card h3 {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: var(--color-text-primary);
-  margin-bottom: 8px;
-}
-
-.skill-card p {
-  font-size: 0.875rem;
-  color: var(--color-text-muted);
-  line-height: 1.6;
-  margin: 0;
-}
-
-/* Philosophy Section */
+/* Philosophy Section - Uses full-bleed from design-system.css */
 .about-philosophy {
-  margin-bottom: 60px;
+  background: var(--gradient-surface-light);
+}
+
+.about-philosophy .section-header {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .philosophy-content {
   max-width: 800px;
   margin: 0 auto;
+  text-align: center;
 }
 
-.philosophy-quote {
-  background: linear-gradient(135deg, rgba(127, 62, 152, 0.05) 0%, rgba(168, 85, 247, 0.05) 100%);
-  border-left: 4px solid var(--color-primary-600);
-  padding: 32px;
-  margin: 0 0 32px 0;
-  border-radius: 8px;
-  font-size: 1.125rem;
-  line-height: 1.8;
-  color: var(--color-text-secondary);
-  font-style: italic;
-  position: relative;
-}
-
-.philosophy-quote::before {
-  content: '"';
-  position: absolute;
-  top: -10px;
-  left: 20px;
-  font-size: 4rem;
-  color: rgba(127, 62, 152, 0.2);
-  font-family: Georgia, serif;
-}
-
-.philosophy-content p {
+.philosophy-content > p {
   font-size: 1.0625rem;
   line-height: 1.8;
   color: var(--color-text-secondary);
+  text-align: center;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .about-title {
-    font-size: 2.5rem;
+  .about-journey,
+  .about-skills,
+  .about-philosophy {
+    margin: 0;
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
   }
-  
-  .about-subtitle {
-    font-size: 1rem;
+
+  .about-intro {
+    padding: 0 var(--space-4);
   }
-  
-  .section-title {
-    font-size: 2rem;
+
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
   }
-  
-  .timeline {
+
+  .premium-timeline {
     padding-left: 30px;
   }
-  
-  .timeline::before {
+
+  .premium-timeline::before {
     left: 10px;
   }
-  
-  .timeline-marker {
+
+  .premium-timeline-marker {
     left: -30px;
-  }
-  
-  .timeline-content {
-    padding: 20px;
-  }
-  
-  .skills-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-  
-  .skill-card {
-    padding: 24px;
-  }
-  
-  .philosophy-quote {
-    padding: 24px;
-    font-size: 1rem;
+    width: 14px;
+    height: 14px;
   }
 }
 
 @media (max-width: 480px) {
-  .about-hero {
-    margin-bottom: 60px;
+  .skills-grid {
+    grid-template-columns: 1fr;
   }
-  
-  .about-title {
-    font-size: 2rem;
+
+  .about-intro p {
+    font-size: 1rem;
   }
-  
-  .about-subtitle {
-    font-size: 0.875rem;
-    margin-bottom: 24px;
-  }
-  
-  .section-title {
-    font-size: 1.75rem;
-    margin-bottom: 32px;
-  }
-  
-  .timeline {
-    padding-left: 20px;
-  }
-  
-  .timeline-content {
-    padding: 16px;
-  }
-  
-  .timeline-content h3 {
-    font-size: 1.125rem;
-  }
-  
-  .skill-icon {
-    width: 48px;
-    height: 48px;
-  }
-  
-  .philosophy-quote::before {
-    font-size: 3rem;
-    top: -5px;
+
+  .philosophy-content > p {
+    font-size: 1rem;
+    text-align: left;
   }
 }
-
-/* Remove dark mode for now to maintain consistency */

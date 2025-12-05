@@ -1,20 +1,35 @@
-<section class="gallery-section">
+<section class="gallery-section premium-section-gradient">
   <div class="container">
-    <div class="gallery-hero">
-      <h1>Gallery</h1>
-      <p>Projects, experiences, and achievements captured in moments</p>
+    <div class="page-hero gallery-hero" data-reveal="fade-up">
+      <span class="page-eyebrow">Visual Journey</span>
+      <h1 class="page-title">Gallery</h1>
+      <p class="page-subtitle">Projects, experiences, and achievements captured in moments</p>
     </div>
-    
-    <div class="gallery-grid">
+
+    <!-- Category Filter -->
+    <div class="gallery-filters" data-reveal="fade-up" data-reveal-delay="200">
+      <button class="filter-btn active" data-filter="all">All Projects</button>
+      {% set categories = [] %}
       {% for image in images %}
-      <div class="gallery-item" data-category="{{ image.category }}">
-        <button 
-          class="gallery-link" 
+        {% if image.category not in categories %}
+          {% set _ = categories.append(image.category) %}
+        {% endif %}
+      {% endfor %}
+      {% for category in categories %}
+      <button class="filter-btn" data-filter="{{ category }}">{{ category }}</button>
+      {% endfor %}
+    </div>
+
+    <div class="gallery-grid" data-stagger data-stagger-delay="100">
+      {% for image in images %}
+      <div class="premium-card gallery-item stagger-item" data-category="{{ image.category }}" data-stagger-item>
+        <button
+          class="gallery-link"
           popovertarget="gallery-lightbox-{{ loop.index }}"
           popovertargetaction="toggle"
         >
-          <img 
-            src="{{ gallery_url }}/{{ image.filename }}" 
+          <img
+            src="{{ gallery_url }}/{{ image.filename }}"
             alt="{{ image.title }}"
             loading="lazy"
           />
@@ -23,46 +38,55 @@
             <p class="gallery-category">{{ image.category }}</p>
           </div>
         </button>
-        
+
         <!-- Lightbox popover for this image -->
-        <div 
-          id="gallery-lightbox-{{ loop.index }}" 
+        <div
+          id="gallery-lightbox-{{ loop.index }}"
           popover="manual"
           class="gallery-lightbox-popover"
         >
           <div class="lightbox-content">
-            <button 
-              class="lightbox-close" 
+            <button
+              class="lightbox-close"
               popovertarget="gallery-lightbox-{{ loop.index }}"
               popovertargetaction="hide"
               aria-label="Close"
-            >&times;</button>
-            
-            <!-- CSS-only navigation arrows -->
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+
+            <!-- Navigation arrows -->
             {% if loop.index > 1 %}
-            <button 
+            <button
               class="lightbox-nav prev"
               popovertarget="gallery-lightbox-{{ loop.index }}"
               popovertargetaction="hide"
               onclick="setTimeout(() => document.getElementById('gallery-lightbox-{{ loop.index - 1 }}').showPopover(), 50)"
               aria-label="Previous image"
             >
-              {{ inject_svg('arrow-left') | safe }}
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
             </button>
             {% endif %}
-            
+
             {% if loop.index < images|length %}
-            <button 
+            <button
               class="lightbox-nav next"
               popovertarget="gallery-lightbox-{{ loop.index }}"
               popovertargetaction="hide"
               onclick="setTimeout(() => document.getElementById('gallery-lightbox-{{ loop.index + 1 }}').showPopover(), 50)"
               aria-label="Next image"
             >
-              {{ inject_svg('arrow-right') | safe }}
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
             </button>
             {% endif %}
-            
+
             <div class="lightbox-inner">
               <img src="{{ gallery_url }}/{{ image.filename }}" alt="{{ image.title }}" />
               <div class="lightbox-details">
@@ -122,12 +146,60 @@
 </section>
 
 <script>
+// Keyboard navigation for lightbox
 document.addEventListener('keydown', function(event) {
+  const openPopover = document.querySelector('.gallery-lightbox-popover:popover-open');
+  if (!openPopover) return;
+
   if (event.key === 'Escape') {
-    const openPopover = document.querySelector('.gallery-lightbox-popover:popover-open');
-    if (openPopover) {
-      openPopover.hidePopover();
-    }
+    openPopover.hidePopover();
+  } else if (event.key === 'ArrowLeft') {
+    const prevBtn = openPopover.querySelector('.lightbox-nav.prev');
+    if (prevBtn) prevBtn.click();
+  } else if (event.key === 'ArrowRight') {
+    const nextBtn = openPopover.querySelector('.lightbox-nav.next');
+    if (nextBtn) nextBtn.click();
   }
 });
+
+// Gallery filtering
+document.addEventListener('DOMContentLoaded', function() {
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const galleryItems = document.querySelectorAll('.gallery-item');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      // Update active state
+      filterBtns.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+
+      const filter = this.dataset.filter;
+
+      galleryItems.forEach(item => {
+        if (filter === 'all' || item.dataset.category === filter) {
+          item.style.display = '';
+          item.style.animation = 'fadeInUp 0.5s ease forwards';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
+});
+
+// Add fadeInUp animation
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+`;
+document.head.appendChild(style);
 </script>

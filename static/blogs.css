@@ -330,13 +330,13 @@
 /* Reading Progress Bar */
 .reading-progress {
   position: fixed;
-  top: 0;
+  top: 64px; /* Directly below the nav header */
   left: 0;
   right: 0;
   height: 4px;
   background: rgba(243, 244, 246, 0.8);
   backdrop-filter: blur(10px);
-  z-index: 1000;
+  z-index: 49; /* Just below nav */
 }
 
 .reading-progress .progress-bar {

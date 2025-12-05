@@ -5,17 +5,22 @@
 
 /* Experience Section Container */
 .experience-compact {
-  padding: var(--space-8) var(--space-6);
+  padding: var(--space-12) var(--space-6);
   max-width: 1200px;
   margin: 0 auto;
-  background: #FFFFFF;
+  background: linear-gradient(180deg, #ffffff 0%, #faf5ff 50%, #f5f0ff 100%);
+  position: relative;
 }
 
 .experience-compact h2 {
   text-align: center;
-  font-size: var(--text-2xl);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800;
   margin-bottom: var(--space-2);
-  color: var(--color-text-primary);
+  background: linear-gradient(135deg, #1f2937 0%, #7c3aed 50%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .experience-subtitle {

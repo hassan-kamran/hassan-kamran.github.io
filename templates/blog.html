@@ -1,45 +1,58 @@
-<section class="blog-section">
+<section class="blog-section premium-section-gradient">
   <div class="container">
-    <div class="blog-header">
-      <h1>Technical Insights</h1>
-      <p>AI, Software Development, and Engineering Solutions</p>
+    <!-- Hero Section -->
+    <div class="page-hero blog-header">
+      <span class="page-eyebrow">Knowledge Base</span>
+      <h1 class="page-title">Technical Insights</h1>
+      <p class="page-subtitle">AI, Software Development, and Engineering Solutions</p>
     </div>
-    
+
     <div class="blog-grid">
       {% for post in blog_posts %}
-      <article class="blog-card">
+      <article class="premium-card blog-card stagger-item">
         <div class="blog-card-image">
           <img src="{{ static }}{{ post.image_url }}" alt="{{ post.title }}" loading="lazy">
           <span class="blog-category">{{ post.category }}</span>
         </div>
-        
+
         <div class="blog-card-content">
           <h3>
             <a href="{{ post.filename }}">{{ post.title }}</a>
           </h3>
-          
+
           <p class="blog-excerpt">
             {{ post.description }}
           </p>
-          
+
           <div class="blog-meta">
             <span class="blog-date">{{ post.date }}</span>
-            <a href="{{ post.filename }}" class="blog-link">Read Article →</a>
+            <a href="{{ post.filename }}" class="blog-link">
+              Read Article
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M7 17L17 7M17 7H7M17 7V17"/>
+              </svg>
+            </a>
           </div>
         </div>
       </article>
       {% endfor %}
     </div>
-    
+
     {% if pagination %}
     <div class="pagination">
       {% if pagination.has_prev %}
       <a href="{{ pagination.prev_url }}" class="pagination-btn">
-        ← Previous
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Previous
       </a>
       {% else %}
       <span class="pagination-btn disabled">
-        ← Previous
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Previous
       </span>
       {% endif %}
 
@@ -49,11 +62,17 @@
 
       {% if pagination.has_next %}
       <a href="{{ pagination.next_url }}" class="pagination-btn">
-        Next →
+        Next
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
       </a>
       {% else %}
       <span class="pagination-btn disabled">
-        Next →
+        Next
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
       </span>
       {% endif %}
     </div>
