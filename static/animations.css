@@ -1,6 +1,6 @@
 /* ==============================
-   ANIMATION SYSTEM STYLES
-   Reveal, Counter, Typing, and More
+   ANIMATION SYSTEM - Professional
+   Design Principles: 150-250ms, no spring/bounce, subtle transforms
 ============================== */
 
 /* ===========================================
@@ -15,7 +15,7 @@ body:not(.page-loaded) {
 }
 
 body.page-loaded {
-  animation: pageLoad 0.5s ease-out;
+  animation: pageLoad 200ms cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 @keyframes pageLoad {
@@ -25,6 +25,7 @@ body.page-loaded {
 
 /* ===========================================
    SCROLL REVEAL ANIMATIONS
+   Subtle fade-in with minimal movement
 =========================================== */
 
 /* Hidden state */
@@ -39,19 +40,19 @@ body.page-loaded {
   visibility: visible;
 }
 
-/* Fade Up */
+/* Fade Up - subtle 16px movement */
 .reveal-hidden[data-reveal="fade-up"] {
-  transform: translateY(40px);
+  transform: translateY(16px);
 }
 
 .reveal-visible.reveal-fade-up {
-  animation: revealFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: revealFadeUp 250ms cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
 @keyframes revealFadeUp {
   from {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
@@ -61,17 +62,17 @@ body.page-loaded {
 
 /* Fade Down */
 .reveal-hidden[data-reveal="fade-down"] {
-  transform: translateY(-40px);
+  transform: translateY(-16px);
 }
 
 .reveal-visible.reveal-fade-down {
-  animation: revealFadeDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: revealFadeDown 250ms cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
 @keyframes revealFadeDown {
   from {
     opacity: 0;
-    transform: translateY(-40px);
+    transform: translateY(-16px);
   }
   to {
     opacity: 1;
@@ -81,17 +82,17 @@ body.page-loaded {
 
 /* Fade Left */
 .reveal-hidden[data-reveal="fade-left"] {
-  transform: translateX(40px);
+  transform: translateX(16px);
 }
 
 .reveal-visible.reveal-fade-left {
-  animation: revealFadeLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: revealFadeLeft 250ms cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
 @keyframes revealFadeLeft {
   from {
     opacity: 0;
-    transform: translateX(40px);
+    transform: translateX(16px);
   }
   to {
     opacity: 1;
@@ -101,17 +102,17 @@ body.page-loaded {
 
 /* Fade Right */
 .reveal-hidden[data-reveal="fade-right"] {
-  transform: translateX(-40px);
+  transform: translateX(-16px);
 }
 
 .reveal-visible.reveal-fade-right {
-  animation: revealFadeRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: revealFadeRight 250ms cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
 @keyframes revealFadeRight {
   from {
     opacity: 0;
-    transform: translateX(-40px);
+    transform: translateX(-16px);
   }
   to {
     opacity: 1;
@@ -119,19 +120,19 @@ body.page-loaded {
   }
 }
 
-/* Scale Up */
+/* Scale - subtle 0.98 start */
 .reveal-hidden[data-reveal="scale"] {
-  transform: scale(0.9);
+  transform: scale(0.98);
 }
 
 .reveal-visible.reveal-scale {
-  animation: revealScale 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: revealScale 250ms cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
 @keyframes revealScale {
   from {
     opacity: 0;
-    transform: scale(0.9);
+    transform: scale(0.98);
   }
   to {
     opacity: 1;
@@ -139,19 +140,19 @@ body.page-loaded {
   }
 }
 
-/* Zoom In */
+/* Zoom - same as scale for consistency */
 .reveal-hidden[data-reveal="zoom"] {
-  transform: scale(0.5);
+  transform: scale(0.95);
 }
 
 .reveal-visible.reveal-zoom {
-  animation: revealZoom 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation: revealZoom 250ms cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
 @keyframes revealZoom {
   from {
     opacity: 0;
-    transform: scale(0.5);
+    transform: scale(0.95);
   }
   to {
     opacity: 1;
@@ -159,47 +160,31 @@ body.page-loaded {
   }
 }
 
-/* Flip */
-.reveal-hidden[data-reveal="flip"] {
-  transform: perspective(1000px) rotateY(-90deg);
-}
-
-.reveal-visible.reveal-flip {
-  animation: revealFlip 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes revealFlip {
-  from {
-    opacity: 0;
-    transform: perspective(1000px) rotateY(-90deg);
-  }
-  to {
-    opacity: 1;
-    transform: perspective(1000px) rotateY(0);
-  }
-}
-
-/* Blur */
+/* Blur - removed heavy blur, just fade */
 .reveal-hidden[data-reveal="blur"] {
-  filter: blur(20px);
-  transform: scale(1.1);
+  opacity: 0;
 }
 
 .reveal-visible.reveal-blur {
-  animation: revealBlur 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: revealBlur 250ms cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
 @keyframes revealBlur {
   from {
     opacity: 0;
-    filter: blur(20px);
-    transform: scale(1.1);
   }
   to {
     opacity: 1;
-    filter: blur(0);
-    transform: scale(1);
   }
+}
+
+/* Flip - simplified to fade */
+.reveal-hidden[data-reveal="flip"] {
+  opacity: 0;
+}
+
+.reveal-visible.reveal-flip {
+  animation: revealBlur 250ms cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
 /* ===========================================
@@ -207,17 +192,17 @@ body.page-loaded {
 =========================================== */
 .stagger-hidden {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(8px);
 }
 
 .stagger-visible {
-  animation: staggerReveal 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: staggerReveal 200ms cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
 @keyframes staggerReveal {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(8px);
   }
   to {
     opacity: 1;
@@ -232,9 +217,9 @@ body.page-loaded {
   content: '|';
   display: inline-block;
   color: var(--color-primary-600);
-  animation: blink 0.8s step-end infinite;
+  animation: blink 1s step-end infinite;
   margin-left: 2px;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 @keyframes blink {
@@ -247,66 +232,6 @@ body.page-loaded {
 =========================================== */
 [data-counter] {
   font-variant-numeric: tabular-nums;
-}
-
-/* ===========================================
-   GRADIENT TEXT EFFECT
-=========================================== */
-.gradient-text {
-  background: linear-gradient(135deg, var(--color-primary-600) 0%, var(--color-primary-400) 50%, var(--color-primary-600) 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: gradientShift 3s ease infinite;
-}
-
-@keyframes gradientShift {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-/* Static gradient text (no animation) */
-.gradient-text-static {
-  background: linear-gradient(135deg, var(--color-primary-600) 0%, var(--color-primary-400) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* ===========================================
-   GLOWING EFFECT
-=========================================== */
-.glow {
-  box-shadow: 0 0 20px rgba(168, 85, 247, 0.3),
-              0 0 40px rgba(168, 85, 247, 0.2),
-              0 0 60px rgba(168, 85, 247, 0.1);
-}
-
-.glow-text {
-  text-shadow: 0 0 10px rgba(168, 85, 247, 0.5),
-               0 0 20px rgba(168, 85, 247, 0.3);
-}
-
-/* ===========================================
-   MAGNETIC BUTTON STYLES
-=========================================== */
-[data-magnetic] {
-  transition: transform 0.15s ease-out;
-  will-change: transform;
-}
-
-/* ===========================================
-   TILT CARD STYLES
-=========================================== */
-[data-tilt] {
-  transition: transform 0.15s ease-out;
-  will-change: transform;
-  transform-style: preserve-3d;
 }
 
 /* ===========================================
@@ -333,94 +258,7 @@ body.page-loaded {
 }
 
 /* ===========================================
-   FLOATING ANIMATION
-=========================================== */
-.float {
-  animation: float 6s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-}
-
-.float-slow {
-  animation: float 8s ease-in-out infinite;
-}
-
-.float-fast {
-  animation: float 4s ease-in-out infinite;
-}
-
-/* ===========================================
-   PULSE GLOW ANIMATION
-=========================================== */
-.pulse-glow {
-  animation: pulseGlow 2s ease-in-out infinite;
-}
-
-@keyframes pulseGlow {
-  0%, 100% {
-    box-shadow: 0 0 5px rgba(168, 85, 247, 0.2),
-                0 0 20px rgba(168, 85, 247, 0.1);
-  }
-  50% {
-    box-shadow: 0 0 20px rgba(168, 85, 247, 0.4),
-                0 0 40px rgba(168, 85, 247, 0.2);
-  }
-}
-
-/* ===========================================
-   SHINE EFFECT
-=========================================== */
-.shine {
-  position: relative;
-  overflow: hidden;
-}
-
-.shine::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    45deg,
-    transparent 30%,
-    rgba(255, 255, 255, 0.1) 50%,
-    transparent 70%
-  );
-  transform: translateX(-100%);
-  animation: shine 3s infinite;
-}
-
-@keyframes shine {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
-}
-
-/* ===========================================
-   BORDER ANIMATION
-=========================================== */
-.animated-border {
-  position: relative;
-  border: 2px solid transparent;
-  background: linear-gradient(var(--color-surface), var(--color-surface)) padding-box,
-              linear-gradient(135deg, var(--color-primary-500), var(--color-primary-700)) border-box;
-  border-radius: var(--radius-xl);
-}
-
-/* ===========================================
-   UNDERLINE ANIMATION
+   UNDERLINE ANIMATION - Links
 =========================================== */
 .underline-animation {
   position: relative;
@@ -433,9 +271,9 @@ body.page-loaded {
   bottom: -2px;
   left: 0;
   width: 0;
-  height: 2px;
-  background: var(--color-primary-600);
-  transition: width 0.3s ease;
+  height: 1px;
+  background: currentColor;
+  transition: width 150ms cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .underline-animation:hover::after {
@@ -443,89 +281,29 @@ body.page-loaded {
 }
 
 /* ===========================================
-   SLIDE IN ANIMATIONS
-=========================================== */
-.slide-in-left {
-  animation: slideInLeft 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-100%);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.slide-in-right {
-  animation: slideInRight 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(100%);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* ===========================================
-   HOVER LIFT EFFECT
+   HOVER LIFT EFFECT - Subtle
 =========================================== */
 .hover-lift {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 150ms cubic-bezier(0.25, 1, 0.5, 1),
+              box-shadow 150ms cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .hover-lift:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card-hover);
 }
 
 /* ===========================================
-   ATTENTION ANIMATIONS
+   HERO ANIMATIONS - Subtle entrance
 =========================================== */
-.attention-pulse {
-  animation: attentionPulse 2s ease-in-out infinite;
-}
-
-@keyframes attentionPulse {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-}
-
-.attention-shake {
-  animation: attentionShake 0.5s ease-in-out;
-}
-
-@keyframes attentionShake {
-  0%, 100% { transform: translateX(0); }
-  20%, 60% { transform: translateX(-5px); }
-  40%, 80% { transform: translateX(5px); }
-}
-
-/* ===========================================
-   ENTRANCE ANIMATIONS FOR SPECIFIC ELEMENTS
-=========================================== */
-
-/* Hero specific animations */
 .hero-content {
-  animation: heroEnter 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: heroEnter 300ms cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
 @keyframes heroEnter {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
@@ -534,40 +312,50 @@ body.page-loaded {
 }
 
 .hero-image-section {
-  animation: heroImageEnter 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+  animation: heroImageEnter 300ms cubic-bezier(0.25, 1, 0.5, 1) 100ms forwards;
   opacity: 0;
 }
 
 @keyframes heroImageEnter {
   from {
     opacity: 0;
-    transform: translateX(30px) scale(0.95);
+    transform: translateX(12px);
   }
   to {
     opacity: 1;
-    transform: translateX(0) scale(1);
+    transform: translateX(0);
   }
 }
 
-/* Badge stagger animation */
+/* ===========================================
+   BADGE STAGGER ANIMATION
+=========================================== */
 .badge-container .badge {
   opacity: 0;
-  animation: badgeEnter 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: badgeEnter 200ms cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
-.badge-container .badge:nth-child(1) { animation-delay: 0.3s; }
-.badge-container .badge:nth-child(2) { animation-delay: 0.4s; }
-.badge-container .badge:nth-child(3) { animation-delay: 0.5s; }
+.badge-container .badge:nth-child(1) { animation-delay: 100ms; }
+.badge-container .badge:nth-child(2) { animation-delay: 150ms; }
+.badge-container .badge:nth-child(3) { animation-delay: 200ms; }
 
 @keyframes badgeEnter {
   from {
     opacity: 0;
-    transform: translateY(-10px) scale(0.9);
+    transform: translateY(-4px);
   }
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
   }
+}
+
+/* ===========================================
+   MAGNETIC & TILT - Simplified
+=========================================== */
+[data-magnetic],
+[data-tilt] {
+  transition: transform 150ms cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 /* ===========================================

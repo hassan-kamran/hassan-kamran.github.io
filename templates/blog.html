@@ -11,7 +11,13 @@
       {% for post in blog_posts %}
       <article class="premium-card blog-card stagger-item">
         <div class="blog-card-image">
-          <img src="{{ static }}{{ post.image_url }}" alt="{{ post.title }}" loading="lazy">
+          <img
+            src="{{ static }}{{ post.image_url }}"
+            alt="{{ post.title }}"
+            loading="lazy"
+            decoding="async"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          >
           <span class="blog-category">{{ post.category }}</span>
         </div>
 
@@ -28,7 +34,7 @@
             <span class="blog-date">{{ post.date }}</span>
             <a href="{{ post.filename }}" class="blog-link">
               Read Article
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                 <path d="M7 17L17 7M17 7H7M17 7V17"/>
               </svg>
             </a>
@@ -42,14 +48,14 @@
     <div class="pagination">
       {% if pagination.has_prev %}
       <a href="{{ pagination.prev_url }}" class="pagination-btn">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <path d="M19 12H5M12 19l-7-7 7-7"/>
         </svg>
         Previous
       </a>
       {% else %}
       <span class="pagination-btn disabled">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <path d="M19 12H5M12 19l-7-7 7-7"/>
         </svg>
         Previous
@@ -63,14 +69,14 @@
       {% if pagination.has_next %}
       <a href="{{ pagination.next_url }}" class="pagination-btn">
         Next
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <path d="M5 12h14M12 5l7 7-7 7"/>
         </svg>
       </a>
       {% else %}
       <span class="pagination-btn disabled">
         Next
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <path d="M5 12h14M12 5l7 7-7 7"/>
         </svg>
       </span>

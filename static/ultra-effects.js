@@ -7,6 +7,52 @@
   'use strict';
 
   // ===========================================
+  // UTILITY: THROTTLE FUNCTION
+  // Limits function execution to once per specified interval
+  // ===========================================
+  function throttle(func, limit) {
+    let inThrottle;
+    return function(...args) {
+      if (!inThrottle) {
+        func.apply(this, args);
+        inThrottle = true;
+        setTimeout(() => inThrottle = false, limit);
+      }
+    };
+  }
+
+  // ===========================================
+  // ANIMATION CONTROLLER - Pauses when page hidden
+  // ===========================================
+  const AnimationController = {
+    isPageVisible: true,
+    animations: new Set(),
+
+    init() {
+      document.addEventListener('visibilitychange', () => {
+        this.isPageVisible = !document.hidden;
+        if (this.isPageVisible) {
+          this.resumeAll();
+        }
+      });
+    },
+
+    register(animationFn) {
+      this.animations.add(animationFn);
+    },
+
+    resumeAll() {
+      this.animations.forEach(fn => fn());
+    },
+
+    shouldAnimate() {
+      return this.isPageVisible;
+    }
+  };
+
+  AnimationController.init();
+
+  // ===========================================
   // CURSOR SPOTLIGHT EFFECT
   // ===========================================
   class CursorSpotlight {
@@ -25,17 +71,19 @@
       this.spotlight.className = 'cursor-spotlight';
       document.body.appendChild(this.spotlight);
 
-      // Track mouse
-      document.addEventListener('mousemove', (e) => {
+      // Track mouse (throttled to 16ms ~ 60fps)
+      document.addEventListener('mousemove', throttle((e) => {
         this.mouseX = e.clientX;
         this.mouseY = e.clientY;
-      });
+      }, 16));
 
       // Smooth animation loop
       this.animate();
     }
 
     animate() {
+      if (!AnimationController.shouldAnimate()) return;
+
       // Smooth lerp
       this.currentX += (this.mouseX - this.currentX) * 0.1;
       this.currentY += (this.mouseY - this.currentY) * 0.1;

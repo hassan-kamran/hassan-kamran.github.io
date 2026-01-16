@@ -1,5 +1,6 @@
 /* ===========================================
-   CONSOLIDATED NAVIGATION STYLES
+   NAVIGATION STYLES - Clean, Professional
+   Design Principles: Subtle borders, no decorative shadows
    =========================================== */
 
 /* Navigation Header */
@@ -10,9 +11,8 @@
   right: 0;
   z-index: 50;
   background-color: #FFFFFF;
-  border-bottom: 1px solid rgba(127, 62, 152, 0.1);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-  height: 64px;
+  border-bottom: 1px solid var(--border-default, rgba(0, 0, 0, 0.08));
+  height: 56px;
 }
 
 .nav-header * {
@@ -71,18 +71,18 @@
 }
 
 .nav-link {
-  font-size: 0.95rem;
+  font-size: 14px;
   font-weight: 500;
-  color: #374151;
+  color: var(--color-text-secondary, #374151);
   text-decoration: none !important;
-  transition: color 0.2s ease;
+  transition: color 150ms cubic-bezier(0.25, 1, 0.5, 1);
   position: relative;
   white-space: nowrap;
   border-bottom: none !important;
 }
 
 .nav-link:hover {
-  color: #7f3e98;
+  color: var(--color-primary-600, #7f3e98);
   text-decoration: none !important;
 }
 
@@ -92,10 +92,10 @@
   bottom: -4px;
   left: 0;
   right: 0;
-  height: 2px;
-  background-color: #7f3e98;
+  height: 1px;
+  background-color: currentColor;
   transform: scaleX(0);
-  transition: transform 0.2s ease;
+  transition: transform 150ms cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .nav-link:hover::after {
@@ -287,9 +287,8 @@
 }
 
 .mobile-menu-link:hover {
-  background-color: rgba(127, 62, 152, 0.08);
+  background-color: rgba(127, 62, 152, 0.06);
   color: #7f3e98;
-  transform: translateX(4px);
 }
 
 .mobile-menu-search {
@@ -310,8 +309,6 @@
 
 .mobile-menu-search:hover {
   background-color: #5a2e6f;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(127, 62, 152, 0.3);
 }
 
 .mobile-menu-search svg {
@@ -464,9 +461,7 @@
 
 .search-result-item:hover {
   background-color: #FFFFFF;
-  border-color: #7f3e98;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(127, 62, 152, 0.1);
+  border-color: rgba(127, 62, 152, 0.3);
 }
 
 .search-result-title {
@@ -496,7 +491,7 @@
 
 /* Ensure proper stacking for main content */
 main {
-  padding-top: 64px;
+  padding-top: 56px;
 }
 
 /* Icon styling */

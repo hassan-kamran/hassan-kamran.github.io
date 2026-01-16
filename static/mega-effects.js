@@ -7,6 +7,52 @@
   'use strict';
 
   // ===========================================
+  // UTILITY: THROTTLE FUNCTION
+  // ===========================================
+  function throttle(func, limit) {
+    let inThrottle;
+    return function(...args) {
+      if (!inThrottle) {
+        func.apply(this, args);
+        inThrottle = true;
+        setTimeout(() => inThrottle = false, limit);
+      }
+    };
+  }
+
+  // ===========================================
+  // ANIMATION CONTROLLER - Pauses when page hidden
+  // Prevents memory leaks from infinite RAF loops
+  // ===========================================
+  const AnimationController = {
+    isPageVisible: true,
+    animations: new Set(),
+
+    init() {
+      document.addEventListener('visibilitychange', () => {
+        this.isPageVisible = !document.hidden;
+        if (this.isPageVisible) {
+          this.resumeAll();
+        }
+      });
+    },
+
+    register(animationFn) {
+      this.animations.add(animationFn);
+    },
+
+    resumeAll() {
+      this.animations.forEach(fn => fn());
+    },
+
+    shouldAnimate() {
+      return this.isPageVisible;
+    }
+  };
+
+  AnimationController.init();
+
+  // ===========================================
   // CUSTOM CURSOR
   // ===========================================
   class CustomCursor {
@@ -34,11 +80,11 @@
       this.dot.className = 'cursor-dot';
       document.body.appendChild(this.dot);
 
-      // Track mouse
-      document.addEventListener('mousemove', (e) => {
+      // Track mouse (throttled to 16ms ~ 60fps)
+      document.addEventListener('mousemove', throttle((e) => {
         this.mouseX = e.clientX;
         this.mouseY = e.clientY;
-      });
+      }, 16));
 
       // Hover state for interactive elements
       const interactiveElements = document.querySelectorAll('a, button, [data-cursor-hover], input, textarea, .btn, .nav-link');
@@ -59,6 +105,8 @@
     }
 
     animate() {
+      if (!AnimationController.shouldAnimate()) return;
+
       // Smooth follow for outer cursor (faster)
       this.cursorX += (this.mouseX - this.cursorX) * 0.35;
       this.cursorY += (this.mouseY - this.cursorY) * 0.35;
@@ -129,6 +177,8 @@
     }
 
     animate() {
+      if (!AnimationController.shouldAnimate()) return;
+
       this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
       this.particles.forEach((particle, i) => {
@@ -442,6 +492,12 @@
     }
 
     animate() {
+      if (!AnimationController.shouldAnimate()) {
+        // Resume when page becomes visible again
+        AnimationController.register(() => this.animate());
+        return;
+      }
+
       const force = (this.target - this.current) * this.stiffness;
       this.velocity += force;
       this.velocity *= this.damping;
