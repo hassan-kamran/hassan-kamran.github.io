@@ -1,6 +1,6 @@
 # engrhassankamran.com
 
-Single-page résumé site for **Hassan Kamran** — hand-authored HTML with inline CSS, no JavaScript, no build dependencies.
+Single-page résumé site for **Hassan Kamran** — hand-authored HTML with inline CSS, a small vanilla-JS enhancement layer (scroll animations, all optional), and no build dependencies.
 
 ## Build & preview
 

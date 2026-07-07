@@ -9,7 +9,8 @@ Until July 2026 this repo held a multi-page portfolio (blog, gallery, services, 
 ## Structure
 
 ```
-index.html          # THE page — hand-authored HTML with inline CSS, no JS
+index.html          # THE page — hand-authored HTML with inline CSS
+static/site.js      # progressive enhancement: reveals, counters, scroll-spy, spotlight, copy buttons
 404.html            # minimal not-found page
 resume/hassan_kamran_resume.pdf   # source of truth for content; served at /hassan-kamran-resume.pdf
 static/             # fonts (woff2), HK favicons, portrait photo, og-card.jpg, site.webmanifest
@@ -35,7 +36,8 @@ Deployment: push to `main` → Cloudflare Pages builds `generate.py` → serves 
 - **OG image:** edit `assets-src/og-card.html`, then regenerate `static/og-card.jpg` with the headless-Chrome + sips commands in that file's top comment.
 - **Favicons:** the Big0 "0" mark on teal, copied verbatim from the company repo (`Big0-dev.github.io/static/favicon*`) — Hassan's explicit choice for his personal site too. To update, replace the files in `static/` (ico, svg, png sizes, apple-touch-icon) rather than redesigning.
 - **New pages:** don't add any without being asked — the whole point is one page. If one is truly needed, add the filename to `PAGES` in `generate.py`.
-- **Adding any script or external resource requires loosening the CSP** in `_headers` (currently `default-src 'none'` — the page is fully self-contained). There's also a print stylesheet at the bottom of `index.html` (flips the design tokens to light ink) — keep it in mind when adding sections.
+- **Animations are progressive enhancement** in `static/site.js` (reveal-on-scroll, stat count-up, kicker decode, career-stepper activation, timeline draw, scroll-spy, hero spotlight, copy-to-clipboard, back-to-top). Rules: every hidden/dim initial state must be scoped under `html.js` inside `@media screen and (prefers-reduced-motion: no-preference)` so the page stays fully readable with JS off, motion off, and in print; `html:not(.js)` fallbacks light the stepper/timeline dots statically.
+- **CSP** in `_headers` is `default-src 'none'` + `script-src 'self'` — adding any external resource requires loosening it deliberately. There's also a print stylesheet at the bottom of `index.html` (flips the design tokens to light ink) — keep it in mind when adding sections.
 
 ## Related
 
