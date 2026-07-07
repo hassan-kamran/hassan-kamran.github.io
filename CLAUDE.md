@@ -31,7 +31,7 @@ Deployment: push to `main` → Cloudflare Pages builds `generate.py` → serves 
 
 ## Updating Content
 
-- **Résumé changes:** the PDF in `resume/` is the source of truth. Replace the PDF *and* mirror the change in `index.html` — sections: hero summary, stats strip, Work Experience, Publications, Licences/Certifications/Courses, Education, contact details.
+- **Résumé changes:** the PDF in `resume/` is the source of truth. Replace the PDF *and* mirror the change in `index.html` — sections: hero summary, stats strip, Work Experience, Publications, Licences/Certifications/Courses, Education, contact details. Also bump the "Résumé last updated <Month Year>" stamp in the footer and `sitemap.xml`'s lastmod.
 - **Contact info:** contact@engrhassankamran.com, +92 303 9441945, linkedin.com/in/engr-hassan-kamran, github.com/hassan-kamran, ORCID 0009-0005-3034-1679. The home address stays out of the HTML (it's only inside the PDF).
 - **OG image:** edit `assets-src/og-card.html`, then regenerate `static/og-card.jpg` with the headless-Chrome + sips commands in that file's top comment.
 - **Favicons:** the Big0 "0" mark on teal, copied verbatim from the company repo (`Big0-dev.github.io/static/favicon*`) — Hassan's explicit choice for his personal site too. To update, replace the files in `static/` (ico, svg, png sizes, apple-touch-icon) rather than redesigning.
