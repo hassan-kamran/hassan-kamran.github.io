@@ -26,15 +26,10 @@ ROOT_FILES = ["_redirects", "_headers", "robots.txt", "sitemap.xml"]
 
 # Served from the build root by convention (browsers request /favicon.ico etc.)
 ROOT_ASSETS = [
-    "favicon.ico",
+    "favicon.ico",           # legacy fallback; embeds 16/32/48
     "favicon.svg",
-    "favicon.png",
-    "favicon-16.png",
-    "favicon-32.png",
-    "favicon-48.png",
-    "favicon-96.png",
-    "favicon-192.png",
-    "favicon-512.png",
+    "favicon-192.png",       # referenced by site.webmanifest
+    "favicon-512.png",       # referenced by site.webmanifest
     "apple-touch-icon.png",
     "site.webmanifest",
 ]
