@@ -115,9 +115,9 @@
       // innerHeight can be stale there, leaving the bar short of 100% at the bottom.
       const vh = window.visualViewport ? window.visualViewport.height : innerHeight;
       const max = doc.scrollHeight - vh;
-      const atBottom = doc.scrollHeight - (y + vh) < 2;
+      const atBottom = doc.scrollHeight - (y + vh) < 8;
       let p = max > 0 ? y / max : 1;
-      if (atBottom) p = 1; // snap when truly at the bottom
+      if (atBottom) p = 1; // snap when at (or within a few px of) the bottom
       if (bar) bar.style.transform = "scaleX(" + Math.min(1, Math.max(0, p)).toFixed(4) + ")";
       if (header) header.classList.toggle("scrolled", y > 8);
       if (toTop) toTop.classList.toggle("show", y > 600);
