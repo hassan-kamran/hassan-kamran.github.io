@@ -240,6 +240,8 @@
       box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.18);
     }
     .path .node:last-child.on { color: var(--bright); }
+    .path a.node:hover { text-decoration: none; color: var(--white); }
+    .path a.node:hover i { border-color: var(--glow); }
     /* Without JS the nodes render lit */
     html:not(.js) .path .node { color: var(--text); }
     html:not(.js) .path .node i { border-color: var(--glow); background: var(--glow); }
@@ -335,7 +337,7 @@
       transform: scaleY(var(--tl, 1)); transform-origin: top;
       box-shadow: 0 0 6px rgba(20, 184, 166, 0.35);
     }
-    .job { position: relative; padding-bottom: 44px; }
+    .job { position: relative; padding-bottom: 44px; scroll-margin-top: 84px; }
     .job:last-child { padding-bottom: 8px; }
     .job::before {
       content: ""; position: absolute; left: -28px; top: 7px; z-index: 2;
@@ -556,12 +558,12 @@
             50+ personnel to deliver engineering solutions end-to-end.
           </p>
 
-          <div class="path" aria-label="Career path">
-            <span class="node"><i aria-hidden="true"></i>Army Captain</span>
-            <span class="node"><i aria-hidden="true"></i>PM &amp; Tech Lead</span>
-            <span class="node"><i aria-hidden="true"></i>Adjunct Faculty</span>
-            <span class="node"><i aria-hidden="true"></i>Founder &amp; CEO</span>
-          </div>
+          <nav class="path" aria-label="Career path">
+            <a class="node" href="#job-army"><i aria-hidden="true"></i>Army Captain</a>
+            <a class="node" href="#job-cyberx"><i aria-hidden="true"></i>PM &amp; Tech Lead</a>
+            <a class="node" href="#job-szabist"><i aria-hidden="true"></i>Adjunct Faculty</a>
+            <a class="node" href="#job-big0"><i aria-hidden="true"></i>Founder &amp; CEO</a>
+          </nav>
 
           <div class="contact-chips">
             <span>
@@ -624,7 +626,7 @@
         <div class="section-head reveal"><span class="index">01</span><h2>Work Experience</h2><span class="rule"></span></div>
 
         <div class="timeline">
-          <article class="job reveal">
+          <article class="job reveal" id="job-big0">
             <h3>Big0 Dev (Pvt) Ltd — <span class="role">Founder and CEO</span></h3>
             <p class="meta">Jul 2025 – Aug 2026 · Islamabad, Pakistan</p>
             <ul>
@@ -635,7 +637,7 @@
             </ul>
           </article>
 
-          <article class="job reveal">
+          <article class="job reveal" id="job-szabist">
             <h3>SZABIST Islamabad — <span class="role">Adjunct Faculty Member</span></h3>
             <p class="meta">Sep 2025 – Jun 2026 · Islamabad, Pakistan</p>
             <ul>
@@ -644,7 +646,7 @@
             </ul>
           </article>
 
-          <article class="job reveal">
+          <article class="job reveal" id="job-cyberx">
             <h3>CyberX Studio — <span class="role">Project Manager and Tech Lead</span></h3>
             <p class="meta">Nov 2023 – Oct 2025 · Islamabad, Pakistan</p>
             <ul>
@@ -656,7 +658,7 @@
             </ul>
           </article>
 
-          <article class="job reveal">
+          <article class="job reveal" id="job-army">
             <h3>Pakistan Army, EME Corps — <span class="role">Captain (Workshop Officer)</span></h3>
             <p class="meta">Oct 2020 – Sep 2023 · Quetta &amp; Mangla, Pakistan</p>
             <ul>
