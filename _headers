@@ -1,0 +1,28 @@
+# Cloudflare Pages custom headers
+# Fonts never change — cache hard. Images can be replaced under the same
+# filename, so they get a modest TTL. The résumé PDF is expected to be
+# updated in place, so it must revalidate quickly.
+#
+# The CSP is strict because the page is self-contained: inline CSS only,
+# no JS, no external requests. (JSON-LD data blocks are not executed, so
+# script-src falling back to 'none' is fine.) If a script or third-party
+# resource is ever added, this policy must be loosened deliberately.
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; img-src 'self'; font-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'
+
+/static/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+
+/static/*.avif
+  Cache-Control: public, max-age=604800
+
+/static/og-card.jpg
+  Cache-Control: public, max-age=604800
+
+/hassan-kamran-resume.pdf
+  Cache-Control: public, max-age=3600, must-revalidate

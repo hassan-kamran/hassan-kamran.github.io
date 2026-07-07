@@ -1,0 +1,101 @@
+<!doctype html>
+<!-- Source for static/og-card.jpg (og:image, 1200x630; JPEG because WhatsApp mishandles some PNG previews).
+     Regenerate after editing (from repo root):
+       "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+         --headless=new --disable-gpu --screenshot=/tmp/og-card-2x.png \
+         --window-size=1200,630 --force-device-scale-factor=2 --hide-scrollbars \
+         --allow-file-access-from-files "file://$PWD/assets-src/og-card.html"
+       sips -z 630 1200 -s format jpeg -s formatOptions 88 /tmp/og-card-2x.png --out static/og-card.jpg
+-->
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @font-face {
+    font-family: 'Exo 2';
+    src: url('../static/Exo2-Regular.woff2') format('woff2');
+    font-weight: 400 700;
+  }
+  @font-face {
+    font-family: 'DM Sans';
+    src: url('../static/DMSans-Regular.woff2') format('woff2');
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: 'DM Sans';
+    src: url('../static/DMSans-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    background: #0A0F1C;
+    position: relative;
+    font-family: 'DM Sans', sans-serif;
+  }
+  /* Faint engineering dot grid */
+  .grid {
+    position: absolute; inset: 0;
+    background-image: radial-gradient(circle, #334155 1.1px, transparent 1.1px);
+    background-size: 34px 34px;
+    opacity: 0.5;
+  }
+  /* Inset hairline frame */
+  .frame {
+    position: absolute; inset: 26px;
+    border: 1px solid #1E293B;
+    border-radius: 12px;
+  }
+  .content {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 0 100px;
+  }
+  .kicker {
+    font-family: 'Exo 2', sans-serif;
+    color: #14B8A6; font-size: 26px;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-family: 'Exo 2', sans-serif;
+    color: #F8FAFC; font-size: 94px; font-weight: 700;
+    letter-spacing: -0.01em; line-height: 1.05;
+    margin-bottom: 28px;
+  }
+  .sub {
+    color: #94A3B8; font-size: 30px; line-height: 1.45; max-width: 920px;
+    margin-bottom: 42px;
+  }
+  .sub strong { color: #CBD5E1; font-weight: 600; }
+  .chips { display: flex; gap: 14px; }
+  .chip {
+    font-family: 'Exo 2', sans-serif;
+    color: #2DD4BF; border: 1px solid #134E4A;
+    background: rgba(13, 148, 136, 0.10);
+    font-size: 22px; letter-spacing: 0.05em;
+    padding: 10px 22px; border-radius: 999px;
+  }
+  .domain {
+    position: absolute; bottom: 58px; right: 100px;
+    font-family: 'Exo 2', sans-serif;
+    color: #64748B; font-size: 24px; letter-spacing: 0.08em;
+  }
+</style>
+</head>
+<body>
+  <div class="grid"></div>
+  <div class="frame"></div>
+  <div class="content">
+    <div class="kicker">Founder &amp; Engineering Leader</div>
+    <h1>Hassan Kamran</h1>
+    <div class="sub">AI/ML consulting, software delivery, and engineering operations. Published in <strong>PLOS ONE</strong> and <strong>IEEE Xplore</strong>.</div>
+    <div class="chips">
+      <span class="chip">PMP</span>
+      <span class="chip">PEC Registered Engineer</span>
+      <span class="chip">MIT Sloan Affiliate</span>
+    </div>
+  </div>
+  <div class="domain">engrhassankamran.com</div>
+</body>
+</html>

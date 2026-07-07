@@ -1,0 +1,57 @@
+# CLAUDE.md — engrhassankamran.com
+
+## About This Site
+
+A **single-page résumé site** for Hassan Kamran, served at https://engrhassankamran.com on Cloudflare Pages.
+
+Until July 2026 this repo held a multi-page portfolio (blog, gallery, services, separate resume page) built with a Jinja2 static generator. That was all retired in favour of one hand-authored page (old code is in git history). Every old URL 301-redirects to `/` via `_redirects`.
+
+## Structure
+
+```
+index.html          # THE page — hand-authored HTML with inline CSS, no JS
+404.html            # minimal not-found page
+resume/hassan_kamran_resume.pdf   # source of truth for content; served at /hassan-kamran-resume.pdf
+static/             # fonts (woff2), HK favicons, portrait photo, og-card.jpg, site.webmanifest
+assets-src/         # og-card.html and favicon.html sources (regeneration cmds in their comments)
+generate.py         # stdlib-only build: copies everything into build/ (exit 1 on missing files)
+serve.py            # local preview of build/ with Cloudflare-style extensionless URLs
+_redirects _headers robots.txt sitemap.xml   # Cloudflare Pages config, copied into build/
+```
+
+## Key Commands
+
+```bash
+python generate.py   # build into build/ (no dependencies needed; uv run also works)
+python serve.py      # preview at http://localhost:8000
+```
+
+Deployment: push to `main` → Cloudflare Pages builds `generate.py` → serves `build/`.
+
+## Updating Content
+
+- **Résumé changes:** the PDF in `resume/` is the source of truth. Replace the PDF *and* mirror the change in `index.html` — sections: hero summary, stats strip, Work Experience, Publications, Licences/Certifications/Courses, Education, contact details.
+- **Contact info:** hassan@engrhassankamran.com, +92 303 9441945, linkedin.com/in/engr-hassan-kamran, github.com/hassan-kamran, ORCID 0009-0005-3034-1679. The home address stays out of the HTML (it's only inside the PDF).
+- **OG image:** edit `assets-src/og-card.html`, then regenerate `static/og-card.jpg` with the headless-Chrome + sips commands in that file's top comment.
+- **Favicons** (HK monogram on teal): edit `assets-src/favicon.html`, render a transparent 1024px master with the Chrome command in its comment, then derive all sizes (PNGs, .ico, apple-touch-icon) with PIL — keep `static/favicon.svg` in sync by hand.
+- **New pages:** don't add any without being asked — the whole point is one page. If one is truly needed, add the filename to `PAGES` in `generate.py`.
+- **Adding any script or external resource requires loosening the CSP** in `_headers` (currently `default-src 'none'` — the page is fully self-contained). There's also a print stylesheet at the bottom of `index.html` (flips the design tokens to light ink) — keep it in mind when adding sections.
+
+## Related
+
+- **big0.dev** (`/Users/hassan/Code/Big0-dev.github.io`) is the SEPARATE company site for Big0 Dev (Pvt) Ltd — a full multi-page marketing site. Résumé/personal changes belong HERE, not there.
+
+## Design System
+
+- **Dark theme only** — no light mode, no gradients
+- Colors: void `#0A0F1C` (bg), panel `#0F172A`, borders `#1E293B`/`#334155`, signal teal `#0D9488`, glow `#14B8A6`, bright `#2DD4BF`, text `#CBD5E1`, muted `#94A3B8`
+- Fonts (self-hosted woff2): "Exo 2" (display/headings), "DM Sans" (body)
+- Radius 10–12px, transitions 0.2s ease, content max-width 1000px, mobile breakpoint 768px
+- All CSS is inline in `index.html` — no external stylesheet, so no cache-busting needed. Fonts are cached immutable via `_headers`.
+
+## Gotchas
+
+- `find` is aliased to `fd` in this shell — use `/usr/bin/find`
+- zsh does not word-split unquoted variables — don't write `for f in $LIST` in Bash tool calls
+- headless Chrome has a ~500px minimum window width; fragment URLs (`#section`) don't scroll before `--screenshot` fires — capture full pages with a tall `--window-size` instead
+- The résumé PDF must be committed (Cloudflare builds from git); `generate.py` fails the build if it's missing

@@ -1,0 +1,32 @@
+# Cloudflare Pages Redirects — engrhassankamran.com is now a single page.
+# Rules are evaluated top to bottom; first match wins.
+# See: https://developers.cloudflare.com/pages/configuration/redirects/
+
+# Retired content sections (splats cover extensionless and .html forms)
+/blogs/* / 301
+/gallery/* / 301
+/services/* / 301
+
+# Retired top-level pages of the old multi-page portfolio
+/about / 301
+/about.html / 301
+/blog / 301
+/blog.html / 301
+/blog-2 / 301
+/blog-2.html / 301
+/contact / 301
+/contact.html / 301
+/gallery / 301
+/gallery.html / 301
+/paragliding / 301
+/paragliding.html / 301
+/privacy / 301
+/privacy.html / 301
+/resume / 301
+/resume.html / 301
+/services / 301
+/services.html / 301
+/terms / 301
+/terms.html / 301
+/rss.xml / 301
+/sitemap-images.xml /sitemap.xml 301

@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hassan Kamran — Founder &amp; Engineering Leader</title>
+  <meta name="description" content="Hassan Kamran — founder and engineering leader spanning AI/ML consulting, software delivery, and workshop operations. Published in PLOS ONE and IEEE Xplore. PMP. Based in Islamabad, Pakistan.">
+  <link rel="canonical" href="https://engrhassankamran.com/">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://engrhassankamran.com/">
+  <meta property="og:title" content="Hassan Kamran — Founder &amp; Engineering Leader">
+  <meta property="og:description" content="AI/ML consulting, software delivery, and engineering operations. Published in PLOS ONE and IEEE Xplore. PMP. Islamabad, Pakistan.">
+  <meta property="og:image" content="https://engrhassankamran.com/static/og-card.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Icons -->
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#0A0F1C">
+
+  <!-- Fonts (self-hosted) -->
+  <link rel="preload" href="/static/Exo2-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/static/DMSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Hassan Kamran",
+    "url": "https://engrhassankamran.com/",
+    "image": "https://engrhassankamran.com/static/hassan-kamran.avif",
+    "jobTitle": "Founder & Engineering Leader",
+    "email": "mailto:hassan@engrhassankamran.com",
+    "telephone": "+923039441945",
+    "address": { "@type": "PostalAddress", "addressLocality": "Islamabad", "addressCountry": "PK" },
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "Asia School of Business in collaboration with MIT Sloan" },
+      { "@type": "CollegeOrUniversity", "name": "Shaheed Zulfikar Ali Bhutto Institute of Science and Technology" },
+      { "@type": "CollegeOrUniversity", "name": "Sir Syed CASE Institute of Technology" },
+      { "@type": "CollegeOrUniversity", "name": "National University of Sciences and Technology" },
+      { "@type": "CollegeOrUniversity", "name": "Pakistan Military Academy" }
+    ],
+    "sameAs": [
+      "https://www.linkedin.com/in/engr-hassan-kamran/",
+      "https://github.com/hassan-kamran",
+      "https://orcid.org/0009-0005-3034-1679"
+    ]
+  }
+  </script>
+
+  <style>
+    /* ============ Fonts ============ */
+    @font-face {
+      font-family: "Exo 2";
+      src: url("/static/Exo2-Regular.woff2") format("woff2");
+      font-weight: 400 700;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "DM Sans";
+      src: url("/static/DMSans-Regular.woff2") format("woff2");
+      font-weight: 400;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "DM Sans";
+      src: url("/static/DMSans-SemiBold.woff2") format("woff2");
+      font-weight: 600;
+      font-display: swap;
+    }
+
+    /* ============ Tokens ============ */
+    :root {
+      --void: #0A0F1C;
+      --panel: #0F172A;
+      --panel-2: #121D33;
+      --border: #1E293B;
+      --border-2: #334155;
+      --signal: #0D9488;
+      --glow: #14B8A6;
+      --bright: #2DD4BF;
+      --text: #CBD5E1;
+      --muted: #94A3B8;
+      --white: #F8FAFC;
+      --display: "Exo 2", "Segoe UI", sans-serif;
+      --body: "DM Sans", -apple-system, sans-serif;
+      --radius: 10px;
+      --radius-lg: 12px;
+    }
+
+    /* ============ Base ============ */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition: none !important; }
+    }
+    body {
+      background: var(--void);
+      color: var(--text);
+      font-family: var(--body);
+      font-size: 1rem;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    ::selection { background: var(--signal); color: var(--white); }
+    a { color: var(--bright); text-decoration: none; }
+    a:hover { text-decoration: underline; text-underline-offset: 3px; }
+    :focus-visible { outline: 2px solid var(--glow); outline-offset: 3px; border-radius: 4px; }
+    h1, h2, h3 { font-family: var(--display); color: var(--white); line-height: 1.2; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 72px 0 8px; scroll-margin-top: 72px; }
+    svg { flex-shrink: 0; }
+
+    .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 36px; }
+    .section-head h2 { font-size: 1.6rem; font-weight: 600; letter-spacing: 0.01em; }
+    .section-head .rule { flex: 1; height: 1px; background: var(--border); }
+    .section-head .index { font-family: var(--display); color: var(--signal); font-size: 0.95rem; }
+
+    /* ============ Header ============ */
+    .site-header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(10, 15, 28, 0.88);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .site-header .container {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 60px; gap: 16px;
+    }
+    .brand { font-family: var(--display); font-weight: 600; font-size: 1.05rem; color: var(--white); letter-spacing: 0.02em; white-space: nowrap; }
+    .brand:hover { text-decoration: none; color: var(--bright); }
+    .site-nav { display: flex; gap: 22px; }
+    .site-nav a { color: var(--muted); font-size: 0.92rem; }
+    .site-nav a:hover { color: var(--white); text-decoration: none; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 9px 18px; border-radius: var(--radius);
+      font-family: var(--body); font-weight: 600; font-size: 0.92rem;
+      border: 1px solid transparent; white-space: nowrap;
+      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    }
+    .btn:hover { text-decoration: none; }
+    .btn-solid { background: var(--signal); color: var(--white); }
+    .btn-solid:hover { background: var(--glow); }
+    .btn-ghost { border-color: var(--border-2); color: var(--text); }
+    .btn-ghost:hover { border-color: var(--glow); color: var(--white); }
+    .btn-sm { padding: 7px 14px; font-size: 0.85rem; }
+
+    /* ============ Hero ============ */
+    .hero { padding: 88px 0 40px; position: relative; overflow: hidden; }
+    .hero::before {
+      content: ""; position: absolute; inset: 0;
+      background-image: radial-gradient(circle, #22314b 1px, transparent 1px);
+      background-size: 32px 32px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,0.55), transparent 78%);
+      -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,0.55), transparent 78%);
+      pointer-events: none;
+    }
+    .hero .container { position: relative; display: flex; gap: 48px; align-items: flex-start; }
+    .hero-text { flex: 1; min-width: 0; }
+    .kicker { font-family: var(--display); color: var(--glow); font-size: 0.9rem; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 14px; }
+    .hero h1 { font-size: clamp(2.3rem, 6vw, 3.4rem); font-weight: 700; letter-spacing: -0.01em; margin-bottom: 18px; }
+    .hero .summary { font-size: 1.08rem; max-width: 58ch; margin-bottom: 26px; }
+    .hero .summary strong { color: var(--white); font-weight: 600; }
+
+    .contact-chips { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-bottom: 30px; }
+    .contact-chips a, .contact-chips span {
+      display: inline-flex; align-items: center; gap: 7px;
+      color: var(--muted); font-size: 0.92rem;
+    }
+    .contact-chips a:hover { color: var(--bright); text-decoration: none; }
+    .contact-chips svg { width: 16px; height: 16px; color: var(--signal); }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    .portrait { width: 216px; }
+    .portrait img {
+      width: 100%; aspect-ratio: 1 / 1.08; object-fit: cover;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-2);
+      display: block;
+    }
+    .portrait figcaption { margin-top: 10px; text-align: center; font-size: 0.8rem; color: var(--muted); font-family: var(--display); letter-spacing: 0.06em; }
+
+    /* ============ Stat strip ============ */
+    .stats { padding: 26px 0 0; }
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--border); border-radius: var(--radius-lg);
+      background: var(--panel); overflow: hidden;
+    }
+    .stat { padding: 20px 22px; border-left: 1px solid var(--border); }
+    .stat:first-child { border-left: none; }
+    .stat .num { font-family: var(--display); font-size: 1.7rem; font-weight: 600; color: var(--white); }
+    .stat .num em { font-style: normal; color: var(--glow); }
+    .stat .label { font-size: 0.84rem; color: var(--muted); margin-top: 2px; }
+
+    /* ============ Experience ============ */
+    .timeline { position: relative; padding-left: 28px; }
+    .timeline::before {
+      content: ""; position: absolute; left: 5px; top: 8px; bottom: 8px;
+      width: 1px; background: var(--border-2);
+    }
+    .job { position: relative; padding-bottom: 44px; }
+    .job:last-child { padding-bottom: 8px; }
+    .job::before {
+      content: ""; position: absolute; left: -28px; top: 7px;
+      width: 11px; height: 11px; border-radius: 50%;
+      background: var(--void); border: 2px solid var(--signal);
+    }
+    .job h3 { font-size: 1.18rem; font-weight: 600; margin-bottom: 4px; }
+    .job .role { color: var(--glow); font-weight: 600; font-family: var(--body); }
+    .job .meta { font-size: 0.88rem; color: var(--muted); margin-bottom: 12px; font-family: var(--display); letter-spacing: 0.04em; }
+    .job ul { list-style: none; }
+    .job li { position: relative; padding-left: 20px; margin-bottom: 7px; max-width: 76ch; }
+    .job li::before { content: "—"; position: absolute; left: 0; color: var(--signal); }
+
+    /* ============ Publications ============ */
+    .pub-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .pub {
+      background: var(--panel); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 24px;
+      display: flex; flex-direction: column; gap: 12px;
+      transition: border-color 0.2s ease;
+    }
+    .pub:hover { border-color: var(--border-2); }
+    .pub .venue {
+      align-self: flex-start; font-family: var(--display); font-size: 0.78rem;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 999px; border: 1px solid;
+    }
+    .venue-green { color: #4ADE80; border-color: rgba(74, 222, 128, 0.35); background: rgba(74, 222, 128, 0.08); }
+    .venue-cyan { color: #22D3EE; border-color: rgba(34, 211, 238, 0.35); background: rgba(34, 211, 238, 0.08); }
+    .pub h3 { font-size: 1.08rem; font-weight: 600; }
+    .pub h3 a { color: var(--white); }
+    .pub h3 a:hover { color: var(--bright); text-decoration: none; }
+    .pub .pub-meta { font-size: 0.88rem; color: var(--muted); margin-top: auto; display: flex; align-items: center; gap: 8px; }
+    .pub .pub-meta svg { width: 14px; height: 14px; color: var(--signal); }
+    .orcid-line { margin-top: 18px; font-size: 0.9rem; color: var(--muted); }
+
+    /* ============ Credentials ============ */
+    .cred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }
+    .cred-card { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; }
+    .cred-card h3 { font-size: 1rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--glow); margin-bottom: 16px; }
+    .cred-row { display: flex; justify-content: space-between; gap: 16px; padding: 11px 0; border-top: 1px solid var(--border); }
+    .cred-row:first-of-type { border-top: none; padding-top: 0; }
+    .cred-row .what { color: var(--white); font-weight: 600; font-size: 0.95rem; }
+    .cred-row .who { font-size: 0.85rem; color: var(--muted); margin-top: 1px; }
+    .cred-row .year { font-family: var(--display); color: var(--muted); font-size: 0.88rem; white-space: nowrap; }
+
+    /* ============ Education ============ */
+    .edu-list { border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--panel); overflow: hidden; }
+    .edu-row {
+      display: grid; grid-template-columns: 1.35fr 1fr auto; gap: 18px;
+      padding: 15px 22px; border-top: 1px solid var(--border); align-items: baseline;
+    }
+    .edu-row:first-child { border-top: none; }
+    .edu-row .inst { color: var(--white); font-weight: 600; font-size: 0.96rem; }
+    .edu-row .qual { color: var(--text); font-size: 0.92rem; }
+    .edu-row .year { font-family: var(--display); color: var(--muted); font-size: 0.88rem; }
+
+    /* ============ Contact ============ */
+    .contact-box {
+      background: var(--panel); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 44px 36px; text-align: center;
+    }
+    .contact-box h2 { font-size: 1.7rem; font-weight: 600; margin-bottom: 10px; }
+    .contact-box p { color: var(--muted); max-width: 52ch; margin: 0 auto 26px; }
+    .contact-actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-bottom: 22px; }
+    .contact-links { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: center; font-size: 0.92rem; }
+    .contact-links a { display: inline-flex; align-items: center; gap: 7px; color: var(--muted); }
+    .contact-links a:hover { color: var(--bright); text-decoration: none; }
+    .contact-links svg { width: 16px; height: 16px; color: var(--signal); }
+
+    /* ============ Footer ============ */
+    .site-footer { margin-top: 72px; border-top: 1px solid var(--border); padding: 28px 0 36px; }
+    .site-footer p { font-size: 0.85rem; color: var(--muted); max-width: 72ch; }
+    .site-footer p + p { margin-top: 8px; }
+
+    /* ============ Responsive ============ */
+    @media (max-width: 860px) {
+      .pub-grid, .cred-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .stat:nth-child(3) { border-left: none; }
+      .stat:nth-child(n+3) { border-top: 1px solid var(--border); }
+    }
+    @media (max-width: 768px) {
+      .site-nav { display: none; }
+      .hero { padding: 56px 0 32px; }
+      .hero .container { flex-direction: column-reverse; gap: 28px; }
+      .portrait { width: 148px; }
+      .portrait figcaption { display: none; }
+      section { padding: 56px 0 8px; }
+      .edu-row { grid-template-columns: 1fr auto; }
+      .edu-row .inst { grid-row: 1; grid-column: 1; }
+      .edu-row .year { grid-row: 1; grid-column: 2; }
+      .edu-row .qual { grid-row: 2; grid-column: 1 / -1; margin-top: -6px; }
+      .contact-box { padding: 32px 20px; }
+    }
+
+    /* ============ Print ============ */
+    @media print {
+      :root {
+        --void: #fff; --panel: #fff; --panel-2: #fff;
+        --border: #CBD5E1; --border-2: #94A3B8;
+        --signal: #0F766E; --glow: #0F766E; --bright: #0F766E;
+        --text: #1E293B; --muted: #475569; --white: #0F172A;
+      }
+      body { background: #fff; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .site-header, .hero-actions, .contact-actions, .hero::before { display: none; }
+      .hero { padding: 8px 0 4px; }
+      section, .stats { padding: 22px 0 0; scroll-margin-top: 0; }
+      .section-head { margin-bottom: 16px; }
+      .job { padding-bottom: 20px; }
+      .job::before { background: #fff; }
+      .job, .pub, .cred-card, .edu-row, .stats-grid { break-inside: avoid; }
+      .contact-box, .site-footer { display: none; }
+      .venue-green { color: #166534; border-color: #166534; background: none; }
+      .venue-cyan { color: #155E75; border-color: #155E75; background: none; }
+      a { color: var(--white); }
+      .portrait { width: 128px; }
+      .portrait figcaption { color: var(--muted); }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="#top">Hassan Kamran</a>
+      <nav class="site-nav" aria-label="Sections">
+        <a href="#experience">Experience</a>
+        <a href="#publications">Publications</a>
+        <a href="#credentials">Credentials</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="btn btn-solid btn-sm" href="/hassan-kamran-resume.pdf" download>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>
+        Résumé PDF
+      </a>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ Hero ============ -->
+    <section class="hero" aria-label="Introduction">
+      <div class="container">
+        <div class="hero-text">
+          <p class="kicker">Founder &amp; Engineering Leader</p>
+          <h1>Hassan Kamran</h1>
+          <p class="summary">
+            Founder and engineering leader with experience spanning <strong>AI/ML consulting</strong>,
+            <strong>software delivery</strong>, and <strong>workshop operations</strong>.
+            MIT Sloan Affiliate Alumni with peer-reviewed publications in
+            <strong>PLOS ONE</strong> and <strong>IEEE Xplore</strong>, and a track record of managing
+            50+ personnel to deliver engineering solutions end-to-end.
+          </p>
+
+          <div class="contact-chips">
+            <span>
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><g fill="currentColor"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7M7 9a5 5 0 0 1 10 0c0 2.88-2.88 7.19-5 9.88C9.92 16.21 7 11.85 7 9"/><path d="M12 11.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/></g></svg>
+              Islamabad, Pakistan
+            </span>
+            <a href="mailto:hassan@engrhassankamran.com">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-1.99 2L2 18c0 1.1.9 2 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m0 14H4V8l8 5 8-5zm-8-7L4 6h16z"/></svg>
+              hassan@engrhassankamran.com
+            </a>
+            <a href="tel:+923039441945">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path fill="currentColor" d="M6.54 5q.09 1.34.45 2.59l-1.2 1.2Q5.17 6.99 5.03 5zm9.86 12.02q1.28.36 2.6.45v1.49a15 15 0 0 1-3.8-.75zM7.5 3H4a1 1 0 0 0-1 1 17 17 0 0 0 17 17 1 1 0 0 0 1-1v-3.49a1 1 0 0 0-1-1q-1.87 0-3.57-.57a1.02 1.02 0 0 0-1.02.24l-2.2 2.2a15 15 0 0 1-6.59-6.59l2.2-2.2a1 1 0 0 0 .25-1.02A11 11 0 0 1 8.5 4a1 1 0 0 0-1-1"/></svg>
+              +92 303 9441945
+            </a>
+            <a href="https://www.linkedin.com/in/engr-hassan-kamran/" target="_blank" rel="me noopener">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M6 2a4 4 0 0 0-4 4v12a4 4 0 0 0 4 4h12a4 4 0 0 0 4-4V6a4 4 0 0 0-4-4zM4 6c0-1.1.9-2 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm5 5a1 1 0 1 0-2 0v6a1 1 0 1 0 2 0zm.5-3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0M12 10a1 1 0 0 1 .82.43A3.5 3.5 0 0 1 14.5 10c2.16 0 3.5 1.93 3.5 3.57V17a1 1 0 0 1-2 0v-3.42c0-.78-.66-1.58-1.5-1.58-.52 0-1.1.28-1.5.96V17a1 1 0 0 1-2 0V11A1 1 0 0 1 12 10" clip-rule="evenodd"/></svg>
+              in/engr-hassan-kamran
+            </a>
+            <a href="https://github.com/hassan-kamran" target="_blank" rel="me noopener">
+              <svg viewBox="0 0 800 800" fill="none" aria-hidden="true"><path fill="currentColor" d="M339.33 566.93c4 0 7.04-.13 9.04-.4a10.6 10.6 0 0 0 6-3.56q3-3.14 3-9.14l-.14-18.56q-.14-17.78-.13-28.14l-6.27 1.1q-7.54 1.19-15.16.94-9.58-.18-19-1.9a42.5 42.5 0 0 1-18.27-8.2 34.7 34.7 0 0 1-12-16.77l-2.73-6.3a68 68 0 0 0-8.6-13.9 33 33 0 0 0-11.9-10.4l-1.9-1.33q-1.97-1.46-3.54-3.34-1.51-1.7-2.46-3.8c-.54-1.26-.1-2.33 1.33-3.13a18 18 0 0 1 7.93-1.23l5.47.83q5.5 1.07 13.53 6.53a45 45 0 0 1 13.24 14.2q6.28 11.21 15.16 17.07a32 32 0 0 0 17.87 5.87q9 0 15.57-1.34a54 54 0 0 0 12.3-4.13c1.63-12.17 6.06-21.57 13.33-28.1a187 187 0 0 1-27.97-4.93 112 112 0 0 1-25.66-10.67 73.5 73.5 0 0 1-22-18.27q-8.7-10.93-14.34-28.66c-3.92-13.3-5.8-27.11-5.56-40.97q.01-33.02 21.56-56.23-10.1-24.86 1.9-55.7 7.96-2.5 23.5 3.66c10.37 4.1 18 7.6 22.8 10.54a243 243 0 0 1 11.6 7.33 194 194 0 0 1 52.44-7.07c18 0 35.5 2.34 52.43 7.1l10.33-6.56c7.14-4.34 15.5-8.37 25.14-12q14.49-5.5 22.13-3 12.3 30.85 2.17 55.66 21.6 23.24 21.6 56.27 0 23.2-5.6 41.1-5.62 17.88-14.47 28.67a76 76 0 0 1-22.13 18.16c-8.08 4.62-16.7 8.2-25.67 10.67a187 187 0 0 1-28 4.9q14.2 12.26 14.2 38.77v65.23q.01 4.64 1.37 7.53a7.5 7.5 0 0 0 4.36 3.97q3.01 1.07 5.34 1.33 2.33.3 6.66.3h-139.8"/><path fill="currentColor" d="M200 133.33A66.66 66.66 0 0 0 133.33 200v400A66.66 66.66 0 0 0 200 666.67h400A66.66 66.66 0 0 0 666.67 600V200A66.66 66.66 0 0 0 600 133.33zm0-66.66h400A133.33 133.33 0 0 1 733.33 200v400A133.33 133.33 0 0 1 600 733.33H200A133.33 133.33 0 0 1 66.67 600V200A133.33 133.33 0 0 1 200 66.67"/></svg>
+              @hassan-kamran
+            </a>
+          </div>
+
+          <div class="hero-actions">
+            <a class="btn btn-solid" href="/hassan-kamran-resume.pdf" download>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>
+              Download résumé
+            </a>
+            <a class="btn btn-ghost" href="mailto:hassan@engrhassankamran.com">Email me</a>
+          </div>
+        </div>
+
+        <figure class="portrait">
+          <img src="/static/hassan-kamran.avif" alt="Portrait of Hassan Kamran" width="216" height="233">
+          <figcaption>PMP · PEC Registered Engineer</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ Stats ============ -->
+    <div class="stats" aria-label="Highlights">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat"><div class="num">50<em>+</em></div><div class="label">Personnel commanded, Army EME Corps</div></div>
+          <div class="stat"><div class="num">2</div><div class="label">Peer-reviewed publications</div></div>
+          <div class="stat"><div class="num">10<em>–</em>15</div><div class="label">Developers managed per team</div></div>
+          <div class="stat"><div class="num">7 <em>mo</em></div><div class="label">Consultancy founding to profitability</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ Experience ============ -->
+    <section id="experience">
+      <div class="container">
+        <div class="section-head"><span class="index">01</span><h2>Work Experience</h2><span class="rule"></span></div>
+
+        <div class="timeline">
+          <article class="job">
+            <h3>Big0 Dev (Pvt) Ltd — <span class="role">Founder and CEO</span></h3>
+            <p class="meta">Jul 2025 – Aug 2026 · Islamabad, Pakistan</p>
+            <ul>
+              <li>Founded an engineer-led AI/ML and custom software consultancy for PK/EU/UK/US clients; profitable within seven months.</li>
+              <li>Ran acquisition, delivery, team, finance, and strategy end-to-end while still writing code and reviewing architecture.</li>
+              <li>Delivered industry workshops on applied AI and automation; guest-lectured at LUMS SDSB, SS CASE IT, and STMU.</li>
+              <li>Generated USD 22,000 (PKR 6.2M) in revenue while building a team of five.</li>
+            </ul>
+          </article>
+
+          <article class="job">
+            <h3>SZABIST Islamabad — <span class="role">Adjunct Faculty Member</span></h3>
+            <p class="meta">Sep 2025 – Jun 2026 · Islamabad, Pakistan</p>
+            <ul>
+              <li>Taught e-commerce strategy and digital business models to BS Accounting and Finance students at SZABIST.</li>
+              <li>Covered the Pakistani e-commerce ecosystem, unit economics (LTV:CAC), AI tools, and lean startup methodology.</li>
+            </ul>
+          </article>
+
+          <article class="job">
+            <h3>CyberX Studio — <span class="role">Project Manager and Tech Lead</span></h3>
+            <p class="meta">Nov 2023 – Oct 2025 · Islamabad, Pakistan</p>
+            <ul>
+              <li>Led website and platform delivery for AWT, FerroTechnics, CyberX Soft, Emerald IT, and Laptop Rental AU.</li>
+              <li>Additional engagements: Yontem Teknoloji, Guide to Pakistan, and Rawaan Pakistan.</li>
+              <li>Built Intellievent-to-Xero invoice automation and real-time KPI dashboards for One World Rental.</li>
+              <li>Set up an aviation technician training centre in collaboration with Yontem Teknoloji for KP School of Aviation Training and Services.</li>
+              <li>Managed cross-functional teams of 10–15 developers using Agile/Scrum; built roadmaps and aligned stakeholders.</li>
+            </ul>
+          </article>
+
+          <article class="job">
+            <h3>Pakistan Army, EME Corps — <span class="role">Captain (Workshop Officer)</span></h3>
+            <p class="meta">Oct 2020 – Sep 2023 · Quetta &amp; Mangla, Pakistan</p>
+            <ul>
+              <li>Commanded a team of 50+ technicians; sustained fleet readiness and reduced maintenance downtime through tighter scheduling.</li>
+              <li>Ran compliance audits, implemented workshop safety improvements, and coordinated maintenance workflows and resource planning.</li>
+              <li>Served with 162 C Troops Workshop Company (2020) in Quetta Cantt and 195 Independent Workshop Company (2022) in Mangla Cantt.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Publications ============ -->
+    <section id="publications">
+      <div class="container">
+        <div class="section-head"><span class="index">02</span><h2>Publications</h2><span class="rule"></span></div>
+
+        <div class="pub-grid">
+          <article class="pub">
+            <span class="venue venue-green">PLOS ONE</span>
+            <h3><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0326579" target="_blank" rel="noopener">FedGAN: Federated Diabetic Retinopathy Image Generation</a></h3>
+            <p class="pub-meta">
+              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M18.89 2a1 1 0 0 0-1-1h-6a1 1 0 1 0 0 2h3.58l-6.3 6.3a1 1 0 1 0 1.42 1.4l6.3-6.29V8a1 1 0 1 0 2 0zM3 3a2 2 0 0 0-2 2.22c.15 1.45.38 3.98.38 5.78 0 1.75-.22 4.17-.36 5.64a2.03 2.03 0 0 0 2.21 2.22c1.48-.15 3.9-.36 5.65-.36 1.8 0 4.33.23 5.78.37a2 2 0 0 0 2.22-2V12a1 1 0 1 0-2 0v4.88h-.02a68 68 0 0 0-5.98-.38c-1.86 0-4.37.22-5.85.37h-.02v-.02c.14-1.48.37-4 .37-5.85 0-1.92-.24-4.53-.39-5.98V5H7.9a1 1 0 0 0 0-2z"/></svg>
+              Peer-reviewed journal article · 2025
+            </p>
+          </article>
+
+          <article class="pub">
+            <span class="venue venue-cyan">C-CODE25 · IEEE Xplore</span>
+            <h3><a href="https://ieeexplore.ieee.org/document/11204042" target="_blank" rel="noopener">Low Cost Agricultural Sprayer Drone Development</a></h3>
+            <p class="pub-meta">
+              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M18.89 2a1 1 0 0 0-1-1h-6a1 1 0 1 0 0 2h3.58l-6.3 6.3a1 1 0 1 0 1.42 1.4l6.3-6.29V8a1 1 0 1 0 2 0zM3 3a2 2 0 0 0-2 2.22c.15 1.45.38 3.98.38 5.78 0 1.75-.22 4.17-.36 5.64a2.03 2.03 0 0 0 2.21 2.22c1.48-.15 3.9-.36 5.65-.36 1.8 0 4.33.23 5.78.37a2 2 0 0 0 2.22-2V12a1 1 0 1 0-2 0v4.88h-.02a68 68 0 0 0-5.98-.38c-1.86 0-4.37.22-5.85.37h-.02v-.02c.14-1.48.37-4 .37-5.85 0-1.92-.24-4.53-.39-5.98V5H7.9a1 1 0 0 0 0-2z"/></svg>
+              Peer-reviewed conference paper · 2025
+            </p>
+          </article>
+        </div>
+
+        <p class="orcid-line">Full research record on ORCID: <a href="https://orcid.org/0009-0005-3034-1679" target="_blank" rel="me noopener">0009-0005-3034-1679</a></p>
+      </div>
+    </section>
+
+    <!-- ============ Credentials ============ -->
+    <section id="credentials">
+      <div class="container">
+        <div class="section-head"><span class="index">03</span><h2>Licences, Certifications &amp; Courses</h2><span class="rule"></span></div>
+
+        <div class="cred-grid">
+          <div class="cred-card">
+            <h3>Professional Licences &amp; Certifications</h3>
+            <div class="cred-row">
+              <div><div class="what">Project Management Professional (PMP)</div><div class="who">Project Management Institute</div></div>
+              <span class="year">2026</span>
+            </div>
+            <div class="cred-row">
+              <div><div class="what">Registered Engineer (MECHATRO/005552)</div><div class="who">Pakistan Engineering Council</div></div>
+              <span class="year">2024</span>
+            </div>
+          </div>
+
+          <div class="cred-card">
+            <h3>Courses</h3>
+            <div class="cred-row">
+              <div><div class="what">Generative AI Application Developer</div><div class="who">Pakistan Engineering Council</div></div>
+              <span class="year">2025</span>
+            </div>
+            <div class="cred-row">
+              <div><div class="what">Foundations of Project Management</div><div class="who">Google (Coursera)</div></div>
+              <span class="year">2024</span>
+            </div>
+            <div class="cred-row">
+              <div><div class="what">Build Basic GANs</div><div class="who">DeepLearning.AI (Coursera)</div></div>
+              <span class="year">2023</span>
+            </div>
+            <div class="cred-row">
+              <div><div class="what">Deep Learning Specialization</div><div class="who">DeepLearning.AI (Coursera)</div></div>
+              <span class="year">2021</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Education ============ -->
+    <section id="education">
+      <div class="container">
+        <div class="section-head"><span class="index">04</span><h2>Education</h2><span class="rule"></span></div>
+
+        <div class="edu-list">
+          <div class="edu-row">
+            <span class="inst">Asia School of Business, in collaboration with MIT Sloan</span>
+            <span class="qual">Master of Business Administration</span>
+            <span class="year">2027</span>
+          </div>
+          <div class="edu-row">
+            <span class="inst">Shaheed Zulfikar Ali Bhutto Institute of Science &amp; Technology</span>
+            <span class="qual">Master of Project Management</span>
+            <span class="year">2026</span>
+          </div>
+          <div class="edu-row">
+            <span class="inst">Sir Syed CASE Institute of Technology</span>
+            <span class="qual">Master of Science in Computer Science</span>
+            <span class="year">2025</span>
+          </div>
+          <div class="edu-row">
+            <span class="inst">Pakistan Military Academy</span>
+            <span class="qual">Leadership / Officer Training</span>
+            <span class="year">2020</span>
+          </div>
+          <div class="edu-row">
+            <span class="inst">National University of Sciences &amp; Technology</span>
+            <span class="qual">Bachelor of Engineering in Mechatronics</span>
+            <span class="year">2019</span>
+          </div>
+          <div class="edu-row">
+            <span class="inst">St Mary's Academy</span>
+            <span class="qual">Advanced Level (Science)</span>
+            <span class="year">2014</span>
+          </div>
+          <div class="edu-row">
+            <span class="inst">Beaconhouse School System</span>
+            <span class="qual">Ordinary Level (Science)</span>
+            <span class="year">2012</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Contact ============ -->
+    <section id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <h2>Get in touch</h2>
+          <p>Open to conversations about engineering leadership, AI/ML, and applied research. The fastest way to reach me is email.</p>
+          <div class="contact-actions">
+            <a class="btn btn-solid" href="mailto:hassan@engrhassankamran.com">hassan@engrhassankamran.com</a>
+            <a class="btn btn-ghost" href="/hassan-kamran-resume.pdf" download>Download résumé (PDF)</a>
+          </div>
+          <div class="contact-links">
+            <a href="tel:+923039441945">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path fill="currentColor" d="M6.54 5q.09 1.34.45 2.59l-1.2 1.2Q5.17 6.99 5.03 5zm9.86 12.02q1.28.36 2.6.45v1.49a15 15 0 0 1-3.8-.75zM7.5 3H4a1 1 0 0 0-1 1 17 17 0 0 0 17 17 1 1 0 0 0 1-1v-3.49a1 1 0 0 0-1-1q-1.87 0-3.57-.57a1.02 1.02 0 0 0-1.02.24l-2.2 2.2a15 15 0 0 1-6.59-6.59l2.2-2.2a1 1 0 0 0 .25-1.02A11 11 0 0 1 8.5 4a1 1 0 0 0-1-1"/></svg>
+              +92 303 9441945
+            </a>
+            <a href="https://www.linkedin.com/in/engr-hassan-kamran/" target="_blank" rel="me noopener">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M6 2a4 4 0 0 0-4 4v12a4 4 0 0 0 4 4h12a4 4 0 0 0 4-4V6a4 4 0 0 0-4-4zM4 6c0-1.1.9-2 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm5 5a1 1 0 1 0-2 0v6a1 1 0 1 0 2 0zm.5-3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0M12 10a1 1 0 0 1 .82.43A3.5 3.5 0 0 1 14.5 10c2.16 0 3.5 1.93 3.5 3.57V17a1 1 0 0 1-2 0v-3.42c0-.78-.66-1.58-1.5-1.58-.52 0-1.1.28-1.5.96V17a1 1 0 0 1-2 0V11A1 1 0 0 1 12 10" clip-rule="evenodd"/></svg>
+              LinkedIn
+            </a>
+            <a href="https://github.com/hassan-kamran" target="_blank" rel="me noopener">
+              <svg viewBox="0 0 800 800" fill="none" aria-hidden="true"><path fill="currentColor" d="M339.33 566.93c4 0 7.04-.13 9.04-.4a10.6 10.6 0 0 0 6-3.56q3-3.14 3-9.14l-.14-18.56q-.14-17.78-.13-28.14l-6.27 1.1q-7.54 1.19-15.16.94-9.58-.18-19-1.9a42.5 42.5 0 0 1-18.27-8.2 34.7 34.7 0 0 1-12-16.77l-2.73-6.3a68 68 0 0 0-8.6-13.9 33 33 0 0 0-11.9-10.4l-1.9-1.33q-1.97-1.46-3.54-3.34-1.51-1.7-2.46-3.8c-.54-1.26-.1-2.33 1.33-3.13a18 18 0 0 1 7.93-1.23l5.47.83q5.5 1.07 13.53 6.53a45 45 0 0 1 13.24 14.2q6.28 11.21 15.16 17.07a32 32 0 0 0 17.87 5.87q9 0 15.57-1.34a54 54 0 0 0 12.3-4.13c1.63-12.17 6.06-21.57 13.33-28.1a187 187 0 0 1-27.97-4.93 112 112 0 0 1-25.66-10.67 73.5 73.5 0 0 1-22-18.27q-8.7-10.93-14.34-28.66c-3.92-13.3-5.8-27.11-5.56-40.97q.01-33.02 21.56-56.23-10.1-24.86 1.9-55.7 7.96-2.5 23.5 3.66c10.37 4.1 18 7.6 22.8 10.54a243 243 0 0 1 11.6 7.33 194 194 0 0 1 52.44-7.07c18 0 35.5 2.34 52.43 7.1l10.33-6.56c7.14-4.34 15.5-8.37 25.14-12q14.49-5.5 22.13-3 12.3 30.85 2.17 55.66 21.6 23.24 21.6 56.27 0 23.2-5.6 41.1-5.62 17.88-14.47 28.67a76 76 0 0 1-22.13 18.16c-8.08 4.62-16.7 8.2-25.67 10.67a187 187 0 0 1-28 4.9q14.2 12.26 14.2 38.77v65.23q.01 4.64 1.37 7.53a7.5 7.5 0 0 0 4.36 3.97q3.01 1.07 5.34 1.33 2.33.3 6.66.3h-139.8"/><path fill="currentColor" d="M200 133.33A66.66 66.66 0 0 0 133.33 200v400A66.66 66.66 0 0 0 200 666.67h400A66.66 66.66 0 0 0 666.67 600V200A66.66 66.66 0 0 0 600 133.33zm0-66.66h400A133.33 133.33 0 0 1 733.33 200v400A133.33 133.33 0 0 1 600 733.33H200A133.33 133.33 0 0 1 66.67 600V200A133.33 133.33 0 0 1 200 66.67"/></svg>
+              GitHub
+            </a>
+            <a href="https://orcid.org/0009-0005-3034-1679" target="_blank" rel="me noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="m8.5 12.5 2 2 5-5"/></svg>
+              ORCID
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Hassan Kamran · Islamabad, Pakistan</p>
+    </div>
+  </footer>
+
+</body>
+</html>

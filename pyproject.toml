@@ -1,16 +1,6 @@
 [project]
-name = "hassan-site-generator"
-version = "0.1.0"
-description = "Hassan Kamran's Static Site Generator"
-readme = "README.md"
-requires-python = ">=3.10"
-dependencies = [
-    "jinja2>=3.1.5",
-    "markdown>=3.7",
-    "beautifulsoup4>=4.12.0",
-    "pyyaml>=6.0",
-    "python-dateutil>=2.8.0",
-    "minify-html>=0.15.0",
-    "rcssmin>=1.1.2",
-    "jsmin>=3.0.1",
-]
+name = "engrhassankamran-com"
+version = "2.0.0"
+description = "engrhassankamran.com — single-page résumé site for Hassan Kamran"
+requires-python = ">=3.13"
+dependencies = []
