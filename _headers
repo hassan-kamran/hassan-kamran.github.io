@@ -1,11 +1,10 @@
 # Cloudflare Pages custom headers
-# Fonts never change — cache hard. Images can be replaced under the same
-# filename, so they get a modest TTL. The résumé PDF is expected to be
-# updated in place, so it must revalidate quickly.
+# NOTE: Pages _headers does NOT support mid-pattern splats like
+# /static/*.js — such rules silently never match (assets then get the
+# platform default, max-age=14400). Use exact paths.
 #
-# The CSP is strict because the page is self-contained: inline CSS, one
-# same-origin script (static/site.js), no external requests. If a
-# third-party resource is ever added, loosen this policy deliberately.
+# The CSP is strict: inline CSS, one same-origin script, no external
+# requests. If a third-party resource is ever added, loosen deliberately.
 
 /*
   X-Content-Type-Options: nosniff
@@ -14,15 +13,21 @@
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   Content-Security-Policy: default-src 'none'; script-src 'self'; style-src 'unsafe-inline'; img-src 'self'; font-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'
 
-# JS revalidates on every load (tiny file, 304 when unchanged) so fixes
-# reach returning visitors immediately.
-/static/*.js
+# JS revalidates on every load (tiny file, 304 when unchanged); the
+# script tag also carries a ?v= cache-buster — bump it on every change.
+/static/site.js
   Cache-Control: no-cache
 
-/static/*.woff2
+/static/Exo2-Regular.woff2
   Cache-Control: public, max-age=31536000, immutable
 
-/static/*.avif
+/static/DMSans-Regular.woff2
+  Cache-Control: public, max-age=31536000, immutable
+
+/static/DMSans-SemiBold.woff2
+  Cache-Control: public, max-age=31536000, immutable
+
+/static/hassan-kamran.avif
   Cache-Control: public, max-age=604800
 
 /static/og-card.jpg

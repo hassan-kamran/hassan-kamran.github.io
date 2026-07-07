@@ -226,7 +226,9 @@
     }
     .hero.lit::after { opacity: 0.45; }
     .hero .container { position: relative; display: flex; gap: 48px; align-items: flex-start; }
-    .hero-text { flex: 1; min-width: 0; }
+    /* max-width keeps the stepper's intrinsic width from inflating the
+       column in the stacked mobile layout (it would clip against the hero) */
+    .hero-text { flex: 1; min-width: 0; max-width: 100%; }
     .kicker { font-family: var(--display); color: var(--glow); font-size: 0.9rem; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 14px; min-height: 1.4em; }
     .hero h1 { font-size: clamp(2.3rem, 6vw, 3.4rem); font-weight: 700; letter-spacing: -0.01em; margin-bottom: 18px; }
     .hero .summary { font-size: 1.08rem; max-width: 58ch; margin-bottom: 24px; }
@@ -274,9 +276,10 @@
     .contact-chips a:hover { color: var(--bright); text-decoration: none; }
     .contact-chips svg { width: 16px; height: 16px; color: var(--signal); }
 
+    .chip-email { gap: 10px; }
     .copy-btn {
       display: inline-flex; align-items: center; justify-content: center;
-      width: 26px; height: 26px; margin-left: -12px;
+      width: 26px; height: 26px;
       border: 1px solid var(--border); border-radius: 7px;
       background: transparent; color: var(--muted); cursor: pointer;
       transition: color 0.2s ease, border-color 0.2s ease;
@@ -590,14 +593,16 @@
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><g fill="currentColor"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7M7 9a5 5 0 0 1 10 0c0 2.88-2.88 7.19-5 9.88C9.92 16.21 7 11.85 7 9"/><path d="M12 11.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/></g></svg>
               Islamabad, Pakistan
             </span>
-            <a href="mailto:hassan@engrhassankamran.com">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-1.99 2L2 18c0 1.1.9 2 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m0 14H4V8l8 5 8-5zm-8-7L4 6h16z"/></svg>
-              hassan@engrhassankamran.com
-            </a>
-            <button class="copy-btn" type="button" data-copy="hassan@engrhassankamran.com" aria-label="Copy email address" title="Copy email address">
-              <svg class="ic-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-              <svg class="ic-done" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg>
-            </button>
+            <span class="chip-email">
+              <a href="mailto:hassan@engrhassankamran.com">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-1.99 2L2 18c0 1.1.9 2 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m0 14H4V8l8 5 8-5zm-8-7L4 6h16z"/></svg>
+                hassan@engrhassankamran.com
+              </a>
+              <button class="copy-btn" type="button" data-copy="hassan@engrhassankamran.com" aria-label="Copy email address" title="Copy email address">
+                <svg class="ic-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <svg class="ic-done" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg>
+              </button>
+            </span>
             <a href="tel:+923039441945">
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path fill="currentColor" d="M6.54 5q.09 1.34.45 2.59l-1.2 1.2Q5.17 6.99 5.03 5zm9.86 12.02q1.28.36 2.6.45v1.49a15 15 0 0 1-3.8-.75zM7.5 3H4a1 1 0 0 0-1 1 17 17 0 0 0 17 17 1 1 0 0 0 1-1v-3.49a1 1 0 0 0-1-1q-1.87 0-3.57-.57a1.02 1.02 0 0 0-1.02.24l-2.2 2.2a15 15 0 0 1-6.59-6.59l2.2-2.2a1 1 0 0 0 .25-1.02A11 11 0 0 1 8.5 4a1 1 0 0 0-1-1"/></svg>
               +92 303 9441945
@@ -852,6 +857,6 @@
     </div>
   </footer>
 
-  <script src="/static/site.js" defer></script>
+  <script src="/static/site.js?v=2" defer></script>
 </body>
 </html>
