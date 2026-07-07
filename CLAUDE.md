@@ -33,7 +33,7 @@ Deployment: push to `main` → Cloudflare Pages builds `generate.py` → serves 
 - **Résumé changes:** the PDF in `resume/` is the source of truth. Replace the PDF *and* mirror the change in `index.html` — sections: hero summary, stats strip, Work Experience, Publications, Licences/Certifications/Courses, Education, contact details.
 - **Contact info:** hassan@engrhassankamran.com, +92 303 9441945, linkedin.com/in/engr-hassan-kamran, github.com/hassan-kamran, ORCID 0009-0005-3034-1679. The home address stays out of the HTML (it's only inside the PDF).
 - **OG image:** edit `assets-src/og-card.html`, then regenerate `static/og-card.jpg` with the headless-Chrome + sips commands in that file's top comment.
-- **Favicons** (HK monogram on teal): edit `assets-src/favicon.html`, render a transparent 1024px master with the Chrome command in its comment, then derive all sizes (PNGs, .ico, apple-touch-icon) with PIL — keep `static/favicon.svg` in sync by hand.
+- **Favicons:** the Big0 "0" mark on teal, copied verbatim from the company repo (`Big0-dev.github.io/static/favicon*`) — Hassan's explicit choice for his personal site too. To update, replace the files in `static/` (ico, svg, png sizes, apple-touch-icon) rather than redesigning.
 - **New pages:** don't add any without being asked — the whole point is one page. If one is truly needed, add the filename to `PAGES` in `generate.py`.
 - **Adding any script or external resource requires loosening the CSP** in `_headers` (currently `default-src 'none'` — the page is fully self-contained). There's also a print stylesheet at the bottom of `index.html` (flips the design tokens to light ink) — keep it in mind when adding sections.
 
