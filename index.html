@@ -118,7 +118,7 @@
 
     /* ============ Base ============ */
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scrollbar-color: var(--border-2) var(--void); }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       * { transition: none !important; animation: none !important; }
@@ -135,7 +135,7 @@
     a { color: var(--bright); text-decoration: none; }
     a:hover { text-decoration: underline; text-underline-offset: 3px; }
     :focus-visible { outline: 2px solid var(--glow); outline-offset: 3px; border-radius: 4px; }
-    h1, h2, h3 { font-family: var(--display); color: var(--white); line-height: 1.2; }
+    h1, h2, h3 { font-family: var(--display); color: var(--white); line-height: 1.2; text-wrap: balance; }
     .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
     section { padding: 72px 0 8px; scroll-margin-top: 76px; }
     svg { flex-shrink: 0; }
