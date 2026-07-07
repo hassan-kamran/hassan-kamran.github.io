@@ -103,15 +103,21 @@
   const onScroll = () => {
     if (ticking) return;
     ticking = true;
-    requestAnimationFrame(() => {
+    // rAF for smoothness, with a timeout fallback: rAF never fires while the
+    // page produces no frames (background tab), which would wedge `ticking`.
+    let ran = false;
+    const run = () => {
+      if (ran) return;
+      ran = true;
       ticking = false;
       const y = scrollY;
       // visualViewport tracks the real visible height (mobile URL bar, zoom);
       // innerHeight can be stale there, leaving the bar short of 100% at the bottom.
       const vh = window.visualViewport ? window.visualViewport.height : innerHeight;
       const max = doc.scrollHeight - vh;
+      const atBottom = doc.scrollHeight - (y + vh) < 2;
       let p = max > 0 ? y / max : 1;
-      if (doc.scrollHeight - (y + vh) < 2) p = 1; // snap when truly at the bottom
+      if (atBottom) p = 1; // snap when truly at the bottom
       if (bar) bar.style.transform = "scaleX(" + Math.min(1, Math.max(0, p)).toFixed(4) + ")";
       if (header) header.classList.toggle("scrolled", y > 8);
       if (toTop) toTop.classList.toggle("show", y > 600);
@@ -126,13 +132,18 @@
       for (const s of sections) {
         if (s.getBoundingClientRect().top <= innerHeight * 0.35) current = s.id;
       }
+      // Trailing sections shorter than the threshold can never activate by
+      // scrolling — at the page bottom the last section wins.
+      if (atBottom && sections.length) current = sections[sections.length - 1].id;
       for (const [id, a] of navLinks) {
         const active = id === current;
         a.classList.toggle("active", active);
         if (active) a.setAttribute("aria-current", "true");
         else a.removeAttribute("aria-current");
       }
-    });
+    };
+    requestAnimationFrame(run);
+    setTimeout(run, 120);
   };
   addEventListener("scroll", onScroll, { passive: true });
   addEventListener("resize", onScroll, { passive: true });
