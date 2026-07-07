@@ -106,8 +106,13 @@
     requestAnimationFrame(() => {
       ticking = false;
       const y = scrollY;
-      const max = doc.scrollHeight - innerHeight;
-      if (bar) bar.style.transform = "scaleX(" + (max > 0 ? y / max : 0) + ")";
+      // visualViewport tracks the real visible height (mobile URL bar, zoom);
+      // innerHeight can be stale there, leaving the bar short of 100% at the bottom.
+      const vh = window.visualViewport ? window.visualViewport.height : innerHeight;
+      const max = doc.scrollHeight - vh;
+      let p = max > 0 ? y / max : 1;
+      if (doc.scrollHeight - (y + vh) < 2) p = 1; // snap when truly at the bottom
+      if (bar) bar.style.transform = "scaleX(" + Math.min(1, Math.max(0, p)).toFixed(4) + ")";
       if (header) header.classList.toggle("scrolled", y > 8);
       if (toTop) toTop.classList.toggle("show", y > 600);
 
@@ -131,6 +136,8 @@
   };
   addEventListener("scroll", onScroll, { passive: true });
   addEventListener("resize", onScroll, { passive: true });
+  if (window.visualViewport)
+    window.visualViewport.addEventListener("resize", onScroll, { passive: true });
   onScroll();
 
   /* ---------- Hero dot-grid spotlight ---------- */
