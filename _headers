@@ -18,6 +18,9 @@
 /static/site.js
   Cache-Control: no-cache
 
+/static/theme.js
+  Cache-Control: no-cache
+
 /static/Exo2-Regular.woff2
   Cache-Control: public, max-age=31536000, immutable
 

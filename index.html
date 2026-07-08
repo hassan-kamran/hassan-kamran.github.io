@@ -27,8 +27,10 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
-  <meta name="theme-color" content="#0A0F1C">
-  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#F8FAFC">
+
+  <!-- Applies a stored dark-theme choice before first paint (light is the default) -->
+  <script src="/static/theme.js?v=1"></script>
 
   <!-- Fonts (self-hosted) -->
   <link rel="preload" href="/static/Exo2-Regular.woff2" as="font" type="font/woff2" crossorigin>
@@ -97,23 +99,64 @@
     }
 
     /* ============ Tokens ============ */
+    /* Light is the default theme; html[data-theme="dark"] switches the
+       palette. --white is the "strong ink" role (dark ink on light). */
     :root {
+      color-scheme: light;
+      --void: #F8FAFC;
+      --panel: #FFFFFF;
+      --panel-2: #F1F5F9;
+      --border: #E2E8F0;
+      --border-2: #CBD5E1;
+      --signal: #0F766E;
+      --signal-hover: #115E59;
+      --glow: #0F766E;
+      --bright: #0F766E;
+      --text: #334155;
+      --muted: #64748B;
+      --white: #0F172A;
+      --dot: #CBD5E1;
+      --dot-hi: #0F766E;
+      --header-bg: rgba(248, 250, 252, 0.85);
+      --header-bg-2: rgba(248, 250, 252, 0.95);
+      --shadow: rgba(15, 23, 42, 0.10);
+      --venue-green: #15803D;
+      --venue-green-bd: rgba(21, 128, 61, 0.35);
+      --venue-green-bg: rgba(21, 128, 61, 0.07);
+      --venue-cyan: #0E7490;
+      --venue-cyan-bd: rgba(14, 116, 144, 0.35);
+      --venue-cyan-bg: rgba(14, 116, 144, 0.07);
+      --display: "Exo 2", "Segoe UI", sans-serif;
+      --body: "DM Sans", -apple-system, sans-serif;
+      --radius: 10px;
+      --radius-lg: 12px;
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    html[data-theme="dark"] {
+      color-scheme: dark;
       --void: #0A0F1C;
       --panel: #0F172A;
       --panel-2: #121D33;
       --border: #1E293B;
       --border-2: #334155;
       --signal: #0D9488;
+      --signal-hover: #14B8A6;
       --glow: #14B8A6;
       --bright: #2DD4BF;
       --text: #CBD5E1;
       --muted: #94A3B8;
       --white: #F8FAFC;
-      --display: "Exo 2", "Segoe UI", sans-serif;
-      --body: "DM Sans", -apple-system, sans-serif;
-      --radius: 10px;
-      --radius-lg: 12px;
-      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --dot: #22314b;
+      --dot-hi: #2DD4BF;
+      --header-bg: rgba(10, 15, 28, 0.82);
+      --header-bg-2: rgba(10, 15, 28, 0.92);
+      --shadow: rgba(0, 0, 0, 0.35);
+      --venue-green: #4ADE80;
+      --venue-green-bd: rgba(74, 222, 128, 0.35);
+      --venue-green-bg: rgba(74, 222, 128, 0.08);
+      --venue-cyan: #22D3EE;
+      --venue-cyan-bd: rgba(34, 211, 238, 0.35);
+      --venue-cyan-bg: rgba(34, 211, 238, 0.08);
     }
 
     /* ============ Base ============ */
@@ -130,8 +173,9 @@
       font-size: 1rem;
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
+      transition: background 0.25s ease, color 0.25s ease;
     }
-    ::selection { background: var(--signal); color: var(--white); }
+    ::selection { background: var(--signal); color: #F8FAFC; }
     a { color: var(--bright); text-decoration: none; }
     a:hover { text-decoration: underline; text-underline-offset: 3px; }
     :focus-visible { outline: 2px solid var(--glow); outline-offset: 3px; border-radius: 4px; }
@@ -142,7 +186,7 @@
 
     .skip {
       position: absolute; left: -9999px; z-index: 100;
-      background: var(--signal); color: var(--white);
+      background: var(--signal); color: #F8FAFC;
       padding: 10px 18px; border-radius: 0 0 var(--radius) 0; font-weight: 600;
     }
     .skip:focus { left: 0; top: 0; }
@@ -166,13 +210,13 @@
     /* ============ Header ============ */
     .site-header {
       position: sticky; top: 0; z-index: 10;
-      background: rgba(10, 15, 28, 0.82);
+      background: var(--header-bg);
       -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid transparent;
       transition: border-color 0.25s ease, background 0.25s ease;
     }
-    .site-header.scrolled { border-bottom-color: var(--border); background: rgba(10, 15, 28, 0.92); }
+    .site-header.scrolled { border-bottom-color: var(--border); background: var(--header-bg-2); }
     .site-header .container {
       display: flex; align-items: center; justify-content: space-between;
       height: 60px; gap: 16px;
@@ -198,17 +242,31 @@
     }
     .btn:hover { text-decoration: none; transform: translateY(-1px); }
     .btn:active { transform: translateY(0); }
-    .btn-solid { background: var(--signal); color: var(--white); }
-    .btn-solid:hover { background: var(--glow); box-shadow: 0 4px 20px rgba(20, 184, 166, 0.35); }
+    .btn-solid { background: var(--signal); color: #F8FAFC; }
+    .btn-solid:hover { background: var(--signal-hover); box-shadow: 0 4px 20px rgba(20, 184, 166, 0.30); }
     .btn-ghost { border-color: var(--border-2); color: var(--text); background: transparent; }
     .btn-ghost:hover { border-color: var(--glow); color: var(--white); }
     .btn-sm { padding: 7px 14px; font-size: 0.85rem; }
+
+    .theme-toggle {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0;
+      border: 1px solid var(--border-2); background: transparent;
+      color: var(--muted); cursor: pointer;
+      transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+    .theme-toggle:hover { color: var(--glow); border-color: var(--glow); transform: rotate(15deg); }
+    .theme-toggle svg { width: 16px; height: 16px; }
+    .theme-toggle .ic-sun { display: none; }
+    html[data-theme="dark"] .theme-toggle .ic-moon { display: none; }
+    html[data-theme="dark"] .theme-toggle .ic-sun { display: block; }
+    html:not(.js) .theme-toggle { display: none; }
 
     /* ============ Hero ============ */
     .hero { padding: 88px 0 40px; position: relative; overflow: hidden; }
     .hero::before {
       content: ""; position: absolute; inset: 0;
-      background-image: radial-gradient(circle, #22314b 1px, transparent 1px);
+      background-image: radial-gradient(circle, var(--dot) 1px, transparent 1px);
       background-size: 32px 32px;
       mask-image: linear-gradient(180deg, rgba(0,0,0,0.55), transparent 78%);
       -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,0.55), transparent 78%);
@@ -217,7 +275,7 @@
     /* Cursor spotlight: a brighter copy of the dot grid, revealed near the pointer */
     .hero::after {
       content: ""; position: absolute; inset: 0;
-      background-image: radial-gradient(circle, #2DD4BF 1px, transparent 1px);
+      background-image: radial-gradient(circle, var(--dot-hi) 1px, transparent 1px);
       background-size: 32px 32px;
       opacity: 0; pointer-events: none;
       mask-image: radial-gradient(240px circle at var(--mx, -400px) var(--my, -400px), black 0%, transparent 72%);
@@ -399,15 +457,15 @@
     }
     .pub:hover {
       border-color: var(--border-2); transform: translateY(-3px);
-      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 10px 28px var(--shadow);
     }
     .pub .venue {
       align-self: flex-start; font-family: var(--display); font-size: 0.78rem;
       letter-spacing: 0.08em; text-transform: uppercase;
       padding: 4px 10px; border-radius: 999px; border: 1px solid;
     }
-    .venue-green { color: #4ADE80; border-color: rgba(74, 222, 128, 0.35); background: rgba(74, 222, 128, 0.08); }
-    .venue-cyan { color: #22D3EE; border-color: rgba(34, 211, 238, 0.35); background: rgba(34, 211, 238, 0.08); }
+    .venue-green { color: var(--venue-green); border-color: var(--venue-green-bd); background: var(--venue-green-bg); }
+    .venue-cyan { color: var(--venue-cyan); border-color: var(--venue-cyan-bd); background: var(--venue-cyan-bg); }
     .pub h3 { font-size: 1.08rem; font-weight: 600; }
     .pub h3 a { color: var(--white); }
     .pub h3 a:hover { color: var(--bright); text-decoration: none; }
@@ -424,7 +482,7 @@
     }
     .cred-card:hover {
       border-color: var(--border-2); transform: translateY(-3px);
-      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 10px 28px var(--shadow);
     }
     .cred-card h3 { font-size: 1rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--glow); margin-bottom: 16px; }
     .cred-row { display: flex; justify-content: space-between; gap: 16px; padding: 11px 0; border-top: 1px solid var(--border); }
@@ -454,7 +512,7 @@
     }
     .contact-box::before {
       content: ""; position: absolute; inset: 0;
-      background-image: radial-gradient(circle, #1c2a44 1px, transparent 1px);
+      background-image: radial-gradient(circle, var(--dot) 1px, transparent 1px);
       background-size: 30px 30px;
       mask-image: linear-gradient(180deg, rgba(0,0,0,0.5), transparent 70%);
       -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,0.5), transparent 70%);
@@ -479,7 +537,7 @@
       position: fixed; right: 22px; bottom: 22px; z-index: 20;
       width: 42px; height: 42px; border-radius: 50%;
       border: 1px solid var(--border-2);
-      background: rgba(15, 23, 42, 0.88);
+      background: var(--header-bg-2);
       -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
       display: flex; align-items: center; justify-content: center;
       color: var(--muted);
@@ -526,17 +584,20 @@
     /* ============ Print ============ */
     @page { margin: 14mm 12mm; }
     @media print {
-      :root {
+      /* must also beat html[data-theme="dark"] */
+      :root, html[data-theme="dark"] {
         --void: #fff; --panel: #fff; --panel-2: #fff;
         --border: #CBD5E1; --border-2: #94A3B8;
-        --signal: #0F766E; --glow: #0F766E; --bright: #0F766E;
+        --signal: #0F766E; --signal-hover: #0F766E; --glow: #0F766E; --bright: #0F766E;
         --text: #1E293B; --muted: #475569; --white: #0F172A;
+        --shadow: transparent;
       }
-      /* color-scheme:dark would paint the page canvas (margin area) dark */
-      html { color-scheme: light; background: #fff; }
+      /* color-scheme:dark would paint the page canvas (margin area) dark;
+         the attribute selector keeps this winning over the dark theme too */
+      html, html[data-theme="dark"] { color-scheme: light; background: #fff; }
       body { background: #fff; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
       .site-header, .hero-actions, .contact-actions, .hero::before, .hero::after,
-      .progress, .to-top, .copy-btn { display: none; }
+      .progress, .to-top, .copy-btn, .theme-toggle { display: none; }
       .hero { padding: 8px 0 4px; }
       section, .stats { padding: 22px 0 0; scroll-margin-top: 0; }
       .section-head { margin-bottom: 16px; }
@@ -570,6 +631,10 @@
         <a href="#education">Education</a>
         <a href="#contact">Contact</a>
       </nav>
+      <button class="theme-toggle" type="button" aria-label="Switch to dark theme">
+        <svg class="ic-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
       <a class="btn btn-solid btn-sm" href="/hassan-kamran-resume.pdf" download>
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>
         Résumé PDF
@@ -869,6 +934,6 @@
     </div>
   </footer>
 
-  <script src="/static/site.js?v=2" defer></script>
+  <script src="/static/site.js?v=3" defer></script>
 </body>
 </html>

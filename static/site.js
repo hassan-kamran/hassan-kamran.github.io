@@ -163,6 +163,25 @@
     hero.addEventListener("pointerleave", () => hero.classList.remove("lit"));
   }
 
+  /* ---------- Theme toggle (light is the default; choice persists) ---------- */
+  const themeBtn = $(".theme-toggle");
+  const themeMeta = document.querySelector('meta[name="theme-color"]');
+  const syncThemeUI = () => {
+    const dark = doc.getAttribute("data-theme") === "dark";
+    if (themeBtn) themeBtn.setAttribute("aria-label", dark ? "Switch to light theme" : "Switch to dark theme");
+    if (themeMeta) themeMeta.setAttribute("content", dark ? "#0A0F1C" : "#F8FAFC");
+  };
+  if (themeBtn) {
+    themeBtn.addEventListener("click", () => {
+      const dark = doc.getAttribute("data-theme") === "dark";
+      if (dark) doc.removeAttribute("data-theme");
+      else doc.setAttribute("data-theme", "dark");
+      try { localStorage.setItem("theme", dark ? "light" : "dark"); } catch (e) {}
+      syncThemeUI();
+    });
+  }
+  syncThemeUI();
+
   /* ---------- Copy to clipboard ---------- */
   $$("[data-copy]").forEach((btn) => {
     btn.addEventListener("click", async () => {

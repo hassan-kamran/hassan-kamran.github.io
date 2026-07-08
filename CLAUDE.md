@@ -45,11 +45,11 @@ Deployment: push to `main` → Cloudflare Pages builds `generate.py` → serves 
 
 ## Design System
 
-- **Dark theme only** — no light mode, no gradients
+- **Light theme is the DEFAULT**; dark mode via the header toggle (persisted in localStorage, restored pre-paint by static/theme.js loaded sync in <head>). All theming is token-level: light values in :root, dark overrides under html[data-theme="dark"]. No gradients. Print forces light-ink in both themes (print block selectors must match html[data-theme="dark"] too)
 - Colors: void `#0A0F1C` (bg), panel `#0F172A`, borders `#1E293B`/`#334155`, signal teal `#0D9488`, glow `#14B8A6`, bright `#2DD4BF`, text `#CBD5E1`, muted `#94A3B8`
 - Fonts (self-hosted woff2): "Exo 2" (display/headings), "DM Sans" (body)
 - Radius 10–12px, transitions 0.2s ease, content max-width 1000px, mobile breakpoint 768px
-- All CSS is inline in `index.html` — no external stylesheet, so no cache-busting needed. Fonts are cached immutable via `_headers`.
+- All CSS is inline in `index.html` — no external stylesheet. Fonts cached immutable; site.js AND theme.js are no-cache + ?v= versioned (bump on change).
 
 ## Gotchas
 

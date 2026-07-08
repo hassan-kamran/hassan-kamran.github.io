@@ -7,8 +7,8 @@
   <meta name="robots" content="noindex">
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <meta name="theme-color" content="#0A0F1C">
-  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#F8FAFC">
+  <script src="/static/theme.js?v=1"></script>
   <style>
     @font-face {
       font-family: "Exo 2";
@@ -22,34 +22,46 @@
       font-weight: 400;
       font-display: swap;
     }
+    :root {
+      color-scheme: light;
+      --void: #F8FAFC; --ink: #0F172A; --text: #334155; --muted: #64748B;
+      --border-2: #CBD5E1; --signal: #0F766E; --signal-hover: #115E59;
+      --glow: #0F766E; --dot: #CBD5E1;
+    }
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --void: #0A0F1C; --ink: #F8FAFC; --text: #CBD5E1; --muted: #94A3B8;
+      --border-2: #334155; --signal: #0D9488; --signal-hover: #14B8A6;
+      --glow: #14B8A6; --dot: #22314b;
+    }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      background: #0A0F1C; color: #CBD5E1;
+      background: var(--void); color: var(--text);
       font-family: "DM Sans", -apple-system, sans-serif;
       min-height: 100vh; display: flex; flex-direction: column;
     }
     .top { padding: 18px 24px; }
     .brand {
       font-family: "Exo 2", sans-serif; font-weight: 600; font-size: 1.05rem;
-      color: #F8FAFC; text-decoration: none; letter-spacing: 0.02em;
+      color: var(--ink); text-decoration: none; letter-spacing: 0.02em;
     }
-    .brand:hover { color: #2DD4BF; }
+    .brand:hover { color: var(--glow); }
     main {
       flex: 1; display: flex; align-items: center; justify-content: center;
       text-align: center; padding: 24px; position: relative; overflow: hidden;
     }
     main::before {
       content: ""; position: absolute; inset: 0;
-      background-image: radial-gradient(circle, #22314b 1px, transparent 1px);
+      background-image: radial-gradient(circle, var(--dot) 1px, transparent 1px);
       background-size: 32px 32px;
       mask-image: radial-gradient(420px circle at 50% 42%, black, transparent);
       -webkit-mask-image: radial-gradient(420px circle at 50% 42%, black, transparent);
       pointer-events: none;
     }
     .box { position: relative; }
-    .code { font-family: "Exo 2", sans-serif; font-size: 5rem; font-weight: 700; color: #14B8A6; line-height: 1; }
-    h1 { font-family: "Exo 2", sans-serif; color: #F8FAFC; font-size: 1.4rem; margin: 14px 0 10px; }
-    p { color: #94A3B8; margin-bottom: 26px; }
+    .code { font-family: "Exo 2", sans-serif; font-size: 5rem; font-weight: 700; color: var(--glow); line-height: 1; }
+    h1 { font-family: "Exo 2", sans-serif; color: var(--ink); font-size: 1.4rem; margin: 14px 0 10px; }
+    p { color: var(--muted); margin-bottom: 26px; }
     .actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
     a.btn {
       display: inline-block; padding: 11px 22px; border-radius: 10px;
@@ -57,10 +69,10 @@
       border: 1px solid transparent;
       transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
     }
-    a.solid { background: #0D9488; color: #F8FAFC; }
-    a.solid:hover { background: #14B8A6; }
-    a.ghost { border-color: #334155; color: #CBD5E1; }
-    a.ghost:hover { border-color: #14B8A6; color: #F8FAFC; }
+    a.solid { background: var(--signal); color: #F8FAFC; }
+    a.solid:hover { background: var(--signal-hover); }
+    a.ghost { border-color: var(--border-2); color: var(--text); }
+    a.ghost:hover { border-color: var(--glow); color: var(--ink); }
   </style>
 </head>
 <body>
