@@ -7,6 +7,8 @@
   <meta name="robots" content="noindex">
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#0A0F1C">
+  <meta name="color-scheme" content="dark">
   <style>
     @font-face {
       font-family: "Exo 2";
@@ -24,25 +26,55 @@
     body {
       background: #0A0F1C; color: #CBD5E1;
       font-family: "DM Sans", -apple-system, sans-serif;
-      min-height: 100vh; display: flex; align-items: center; justify-content: center;
-      text-align: center; padding: 24px;
+      min-height: 100vh; display: flex; flex-direction: column;
     }
+    .top { padding: 18px 24px; }
+    .brand {
+      font-family: "Exo 2", sans-serif; font-weight: 600; font-size: 1.05rem;
+      color: #F8FAFC; text-decoration: none; letter-spacing: 0.02em;
+    }
+    .brand:hover { color: #2DD4BF; }
+    main {
+      flex: 1; display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 24px; position: relative; overflow: hidden;
+    }
+    main::before {
+      content: ""; position: absolute; inset: 0;
+      background-image: radial-gradient(circle, #22314b 1px, transparent 1px);
+      background-size: 32px 32px;
+      mask-image: radial-gradient(420px circle at 50% 42%, black, transparent);
+      -webkit-mask-image: radial-gradient(420px circle at 50% 42%, black, transparent);
+      pointer-events: none;
+    }
+    .box { position: relative; }
     .code { font-family: "Exo 2", sans-serif; font-size: 5rem; font-weight: 700; color: #14B8A6; line-height: 1; }
     h1 { font-family: "Exo 2", sans-serif; color: #F8FAFC; font-size: 1.4rem; margin: 14px 0 10px; }
     p { color: #94A3B8; margin-bottom: 26px; }
+    .actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
     a.btn {
       display: inline-block; padding: 11px 22px; border-radius: 10px;
-      background: #0D9488; color: #F8FAFC; text-decoration: none; font-weight: 600;
+      text-decoration: none; font-weight: 600;
+      border: 1px solid transparent;
+      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
     }
-    a.btn:hover { background: #14B8A6; }
+    a.solid { background: #0D9488; color: #F8FAFC; }
+    a.solid:hover { background: #14B8A6; }
+    a.ghost { border-color: #334155; color: #CBD5E1; }
+    a.ghost:hover { border-color: #14B8A6; color: #F8FAFC; }
   </style>
 </head>
 <body>
+  <div class="top"><a class="brand" href="/">Hassan Kamran</a></div>
   <main>
-    <div class="code">404</div>
-    <h1>This page doesn't exist</h1>
-    <p>The old portfolio pages have been retired — everything now lives on one page.</p>
-    <a class="btn" href="/">Go to the homepage</a>
+    <div class="box">
+      <div class="code">404</div>
+      <h1>This page doesn't exist</h1>
+      <p>The old portfolio pages have been retired — everything now lives on one page.</p>
+      <div class="actions">
+        <a class="btn solid" href="/">Go to the homepage</a>
+        <a class="btn ghost" href="/hassan-kamran-resume.pdf" download>Download résumé</a>
+      </div>
+    </div>
   </main>
 </body>
 </html>
