@@ -524,6 +524,7 @@
     }
 
     /* ============ Print ============ */
+    @page { margin: 14mm 12mm; }
     @media print {
       :root {
         --void: #fff; --panel: #fff; --panel-2: #fff;
@@ -531,6 +532,8 @@
         --signal: #0F766E; --glow: #0F766E; --bright: #0F766E;
         --text: #1E293B; --muted: #475569; --white: #0F172A;
       }
+      /* color-scheme:dark would paint the page canvas (margin area) dark */
+      html { color-scheme: light; background: #fff; }
       body { background: #fff; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
       .site-header, .hero-actions, .contact-actions, .hero::before, .hero::after,
       .progress, .to-top, .copy-btn { display: none; }
