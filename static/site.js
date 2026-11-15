@@ -1,197 +1,28 @@
-/* engrhassankamran.com — progressive enhancement.
-   Without this file the page is fully readable: hidden/dim states are
-   scoped under `html.js` (and prefers-reduced-motion: no-preference). */
-(() => {
-  "use strict";
-
-  const doc = document.documentElement;
-  doc.classList.add("js");
-
-  const motionOK = matchMedia("(prefers-reduced-motion: no-preference)").matches;
-  const $ = (s, c) => (c || document).querySelector(s);
-  const $$ = (s, c) => [...(c || document).querySelectorAll(s)];
-
-  /* ---------- Reveal on scroll (staggered within each parent) ---------- */
-  const reveals = $$(".reveal");
-  if (motionOK && "IntersectionObserver" in window) {
-    const perParent = new Map();
-    for (const el of reveals) {
-      const n = perParent.get(el.parentElement) || 0;
-      perParent.set(el.parentElement, n + 1);
-      el.style.setProperty("--d", Math.min(n, 5) * 70 + "ms");
-    }
-    const io = new IntersectionObserver((entries) => {
-      for (const e of entries) {
-        if (e.isIntersecting) {
-          e.target.classList.add("in");
-          io.unobserve(e.target);
-        }
-      }
-    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
-    reveals.forEach((el) => io.observe(el));
-  } else {
-    reveals.forEach((el) => el.classList.add("in"));
-  }
-
-  /* ---------- Stat counters ---------- */
-  const easeOut = (t) => 1 - Math.pow(1 - t, 3);
-  const countUp = (el) => {
-    const target = parseInt(el.dataset.count, 10);
-    const t0 = performance.now();
-    const dur = 900;
-    const tick = (now) => {
-      const p = Math.min(1, (now - t0) / dur);
-      el.textContent = Math.round(easeOut(p) * target);
-      if (p < 1) requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
-  };
-  const counters = $$("[data-count]");
-  if (motionOK && counters.length && "IntersectionObserver" in window) {
-    const cio = new IntersectionObserver((entries) => {
-      for (const e of entries) {
-        if (e.isIntersecting) {
-          countUp(e.target);
-          cio.unobserve(e.target);
-        }
-      }
-    }, { threshold: 0.4 });
-    counters.forEach((el) => cio.observe(el));
-  }
-
-  /* ---------- Kicker decode effect ---------- */
-  const kicker = $(".kicker");
-  if (kicker && motionOK) {
-    const real = kicker.textContent;
-    const glyphs = "01<>#/\\|+=*";
-    const frames = Math.max(14, real.length);
-    let frame = 0;
-    kicker.setAttribute("aria-label", real);
-    const iv = setInterval(() => {
-      frame++;
-      const solved = Math.floor((real.length * frame) / frames);
-      kicker.textContent =
-        real.slice(0, solved) +
-        [...real.slice(solved)]
-          .map((ch) => (ch === " " ? " " : glyphs[(Math.random() * glyphs.length) | 0]))
-          .join("");
-      if (frame >= frames) {
-        kicker.textContent = real;
-        kicker.removeAttribute("aria-label");
-        clearInterval(iv);
-      }
-    }, 34);
-  }
-
-  /* ---------- Career path stepper ---------- */
-  const nodes = $$(".path .node");
-  nodes.forEach((node, i) => {
-    if (motionOK) setTimeout(() => node.classList.add("on"), 600 + i * 170);
-    else node.classList.add("on");
+// Image links still work when JavaScript is unavailable.
+const galleryLinks = document.querySelectorAll('.gallery-link');
+if (galleryLinks.length && typeof HTMLDialogElement !== 'undefined') {
+  const dialog = document.createElement('dialog');
+  dialog.className = 'lightbox';
+  dialog.setAttribute('aria-label', 'Gallery photograph');
+  const close = document.createElement('button');
+  close.type = 'button';
+  close.textContent = 'Close ×';
+  const photo = document.createElement('img');
+  const caption = document.createElement('p');
+  dialog.append(close, photo, caption);
+  document.body.append(dialog);
+  close.addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', (event) => {
+    if (event.target === dialog) dialog.close();
   });
-
-  /* ---------- Scroll-driven: progress bar, spy, timeline, header, to-top ---------- */
-  const bar = $(".progress span");
-  const header = $(".site-header");
-  const toTop = $(".to-top");
-  const timeline = $(".timeline");
-  const sections = $$("main section[id]");
-  const navLinks = $$(".site-nav a").map((a) => [a.getAttribute("href").slice(1), a]);
-  if (!motionOK && timeline) timeline.style.setProperty("--tl", "1");
-
-  let ticking = false;
-  const onScroll = () => {
-    if (ticking) return;
-    ticking = true;
-    // rAF for smoothness, with a timeout fallback: rAF never fires while the
-    // page produces no frames (background tab), which would wedge `ticking`.
-    let ran = false;
-    const run = () => {
-      if (ran) return;
-      ran = true;
-      ticking = false;
-      const y = scrollY;
-      // visualViewport tracks the real visible height (mobile URL bar, zoom);
-      // innerHeight can be stale there, leaving the bar short of 100% at the bottom.
-      const vh = window.visualViewport ? window.visualViewport.height : innerHeight;
-      const max = doc.scrollHeight - vh;
-      const atBottom = doc.scrollHeight - (y + vh) < 8;
-      let p = max > 0 ? y / max : 1;
-      if (atBottom) p = 1; // snap when at (or within a few px of) the bottom
-      if (bar) bar.style.transform = "scaleX(" + Math.min(1, Math.max(0, p)).toFixed(4) + ")";
-      if (header) header.classList.toggle("scrolled", y > 8);
-      if (toTop) toTop.classList.toggle("show", y > 600);
-
-      if (timeline && motionOK) {
-        const r = timeline.getBoundingClientRect();
-        const p = Math.min(1, Math.max(0, (innerHeight * 0.8 - r.top) / r.height));
-        timeline.style.setProperty("--tl", p.toFixed(3));
-      }
-
-      let current = null;
-      for (const s of sections) {
-        if (s.getBoundingClientRect().top <= innerHeight * 0.35) current = s.id;
-      }
-      // Trailing sections shorter than the threshold can never activate by
-      // scrolling — at the page bottom the last section wins.
-      if (atBottom && sections.length) current = sections[sections.length - 1].id;
-      for (const [id, a] of navLinks) {
-        const active = id === current;
-        a.classList.toggle("active", active);
-        if (active) a.setAttribute("aria-current", "true");
-        else a.removeAttribute("aria-current");
-      }
-    };
-    requestAnimationFrame(run);
-    setTimeout(run, 120);
-  };
-  addEventListener("scroll", onScroll, { passive: true });
-  addEventListener("resize", onScroll, { passive: true });
-  if (window.visualViewport)
-    window.visualViewport.addEventListener("resize", onScroll, { passive: true });
-  onScroll();
-
-  /* ---------- Hero dot-grid spotlight ---------- */
-  const hero = $(".hero");
-  if (hero && motionOK && matchMedia("(pointer: fine)").matches) {
-    hero.addEventListener("pointermove", (e) => {
-      const r = hero.getBoundingClientRect();
-      hero.style.setProperty("--mx", e.clientX - r.left + "px");
-      hero.style.setProperty("--my", e.clientY - r.top + "px");
-      hero.classList.add("lit");
-    });
-    hero.addEventListener("pointerleave", () => hero.classList.remove("lit"));
-  }
-
-  /* ---------- Theme toggle (light is the default; choice persists) ---------- */
-  const themeBtn = $(".theme-toggle");
-  const themeMeta = document.querySelector('meta[name="theme-color"]');
-  const syncThemeUI = () => {
-    const dark = doc.getAttribute("data-theme") === "dark";
-    if (themeBtn) themeBtn.setAttribute("aria-label", dark ? "Switch to light theme" : "Switch to dark theme");
-    if (themeMeta) themeMeta.setAttribute("content", dark ? "#0A0F1C" : "#F8FAFC");
-  };
-  if (themeBtn) {
-    themeBtn.addEventListener("click", () => {
-      const dark = doc.getAttribute("data-theme") === "dark";
-      if (dark) doc.removeAttribute("data-theme");
-      else doc.setAttribute("data-theme", "dark");
-      try { localStorage.setItem("theme", dark ? "light" : "dark"); } catch (e) {}
-      syncThemeUI();
-    });
-  }
-  syncThemeUI();
-
-  /* ---------- Copy to clipboard ---------- */
-  $$("[data-copy]").forEach((btn) => {
-    btn.addEventListener("click", async () => {
-      try {
-        await navigator.clipboard.writeText(btn.dataset.copy);
-      } catch {
-        return; // clipboard unavailable — leave the button untouched
-      }
-      btn.classList.add("done");
-      setTimeout(() => btn.classList.remove("done"), 1600);
+  galleryLinks.forEach((link) => {
+    link.addEventListener('click', (event) => {
+      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      photo.src = link.href;
+      photo.alt = link.querySelector('img').alt;
+      caption.textContent = link.closest('figure').querySelector('figcaption').innerText;
+      dialog.showModal();
     });
   });
-})();
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "src": "/static/gallery/logistics-dashboard.avif",
+    "alt": "Logistics dashboard for One World Rental",
+    "caption": "I built this dashboard to track order preparation across One World Rental’s teams. It runs on Azure and updates automatically.",
+    "date": "2025-05-25"
+  },
+  {
+    "src": "/static/gallery/drone-simulation.avif",
+    "alt": "Agricultural drone simulation",
+    "caption": "I used Python, ROS and Gazebo to simulate and test a drone-mounted sprayer for precision agriculture.",
+    "date": "2025-05-26"
+  },
+  {
+    "src": "/static/gallery/fedgan.avif",
+    "alt": "FedGAN research project",
+    "caption": "I developed FedGAN to explore generating retinal images with federated learning and generative adversarial networks.",
+    "date": "2025-05-26"
+  },
+  {
+    "src": "/static/gallery/hassan-working.avif",
+    "alt": "Hassan Kamran at work",
+    "caption": "Working on AI and software engineering projects.",
+    "date": "2025-08-13"
+  }
+]

@@ -1,6 +1,6 @@
 [project]
 name = "engrhassankamran-com"
-version = "2.0.0"
-description = "engrhassankamran.com — single-page résumé site for Hassan Kamran"
+version = "3.0.0"
+description = "engrhassankamran.com — personal website, blog, and gallery for Hassan Kamran"
 requires-python = ">=3.13"
 dependencies = []
