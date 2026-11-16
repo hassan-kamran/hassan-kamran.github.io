@@ -18,3 +18,19 @@
 /terms / 301
 /terms.html / 301
 /sitemap-images.xml /sitemap.xml 301
+
+# Retired archive entries point to the curated collection.
+/blogs/what-is-a-brand-manual-and-why-its-important /blog 301
+/blogs/what-is-a-brand-manual-and-why-its-important.html /blog 301
+/blogs/making-your-website-seo-friendly /blog 301
+/blogs/making-your-website-seo-friendly.html /blog 301
+/blogs/aptex-25-nust /blog 301
+/blogs/aptex-25-nust.html /blog 301
+/blogs/static-site-generation-with-jinja2 /blog 301
+/blogs/static-site-generation-with-jinja2.html /blog 301
+/blogs/planning-a-website /blog 301
+/blogs/planning-a-website.html /blog 301
+/blogs/hamburger-menu-with-popovertarget-and-not-javascript /blog 301
+/blogs/hamburger-menu-with-popovertarget-and-not-javascript.html /blog 301
+/blogs/how-to-integrate-mini-search-in-your-static-website /blog 301
+/blogs/how-to-integrate-mini-search-in-your-static-website.html /blog 301

@@ -1,6 +1,6 @@
 # engrhassankamran.com
 
-Hassan Kamran’s **personal website**, not a services business. The homepage covers his background, current work at Khan AI, previous company Big0 (acquired August 2026), research, and education. Blog and gallery content were restored from history in November 2026.
+Hassan Kamran’s **personal website**, not a services business. The homepage covers his background, current work at Khan AI, previous company Big0 (acquired August 2026), research, and education. The blog is a curated selection of seven personal and Big0 pieces; the gallery uses five event photographs from the reference.
 
 ## Build
 
@@ -14,8 +14,8 @@ Hassan Kamran’s **personal website**, not a services business. The homepage co
 - `templates/base.html` is the shared shell, rendered with `string.Template`.
 - `static/site.css` contains all styling. Fonts are self-hosted Exo 2 and DM Sans.
 - `static/site.js` only enhances gallery image links with a native dialog.
-- `content/posts.json` + `content/posts/<slug>.html` define articles.
-- `content/gallery.json` defines the gallery; entries are sorted newest first.
+- `content/posts.json` + `content/posts/<slug>.html` define articles in curated order. Retain source credits and date labels; company articles must not be attributed solely to Hassan.
+- `content/gallery.json` defines the gallery; entries appear in curated JSON order.
 - `resume/hassan_kamran_resume.pdf` is the résumé source of truth. Update homepage details when replacing it. Keep the home address out of HTML.
 - RSS and sitemap are generated. Do not maintain separate copies at the repository root.
 - `_headers` sets a same-origin CSP. Avoid external resources and inline scripts/styles.

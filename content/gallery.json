@@ -1,26 +1,32 @@
 [
   {
-    "src": "/static/gallery/logistics-dashboard.avif",
-    "alt": "Logistics dashboard for One World Rental",
-    "caption": "I built this dashboard to track order preparation across One World Rental’s teams. It runs on Azure and updates automatically.",
-    "date": "2025-05-25"
+    "src": "/static/gallery/lums-talk-2.avif",
+    "title": "Entrepreneurship at LUMS",
+    "alt": "Speaking to students in a classroom at LUMS SDSB",
+    "caption": "Talking with students at the Suleman Dawood School of Business about building a company in Pakistan."
   },
   {
-    "src": "/static/gallery/drone-simulation.avif",
-    "alt": "Agricultural drone simulation",
-    "caption": "I used Python, ROS and Gazebo to simulate and test a drone-mounted sprayer for precision agriculture.",
-    "date": "2025-05-26"
+    "src": "/static/gallery/stmu-talk-1.avif",
+    "title": "At Shifa Tameer-e-Millat University",
+    "alt": "A presentation with faculty at Shifa Tameer-e-Millat University",
+    "caption": "With faculty following a talk on AI and technology in finance."
   },
   {
-    "src": "/static/gallery/fedgan.avif",
-    "alt": "FedGAN research project",
-    "caption": "I developed FedGAN to explore generating retinal images with federated learning and generative adversarial networks.",
-    "date": "2025-05-26"
+    "src": "/static/gallery/nutech-jobfair-25-3.avif",
+    "title": "Meeting students at NUTECH",
+    "alt": "A conversation at the Big0 table during the NUTECH job fair",
+    "caption": "Conversations at the Big0 table during the NUTECH job fair."
   },
   {
-    "src": "/static/gallery/hassan-working.avif",
-    "alt": "Hassan Kamran at work",
-    "caption": "Working on AI and software engineering projects.",
-    "date": "2025-08-13"
+    "src": "/static/gallery/lums-talk-1.avif",
+    "title": "After the talk",
+    "alt": "A group of students and speakers outside the LUMS business school",
+    "caption": "With students at LUMS after the entrepreneurship session."
+  },
+  {
+    "src": "/static/gallery/fintech-certification-3.avif",
+    "title": "FinTech at SZABIST",
+    "alt": "FinTech programme participants holding certificates outside SZABIST",
+    "caption": "Participants at the SZABIST FinTech certification programme, supported by Big0."
   }
 ]

@@ -1,82 +1,77 @@
 [
   {
-    "slug": "what-is-a-brand-manual-and-why-its-important",
-    "title": "What Is a Brand Manual and Why It’s Important",
-    "category": "Branding & Marketing",
-    "date": "2025-05-15",
-    "description": "What goes into a brand manual, from visual identity to tone of voice, and how teams use it to stay consistent.",
-    "image": "/static/blog/brand_manual.avif"
+    "slug": "khan-ai-project-manager",
+    "title": "Why I started building Khan",
+    "category": "Building Khan",
+    "description": "The project-management problems inside Big0 that became the starting point for Khan, and the decision to keep people in control.",
+    "date": "2026-11-16",
+    "date_label": "Adapted",
+    "source_url": "https://big0.dev/case-studies/khan-ai-project-manager.html",
+    "source_title": "Big0’s original case study",
+    "credit": "Adapted from the Big0 case study. Khan began at Big0 and is now my focus at Khan AI.",
+    "author": "Big0 team"
   },
   {
-    "slug": "making-your-website-seo-friendly",
-    "title": "Making Your Website SEO-Friendly",
-    "category": "SEO & Web Development",
-    "date": "2025-04-30",
-    "description": "A developer’s guide to page structure, metadata, performance and other parts of search engine optimization.",
-    "image": "/static/blog/seo.avif"
+    "slug": "civic-engagement-digital-platform",
+    "title": "The database had to come before the dashboard",
+    "category": "A Big0 project",
+    "description": "Cleaning membership records, supporting English and Urdu, and designing registration around the people using it.",
+    "date": "2026-11-16",
+    "date_label": "Adapted",
+    "source_url": "https://big0.dev/case-studies/civic-engagement-digital-platform.html",
+    "source_title": "Big0’s original case study",
+    "credit": "A project by the Big0 team, adapted from the company case study.",
+    "author": "Big0 team"
   },
   {
-    "slug": "aptex-25-nust",
-    "title": "ASEAN-PAKISTAN TECHNOLOGY EXPO 2025",
-    "category": "Technology Ecosystem",
-    "date": "2025-04-23",
-    "description": "Notes from my visit to the ASEAN-Pakistan Technology Expo at NUST in Islamabad, where I met people working across research and industry.",
-    "image": "/static/blog/aptex.avif"
+    "slug": "ai-legal-document-analysis-tool",
+    "title": "A useful AI report needs a path back to its sources",
+    "category": "A Big0 project",
+    "description": "Source-linked findings, uncertainty, and the review workflow in a property-document analysis project.",
+    "date": "2026-11-16",
+    "date_label": "Adapted",
+    "source_url": "https://big0.dev/case-studies/ai-legal-document-analysis-tool.html",
+    "source_title": "Big0’s original case study",
+    "credit": "A project by the Big0 team, adapted from the company case study.",
+    "author": "Big0 team"
   },
   {
-    "slug": "fedgan-federated-diabetic-retinopathy-image-generation",
-    "title": "FedGAN: A Privacy-Preserving Framework for Synthetic Data Generation",
-    "category": "Artificial intelligence",
-    "date": "2025-03-23",
-    "description": "My research into generating retinal images with federated learning and GANs, including the training approach and experimental results.",
-    "image": "/static/blog/fedgan.avif"
+    "slug": "voice-ai-the-next-ui-layer",
+    "title": "Designing voice interfaces around latency",
+    "category": "Engineering notes",
+    "description": "How conversation, slower background work, and visual review can share one interaction without confusing progress with completion.",
+    "date": "2026-11-16",
+    "date_label": "Adapted",
+    "source_url": "https://big0.dev/blogs/voice-ai-the-next-ui-layer.html",
+    "source_title": "Big0’s original article",
+    "credit": "Adapted from a Big0 Engineering article, originally published on 3 June 2026.",
+    "author": "Big0 Engineering"
   },
   {
     "slug": "low-cost-teleoperated-drone-with-integrated-sprayer-for-precision-agriculture",
-    "title": "Low-Cost Teleoperated Drone with Integrated Sprayer for Precision Agriculture",
+    "title": "Building an agricultural sprayer drone",
     "category": "Robotics",
     "date": "2025-03-23",
-    "description": "How I designed and tested an agricultural sprayer drone, from simulation and hardware assembly to field trials.",
-    "image": "/static/blog/drone.avif"
+    "description": "Payload, pump control, simulation, and staged testing of an octocopter prototype.",
+    "date_label": "First published",
+    "credit": "From Hassan Kamran’s personal archive. Revised on 16 November 2026."
+  },
+  {
+    "slug": "fedgan-federated-diabetic-retinopathy-image-generation",
+    "title": "FedGAN: generating retinal images across data partitions",
+    "category": "Artificial intelligence",
+    "date": "2025-03-23",
+    "description": "The training setup, results, and limitations of my research on federated image generation.",
+    "date_label": "First published",
+    "credit": "From Hassan Kamran’s personal archive. Revised on 16 November 2026."
   },
   {
     "slug": "how-i-built-this-website",
-    "title": "How I Built this Website",
+    "title": "Why I built my first website as a static site",
     "category": "Web Development",
     "date": "2025-03-05",
-    "description": "The choices behind the original version of this website: plain HTML and CSS, Python templates, and static hosting.",
-    "image": "/static/blog/work-3.avif"
-  },
-  {
-    "slug": "static-site-generation-with-jinja2",
-    "title": "Static Site Generation with Jinja2: Building Fast, Secure Websites",
-    "category": "Web Development",
-    "date": "2024-11-25",
-    "description": "Building a static site generator with Python and Jinja2, including templates, Markdown content, feeds and deployment.",
-    "image": "/static/blog/software-development.avif"
-  },
-  {
-    "slug": "planning-a-website",
-    "title": "Planning a Website: A Comprehensive Guide to Success",
-    "category": "Web Development",
-    "date": "2024-11-20",
-    "description": "A guide to defining a website’s purpose, organizing its content and planning the work before development begins.",
-    "image": "/static/blog/project-diagram.avif"
-  },
-  {
-    "slug": "hamburger-menu-with-popovertarget-and-not-javascript",
-    "title": "Building a Hamburger Menu with Popover API - No JavaScript Required",
-    "category": "Web Development",
-    "date": "2024-03-20",
-    "description": "Building responsive navigation with the HTML Popover API and CSS.",
-    "image": "/static/blog/hamburger.avif"
-  },
-  {
-    "slug": "how-to-integrate-mini-search-in-your-static-website",
-    "title": "How to Integrate MiniSearch in Your Static Website",
-    "category": "Web Development",
-    "date": "2024-02-10",
-    "description": "Adding browser-based full-text search to a static website with MiniSearch.",
-    "image": "/static/blog/search_icon.avif"
+    "description": "The constraints behind the original site, and why a small Python build suited the job.",
+    "date_label": "First published",
+    "credit": "From Hassan Kamran’s personal archive."
   }
 ]

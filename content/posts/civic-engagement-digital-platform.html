@@ -1,0 +1,16 @@
+<p>One Big0 project began with a database that could not answer the organisation’s most basic question: how many members did it actually have?</p>
+<p>The organisation worked across Pakistan and with a diaspora overseas. Its registration records contained spam, duplicates, inconsistent formatting, and invalid entries. Adding a polished dashboard on top would have made those records easier to display without making them more reliable.</p>
+<h2>Clean the inputs before building the reports</h2>
+<p>The team processed roughly 150,000 records, normalising names and phone numbers, checking identity fields, and detecting duplicates. The project account reports about 6,500 records remaining after those checks.</p>
+<p>That is a description of the cleanup, not a measure of membership growth. It also matters what “verified” means: records passing a set of validation checks should not be treated as an independent audit of each person’s identity or participation.</p>
+<p>With a usable baseline, the dashboard could report membership, geographic distribution, and changes over time. The sequence mattered: the database had to become useful before the visualisation could be trusted.</p>
+<h2>Design around how people register</h2>
+<p>The platform supported both English and Urdu, including right-to-left rendering. Public registration used WhatsApp one-time passwords, while staff accounts and bulk-registration tools supported membership drives in the field.</p>
+<p>These were central parts of the workflow. A registration process that assumes everyone uses the same language or enters their own details from a desktop would not have matched the organisation’s day-to-day work.</p>
+<p>The WhatsApp integration also supported welcome messages, common questions, and announcements. Keeping registration and communication in a familiar channel reduced the number of separate tools members had to navigate.</p>
+<h2>Hosting is an operating decision</h2>
+<p>The team used self-hosted infrastructure, with backups, recovery procedures, and a deployment process. The aim was to fit the organisation’s budget while retaining control over the system.</p>
+<p>Self-hosting does not make infrastructure free. Hardware, connectivity, maintenance, backups, and the time of the people operating it still belong in the cost calculation. The meaningful choice was where those costs and responsibilities would sit.</p>
+<h2>The work underneath the website</h2>
+<p>The difficult work was largely invisible in a screenshot: repairing the data, supporting two writing directions, and making registration work for both individual members and field staff.</p>
+<p>It was a Big0 team project. The sequence was the important part: establish what the records mean, support the actual registration process, and then build the reports people need.</p>

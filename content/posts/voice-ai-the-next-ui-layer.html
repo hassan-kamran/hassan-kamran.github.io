@@ -1,0 +1,26 @@
+<p>A voice interface has two jobs that can pull in different directions: keep a conversation moving, and carry out the user’s request correctly. A quick acknowledgement makes an interaction feel responsive. Checking a record, comparing options, or changing something in another system may take longer.</p>
+<p>The useful design question is how to handle that gap without confusing a conversational response with completed work.</p>
+
+<h2>Choose the architecture around the task</h2>
+<p>A speech-to-text, language-model, and text-to-speech pipeline separates the stages of an interaction. That separation gives an application clear places to inspect transcripts, apply business rules, call tools, and decide what should be spoken. Each stage also adds work before the user hears a response.</p>
+<p>A speech-to-speech approach can make turn-taking more direct, but the application still needs to decide where permissions, validation, and tool results enter the conversation. Neither approach makes those responsibilities disappear.</p>
+<p>The choice depends on the task. Dictating a note, exploring an idea, and approving a payment have different requirements. Some interactions benefit most from fluid conversation; others need explicit review and a reliable record of what happened.</p>
+
+<h2>Separate conversation from slower work when it helps</h2>
+<p>One useful pattern gives a foreground component responsibility for conversation while a background component handles slower work. The foreground acknowledges the request and keeps track of what the user is asking. The background retrieves information, runs a calculation, or invokes a tool.</p>
+<p>For example, a scheduling assistant might say that it is checking availability while a calendar query runs. Once the result arrives, it can offer the available times. It should describe an appointment as booked only after the booking operation succeeds.</p>
+<p>This separation is an option, not a requirement for every voice feature. It introduces coordination problems of its own: a user may interrupt, change the date, or cancel while a request is still running. Results need to stay associated with the request that produced them. An answer to an earlier question must not silently become the answer to a newer one.</p>
+<p>For a short, predictable interaction, a simpler pipeline may be easier to understand and maintain.</p>
+
+<h2>Make progress cues truthful</h2>
+<p>Silence leaves users guessing whether the system heard them. A brief progress cue can explain what is happening, especially when the next step depends on an external service.</p>
+<p>But “I’m checking” and “I’ve done it” mean different things. Spoken acknowledgements should reflect the operation’s actual state. A request might be pending, completed, unsuccessful, or awaiting confirmation. Keeping those states explicit helps prevent fluent speech from masking an error.</p>
+<p>Failure messages should also leave a useful next step: retry, change the request, or switch to a manual flow. Repeating reassuring phrases while nothing progresses is not a substitute for handling failure.</p>
+
+<h2>Let the screen do its share</h2>
+<p>Voice works well for expressing intent. A screen often works better for checking details: names, dates, totals, addresses, and alternative options. Combining them lets users speak naturally while reviewing the information that matters.</p>
+<p>The two channels should share the same state. If a user changes a date on screen, the conversation needs to use that date. If the assistant proposes an action aloud, the visible summary should match it. Users should be able to correct a mistaken transcription without restarting the interaction.</p>
+
+<h2>Evaluate the whole interaction</h2>
+<p>Test how the system handles interruptions, background noise, ambiguous requests, slow tools, and failed operations. Look beyond the speed of the first spoken response: can the user tell what happened, correct a mistake, and finish the task?</p>
+<p>Voice earns its place when it reduces effort for that particular user and situation. Keeping typing, visual review, or a manual route available makes the interface useful across more of those situations.</p>
