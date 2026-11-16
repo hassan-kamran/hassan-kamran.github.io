@@ -40,3 +40,6 @@ hassan_site_generator.egg-info/
 # uv
 .python-version
 uv.lock
+
+# Local design reference; never check out its nested repository in deployment.
+/reference /
